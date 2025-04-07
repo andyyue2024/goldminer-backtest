@@ -448,6 +448,17 @@ def algo(context):
     context.ai_labx_strategy.execute(context.now)
 
 
+def on_order_status(context, order):
+    # 订单状态更新处理
+    if order.status == OrderStatus_Filled:  # 完全成交
+        print(f"order OrderStatus_Filled, {order}")
+    elif order.status in [OrderStatus_Canceled, OrderStatus_PartiallyFilled]:  # 已撤单/部分成交撤单
+        print(f"order OrderStatus_Canceled or OrderStatus_PartiallyFilled, {order.order_id}")
+        # self.handle_order_retry(order)
+    elif order.status in [OrderStatus_Rejected]:  # 已拒绝
+        print(f"order OrderStatus_Rejected, {order.ord_rej_reason}")
+
+
 def on_backtest_finished(context, indicator):
     print(f"Done! From start, time elapsed: {time.time() - context.start_time} seconds")
     print(f"{context.symbol} backtest finished: ", indicator)
