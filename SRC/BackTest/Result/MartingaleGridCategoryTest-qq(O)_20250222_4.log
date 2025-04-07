@@ -1,0 +1,312 @@
+    context.symbol = 'SHSE.10007961'  # 交易标的
+    context.frequency = "60s"
+    context.base_investment = 2000  # 基准投资金额（元）
+    context.multiplier = 2  # 加仓倍数
+    context.max_layers = 7  # 最大加仓层数
+    context.price_interval = 0.15  # 价格间隔3%。当加仓倍数是2时，平均成本下降约为价格间隔的一半。
+    context.take_profit_ratio = 0.15  # 止盈比例（2%）
+    context.stop_loss_ratio = 0.30  # 总亏损止损20%
+    context.base_shares = 1  # 标的下单的最小数量
+    context.enable_short = False  # 是否启用做空
+
+      run(strategy_id='95eadb57-f0cb-11ef-b05b-80304917db79',
+        filename=(os.path.basename(__file__)),
+        mode=MODE_BACKTEST,
+        token='6860051c58995ae01c30a27d5b72000bababa8e6',
+        backtest_start_time='2024-10-29 09:31:00',
+        backtest_end_time='2025-02-22 15:00:00',
+        backtest_adjust=ADJUST_NONE,
+        backtest_initial_cash=20000,
+        backtest_commission_unit=4.5,
+        backtest_slippage_ratio=0.0001,
+        backtest_marginfloat_ratio1=0.2,
+        backtest_marginfloat_ratio2=0.4,
+        backtest_match_mode=0)
+
+D:\Workplace-Pycharm\.venv\Scripts\python.exe "D:\Workplace-Pycharm\QuantitativeTransaction\SRC\sq\test\test_gm\for159869\MartingaleGridCategoryTest-qq(O).py"
+----------------------------------------
+python sdk version: 3.0.168
+c sdk version: 3.7.4
+----------------------------------------
+SHSE.10007961 , base_price: 0.224 ,  2024-10-29 09:39:00+08:00
+Long，Buy 1st: SHSE.10007961 ,  2024-10-29 09:41:00+08:00 , new_shares: 0 , price: 0.2235 , invest_amount: 0.0
+order error, now: 2024-10-29 09:41:00+08:00 , info: 委托量不正确
+Long，Buy more: SHSE.10007961 ,  2024-10-30 10:39:00+08:00 , new_shares: 2 , price: 0.1883 , invest_amount: 0.3766
+Long，take_profit. profit_ratio: 0.1508231545406267 , price: 0.2167
+Long，Close: SHSE.10007961 ,  2024-11-05 09:59:00+08:00 , long_shares: 2 , long_avg_cost: 0.1883 , total_amount: 0.3766
+Long，Buy 1st: SHSE.10007961 ,  2024-11-05 09:59:00+08:00 , new_shares: 0 , price: 0.2167 , invest_amount: 0.0
+order error, now: 2024-11-05 09:59:00+08:00 , info: 委托量不正确
+Long，take_profit. profit_ratio: 0.15597600369173972 , price: 0.2505
+Long，take_profit. profit_ratio: 0.1605906783571758 , price: 0.2515
+Long，take_profit. profit_ratio: 0.15736040609137064 , price: 0.2508
+Long，take_profit. profit_ratio: 0.16843562528841705 , price: 0.2532
+Long，take_profit. profit_ratio: 0.18504845408398693 , price: 0.2568
+Long，take_profit. profit_ratio: 0.1767420396862021 , price: 0.255
+Long，take_profit. profit_ratio: 0.15136132902630361 , price: 0.2495
+Long，take_profit. profit_ratio: 0.15459160129210878 , price: 0.2502
+Long，take_profit. profit_ratio: 0.1518227964928472 , price: 0.2496
+Long，take_profit. profit_ratio: 0.15966774342408868 , price: 0.2513
+Long，take_profit. profit_ratio: 0.1518227964928472 , price: 0.2496
+Long，take_profit. profit_ratio: 0.15459160129210878 , price: 0.2502
+Long，take_profit. profit_ratio: 0.1624365482233503 , price: 0.2519
+Long，take_profit. profit_ratio: 0.1642824180895248 , price: 0.2523
+Long，take_profit. profit_ratio: 0.15966774342408868 , price: 0.2513
+Long，take_profit. profit_ratio: 0.1578218735579142 , price: 0.2509
+Long，take_profit. profit_ratio: 0.16105214582371935 , price: 0.2516
+Long，take_profit. profit_ratio: 0.15689893862482682 , price: 0.2507
+Long，take_profit. profit_ratio: 0.15966774342408868 , price: 0.2513
+Long，take_profit. profit_ratio: 0.15459160129210878 , price: 0.2502
+Long，take_profit. profit_ratio: 0.15228426395939088 , price: 0.2497
+Long，take_profit. profit_ratio: 0.15413013382556523 , price: 0.2501
+Long，take_profit. profit_ratio: 0.1753576372865712 , price: 0.2547
+Long，take_profit. profit_ratio: 0.18920166128287946 , price: 0.2577
+Long，take_profit. profit_ratio: 0.18920166128287946 , price: 0.2577
+Long，take_profit. profit_ratio: 0.18366405168435626 , price: 0.2565
+Long，take_profit. profit_ratio: 0.18366405168435626 , price: 0.2565
+Long，take_profit. profit_ratio: 0.19473927088140291 , price: 0.2589
+Long，take_profit. profit_ratio: 0.1767420396862021 , price: 0.255
+Long，take_profit. profit_ratio: 0.18135671435163822 , price: 0.256
+Long，take_profit. profit_ratio: 0.1804337794185511 , price: 0.2558
+Long，take_profit. profit_ratio: 0.1624365482233503 , price: 0.2519
+Long，take_profit. profit_ratio: 0.15228426395939088 , price: 0.2497
+Long，take_profit. profit_ratio: 0.17258883248730958 , price: 0.2541
+Long，take_profit. profit_ratio: 0.16843562528841705 , price: 0.2532
+Long，take_profit. profit_ratio: 0.2131979695431473 , price: 0.2629
+Long，take_profit. profit_ratio: 0.20535302261190577 , price: 0.2612
+Long，take_profit. profit_ratio: 0.19704660821412098 , price: 0.2594
+Long，take_profit. profit_ratio: 0.21642824180895245 , price: 0.2636
+Long，take_profit. profit_ratio: 0.2293493308721736 , price: 0.2664
+Long，take_profit. profit_ratio: 0.2348869404706968 , price: 0.2676
+Long，take_profit. profit_ratio: 0.24596215966774349 , price: 0.27
+Long，take_profit. profit_ratio: 0.25519150899861565 , price: 0.272
+Long，take_profit. profit_ratio: 0.2422704199353945 , price: 0.2692
+Long，take_profit. profit_ratio: 0.2348869404706968 , price: 0.2676
+Long，take_profit. profit_ratio: 0.24042455006922003 , price: 0.2688
+Long，take_profit. profit_ratio: 0.22704199353945556 , price: 0.2659
+Long，take_profit. profit_ratio: 0.2261190586063682 , price: 0.2657
+Long，take_profit. profit_ratio: 0.23765574526995842 , price: 0.2682
+Long，take_profit. profit_ratio: 0.24319335486848162 , price: 0.2694
+Long，take_profit. profit_ratio: 0.27365020766036 , price: 0.276
+Long，take_profit. profit_ratio: 0.2487309644670051 , price: 0.2706
+Long，take_profit. profit_ratio: 0.2542685740655283 , price: 0.2718
+Long，take_profit. profit_ratio: 0.26903553299492394 , price: 0.275
+Long，take_profit. profit_ratio: 0.2570373788647899 , price: 0.2724
+Long，take_profit. profit_ratio: 0.26119058606368245 , price: 0.2733
+Long，take_profit. profit_ratio: 0.26257498846331334 , price: 0.2736
+Long，take_profit. profit_ratio: 0.2994923857868021 , price: 0.2816
+Long，take_profit. profit_ratio: 0.3096446700507614 , price: 0.2838
+Long，take_profit. profit_ratio: 0.33825565297646504 , price: 0.29
+Long，take_profit. profit_ratio: 0.35486848177203517 , price: 0.2936
+Long，take_profit. profit_ratio: 0.341947392708814 , price: 0.2908
+Long，take_profit. profit_ratio: 0.3539455468389478 , price: 0.2934
+Long，take_profit. profit_ratio: 0.35163820950622976 , price: 0.2929
+Long，take_profit. profit_ratio: 0.4222427318874018 , price: 0.3082
+Long，take_profit. profit_ratio: 0.3857868020304569 , price: 0.3003
+Long，take_profit. profit_ratio: 0.371481310567605 , price: 0.2972
+Long，take_profit. profit_ratio: 0.3784033225657592 , price: 0.2987
+Long，take_profit. profit_ratio: 0.3567143516382094 , price: 0.294
+Long，take_profit. profit_ratio: 0.36640516843562515 , price: 0.2961
+Long，take_profit. profit_ratio: 0.37055837563451766 , price: 0.297
+Long，take_profit. profit_ratio: 0.3797877249653899 , price: 0.299
+Long，take_profit. profit_ratio: 0.37055837563451766 , price: 0.297
+Long，take_profit. profit_ratio: 0.38163359483156434 , price: 0.2994
+Long，take_profit. profit_ratio: 0.3839409321642824 , price: 0.2999
+Long，take_profit. profit_ratio: 0.38347946469773886 , price: 0.2998
+Long，take_profit. profit_ratio: 0.3936317489616981 , price: 0.302
+Long，take_profit. profit_ratio: 0.37286571296723575 , price: 0.2975
+Long，take_profit. profit_ratio: 0.369173973234887 , price: 0.2967
+Long，take_profit. profit_ratio: 0.38163359483156434 , price: 0.2994
+Long，take_profit. profit_ratio: 0.38163359483156434 , price: 0.2994
+Long，take_profit. profit_ratio: 0.37701892016612826 , price: 0.2984
+Long，take_profit. profit_ratio: 0.37701892016612826 , price: 0.2984
+Long，take_profit. profit_ratio: 0.3936317489616981 , price: 0.302
+Long，take_profit. profit_ratio: 0.4042455006922012 , price: 0.3043
+Long，take_profit. profit_ratio: 0.3797877249653899 , price: 0.299
+Long，take_profit. profit_ratio: 0.3645592985694509 , price: 0.2957
+Long，take_profit. profit_ratio: 0.37748038763267183 , price: 0.2985
+Long，take_profit. profit_ratio: 0.3751730502999538 , price: 0.298
+Long，take_profit. profit_ratio: 0.3511767420396862 , price: 0.2928
+Long，take_profit. profit_ratio: 0.3534840793724042 , price: 0.2933
+Long，take_profit. profit_ratio: 0.357175819104753 , price: 0.2941
+Long，take_profit. profit_ratio: 0.34102445777572693 , price: 0.2906
+Long，take_profit. profit_ratio: 0.30549146285186884 , price: 0.2829
+Long，take_profit. profit_ratio: 0.3064143977849562 , price: 0.2831
+Long，take_profit. profit_ratio: 0.31149053991693587 , price: 0.2842
+Long，take_profit. profit_ratio: 0.3077988001845869 , price: 0.2834
+Long，take_profit. profit_ratio: 0.2824180895246884 , price: 0.2779
+Long，take_profit. profit_ratio: 0.29349330872173507 , price: 0.2803
+Long，take_profit. profit_ratio: 0.29072450392247345 , price: 0.2797
+Long，take_profit. profit_ratio: 0.27641901245962164 , price: 0.2766
+Long，take_profit. profit_ratio: 0.29072450392247345 , price: 0.2797
+Long，take_profit. profit_ratio: 0.29118597138901703 , price: 0.2798
+Long，take_profit. profit_ratio: 0.288878634056299 , price: 0.2793
+Long，take_profit. profit_ratio: 0.2671896631287495 , price: 0.2746
+Long，take_profit. profit_ratio: 0.2528841716658976 , price: 0.2715
+Long，take_profit. profit_ratio: 0.23627134287032775 , price: 0.2679
+Long，take_profit. profit_ratio: 0.24826949700046153 , price: 0.2705
+Long，take_profit. profit_ratio: 0.2607291185971389 , price: 0.2732
+Long，take_profit. profit_ratio: 0.2588832487309644 , price: 0.2728
+Long，take_profit. profit_ratio: 0.23534840793724038 , price: 0.2677
+Long，take_profit. profit_ratio: 0.24919243193354865 , price: 0.2707
+Long，take_profit. profit_ratio: 0.24596215966774349 , price: 0.27
+Long，take_profit. profit_ratio: 0.23534840793724038 , price: 0.2677
+Long，take_profit. profit_ratio: 0.2487309644670051 , price: 0.2706
+Long，take_profit. profit_ratio: 0.271342870327642 , price: 0.2755
+Long，take_profit. profit_ratio: 0.271342870327642 , price: 0.2755
+Long，take_profit. profit_ratio: 0.30456852791878175 , price: 0.2827
+Long，take_profit. profit_ratio: 0.30456852791878175 , price: 0.2827
+Long，take_profit. profit_ratio: 0.2994923857868021 , price: 0.2816
+Long，take_profit. profit_ratio: 0.3041070604522382 , price: 0.2826
+Long，take_profit. profit_ratio: 0.2990309183202583 , price: 0.2815
+Long，take_profit. profit_ratio: 0.3110290724503923 , price: 0.2841
+Long，take_profit. profit_ratio: 0.30179972311952014 , price: 0.2821
+Long，take_profit. profit_ratio: 0.3036455929856944 , price: 0.2825
+Long，take_profit. profit_ratio: 0.27964928472542677 , price: 0.2773
+Long，take_profit. profit_ratio: 0.30179972311952014 , price: 0.2821
+Long，take_profit. profit_ratio: 0.30087678818643276 , price: 0.2819
+Long，take_profit. profit_ratio: 0.27272727272727265 , price: 0.2758
+Long，take_profit. profit_ratio: 0.26903553299492394 , price: 0.275
+Long，take_profit. profit_ratio: 0.2648823257960314 , price: 0.2741
+Long，take_profit. profit_ratio: 0.25796031379787726 , price: 0.2726
+Long，take_profit. profit_ratio: 0.2708814028610982 , price: 0.2754
+Long，take_profit. profit_ratio: 0.2561144439317028 , price: 0.2722
+Long，take_profit. profit_ratio: 0.26119058606368245 , price: 0.2733
+Long，take_profit. profit_ratio: 0.26442085832948786 , price: 0.274
+Long，take_profit. profit_ratio: 0.2741116751269036 , price: 0.2761
+Long，take_profit. profit_ratio: 0.2694970004614675 , price: 0.2751
+Long，take_profit. profit_ratio: 0.25519150899861565 , price: 0.272
+Long，take_profit. profit_ratio: 0.2348869404706968 , price: 0.2676
+Long，take_profit. profit_ratio: 0.24273188740193807 , price: 0.2693
+Long，take_profit. profit_ratio: 0.22196585140747566 , price: 0.2648
+Long，take_profit. profit_ratio: 0.21227503461005992 , price: 0.2627
+Long，take_profit. profit_ratio: 0.1642824180895248 , price: 0.2523
+Long，take_profit. profit_ratio: 0.15043839409321638 , price: 0.2493
+Long，take_profit. profit_ratio: 0.15043839409321638 , price: 0.2493
+Long，take_profit. profit_ratio: 0.22288878634056303 , price: 0.265
+Long，take_profit. profit_ratio: 0.20904476234425476 , price: 0.262
+Long，take_profit. profit_ratio: 0.19981541301338257 , price: 0.26
+Long，take_profit. profit_ratio: 0.2085832948777112 , price: 0.2619
+Long，take_profit. profit_ratio: 0.2141209044762344 , price: 0.2631
+Long，take_profit. profit_ratio: 0.2275034610059991 , price: 0.266
+Long，take_profit. profit_ratio: 0.22565759113982464 , price: 0.2656
+Long，take_profit. profit_ratio: 0.21365943700969084 , price: 0.263
+Long，take_profit. profit_ratio: 0.1961236732810336 , price: 0.2592
+Long，take_profit. profit_ratio: 0.18227964928472534 , price: 0.2562
+Long，take_profit. profit_ratio: 0.16289801568989384 , price: 0.252
+Long，take_profit. profit_ratio: 0.1785879095523766 , price: 0.2554
+Long，take_profit. profit_ratio: 0.17443470235348407 , price: 0.2545
+Long，take_profit. profit_ratio: 0.16289801568989384 , price: 0.252
+Long，take_profit. profit_ratio: 0.166128287955699 , price: 0.2527
+Long，take_profit. profit_ratio: 0.15413013382556523 , price: 0.2501
+Long，take_profit. profit_ratio: 0.15551453622519615 , price: 0.2504
+Long，Buy more: SHSE.10007961 ,  2024-11-18 14:39:00+08:00 , new_shares: 2 , price: 0.1836 , invest_amount: 0.3672
+Long，Buy more: SHSE.10007961 ,  2024-11-22 11:30:00+08:00 , new_shares: 5 , price: 0.153 , invest_amount: 0.765
+Long，Buy more: SHSE.10007961 ,  2024-11-22 14:50:00+08:00 , new_shares: 11 , price: 0.137 , invest_amount: 1.5070000000000001
+order error, now: 2024-11-22 14:50:00+08:00 , info: 资金不足 可用=9294.568
+Long，Buy more: SHSE.10007961 ,  2024-11-25 11:03:00+08:00 , new_shares: 25 , price: 0.1241 , invest_amount: 3.1025
+order error, now: 2024-11-25 11:03:00+08:00 , info: 资金不足 可用=9294.568
+Long，Buy more: SHSE.10007961 ,  2024-11-26 09:32:00+08:00 , new_shares: 56 , price: 0.1124 , invest_amount: 6.2943999999999996
+order error, now: 2024-11-26 09:32:00+08:00 , info: 资金不足 可用=9294.568
+Long，take_profit. profit_ratio: 0.1507132709100124 , price: 0.1399
+Long，Close: SHSE.10007961 ,  2024-11-29 11:03:00+08:00 , long_shares: 99 , long_avg_cost: 0.12157676767676767 , total_amount: 12.0361
+Long，Buy 1st: SHSE.10007961 ,  2024-11-29 11:03:00+08:00 , new_shares: 1 , price: 0.1399 , invest_amount: 0.1399
+Long，take_profit. profit_ratio: 0.16797712651894206 , price: 0.1634
+Long，Close: SHSE.10007961 ,  2024-12-06 10:48:00+08:00 , long_shares: 1 , long_avg_cost: 0.1399 , total_amount: 0.1399
+Long，Buy 1st: SHSE.10007961 ,  2024-12-06 10:48:00+08:00 , new_shares: 1 , price: 0.1634 , invest_amount: 0.1634
+Long，take_profit. profit_ratio: 0.3720930232558141 , price: 0.2242
+Long，Close: SHSE.10007961 ,  2024-12-10 09:33:00+08:00 , long_shares: 1 , long_avg_cost: 0.1634 , total_amount: 0.1634
+Long，Buy 1st: SHSE.10007961 ,  2024-12-10 09:34:00+08:00 , new_shares: 1 , price: 0.198 , invest_amount: 0.198
+Long，Buy more: SHSE.10007961 ,  2024-12-11 10:39:00+08:00 , new_shares: 2 , price: 0.1651 , invest_amount: 0.3302
+Long，Buy more: SHSE.10007961 ,  2024-12-13 09:37:00+08:00 , new_shares: 5 , price: 0.1485 , invest_amount: 0.7424999999999999
+Long，Buy more: SHSE.10007961 ,  2024-12-13 14:33:00+08:00 , new_shares: 11 , price: 0.1342 , invest_amount: 1.4762000000000002
+order error, now: 2024-12-13 14:33:00+08:00 , info: 资金不足 可用=6995.261
+Long，Buy more: SHSE.10007961 ,  2025-01-02 09:47:00+08:00 , new_shares: 26 , price: 0.1214 , invest_amount: 3.1563999999999997
+order error, now: 2025-01-02 09:47:00+08:00 , info: 资金不足 可用=6995.261
+Long，Buy more: SHSE.10007961 ,  2025-01-02 10:13:00+08:00 , new_shares: 57 , price: 0.1111 , invest_amount: 6.3327
+order error, now: 2025-01-02 10:13:00+08:00 , info: 资金不足 可用=6995.261
+Long，Buy more: SHSE.10007961 ,  2025-01-02 13:43:00+08:00 , new_shares: 126 , price: 0.1009 , invest_amount: 12.7134
+order error, now: 2025-01-02 13:43:00+08:00 , info: 资金不足 可用=6995.261
+Long，beyond max_layers. long_layers: 7
+Long，Close: SHSE.10007961 ,  2025-01-02 13:46:00+08:00 , long_shares: 228 , long_avg_cost: 0.10942719298245614 , total_amount: 24.9494
+Long，Buy 1st: SHSE.10007961 ,  2025-01-02 13:46:00+08:00 , new_shares: 1 , price: 0.1016 , invest_amount: 0.1016
+Long，Buy more: SHSE.10007961 ,  2025-01-03 14:03:00+08:00 , new_shares: 4 , price: 0.0844 , invest_amount: 0.3376
+Long，Buy more: SHSE.10007961 ,  2025-01-06 10:00:00+08:00 , new_shares: 10 , price: 0.0746 , invest_amount: 0.746
+Long，Buy more: SHSE.10007961 ,  2025-01-08 13:06:00+08:00 , new_shares: 23 , price: 0.0668 , invest_amount: 1.5364
+order error, now: 2025-01-08 13:06:00+08:00 , info: 资金不足 可用=3093.485
+Long，take_profit. profit_ratio: 0.1686507936507936 , price: 0.0837
+Long，Close: SHSE.10007961 ,  2025-01-08 14:11:00+08:00 , long_shares: 38 , long_avg_cost: 0.07162105263157895 , total_amount: 2.7216
+Long，Buy 1st: SHSE.10007961 ,  2025-01-08 14:11:00+08:00 , new_shares: 2 , price: 0.0837 , invest_amount: 0.1674
+Long，Buy more: SHSE.10007961 ,  2025-01-09 09:35:00+08:00 , new_shares: 5 , price: 0.0706 , invest_amount: 0.353
+Long，Buy more: SHSE.10007961 ,  2025-01-10 14:13:00+08:00 , new_shares: 12 , price: 0.0625 , invest_amount: 0.75
+Long，Buy more: SHSE.10007961 ,  2025-01-13 09:32:00+08:00 , new_shares: 28 , price: 0.056 , invest_amount: 1.568
+order error, now: 2025-01-13 09:32:00+08:00 , info: 资金不足 可用=2811.334
+Long，take_profit. profit_ratio: 0.15579199549041717 , price: 0.0698
+Long，Close: SHSE.10007961 ,  2025-01-14 10:58:00+08:00 , long_shares: 47 , long_avg_cost: 0.060391489361702126 , total_amount: 2.8384
+Long，Buy 1st: SHSE.10007961 ,  2025-01-14 10:58:00+08:00 , new_shares: 2 , price: 0.0698 , invest_amount: 0.1396
+Long，take_profit. profit_ratio: 0.16045845272206305 , price: 0.081
+Long，Close: SHSE.10007961 ,  2025-01-14 14:05:00+08:00 , long_shares: 2 , long_avg_cost: 0.0698 , total_amount: 0.1396
+Long，Buy 1st: SHSE.10007961 ,  2025-01-14 14:05:00+08:00 , new_shares: 2 , price: 0.081 , invest_amount: 0.162
+Long，Buy more: SHSE.10007961 ,  2025-01-16 13:04:00+08:00 , new_shares: 5 , price: 0.068 , invest_amount: 0.34
+Long，Buy more: SHSE.10007961 ,  2025-01-17 09:44:00+08:00 , new_shares: 13 , price: 0.0609 , invest_amount: 0.7917000000000001
+Long，take_profit. profit_ratio: 0.1610110535672875 , price: 0.0751
+Long，Close: SHSE.10007961 ,  2025-01-17 13:17:00+08:00 , long_shares: 20 , long_avg_cost: 0.064685 , total_amount: 1.2937
+Long，Buy 1st: SHSE.10007961 ,  2025-01-17 13:17:00+08:00 , new_shares: 2 , price: 0.0751 , invest_amount: 0.1502
+Long，Buy more: SHSE.10007961 ,  2025-01-22 09:34:00+08:00 , new_shares: 6 , price: 0.0623 , invest_amount: 0.3738
+Long，Buy more: SHSE.10007961 ,  2025-01-22 09:58:00+08:00 , new_shares: 14 , price: 0.055 , invest_amount: 0.77
+Long，take_profit. profit_ratio: 0.21051004636785162 , price: 0.0712
+Long，Close: SHSE.10007961 ,  2025-01-23 09:38:00+08:00 , long_shares: 22 , long_avg_cost: 0.05881818181818182 , total_amount: 1.294
+Long，Buy 1st: SHSE.10007961 ,  2025-01-23 09:38:00+08:00 , new_shares: 2 , price: 0.0712 , invest_amount: 0.1424
+Long，Buy more: SHSE.10007961 ,  2025-01-23 11:16:00+08:00 , new_shares: 6 , price: 0.0602 , invest_amount: 0.36119999999999997
+Long，take_profit. profit_ratio: 0.15170770452740276 , price: 0.0725
+Long，Close: SHSE.10007961 ,  2025-01-24 11:19:00+08:00 , long_shares: 8 , long_avg_cost: 0.06294999999999999 , total_amount: 0.5035999999999999
+Long，Buy 1st: SHSE.10007961 ,  2025-01-24 11:19:00+08:00 , new_shares: 2 , price: 0.0725 , invest_amount: 0.145
+Long，Buy more: SHSE.10007961 ,  2025-01-27 14:45:00+08:00 , new_shares: 6 , price: 0.06 , invest_amount: 0.36
+Long，Buy more: SHSE.10007961 ,  2025-02-05 09:36:00+08:00 , new_shares: 16 , price: 0.049 , invest_amount: 0.784
+Long，Buy more: SHSE.10007961 ,  2025-02-05 10:00:00+08:00 , new_shares: 35 , price: 0.045 , invest_amount: 1.575
+order error, now: 2025-02-05 10:00:00+08:00 , info: 资金不足 可用=10637.521
+Long，Buy more: SHSE.10007961 ,  2025-02-05 13:45:00+08:00 , new_shares: 78 , price: 0.0408 , invest_amount: 3.1824000000000003
+order error, now: 2025-02-05 13:45:00+08:00 , info: 资金不足 可用=10637.521
+Long，Buy more: SHSE.10007961 ,  2025-02-06 10:07:00+08:00 , new_shares: 172 , price: 0.037 , invest_amount: 6.364
+order error, now: 2025-02-06 10:07:00+08:00 , info: 资金不足 可用=10637.521
+Long，take_profit. profit_ratio: 0.1503094179075614 , price: 0.0462
+Long，Close: SHSE.10007961 ,  2025-02-06 10:57:00+08:00 , long_shares: 309 , long_avg_cost: 0.0401631067961165 , total_amount: 12.4104
+Long，Buy 1st: SHSE.10007961 ,  2025-02-06 10:57:00+08:00 , new_shares: 4 , price: 0.0462 , invest_amount: 0.1848
+Long，take_profit. profit_ratio: 0.15367965367965372 , price: 0.0533
+Long，Close: SHSE.10007961 ,  2025-02-07 10:06:00+08:00 , long_shares: 4 , long_avg_cost: 0.0462 , total_amount: 0.1848
+Long，Buy 1st: SHSE.10007961 ,  2025-02-07 10:06:00+08:00 , new_shares: 3 , price: 0.0533 , invest_amount: 0.1599
+Long，take_profit. profit_ratio: 0.17823639774859276 , price: 0.0628
+Long，Close: SHSE.10007961 ,  2025-02-07 13:12:00+08:00 , long_shares: 3 , long_avg_cost: 0.0533 , total_amount: 0.1599
+Long，Buy 1st: SHSE.10007961 ,  2025-02-07 13:12:00+08:00 , new_shares: 3 , price: 0.0628 , invest_amount: 0.18839999999999998
+Long，Buy more: SHSE.10007961 ,  2025-02-07 14:20:00+08:00 , new_shares: 7 , price: 0.051 , invest_amount: 0.357
+Long，take_profit. profit_ratio: 0.16061606160616057 , price: 0.0633
+Long，Close: SHSE.10007961 ,  2025-02-10 10:01:00+08:00 , long_shares: 10 , long_avg_cost: 0.05454 , total_amount: 0.5454
+Long，Buy 1st: SHSE.10007961 ,  2025-02-10 10:01:00+08:00 , new_shares: 3 , price: 0.0633 , invest_amount: 0.18989999999999999
+Long，Buy more: SHSE.10007961 ,  2025-02-11 10:41:00+08:00 , new_shares: 7 , price: 0.0531 , invest_amount: 0.37170000000000003
+Long，take_profit. profit_ratio: 0.15384615384615374 , price: 0.0648
+Long，Close: SHSE.10007961 ,  2025-02-12 14:45:00+08:00 , long_shares: 10 , long_avg_cost: 0.05616 , total_amount: 0.5616
+Long，Buy 1st: SHSE.10007961 ,  2025-02-12 14:45:00+08:00 , new_shares: 3 , price: 0.0648 , invest_amount: 0.1944
+Long，take_profit. profit_ratio: 0.15123456790123463 , price: 0.0746
+Long，Close: SHSE.10007961 ,  2025-02-13 10:22:00+08:00 , long_shares: 3 , long_avg_cost: 0.0648 , total_amount: 0.1944
+Long，Buy 1st: SHSE.10007961 ,  2025-02-13 10:22:00+08:00 , new_shares: 2 , price: 0.0746 , invest_amount: 0.1492
+Long，Buy more: SHSE.10007961 ,  2025-02-14 09:38:00+08:00 , new_shares: 6 , price: 0.0627 , invest_amount: 0.37620000000000003
+Long，take_profit. profit_ratio: 0.16178149980966872 , price: 0.0763
+Long，Close: SHSE.10007961 ,  2025-02-14 14:41:00+08:00 , long_shares: 8 , long_avg_cost: 0.06567500000000001 , total_amount: 0.5254000000000001
+Long，Buy 1st: SHSE.10007961 ,  2025-02-14 14:41:00+08:00 , new_shares: 2 , price: 0.0763 , invest_amount: 0.1526
+Long，Buy more: SHSE.10007961 ,  2025-02-18 14:32:00+08:00 , new_shares: 6 , price: 0.0646 , invest_amount: 0.38760000000000006
+Long，take_profit. profit_ratio: 0.15660866345797853 , price: 0.0781
+Long，Close: SHSE.10007961 ,  2025-02-19 10:36:00+08:00 , long_shares: 8 , long_avg_cost: 0.067525 , total_amount: 0.5402
+Long，Buy 1st: SHSE.10007961 ,  2025-02-19 10:36:00+08:00 , new_shares: 2 , price: 0.0781 , invest_amount: 0.1562
+Long，Buy more: SHSE.10007961 ,  2025-02-20 09:33:00+08:00 , new_shares: 6 , price: 0.0634 , invest_amount: 0.38039999999999996
+Long，Buy more: SHSE.10007961 ,  2025-02-20 10:34:00+08:00 , new_shares: 14 , price: 0.0569 , invest_amount: 0.7966
+Long，take_profit. profit_ratio: 0.19306930693069324 , price: 0.0723
+Long，Close: SHSE.10007961 ,  2025-02-21 10:39:00+08:00 , long_shares: 22 , long_avg_cost: 0.060599999999999994 , total_amount: 1.3332
+Long，Buy 1st: SHSE.10007961 ,  2025-02-21 10:39:00+08:00 , new_shares: 2 , price: 0.0723 , invest_amount: 0.1446
+Long，take_profit. profit_ratio: 0.15491009681881052 , price: 0.0835
+Long，Close: SHSE.10007961 ,  2025-02-21 10:53:00+08:00 , long_shares: 2 , long_avg_cost: 0.0723 , total_amount: 0.1446
+Long，Buy 1st: SHSE.10007961 ,  2025-02-21 10:53:00+08:00 , new_shares: 2 , price: 0.0835 , invest_amount: 0.167
+Done! From start, time elapsed: 1.6430776119232178 seconds
+SHSE.10007961 backtest finished:  {'account_id': '95eadb57-f0cb-11ef-b05b-80304917db79', 'pnl_ratio': 0.4421909479724387, 'pnl_ratio_annual': 1.391376689740863, 'sharp_ratio': 1.6272506289092192, 'max_drawdown': 0.3269894821476427, 'risk_ratio': 0.059248289210365075, 'open_count': 42, 'close_count': 21, 'win_count': 18, 'lose_count': 3, 'win_ratio': 0.8571428571428571, 'calmar_ratio': 4.255111450687662, 'created_at': datetime.datetime(2025, 2, 22, 12, 19, 18, 595470, tzinfo=datetime.timezone(datetime.timedelta(seconds=28800), 'Asia/Shanghai')), 'updated_at': datetime.datetime(2025, 2, 22, 12, 19, 20, 182934, tzinfo=datetime.timezone(datetime.timedelta(seconds=28800), 'Asia/Shanghai'))}
+
+Process finished with exit code 0
+
+

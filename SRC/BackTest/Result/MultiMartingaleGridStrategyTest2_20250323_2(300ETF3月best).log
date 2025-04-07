@@ -1,0 +1,371 @@
+说明：
+1.标的是沪深300ETF3月份，认购和认沽
+2.开始日期是12月1日，结束日期是3月7日。
+3.最佳参数组合price_interval=0.30, take_profit_ratio=0.15, stop_loss_ratio=0.50
+
+context.symbol_list = [ # 3月
+        'SZSE.90004231',
+        'SZSE.90004232'
+]
+
+run(strategy_id='95eadb57-f0cb-11ef-b05b-80304917db79',
+        filename=(os.path.basename(__file__)),
+        mode=MODE_BACKTEST,
+        token='6860051c58995ae01c30a27d5b72000bababa8e6',
+        backtest_start_time='2024-12-01 09:31:00',
+        backtest_end_time='2025-03-07 15:00:00',
+        # backtest_start_time='2024-09-01 09:31:00',
+        # backtest_end_time='2025-01-07 15:00:00',
+        backtest_adjust=ADJUST_NONE,
+        backtest_initial_cash=75000,
+        backtest_commission_unit=4.5,
+        backtest_slippage_ratio=0.0001,
+        backtest_marginfloat_ratio1=0.2,
+        backtest_marginfloat_ratio2=0.4,
+        backtest_match_mode=0)
+
+base_investment=2500,  # 基准投资金额（元）
+multiplier=2,  # 加仓倍数
+max_layers=9,  # 最大加仓层数
+price_interval=0.30,  # 价格间隔3%。当加仓倍数是2时，平均成本下降约为价格间隔的一半。
+take_profit_ratio=0.15,  # 止盈比例（2%）
+stop_loss_ratio=0.50,  # 总亏损止损20%
+base_shares=1,  # 标的下单的最小数量（手或张）
+base_volume=10000,  # 标的每手或每张代表的交易数量
+enable_short=False,  # 是否启用做空
+
+
+D:\Workplace-Pycharm\.venv\Scripts\python.exe D:\Workplace-Pycharm\QuantitativeTransaction\SRC\sq\test\test_gm\for159869\MultiMartingaleGridStrategyTest2.py
+----------------------------------------
+python sdk version: 3.0.168
+c sdk version: 3.7.4
+----------------------------------------
+Symbol List: ['SZSE.90004231', 'SZSE.90004232']
+current position:
+		 SZSE.90004231 , position long. now: 2024-12-01 09:31:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SZSE.90004232 , position long. now: 2024-12-01 09:31:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Base price:
+		 SZSE.90004231 , base_price: 0.228 ,  2024-12-02 09:47:00+08:00
+Base price:
+		 SZSE.90004232 , base_price: 0.1885 ,  2024-12-02 10:01:00+08:00
+Long，Buy 1st: SZSE.90004232 ,  2024-12-02 13:54:00+08:00 , new_shares: 1 , price: 0.1865 , invest_amount: 0.1865
+current position:
+		 SZSE.90004231 , position long. now: 2024-12-02 13:54:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SZSE.90004232 , position long. now: 2024-12-02 13:54:00+08:00 , long_shares: 1 , long_avg_cost: 0.1936 , final_amount: 1936.00
+Long，Buy 1st: SZSE.90004231 ,  2024-12-03 10:16:00+08:00 , new_shares: 1 , price: 0.2277 , invest_amount: 0.2277
+current position:
+		 SZSE.90004231 , position long. now: 2024-12-03 10:16:00+08:00 , long_shares: 1 , long_avg_cost: 0.2285 , final_amount: 2285.00
+		 SZSE.90004232 , position long. now: 2024-12-03 10:16:00+08:00 , long_shares: 1 , long_avg_cost: 0.1936 , final_amount: 1936.00
+Long，Take profit:  SZSE.90004231 ,  2024-12-06 11:05:00+08:00 , profit ratio: 0.15361050328227568 , price: 0.2636
+Long，Close: SZSE.90004231 ,  2024-12-06 11:05:00+08:00 , long_shares: 1 , long_avg_cost: 0.2285 , total_amount: 2285.00
+current position:
+		 SZSE.90004231 , position long. now: 2024-12-06 11:05:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SZSE.90004232 , position long. now: 2024-12-06 11:05:00+08:00 , long_shares: 1 , long_avg_cost: 0.1936 , final_amount: 1936.00
+Long，Buy more: SZSE.90004232 ,  2024-12-10 09:31:00+08:00 , new_shares: 4 , price: 0.1214 , invest_amount: 0.4856
+current position:
+		 SZSE.90004231 , position long. now: 2024-12-10 09:31:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SZSE.90004232 , position long. now: 2024-12-10 09:31:00+08:00 , long_shares: 5 , long_avg_cost: 0.0934 , final_amount: 4670.00
+Long，Take profit:  SZSE.90004232 ,  2024-12-10 09:47:00+08:00 , profit ratio: 0.506423982869379 , price: 0.1407
+Long，Close: SZSE.90004232 ,  2024-12-10 09:47:00+08:00 , long_shares: 5 , long_avg_cost: 0.0934 , total_amount: 4670.00
+current position:
+		 SZSE.90004231 , position long. now: 2024-12-10 09:47:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SZSE.90004232 , position long. now: 2024-12-10 09:47:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SZSE.90004232 ,  2024-12-10 09:47:00+08:00 , new_shares: 1 , price: 0.1407 , invest_amount: 0.1407
+current position:
+		 SZSE.90004231 , position long. now: 2024-12-10 09:47:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SZSE.90004232 , position long. now: 2024-12-10 09:47:00+08:00 , long_shares: 1 , long_avg_cost: 0.1504 , final_amount: 1504.00
+Long，Take profit:  SZSE.90004232 ,  2024-12-13 14:23:00+08:00 , profit ratio: 0.15093085106382978 , price: 0.1731
+Long，Close: SZSE.90004232 ,  2024-12-13 14:23:00+08:00 , long_shares: 1 , long_avg_cost: 0.1504 , total_amount: 1504.00
+current position:
+		 SZSE.90004231 , position long. now: 2024-12-13 14:23:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SZSE.90004232 , position long. now: 2024-12-13 14:23:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SZSE.90004232 ,  2024-12-13 14:23:00+08:00 , new_shares: 1 , price: 0.1731 , invest_amount: 0.1731
+current position:
+		 SZSE.90004231 , position long. now: 2024-12-13 14:23:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SZSE.90004232 , position long. now: 2024-12-13 14:23:00+08:00 , long_shares: 1 , long_avg_cost: 0.1774 , final_amount: 1774.00
+Long，Buy 1st: SZSE.90004231 ,  2024-12-13 14:31:00+08:00 , new_shares: 1 , price: 0.2271 , invest_amount: 0.2271
+current position:
+		 SZSE.90004231 , position long. now: 2024-12-13 14:31:00+08:00 , long_shares: 1 , long_avg_cost: 0.2197 , final_amount: 2197.00
+		 SZSE.90004232 , position long. now: 2024-12-13 14:31:00+08:00 , long_shares: 1 , long_avg_cost: 0.1774 , final_amount: 1774.00
+Long，Buy more: SZSE.90004232 ,  2024-12-26 11:03:00+08:00 , new_shares: 4 , price: 0.124 , invest_amount: 0.496
+current position:
+		 SZSE.90004231 , position long. now: 2024-12-26 11:03:00+08:00 , long_shares: 1 , long_avg_cost: 0.2197 , final_amount: 2197.00
+		 SZSE.90004232 , position long. now: 2024-12-26 11:03:00+08:00 , long_shares: 5 , long_avg_cost: 0.1343 , final_amount: 6715.00
+Long，Take profit:  SZSE.90004232 ,  2025-01-02 10:03:00+08:00 , profit ratio: 0.16157855547282202 , price: 0.156
+Long，Close: SZSE.90004232 ,  2025-01-02 10:03:00+08:00 , long_shares: 5 , long_avg_cost: 0.1343 , total_amount: 6715.00
+current position:
+		 SZSE.90004231 , position long. now: 2025-01-02 10:03:00+08:00 , long_shares: 1 , long_avg_cost: 0.2197 , final_amount: 2197.00
+		 SZSE.90004232 , position long. now: 2025-01-02 10:03:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SZSE.90004232 ,  2025-01-02 10:03:00+08:00 , new_shares: 1 , price: 0.156 , invest_amount: 0.156
+current position:
+		 SZSE.90004231 , position long. now: 2025-01-02 10:03:00+08:00 , long_shares: 1 , long_avg_cost: 0.2197 , final_amount: 2197.00
+		 SZSE.90004232 , position long. now: 2025-01-02 10:03:00+08:00 , long_shares: 1 , long_avg_cost: 0.1573 , final_amount: 1573.00
+Long，Buy more: SZSE.90004231 ,  2025-01-02 10:04:00+08:00 , new_shares: 3 , price: 0.1495 , invest_amount: 0.4485
+current position:
+		 SZSE.90004231 , position long. now: 2025-01-02 10:04:00+08:00 , long_shares: 4 , long_avg_cost: 0.1659 , final_amount: 6636.00
+		 SZSE.90004232 , position long. now: 2025-01-02 10:04:00+08:00 , long_shares: 1 , long_avg_cost: 0.1573 , final_amount: 1573.00
+Long，Take profit:  SZSE.90004232 ,  2025-01-02 13:40:00+08:00 , profit ratio: 0.15003178639542283 , price: 0.1809
+Long，Close: SZSE.90004232 ,  2025-01-02 13:40:00+08:00 , long_shares: 1 , long_avg_cost: 0.1573 , total_amount: 1573.00
+current position:
+		 SZSE.90004231 , position long. now: 2025-01-02 13:40:00+08:00 , long_shares: 4 , long_avg_cost: 0.1659 , final_amount: 6636.00
+		 SZSE.90004232 , position long. now: 2025-01-02 13:40:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SZSE.90004232 ,  2025-01-02 13:40:00+08:00 , new_shares: 1 , price: 0.1809 , invest_amount: 0.1809
+current position:
+		 SZSE.90004231 , position long. now: 2025-01-02 13:40:00+08:00 , long_shares: 4 , long_avg_cost: 0.1659 , final_amount: 6636.00
+		 SZSE.90004232 , position long. now: 2025-01-02 13:40:00+08:00 , long_shares: 1 , long_avg_cost: 0.1798 , final_amount: 1798.00
+Long，Take profit:  SZSE.90004232 ,  2025-01-02 14:15:00+08:00 , profit ratio: 0.16796440489432707 , price: 0.21
+Long，Close: SZSE.90004232 ,  2025-01-02 14:15:00+08:00 , long_shares: 1 , long_avg_cost: 0.1798 , total_amount: 1798.00
+current position:
+		 SZSE.90004231 , position long. now: 2025-01-02 14:15:00+08:00 , long_shares: 4 , long_avg_cost: 0.1659 , final_amount: 6636.00
+		 SZSE.90004232 , position long. now: 2025-01-02 14:15:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy more: SZSE.90004231 ,  2025-01-03 13:19:00+08:00 , new_shares: 8 , price: 0.116 , invest_amount: 0.928
+current position:
+		 SZSE.90004231 , position long. now: 2025-01-03 13:19:00+08:00 , long_shares: 12 , long_avg_cost: 0.1317 , final_amount: 15804.00
+		 SZSE.90004232 , position long. now: 2025-01-03 13:19:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy more: SZSE.90004231 ,  2025-01-08 09:37:00+08:00 , new_shares: 21 , price: 0.0916 , invest_amount: 1.9236
+current position:
+		 SZSE.90004231 , position long. now: 2025-01-08 09:37:00+08:00 , long_shares: 33 , long_avg_cost: 0.1069 , final_amount: 35277.00
+		 SZSE.90004232 , position long. now: 2025-01-08 09:37:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy more: SZSE.90004231 ,  2025-01-10 14:31:00+08:00 , new_shares: 54 , price: 0.074 , invest_amount: 3.996
+current position:
+		 SZSE.90004231 , position long. now: 2025-01-10 14:31:00+08:00 , long_shares: 87 , long_avg_cost: 0.0861 , final_amount: 74907.00
+		 SZSE.90004232 , position long. now: 2025-01-10 14:31:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Take profit:  SZSE.90004231 ,  2025-01-14 11:12:00+08:00 , profit ratio: 0.1602787456445994 , price: 0.0999
+Long，Close: SZSE.90004231 ,  2025-01-14 11:12:00+08:00 , long_shares: 87 , long_avg_cost: 0.0861 , total_amount: 74907.00
+current position:
+		 SZSE.90004231 , position long. now: 2025-01-14 11:12:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SZSE.90004232 , position long. now: 2025-01-14 11:12:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SZSE.90004231 ,  2025-01-14 11:12:00+08:00 , new_shares: 2 , price: 0.0999 , invest_amount: 0.1998
+current position:
+		 SZSE.90004231 , position long. now: 2025-01-14 11:12:00+08:00 , long_shares: 2 , long_avg_cost: 0.1012 , final_amount: 2024.00
+		 SZSE.90004232 , position long. now: 2025-01-14 11:12:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SZSE.90004232 ,  2025-01-14 14:01:00+08:00 , new_shares: 1 , price: 0.1874 , invest_amount: 0.1874
+current position:
+		 SZSE.90004231 , position long. now: 2025-01-14 14:01:00+08:00 , long_shares: 2 , long_avg_cost: 0.1012 , final_amount: 2024.00
+		 SZSE.90004232 , position long. now: 2025-01-14 14:01:00+08:00 , long_shares: 1 , long_avg_cost: 0.1905 , final_amount: 1905.00
+Long，Take profit:  SZSE.90004231 ,  2025-01-16 09:45:00+08:00 , profit ratio: 0.16304347826086957 , price: 0.1177
+Long，Close: SZSE.90004231 ,  2025-01-16 09:45:00+08:00 , long_shares: 2 , long_avg_cost: 0.1012 , total_amount: 2024.00
+current position:
+		 SZSE.90004231 , position long. now: 2025-01-16 09:45:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SZSE.90004232 , position long. now: 2025-01-16 09:45:00+08:00 , long_shares: 1 , long_avg_cost: 0.1905 , final_amount: 1905.00
+Long，Buy 1st: SZSE.90004231 ,  2025-01-16 09:45:00+08:00 , new_shares: 2 , price: 0.1177 , invest_amount: 0.2354
+current position:
+		 SZSE.90004231 , position long. now: 2025-01-16 09:45:00+08:00 , long_shares: 2 , long_avg_cost: 0.1145 , final_amount: 2290.00
+		 SZSE.90004232 , position long. now: 2025-01-16 09:45:00+08:00 , long_shares: 1 , long_avg_cost: 0.1905 , final_amount: 1905.00
+Long，Take profit:  SZSE.90004232 ,  2025-01-16 13:16:00+08:00 , profit ratio: 0.1548556430446194 , price: 0.22
+Long，Close: SZSE.90004232 ,  2025-01-16 13:16:00+08:00 , long_shares: 1 , long_avg_cost: 0.1905 , total_amount: 1905.00
+current position:
+		 SZSE.90004231 , position long. now: 2025-01-16 13:16:00+08:00 , long_shares: 2 , long_avg_cost: 0.1145 , final_amount: 2290.00
+		 SZSE.90004232 , position long. now: 2025-01-16 13:16:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SZSE.90004232 ,  2025-01-17 13:28:00+08:00 , new_shares: 1 , price: 0.185 , invest_amount: 0.185
+current position:
+		 SZSE.90004231 , position long. now: 2025-01-17 13:28:00+08:00 , long_shares: 2 , long_avg_cost: 0.1145 , final_amount: 2290.00
+		 SZSE.90004232 , position long. now: 2025-01-17 13:28:00+08:00 , long_shares: 1 , long_avg_cost: 0.19 , final_amount: 1900.00
+Long，Buy more: SZSE.90004231 ,  2025-02-05 09:34:00+08:00 , new_shares: 6 , price: 0.0799 , invest_amount: 0.4794
+current position:
+		 SZSE.90004231 , position long. now: 2025-02-05 09:34:00+08:00 , long_shares: 8 , long_avg_cost: 0.0871 , final_amount: 6968.00
+		 SZSE.90004232 , position long. now: 2025-02-05 09:34:00+08:00 , long_shares: 1 , long_avg_cost: 0.19 , final_amount: 1900.00
+Long，Buy more: SZSE.90004231 ,  2025-02-06 09:49:00+08:00 , new_shares: 16 , price: 0.0602 , invest_amount: 0.9632
+current position:
+		 SZSE.90004231 , position long. now: 2025-02-06 09:49:00+08:00 , long_shares: 24 , long_avg_cost: 0.0706 , final_amount: 16944.00
+		 SZSE.90004232 , position long. now: 2025-02-06 09:49:00+08:00 , long_shares: 1 , long_avg_cost: 0.19 , final_amount: 1900.00
+Long，Take profit:  SZSE.90004231 ,  2025-02-06 11:00:00+08:00 , profit ratio: 0.18555240793201136 , price: 0.0837
+Long，Close: SZSE.90004231 ,  2025-02-06 11:00:00+08:00 , long_shares: 24 , long_avg_cost: 0.0706 , total_amount: 16944.00
+current position:
+		 SZSE.90004231 , position long. now: 2025-02-06 11:00:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SZSE.90004232 , position long. now: 2025-02-06 11:00:00+08:00 , long_shares: 1 , long_avg_cost: 0.19 , final_amount: 1900.00
+Long，Buy 1st: SZSE.90004231 ,  2025-02-06 11:00:00+08:00 , new_shares: 2 , price: 0.0837 , invest_amount: 0.1674
+current position:
+		 SZSE.90004231 , position long. now: 2025-02-06 11:00:00+08:00 , long_shares: 2 , long_avg_cost: 0.0837 , final_amount: 1674.00
+		 SZSE.90004232 , position long. now: 2025-02-06 11:00:00+08:00 , long_shares: 1 , long_avg_cost: 0.19 , final_amount: 1900.00
+Long，Buy more: SZSE.90004232 ,  2025-02-07 09:53:00+08:00 , new_shares: 3 , price: 0.132 , invest_amount: 0.396
+current position:
+		 SZSE.90004231 , position long. now: 2025-02-07 09:53:00+08:00 , long_shares: 2 , long_avg_cost: 0.0837 , final_amount: 1674.00
+		 SZSE.90004232 , position long. now: 2025-02-07 09:53:00+08:00 , long_shares: 4 , long_avg_cost: 0.1455 , final_amount: 5820.00
+Long，Take profit:  SZSE.90004231 ,  2025-02-07 10:06:00+08:00 , profit ratio: 0.18757467144563927 , price: 0.0994
+Long，Close: SZSE.90004231 ,  2025-02-07 10:06:00+08:00 , long_shares: 2 , long_avg_cost: 0.0837 , total_amount: 1674.00
+current position:
+		 SZSE.90004231 , position long. now: 2025-02-07 10:06:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SZSE.90004232 , position long. now: 2025-02-07 10:06:00+08:00 , long_shares: 4 , long_avg_cost: 0.1455 , final_amount: 5820.00
+Long，Buy 1st: SZSE.90004231 ,  2025-02-07 10:06:00+08:00 , new_shares: 2 , price: 0.0994 , invest_amount: 0.1988
+current position:
+		 SZSE.90004231 , position long. now: 2025-02-07 10:06:00+08:00 , long_shares: 2 , long_avg_cost: 0.098 , final_amount: 1960.00
+		 SZSE.90004232 , position long. now: 2025-02-07 10:06:00+08:00 , long_shares: 4 , long_avg_cost: 0.1455 , final_amount: 5820.00
+Long，Take profit:  SZSE.90004231 ,  2025-02-07 11:25:00+08:00 , profit ratio: 0.15510204081632645 , price: 0.1132
+Long，Close: SZSE.90004231 ,  2025-02-07 11:25:00+08:00 , long_shares: 2 , long_avg_cost: 0.098 , total_amount: 1960.00
+current position:
+		 SZSE.90004231 , position long. now: 2025-02-07 11:25:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SZSE.90004232 , position long. now: 2025-02-07 11:25:00+08:00 , long_shares: 4 , long_avg_cost: 0.1455 , final_amount: 5820.00
+Long，Buy 1st: SZSE.90004231 ,  2025-02-07 11:25:00+08:00 , new_shares: 2 , price: 0.1132 , invest_amount: 0.2264
+current position:
+		 SZSE.90004231 , position long. now: 2025-02-07 11:25:00+08:00 , long_shares: 2 , long_avg_cost: 0.1129 , final_amount: 2258.00
+		 SZSE.90004232 , position long. now: 2025-02-07 11:25:00+08:00 , long_shares: 4 , long_avg_cost: 0.1455 , final_amount: 5820.00
+Long，Buy more: SZSE.90004232 ,  2025-02-07 13:13:00+08:00 , new_shares: 9 , price: 0.1018 , invest_amount: 0.9162
+current position:
+		 SZSE.90004231 , position long. now: 2025-02-07 13:13:00+08:00 , long_shares: 2 , long_avg_cost: 0.1129 , final_amount: 2258.00
+		 SZSE.90004232 , position long. now: 2025-02-07 13:13:00+08:00 , long_shares: 13 , long_avg_cost: 0.115 , final_amount: 14950.00
+Long，Buy more: SZSE.90004232 ,  2025-02-13 14:11:00+08:00 , new_shares: 24 , price: 0.0801 , invest_amount: 1.9224
+current position:
+		 SZSE.90004231 , position long. now: 2025-02-13 14:11:00+08:00 , long_shares: 2 , long_avg_cost: 0.1129 , final_amount: 2258.00
+		 SZSE.90004232 , position long. now: 2025-02-13 14:11:00+08:00 , long_shares: 37 , long_avg_cost: 0.0923 , final_amount: 34151.00
+Long，Buy more: SZSE.90004232 ,  2025-02-17 09:35:00+08:00 , new_shares: 63 , price: 0.0632 , invest_amount: 3.9816000000000003
+current position:
+		 SZSE.90004231 , position long. now: 2025-02-17 09:35:00+08:00 , long_shares: 2 , long_avg_cost: 0.1129 , final_amount: 2258.00
+		 SZSE.90004232 , position long. now: 2025-02-17 09:35:00+08:00 , long_shares: 100 , long_avg_cost: 0.0747 , final_amount: 74700.00
+Long，Take profit:  SZSE.90004232 ,  2025-02-18 14:33:00+08:00 , profit ratio: 0.15127175368139212 , price: 0.086
+Long，Close: SZSE.90004232 ,  2025-02-18 14:33:00+08:00 , long_shares: 100 , long_avg_cost: 0.0747 , total_amount: 74700.00
+current position:
+		 SZSE.90004231 , position long. now: 2025-02-18 14:33:00+08:00 , long_shares: 2 , long_avg_cost: 0.1129 , final_amount: 2258.00
+		 SZSE.90004232 , position long. now: 2025-02-18 14:33:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SZSE.90004232 ,  2025-02-18 14:33:00+08:00 , new_shares: 2 , price: 0.086 , invest_amount: 0.172
+current position:
+		 SZSE.90004231 , position long. now: 2025-02-18 14:33:00+08:00 , long_shares: 2 , long_avg_cost: 0.1129 , final_amount: 2258.00
+		 SZSE.90004232 , position long. now: 2025-02-18 14:33:00+08:00 , long_shares: 2 , long_avg_cost: 0.0867 , final_amount: 1734.00
+Long，Buy more: SZSE.90004232 ,  2025-02-21 09:32:00+08:00 , new_shares: 8 , price: 0.0598 , invest_amount: 0.4784
+current position:
+		 SZSE.90004231 , position long. now: 2025-02-21 09:32:00+08:00 , long_shares: 2 , long_avg_cost: 0.1129 , final_amount: 2258.00
+		 SZSE.90004232 , position long. now: 2025-02-21 09:32:00+08:00 , long_shares: 10 , long_avg_cost: 0.0654 , final_amount: 6540.00
+Long，Take profit:  SZSE.90004231 ,  2025-02-21 11:00:00+08:00 , profit ratio: 0.16386182462356058 , price: 0.1314
+Long，Close: SZSE.90004231 ,  2025-02-21 11:00:00+08:00 , long_shares: 2 , long_avg_cost: 0.1129 , total_amount: 2258.00
+current position:
+		 SZSE.90004231 , position long. now: 2025-02-21 11:00:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SZSE.90004232 , position long. now: 2025-02-21 11:00:00+08:00 , long_shares: 10 , long_avg_cost: 0.0654 , final_amount: 6540.00
+Long，Buy 1st: SZSE.90004231 ,  2025-02-21 11:00:00+08:00 , new_shares: 1 , price: 0.1314 , invest_amount: 0.1314
+current position:
+		 SZSE.90004231 , position long. now: 2025-02-21 11:00:00+08:00 , long_shares: 1 , long_avg_cost: 0.1301 , final_amount: 1301.00
+		 SZSE.90004232 , position long. now: 2025-02-21 11:00:00+08:00 , long_shares: 10 , long_avg_cost: 0.0654 , final_amount: 6540.00
+Long，Buy more: SZSE.90004232 ,  2025-02-21 14:17:00+08:00 , new_shares: 21 , price: 0.0456 , invest_amount: 0.9576
+current position:
+		 SZSE.90004231 , position long. now: 2025-02-21 14:17:00+08:00 , long_shares: 1 , long_avg_cost: 0.1301 , final_amount: 1301.00
+		 SZSE.90004232 , position long. now: 2025-02-21 14:17:00+08:00 , long_shares: 31 , long_avg_cost: 0.0524 , final_amount: 16244.00
+Long，Take profit:  SZSE.90004232 ,  2025-02-25 09:31:00+08:00 , profit ratio: 0.19465648854961834 , price: 0.0626
+Long，Close: SZSE.90004232 ,  2025-02-25 09:31:00+08:00 , long_shares: 31 , long_avg_cost: 0.0524 , total_amount: 16244.00
+current position:
+		 SZSE.90004231 , position long. now: 2025-02-25 09:31:00+08:00 , long_shares: 1 , long_avg_cost: 0.1301 , final_amount: 1301.00
+		 SZSE.90004232 , position long. now: 2025-02-25 09:31:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SZSE.90004232 ,  2025-02-25 09:31:00+08:00 , new_shares: 3 , price: 0.0626 , invest_amount: 0.18780000000000002
+current position:
+		 SZSE.90004231 , position long. now: 2025-02-25 09:31:00+08:00 , long_shares: 1 , long_avg_cost: 0.1301 , final_amount: 1301.00
+		 SZSE.90004232 , position long. now: 2025-02-25 09:31:00+08:00 , long_shares: 3 , long_avg_cost: 0.062 , final_amount: 1860.00
+Long，Buy more: SZSE.90004231 ,  2025-02-25 09:31:00+08:00 , new_shares: 5 , price: 0.0901 , invest_amount: 0.4505
+current position:
+		 SZSE.90004231 , position long. now: 2025-02-25 09:31:00+08:00 , long_shares: 6 , long_avg_cost: 0.0967 , final_amount: 5802.00
+		 SZSE.90004232 , position long. now: 2025-02-25 09:31:00+08:00 , long_shares: 3 , long_avg_cost: 0.062 , final_amount: 1860.00
+Long，Take profit:  SZSE.90004231 ,  2025-02-27 09:43:00+08:00 , profit ratio: 0.18407445708376433 , price: 0.1145
+Long，Close: SZSE.90004231 ,  2025-02-27 09:43:00+08:00 , long_shares: 6 , long_avg_cost: 0.0967 , total_amount: 5802.00
+current position:
+		 SZSE.90004231 , position long. now: 2025-02-27 09:43:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SZSE.90004232 , position long. now: 2025-02-27 09:43:00+08:00 , long_shares: 3 , long_avg_cost: 0.062 , final_amount: 1860.00
+Long，Buy 1st: SZSE.90004231 ,  2025-02-27 09:43:00+08:00 , new_shares: 2 , price: 0.1145 , invest_amount: 0.229
+current position:
+		 SZSE.90004231 , position long. now: 2025-02-27 09:43:00+08:00 , long_shares: 2 , long_avg_cost: 0.1148 , final_amount: 2296.00
+		 SZSE.90004232 , position long. now: 2025-02-27 09:43:00+08:00 , long_shares: 3 , long_avg_cost: 0.062 , final_amount: 1860.00
+Long，Buy more: SZSE.90004232 ,  2025-02-27 14:30:00+08:00 , new_shares: 11 , price: 0.0431 , invest_amount: 0.47409999999999997
+current position:
+		 SZSE.90004231 , position long. now: 2025-02-27 14:30:00+08:00 , long_shares: 2 , long_avg_cost: 0.1148 , final_amount: 2296.00
+		 SZSE.90004232 , position long. now: 2025-02-27 14:30:00+08:00 , long_shares: 14 , long_avg_cost: 0.0475 , final_amount: 6650.00
+Long，Take profit:  SZSE.90004232 ,  2025-02-28 10:05:00+08:00 , profit ratio: 0.15789473684210525 , price: 0.055
+Long，Close: SZSE.90004232 ,  2025-02-28 10:05:00+08:00 , long_shares: 14 , long_avg_cost: 0.0475 , total_amount: 6650.00
+current position:
+		 SZSE.90004231 , position long. now: 2025-02-28 10:05:00+08:00 , long_shares: 2 , long_avg_cost: 0.1148 , final_amount: 2296.00
+		 SZSE.90004232 , position long. now: 2025-02-28 10:05:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SZSE.90004232 ,  2025-02-28 10:05:00+08:00 , new_shares: 4 , price: 0.055 , invest_amount: 0.22
+current position:
+		 SZSE.90004231 , position long. now: 2025-02-28 10:05:00+08:00 , long_shares: 2 , long_avg_cost: 0.1148 , final_amount: 2296.00
+		 SZSE.90004232 , position long. now: 2025-02-28 10:05:00+08:00 , long_shares: 4 , long_avg_cost: 0.0552 , final_amount: 2208.00
+Long，Take profit:  SZSE.90004232 ,  2025-02-28 13:26:00+08:00 , profit ratio: 0.16666666666666666 , price: 0.0644
+Long，Close: SZSE.90004232 ,  2025-02-28 13:26:00+08:00 , long_shares: 4 , long_avg_cost: 0.0552 , total_amount: 2208.00
+current position:
+		 SZSE.90004231 , position long. now: 2025-02-28 13:26:00+08:00 , long_shares: 2 , long_avg_cost: 0.1148 , final_amount: 2296.00
+		 SZSE.90004232 , position long. now: 2025-02-28 13:26:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SZSE.90004232 ,  2025-02-28 13:26:00+08:00 , new_shares: 3 , price: 0.0644 , invest_amount: 0.19319999999999998
+current position:
+		 SZSE.90004231 , position long. now: 2025-02-28 13:26:00+08:00 , long_shares: 2 , long_avg_cost: 0.1148 , final_amount: 2296.00
+		 SZSE.90004232 , position long. now: 2025-02-28 13:26:00+08:00 , long_shares: 3 , long_avg_cost: 0.0633 , final_amount: 1899.00
+Long，Buy more: SZSE.90004231 ,  2025-02-28 13:29:00+08:00 , new_shares: 6 , price: 0.0803 , invest_amount: 0.4818
+current position:
+		 SZSE.90004231 , position long. now: 2025-02-28 13:29:00+08:00 , long_shares: 8 , long_avg_cost: 0.0895 , final_amount: 7160.00
+		 SZSE.90004232 , position long. now: 2025-02-28 13:29:00+08:00 , long_shares: 3 , long_avg_cost: 0.0633 , final_amount: 1899.00
+Long，Take profit:  SZSE.90004232 ,  2025-02-28 14:11:00+08:00 , profit ratio: 0.15007898894154834 , price: 0.0728
+Long，Close: SZSE.90004232 ,  2025-02-28 14:11:00+08:00 , long_shares: 3 , long_avg_cost: 0.0633 , total_amount: 1899.00
+current position:
+		 SZSE.90004231 , position long. now: 2025-02-28 14:11:00+08:00 , long_shares: 8 , long_avg_cost: 0.0895 , final_amount: 7160.00
+		 SZSE.90004232 , position long. now: 2025-02-28 14:11:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SZSE.90004232 ,  2025-02-28 14:11:00+08:00 , new_shares: 3 , price: 0.0728 , invest_amount: 0.2184
+current position:
+		 SZSE.90004231 , position long. now: 2025-02-28 14:11:00+08:00 , long_shares: 8 , long_avg_cost: 0.0895 , final_amount: 7160.00
+		 SZSE.90004232 , position long. now: 2025-02-28 14:11:00+08:00 , long_shares: 3 , long_avg_cost: 0.0725 , final_amount: 2175.00
+Long，Buy more: SZSE.90004231 ,  2025-03-03 14:05:00+08:00 , new_shares: 16 , price: 0.062 , invest_amount: 0.992
+current position:
+		 SZSE.90004231 , position long. now: 2025-03-03 14:05:00+08:00 , long_shares: 24 , long_avg_cost: 0.071 , final_amount: 17040.00
+		 SZSE.90004232 , position long. now: 2025-03-03 14:05:00+08:00 , long_shares: 3 , long_avg_cost: 0.0725 , final_amount: 2175.00
+Long，Take profit:  SZSE.90004232 ,  2025-03-04 09:38:00+08:00 , profit ratio: 0.18206896551724144 , price: 0.0857
+Long，Close: SZSE.90004232 ,  2025-03-04 09:38:00+08:00 , long_shares: 3 , long_avg_cost: 0.0725 , total_amount: 2175.00
+current position:
+		 SZSE.90004231 , position long. now: 2025-03-04 09:38:00+08:00 , long_shares: 24 , long_avg_cost: 0.071 , final_amount: 17040.00
+		 SZSE.90004232 , position long. now: 2025-03-04 09:38:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SZSE.90004232 ,  2025-03-04 09:38:00+08:00 , new_shares: 2 , price: 0.0857 , invest_amount: 0.1714
+current position:
+		 SZSE.90004231 , position long. now: 2025-03-04 09:38:00+08:00 , long_shares: 24 , long_avg_cost: 0.071 , final_amount: 17040.00
+		 SZSE.90004232 , position long. now: 2025-03-04 09:38:00+08:00 , long_shares: 2 , long_avg_cost: 0.0858 , final_amount: 1716.00
+Long，Buy more: SZSE.90004231 ,  2025-03-04 09:41:00+08:00 , new_shares: 40 , price: 0.0493 , invest_amount: 1.972
+current position:
+		 SZSE.90004231 , position long. now: 2025-03-04 09:41:00+08:00 , long_shares: 64 , long_avg_cost: 0.0574 , final_amount: 36736.00
+		 SZSE.90004232 , position long. now: 2025-03-04 09:41:00+08:00 , long_shares: 2 , long_avg_cost: 0.0858 , final_amount: 1716.00
+Long，Buy more: SZSE.90004232 ,  2025-03-05 13:50:00+08:00 , new_shares: 8 , price: 0.0597 , invest_amount: 0.4776
+current position:
+		 SZSE.90004231 , position long. now: 2025-03-05 13:50:00+08:00 , long_shares: 64 , long_avg_cost: 0.0574 , final_amount: 36736.00
+		 SZSE.90004232 , position long. now: 2025-03-05 13:50:00+08:00 , long_shares: 10 , long_avg_cost: 0.0644 , final_amount: 6440.00
+Long，Take profit:  SZSE.90004231 ,  2025-03-06 09:31:00+08:00 , profit ratio: 0.17595818815331019 , price: 0.0675
+Long，Close: SZSE.90004231 ,  2025-03-06 09:31:00+08:00 , long_shares: 64 , long_avg_cost: 0.0574 , total_amount: 36736.00
+current position:
+		 SZSE.90004231 , position long. now: 2025-03-06 09:31:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SZSE.90004232 , position long. now: 2025-03-06 09:31:00+08:00 , long_shares: 10 , long_avg_cost: 0.0644 , final_amount: 6440.00
+Long，Buy 1st: SZSE.90004231 ,  2025-03-06 09:31:00+08:00 , new_shares: 3 , price: 0.0675 , invest_amount: 0.2025
+current position:
+		 SZSE.90004231 , position long. now: 2025-03-06 09:31:00+08:00 , long_shares: 3 , long_avg_cost: 0.0673 , final_amount: 2019.00
+		 SZSE.90004232 , position long. now: 2025-03-06 09:31:00+08:00 , long_shares: 10 , long_avg_cost: 0.0644 , final_amount: 6440.00
+Long，Buy more: SZSE.90004232 ,  2025-03-06 09:32:00+08:00 , new_shares: 22 , price: 0.0438 , invest_amount: 0.9636
+current position:
+		 SZSE.90004231 , position long. now: 2025-03-06 09:32:00+08:00 , long_shares: 3 , long_avg_cost: 0.0673 , final_amount: 2019.00
+		 SZSE.90004232 , position long. now: 2025-03-06 09:32:00+08:00 , long_shares: 32 , long_avg_cost: 0.0501 , final_amount: 16032.00
+Long，Take profit:  SZSE.90004231 ,  2025-03-06 09:59:00+08:00 , profit ratio: 0.15453194650817245 , price: 0.0777
+Long，Close: SZSE.90004231 ,  2025-03-06 09:59:00+08:00 , long_shares: 3 , long_avg_cost: 0.0673 , total_amount: 2019.00
+current position:
+		 SZSE.90004231 , position long. now: 2025-03-06 09:59:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SZSE.90004232 , position long. now: 2025-03-06 09:59:00+08:00 , long_shares: 32 , long_avg_cost: 0.0501 , final_amount: 16032.00
+Long，Buy 1st: SZSE.90004231 ,  2025-03-06 09:59:00+08:00 , new_shares: 3 , price: 0.0777 , invest_amount: 0.23310000000000003
+current position:
+		 SZSE.90004231 , position long. now: 2025-03-06 09:59:00+08:00 , long_shares: 3 , long_avg_cost: 0.0779 , final_amount: 2337.00
+		 SZSE.90004232 , position long. now: 2025-03-06 09:59:00+08:00 , long_shares: 32 , long_avg_cost: 0.0501 , final_amount: 16032.00
+Long，Buy more: SZSE.90004232 ,  2025-03-06 10:07:00+08:00 , new_shares: 57 , price: 0.035 , invest_amount: 1.995
+current position:
+		 SZSE.90004231 , position long. now: 2025-03-06 10:07:00+08:00 , long_shares: 3 , long_avg_cost: 0.0779 , final_amount: 2337.00
+		 SZSE.90004232 , position long. now: 2025-03-06 10:07:00+08:00 , long_shares: 89 , long_avg_cost: 0.0404 , final_amount: 35956.00
+Long，Take profit:  SZSE.90004231 ,  2025-03-06 10:08:00+08:00 , profit ratio: 0.17715019255455722 , price: 0.0917
+Long，Close: SZSE.90004231 ,  2025-03-06 10:08:00+08:00 , long_shares: 3 , long_avg_cost: 0.0779 , total_amount: 2337.00
+current position:
+		 SZSE.90004231 , position long. now: 2025-03-06 10:08:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SZSE.90004232 , position long. now: 2025-03-06 10:08:00+08:00 , long_shares: 89 , long_avg_cost: 0.0404 , final_amount: 35956.00
+Long，Buy 1st: SZSE.90004231 ,  2025-03-06 10:08:00+08:00 , new_shares: 2 , price: 0.0917 , invest_amount: 0.1834
+current position:
+		 SZSE.90004231 , position long. now: 2025-03-06 10:08:00+08:00 , long_shares: 2 , long_avg_cost: 0.0917 , final_amount: 1834.00
+		 SZSE.90004232 , position long. now: 2025-03-06 10:08:00+08:00 , long_shares: 89 , long_avg_cost: 0.0404 , final_amount: 35956.00
+Long，Buy more: SZSE.90004232 ,  2025-03-07 13:21:00+08:00 , new_shares: 142 , price: 0.0281 , invest_amount: 3.9902
+current position:
+		 SZSE.90004231 , position long. now: 2025-03-07 13:21:00+08:00 , long_shares: 2 , long_avg_cost: 0.0917 , final_amount: 1834.00
+		 SZSE.90004232 , position long. now: 2025-03-07 13:21:00+08:00 , long_shares: 231 , long_avg_cost: 0.033 , final_amount: 76230.00
+Done! From start, time elapsed: 2.6431522369384766 seconds
+{'SZSE.90004232', 'SZSE.90004231'} backtest finished:  {'account_id': '95eadb57-f0cb-11ef-b05b-80304917db79', 'pnl_ratio': 0.552035975555579, 'pnl_ratio_annual': 2.0988867820602746, 'sharp_ratio': 2.396414508353082, 'max_drawdown': 0.16837270093790296, 'risk_ratio': 0.7223489682095153, 'open_count': 48, 'close_count': 23, 'win_count': 23, 'win_ratio': 1.0, 'calmar_ratio': 12.465719029086305, 'created_at': datetime.datetime(2025, 3, 23, 11, 34, 41, 980453, tzinfo=datetime.timezone(datetime.timedelta(seconds=28800), 'Asia/Shanghai')), 'updated_at': datetime.datetime(2025, 3, 23, 11, 34, 44, 584082, tzinfo=datetime.timezone(datetime.timedelta(seconds=28800), 'Asia/Shanghai')), 'lose_count': 0}
+
+Process finished with exit code 0
+
+
+
+
+
+
+
+
+
+

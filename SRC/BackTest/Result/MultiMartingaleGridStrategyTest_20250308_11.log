@@ -1,0 +1,540 @@
+context.symbol_list = [ # 3月
+    'SHSE.10008526',
+    'SHSE.10008536'
+]
+
+run(strategy_id='95eadb57-f0cb-11ef-b05b-80304917db79',
+    filename=(os.path.basename(__file__)),
+    mode=MODE_BACKTEST,
+    token='6860051c58995ae01c30a27d5b72000bababa8e6',
+    backtest_start_time='2024-12-01 09:31:00',
+    backtest_end_time='2025-03-07 15:00:00',
+    backtest_adjust=ADJUST_NONE,
+    backtest_initial_cash=31000,
+    backtest_commission_unit=4.5,
+    backtest_slippage_ratio=0.0001,
+    backtest_marginfloat_ratio1=0.2,
+    backtest_marginfloat_ratio2=0.4,
+    backtest_match_mode=0)
+
+base_investment=1000,  # 基准投资金额（元）
+multiplier=2,  # 加仓倍数
+max_layers=9,  # 最大加仓层数
+price_interval=0.25,  # 价格间隔3%。当加仓倍数是2时，平均成本下降约为价格间隔的一半。
+take_profit_ratio=0.12,  # 止盈比例（2%）
+stop_loss_ratio=0.30,  # 总亏损止损20%
+base_shares=1,  # 标的下单的最小数量（手或张）
+base_volume=10000,  # 标的每手或每张代表的交易数量
+enable_short=False,  # 是否启用做空
+
+
+D:\Workplace-Pycharm\.venv\Scripts\python.exe D:\Workplace-Pycharm\QuantitativeTransaction\SRC\sq\test\test_gm\for159869\MultiMartingaleGridStrategyTest.py
+----------------------------------------
+python sdk version: 3.0.168
+c sdk version: 3.7.4
+----------------------------------------
+Symbol List: ['SHSE.10008526', 'SHSE.10008536']
+current position:
+		 SHSE.10008526 , position long. now: 2024-12-01 09:31:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008536 , position long. now: 2024-12-01 09:31:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Base price:
+		 SHSE.10008526 , base_price: 0.1608 ,  2024-12-02 09:31:00+08:00
+Base price:
+		 SHSE.10008536 , base_price: 0.1268 ,  2024-12-02 09:31:00+08:00
+Long，Buy 1st: SHSE.10008536 ,  2024-12-10 09:31:00+08:00 , new_shares: 1 , price: 0.0815 , invest_amount: 0.0815
+current position:
+		 SHSE.10008526 , position long. now: 2024-12-10 09:31:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008536 , position long. now: 2024-12-10 09:31:00+08:00 , long_shares: 1 , long_avg_cost: 0.0815 , final_amount: 815.00
+Long，Take profit:  SHSE.10008536 ,  2024-12-10 09:33:00+08:00 , profit ratio: 0.13865030674846615 , price: 0.0928
+Long，Close: SHSE.10008536 ,  2024-12-10 09:33:00+08:00 , long_shares: 1 , long_avg_cost: 0.0815 , total_amount: 815.00
+current position:
+		 SHSE.10008526 , position long. now: 2024-12-10 09:33:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008536 , position long. now: 2024-12-10 09:33:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SHSE.10008536 ,  2024-12-10 09:33:00+08:00 , new_shares: 1 , price: 0.0928 , invest_amount: 0.0928
+current position:
+		 SHSE.10008526 , position long. now: 2024-12-10 09:33:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008536 , position long. now: 2024-12-10 09:33:00+08:00 , long_shares: 1 , long_avg_cost: 0.0865 , final_amount: 865.00
+Long，Take profit:  SHSE.10008536 ,  2024-12-10 09:42:00+08:00 , profit ratio: 0.13410404624277472 , price: 0.0981
+Long，Close: SHSE.10008536 ,  2024-12-10 09:42:00+08:00 , long_shares: 1 , long_avg_cost: 0.0865 , total_amount: 865.00
+current position:
+		 SHSE.10008526 , position long. now: 2024-12-10 09:42:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008536 , position long. now: 2024-12-10 09:42:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SHSE.10008536 ,  2024-12-10 09:42:00+08:00 , new_shares: 1 , price: 0.0981 , invest_amount: 0.0981
+current position:
+		 SHSE.10008526 , position long. now: 2024-12-10 09:42:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008536 , position long. now: 2024-12-10 09:42:00+08:00 , long_shares: 1 , long_avg_cost: 0.0981 , final_amount: 981.00
+Long，Take profit:  SHSE.10008536 ,  2024-12-13 10:01:00+08:00 , profit ratio: 0.12436289500509672 , price: 0.1103
+Long，Close: SHSE.10008536 ,  2024-12-13 10:01:00+08:00 , long_shares: 1 , long_avg_cost: 0.0981 , total_amount: 981.00
+current position:
+		 SHSE.10008526 , position long. now: 2024-12-13 10:01:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008536 , position long. now: 2024-12-13 10:01:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SHSE.10008536 ,  2024-12-17 13:31:00+08:00 , new_shares: 1 , price: 0.0984 , invest_amount: 0.0984
+current position:
+		 SHSE.10008526 , position long. now: 2024-12-17 13:31:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008536 , position long. now: 2024-12-17 13:31:00+08:00 , long_shares: 1 , long_avg_cost: 0.0987 , final_amount: 987.00
+Long，Take profit:  SHSE.10008536 ,  2024-12-19 09:31:00+08:00 , profit ratio: 0.13475177304964545 , price: 0.112
+Long，Close: SHSE.10008536 ,  2024-12-19 09:31:00+08:00 , long_shares: 1 , long_avg_cost: 0.0987 , total_amount: 987.00
+current position:
+		 SHSE.10008526 , position long. now: 2024-12-19 09:31:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008536 , position long. now: 2024-12-19 09:31:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SHSE.10008536 ,  2024-12-20 11:29:00+08:00 , new_shares: 1 , price: 0.0998 , invest_amount: 0.0998
+current position:
+		 SHSE.10008526 , position long. now: 2024-12-20 11:29:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008536 , position long. now: 2024-12-20 11:29:00+08:00 , long_shares: 1 , long_avg_cost: 0.0981 , final_amount: 981.00
+Long，Buy more: SHSE.10008536 ,  2024-12-25 09:47:00+08:00 , new_shares: 2 , price: 0.0733 , invest_amount: 0.1466
+current position:
+		 SHSE.10008526 , position long. now: 2024-12-25 09:47:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008536 , position long. now: 2024-12-25 09:47:00+08:00 , long_shares: 3 , long_avg_cost: 0.081 , final_amount: 2430.00
+Long，Buy more: SHSE.10008536 ,  2024-12-30 14:28:00+08:00 , new_shares: 6 , price: 0.0607 , invest_amount: 0.36419999999999997
+current position:
+		 SHSE.10008526 , position long. now: 2024-12-30 14:28:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008536 , position long. now: 2024-12-30 14:28:00+08:00 , long_shares: 9 , long_avg_cost: 0.0675 , final_amount: 6075.00
+Long，Take profit:  SHSE.10008536 ,  2024-12-31 14:57:00+08:00 , profit ratio: 0.12592592592592583 , price: 0.076
+Long，Close: SHSE.10008536 ,  2024-12-31 14:57:00+08:00 , long_shares: 9 , long_avg_cost: 0.0675 , total_amount: 6075.00
+current position:
+		 SHSE.10008526 , position long. now: 2024-12-31 14:57:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008536 , position long. now: 2024-12-31 14:57:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SHSE.10008536 ,  2024-12-31 14:57:00+08:00 , new_shares: 1 , price: 0.076 , invest_amount: 0.076
+current position:
+		 SHSE.10008526 , position long. now: 2024-12-31 14:57:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008536 , position long. now: 2024-12-31 14:57:00+08:00 , long_shares: 1 , long_avg_cost: 0.075 , final_amount: 750.00
+Long，Take profit:  SHSE.10008536 ,  2025-01-02 09:59:00+08:00 , profit ratio: 0.1213333333333333 , price: 0.0841
+Long，Close: SHSE.10008536 ,  2025-01-02 09:59:00+08:00 , long_shares: 1 , long_avg_cost: 0.075 , total_amount: 750.00
+current position:
+		 SHSE.10008526 , position long. now: 2025-01-02 09:59:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008536 , position long. now: 2025-01-02 09:59:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SHSE.10008536 ,  2025-01-02 09:59:00+08:00 , new_shares: 1 , price: 0.0841 , invest_amount: 0.0841
+current position:
+		 SHSE.10008526 , position long. now: 2025-01-02 09:59:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008536 , position long. now: 2025-01-02 09:59:00+08:00 , long_shares: 1 , long_avg_cost: 0.085 , final_amount: 850.00
+Long，Take profit:  SHSE.10008536 ,  2025-01-02 13:13:00+08:00 , profit ratio: 0.12117647058823516 , price: 0.0953
+Long，Close: SHSE.10008536 ,  2025-01-02 13:13:00+08:00 , long_shares: 1 , long_avg_cost: 0.085 , total_amount: 850.00
+current position:
+		 SHSE.10008526 , position long. now: 2025-01-02 13:13:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008536 , position long. now: 2025-01-02 13:13:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SHSE.10008536 ,  2025-01-02 13:13:00+08:00 , new_shares: 1 , price: 0.0953 , invest_amount: 0.0953
+current position:
+		 SHSE.10008526 , position long. now: 2025-01-02 13:13:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008536 , position long. now: 2025-01-02 13:13:00+08:00 , long_shares: 1 , long_avg_cost: 0.096 , final_amount: 960.00
+Long，Take profit:  SHSE.10008536 ,  2025-01-02 13:49:00+08:00 , profit ratio: 0.12708333333333335 , price: 0.1082
+Long，Close: SHSE.10008536 ,  2025-01-02 13:49:00+08:00 , long_shares: 1 , long_avg_cost: 0.096 , total_amount: 960.00
+current position:
+		 SHSE.10008526 , position long. now: 2025-01-02 13:49:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008536 , position long. now: 2025-01-02 13:49:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SHSE.10008526 ,  2025-01-03 14:12:00+08:00 , new_shares: 1 , price: 0.1 , invest_amount: 0.1
+current position:
+		 SHSE.10008526 , position long. now: 2025-01-03 14:12:00+08:00 , long_shares: 1 , long_avg_cost: 0.0992 , final_amount: 992.00
+		 SHSE.10008536 , position long. now: 2025-01-03 14:12:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy more: SHSE.10008526 ,  2025-01-13 09:31:00+08:00 , new_shares: 2 , price: 0.0717 , invest_amount: 0.1434
+current position:
+		 SHSE.10008526 , position long. now: 2025-01-13 09:31:00+08:00 , long_shares: 3 , long_avg_cost: 0.081 , final_amount: 2430.00
+		 SHSE.10008536 , position long. now: 2025-01-13 09:31:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Take profit:  SHSE.10008526 ,  2025-01-14 11:04:00+08:00 , profit ratio: 0.12839506172839496 , price: 0.0914
+Long，Close: SHSE.10008526 ,  2025-01-14 11:04:00+08:00 , long_shares: 3 , long_avg_cost: 0.081 , total_amount: 2430.00
+current position:
+		 SHSE.10008526 , position long. now: 2025-01-14 11:04:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008536 , position long. now: 2025-01-14 11:04:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SHSE.10008526 ,  2025-01-14 11:04:00+08:00 , new_shares: 1 , price: 0.0914 , invest_amount: 0.0914
+current position:
+		 SHSE.10008526 , position long. now: 2025-01-14 11:04:00+08:00 , long_shares: 1 , long_avg_cost: 0.0909 , final_amount: 909.00
+		 SHSE.10008536 , position long. now: 2025-01-14 11:04:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Take profit:  SHSE.10008526 ,  2025-01-14 14:06:00+08:00 , profit ratio: 0.12651265126512662 , price: 0.1024
+Long，Close: SHSE.10008526 ,  2025-01-14 14:06:00+08:00 , long_shares: 1 , long_avg_cost: 0.0909 , total_amount: 909.00
+current position:
+		 SHSE.10008526 , position long. now: 2025-01-14 14:06:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008536 , position long. now: 2025-01-14 14:06:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SHSE.10008526 ,  2025-01-14 14:12:00+08:00 , new_shares: 1 , price: 0.0976 , invest_amount: 0.0976
+current position:
+		 SHSE.10008526 , position long. now: 2025-01-14 14:12:00+08:00 , long_shares: 1 , long_avg_cost: 0.0978 , final_amount: 978.00
+		 SHSE.10008536 , position long. now: 2025-01-14 14:12:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SHSE.10008536 ,  2025-01-16 09:38:00+08:00 , new_shares: 1 , price: 0.0999 , invest_amount: 0.0999
+current position:
+		 SHSE.10008526 , position long. now: 2025-01-16 09:38:00+08:00 , long_shares: 1 , long_avg_cost: 0.0978 , final_amount: 978.00
+		 SHSE.10008536 , position long. now: 2025-01-16 09:38:00+08:00 , long_shares: 1 , long_avg_cost: 0.0992 , final_amount: 992.00
+Long，Take profit:  SHSE.10008536 ,  2025-01-16 10:38:00+08:00 , profit ratio: 0.126008064516129 , price: 0.1117
+Long，Close: SHSE.10008536 ,  2025-01-16 10:38:00+08:00 , long_shares: 1 , long_avg_cost: 0.0992 , total_amount: 992.00
+current position:
+		 SHSE.10008526 , position long. now: 2025-01-16 10:38:00+08:00 , long_shares: 1 , long_avg_cost: 0.0978 , final_amount: 978.00
+		 SHSE.10008536 , position long. now: 2025-01-16 10:38:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy more: SHSE.10008526 ,  2025-01-22 09:47:00+08:00 , new_shares: 2 , price: 0.073 , invest_amount: 0.146
+current position:
+		 SHSE.10008526 , position long. now: 2025-01-22 09:47:00+08:00 , long_shares: 3 , long_avg_cost: 0.0814 , final_amount: 2442.00
+		 SHSE.10008536 , position long. now: 2025-01-22 09:47:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Take profit:  SHSE.10008526 ,  2025-01-23 09:38:00+08:00 , profit ratio: 0.12407862407862405 , price: 0.0915
+Long，Close: SHSE.10008526 ,  2025-01-23 09:38:00+08:00 , long_shares: 3 , long_avg_cost: 0.0814 , total_amount: 2442.00
+current position:
+		 SHSE.10008526 , position long. now: 2025-01-23 09:38:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008536 , position long. now: 2025-01-23 09:38:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SHSE.10008526 ,  2025-01-23 09:38:00+08:00 , new_shares: 1 , price: 0.0915 , invest_amount: 0.0915
+current position:
+		 SHSE.10008526 , position long. now: 2025-01-23 09:38:00+08:00 , long_shares: 1 , long_avg_cost: 0.0919 , final_amount: 919.00
+		 SHSE.10008536 , position long. now: 2025-01-23 09:38:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy more: SHSE.10008526 ,  2025-02-05 09:32:00+08:00 , new_shares: 2 , price: 0.0684 , invest_amount: 0.1368
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-05 09:32:00+08:00 , long_shares: 3 , long_avg_cost: 0.0765 , final_amount: 2295.00
+		 SHSE.10008536 , position long. now: 2025-02-05 09:32:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy more: SHSE.10008526 ,  2025-02-05 13:05:00+08:00 , new_shares: 6 , price: 0.0573 , invest_amount: 0.3438
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-05 13:05:00+08:00 , long_shares: 9 , long_avg_cost: 0.0636 , final_amount: 5724.00
+		 SHSE.10008536 , position long. now: 2025-02-05 13:05:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SHSE.10008536 ,  2025-02-06 10:58:00+08:00 , new_shares: 1 , price: 0.0999 , invest_amount: 0.0999
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-06 10:58:00+08:00 , long_shares: 9 , long_avg_cost: 0.0636 , final_amount: 5724.00
+		 SHSE.10008536 , position long. now: 2025-02-06 10:58:00+08:00 , long_shares: 1 , long_avg_cost: 0.0984 , final_amount: 984.00
+Long，Take profit:  SHSE.10008526 ,  2025-02-07 10:06:00+08:00 , profit ratio: 0.13050314465408808 , price: 0.0719
+Long，Close: SHSE.10008526 ,  2025-02-07 10:06:00+08:00 , long_shares: 9 , long_avg_cost: 0.0636 , total_amount: 5724.00
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-07 10:06:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008536 , position long. now: 2025-02-07 10:06:00+08:00 , long_shares: 1 , long_avg_cost: 0.0984 , final_amount: 984.00
+Long，Buy 1st: SHSE.10008526 ,  2025-02-07 10:06:00+08:00 , new_shares: 1 , price: 0.0719 , invest_amount: 0.0719
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-07 10:06:00+08:00 , long_shares: 1 , long_avg_cost: 0.0716 , final_amount: 716.00
+		 SHSE.10008536 , position long. now: 2025-02-07 10:06:00+08:00 , long_shares: 1 , long_avg_cost: 0.0984 , final_amount: 984.00
+Long，Take profit:  SHSE.10008526 ,  2025-02-07 11:17:00+08:00 , profit ratio: 0.13407821229050276 , price: 0.0812
+Long，Close: SHSE.10008526 ,  2025-02-07 11:17:00+08:00 , long_shares: 1 , long_avg_cost: 0.0716 , total_amount: 716.00
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-07 11:17:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008536 , position long. now: 2025-02-07 11:17:00+08:00 , long_shares: 1 , long_avg_cost: 0.0984 , final_amount: 984.00
+Long，Buy 1st: SHSE.10008526 ,  2025-02-07 11:17:00+08:00 , new_shares: 1 , price: 0.0812 , invest_amount: 0.0812
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-07 11:17:00+08:00 , long_shares: 1 , long_avg_cost: 0.0812 , final_amount: 812.00
+		 SHSE.10008536 , position long. now: 2025-02-07 11:17:00+08:00 , long_shares: 1 , long_avg_cost: 0.0984 , final_amount: 984.00
+Long，Buy more: SHSE.10008536 ,  2025-02-07 13:26:00+08:00 , new_shares: 2 , price: 0.0726 , invest_amount: 0.1452
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-07 13:26:00+08:00 , long_shares: 1 , long_avg_cost: 0.0812 , final_amount: 812.00
+		 SHSE.10008536 , position long. now: 2025-02-07 13:26:00+08:00 , long_shares: 3 , long_avg_cost: 0.0813 , final_amount: 2439.00
+Long，Take profit:  SHSE.10008526 ,  2025-02-07 13:26:00+08:00 , profit ratio: 0.12931034482758633 , price: 0.0917
+Long，Close: SHSE.10008526 ,  2025-02-07 13:26:00+08:00 , long_shares: 1 , long_avg_cost: 0.0812 , total_amount: 812.00
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-07 13:26:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008536 , position long. now: 2025-02-07 13:26:00+08:00 , long_shares: 3 , long_avg_cost: 0.0813 , final_amount: 2439.00
+Long，Buy 1st: SHSE.10008526 ,  2025-02-07 13:26:00+08:00 , new_shares: 1 , price: 0.0917 , invest_amount: 0.0917
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-07 13:26:00+08:00 , long_shares: 1 , long_avg_cost: 0.0912 , final_amount: 912.00
+		 SHSE.10008536 , position long. now: 2025-02-07 13:26:00+08:00 , long_shares: 3 , long_avg_cost: 0.0813 , final_amount: 2439.00
+Long，Take profit:  SHSE.10008536 ,  2025-02-07 14:21:00+08:00 , profit ratio: 0.1217712177121772 , price: 0.0912
+Long，Close: SHSE.10008536 ,  2025-02-07 14:21:00+08:00 , long_shares: 3 , long_avg_cost: 0.0813 , total_amount: 2439.00
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-07 14:21:00+08:00 , long_shares: 1 , long_avg_cost: 0.0912 , final_amount: 912.00
+		 SHSE.10008536 , position long. now: 2025-02-07 14:21:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SHSE.10008536 ,  2025-02-07 14:21:00+08:00 , new_shares: 1 , price: 0.0912 , invest_amount: 0.0912
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-07 14:21:00+08:00 , long_shares: 1 , long_avg_cost: 0.0912 , final_amount: 912.00
+		 SHSE.10008536 , position long. now: 2025-02-07 14:21:00+08:00 , long_shares: 1 , long_avg_cost: 0.0912 , final_amount: 912.00
+Long，Buy more: SHSE.10008526 ,  2025-02-07 14:23:00+08:00 , new_shares: 2 , price: 0.0674 , invest_amount: 0.1348
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-07 14:23:00+08:00 , long_shares: 3 , long_avg_cost: 0.0755 , final_amount: 2265.00
+		 SHSE.10008536 , position long. now: 2025-02-07 14:23:00+08:00 , long_shares: 1 , long_avg_cost: 0.0912 , final_amount: 912.00
+Long，Take profit:  SHSE.10008526 ,  2025-02-10 09:59:00+08:00 , profit ratio: 0.12317880794701991 , price: 0.0848
+Long，Close: SHSE.10008526 ,  2025-02-10 09:59:00+08:00 , long_shares: 3 , long_avg_cost: 0.0755 , total_amount: 2265.00
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-10 09:59:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008536 , position long. now: 2025-02-10 09:59:00+08:00 , long_shares: 1 , long_avg_cost: 0.0912 , final_amount: 912.00
+Long，Buy 1st: SHSE.10008526 ,  2025-02-10 09:59:00+08:00 , new_shares: 1 , price: 0.0848 , invest_amount: 0.0848
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-10 09:59:00+08:00 , long_shares: 1 , long_avg_cost: 0.0849 , final_amount: 849.00
+		 SHSE.10008536 , position long. now: 2025-02-10 09:59:00+08:00 , long_shares: 1 , long_avg_cost: 0.0912 , final_amount: 912.00
+Long，Buy more: SHSE.10008536 ,  2025-02-12 10:01:00+08:00 , new_shares: 2 , price: 0.0683 , invest_amount: 0.1366
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-12 10:01:00+08:00 , long_shares: 1 , long_avg_cost: 0.0849 , final_amount: 849.00
+		 SHSE.10008536 , position long. now: 2025-02-12 10:01:00+08:00 , long_shares: 3 , long_avg_cost: 0.0761 , final_amount: 2283.00
+Long，Buy more: SHSE.10008536 ,  2025-02-12 14:46:00+08:00 , new_shares: 7 , price: 0.056 , invest_amount: 0.392
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-12 14:46:00+08:00 , long_shares: 1 , long_avg_cost: 0.0849 , final_amount: 849.00
+		 SHSE.10008536 , position long. now: 2025-02-12 14:46:00+08:00 , long_shares: 10 , long_avg_cost: 0.0624 , final_amount: 6240.00
+Long，Take profit:  SHSE.10008526 ,  2025-02-13 10:01:00+08:00 , profit ratio: 0.13545347467608948 , price: 0.0964
+Long，Close: SHSE.10008526 ,  2025-02-13 10:01:00+08:00 , long_shares: 1 , long_avg_cost: 0.0849 , total_amount: 849.00
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-13 10:01:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008536 , position long. now: 2025-02-13 10:01:00+08:00 , long_shares: 10 , long_avg_cost: 0.0624 , final_amount: 6240.00
+Long，Buy 1st: SHSE.10008526 ,  2025-02-13 10:01:00+08:00 , new_shares: 1 , price: 0.0964 , invest_amount: 0.0964
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-13 10:01:00+08:00 , long_shares: 1 , long_avg_cost: 0.0956 , final_amount: 956.00
+		 SHSE.10008536 , position long. now: 2025-02-13 10:01:00+08:00 , long_shares: 10 , long_avg_cost: 0.0624 , final_amount: 6240.00
+Long，Take profit:  SHSE.10008526 ,  2025-02-13 14:13:00+08:00 , profit ratio: 0.14644351464435143 , price: 0.1096
+Long，Close: SHSE.10008526 ,  2025-02-13 14:13:00+08:00 , long_shares: 1 , long_avg_cost: 0.0956 , total_amount: 956.00
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-13 14:13:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008536 , position long. now: 2025-02-13 14:13:00+08:00 , long_shares: 10 , long_avg_cost: 0.0624 , final_amount: 6240.00
+Long，Buy more: SHSE.10008536 ,  2025-02-13 14:13:00+08:00 , new_shares: 17 , price: 0.0464 , invest_amount: 0.7888
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-13 14:13:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008536 , position long. now: 2025-02-13 14:13:00+08:00 , long_shares: 27 , long_avg_cost: 0.0527 , final_amount: 14229.00
+Long，Buy 1st: SHSE.10008526 ,  2025-02-13 14:24:00+08:00 , new_shares: 1 , price: 0.1 , invest_amount: 0.1
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-13 14:24:00+08:00 , long_shares: 1 , long_avg_cost: 0.0998 , final_amount: 998.00
+		 SHSE.10008536 , position long. now: 2025-02-13 14:24:00+08:00 , long_shares: 27 , long_avg_cost: 0.0527 , final_amount: 14229.00
+Long，Buy more: SHSE.10008536 ,  2025-02-17 09:35:00+08:00 , new_shares: 41 , price: 0.0389 , invest_amount: 1.5949
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-17 09:35:00+08:00 , long_shares: 1 , long_avg_cost: 0.0998 , final_amount: 998.00
+		 SHSE.10008536 , position long. now: 2025-02-17 09:35:00+08:00 , long_shares: 68 , long_avg_cost: 0.0447 , final_amount: 30396.00
+Long，Take profit:  SHSE.10008536 ,  2025-02-17 13:39:00+08:00 , profit ratio: 0.12751677852349003 , price: 0.0504
+Long，Close: SHSE.10008536 ,  2025-02-17 13:39:00+08:00 , long_shares: 68 , long_avg_cost: 0.0447 , total_amount: 30396.00
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-17 13:39:00+08:00 , long_shares: 1 , long_avg_cost: 0.0998 , final_amount: 998.00
+		 SHSE.10008536 , position long. now: 2025-02-17 13:39:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SHSE.10008536 ,  2025-02-17 13:39:00+08:00 , new_shares: 1 , price: 0.0504 , invest_amount: 0.0504
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-17 13:39:00+08:00 , long_shares: 1 , long_avg_cost: 0.0998 , final_amount: 998.00
+		 SHSE.10008536 , position long. now: 2025-02-17 13:39:00+08:00 , long_shares: 1 , long_avg_cost: 0.0507 , final_amount: 507.00
+Long，Buy more: SHSE.10008536 ,  2025-02-18 10:41:00+08:00 , new_shares: 5 , price: 0.0378 , invest_amount: 0.189
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-18 10:41:00+08:00 , long_shares: 1 , long_avg_cost: 0.0998 , final_amount: 998.00
+		 SHSE.10008536 , position long. now: 2025-02-18 10:41:00+08:00 , long_shares: 6 , long_avg_cost: 0.0401 , final_amount: 2406.00
+Long，Take profit:  SHSE.10008526 ,  2025-02-18 10:46:00+08:00 , profit ratio: 0.123246492985972 , price: 0.1121
+Long，Close: SHSE.10008526 ,  2025-02-18 10:46:00+08:00 , long_shares: 1 , long_avg_cost: 0.0998 , total_amount: 998.00
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-18 10:46:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008536 , position long. now: 2025-02-18 10:46:00+08:00 , long_shares: 6 , long_avg_cost: 0.0401 , final_amount: 2406.00
+Long，Buy 1st: SHSE.10008526 ,  2025-02-18 14:11:00+08:00 , new_shares: 1 , price: 0.0988 , invest_amount: 0.0988
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-18 14:11:00+08:00 , long_shares: 1 , long_avg_cost: 0.0988 , final_amount: 988.00
+		 SHSE.10008536 , position long. now: 2025-02-18 14:11:00+08:00 , long_shares: 6 , long_avg_cost: 0.0401 , final_amount: 2406.00
+Long，Take profit:  SHSE.10008536 ,  2025-02-18 14:18:00+08:00 , profit ratio: 0.13715710723192034 , price: 0.0456
+Long，Close: SHSE.10008536 ,  2025-02-18 14:18:00+08:00 , long_shares: 6 , long_avg_cost: 0.0401 , total_amount: 2406.00
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-18 14:18:00+08:00 , long_shares: 1 , long_avg_cost: 0.0988 , final_amount: 988.00
+		 SHSE.10008536 , position long. now: 2025-02-18 14:18:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SHSE.10008536 ,  2025-02-18 14:18:00+08:00 , new_shares: 2 , price: 0.0456 , invest_amount: 0.0912
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-18 14:18:00+08:00 , long_shares: 1 , long_avg_cost: 0.0988 , final_amount: 988.00
+		 SHSE.10008536 , position long. now: 2025-02-18 14:18:00+08:00 , long_shares: 2 , long_avg_cost: 0.046 , final_amount: 920.00
+Long，Take profit:  SHSE.10008536 ,  2025-02-18 14:39:00+08:00 , profit ratio: 0.12608695652173912 , price: 0.0518
+Long，Close: SHSE.10008536 ,  2025-02-18 14:39:00+08:00 , long_shares: 2 , long_avg_cost: 0.046 , total_amount: 920.00
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-18 14:39:00+08:00 , long_shares: 1 , long_avg_cost: 0.0988 , final_amount: 988.00
+		 SHSE.10008536 , position long. now: 2025-02-18 14:39:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SHSE.10008536 ,  2025-02-18 14:39:00+08:00 , new_shares: 1 , price: 0.0518 , invest_amount: 0.0518
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-18 14:39:00+08:00 , long_shares: 1 , long_avg_cost: 0.0988 , final_amount: 988.00
+		 SHSE.10008536 , position long. now: 2025-02-18 14:39:00+08:00 , long_shares: 1 , long_avg_cost: 0.0517 , final_amount: 517.00
+Long，Buy more: SHSE.10008536 ,  2025-02-19 10:35:00+08:00 , new_shares: 5 , price: 0.0381 , invest_amount: 0.1905
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-19 10:35:00+08:00 , long_shares: 1 , long_avg_cost: 0.0988 , final_amount: 988.00
+		 SHSE.10008536 , position long. now: 2025-02-19 10:35:00+08:00 , long_shares: 6 , long_avg_cost: 0.0401 , final_amount: 2406.00
+Long，Take profit:  SHSE.10008536 ,  2025-02-20 09:57:00+08:00 , profit ratio: 0.13466334164588534 , price: 0.0455
+Long，Close: SHSE.10008536 ,  2025-02-20 09:57:00+08:00 , long_shares: 6 , long_avg_cost: 0.0401 , total_amount: 2406.00
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-20 09:57:00+08:00 , long_shares: 1 , long_avg_cost: 0.0988 , final_amount: 988.00
+		 SHSE.10008536 , position long. now: 2025-02-20 09:57:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SHSE.10008536 ,  2025-02-20 09:57:00+08:00 , new_shares: 2 , price: 0.0455 , invest_amount: 0.091
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-20 09:57:00+08:00 , long_shares: 1 , long_avg_cost: 0.0988 , final_amount: 988.00
+		 SHSE.10008536 , position long. now: 2025-02-20 09:57:00+08:00 , long_shares: 2 , long_avg_cost: 0.0454 , final_amount: 908.00
+Long，Buy more: SHSE.10008536 ,  2025-02-21 10:41:00+08:00 , new_shares: 5 , price: 0.0334 , invest_amount: 0.16699999999999998
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-21 10:41:00+08:00 , long_shares: 1 , long_avg_cost: 0.0988 , final_amount: 988.00
+		 SHSE.10008536 , position long. now: 2025-02-21 10:41:00+08:00 , long_shares: 7 , long_avg_cost: 0.0371 , final_amount: 2597.00
+Long，Take profit:  SHSE.10008526 ,  2025-02-21 10:48:00+08:00 , profit ratio: 0.14170040485829957 , price: 0.1128
+Long，Close: SHSE.10008526 ,  2025-02-21 10:48:00+08:00 , long_shares: 1 , long_avg_cost: 0.0988 , total_amount: 988.00
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-21 10:48:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008536 , position long. now: 2025-02-21 10:48:00+08:00 , long_shares: 7 , long_avg_cost: 0.0371 , final_amount: 2597.00
+Long，Buy 1st: SHSE.10008526 ,  2025-02-24 09:32:00+08:00 , new_shares: 1 , price: 0.1 , invest_amount: 0.1
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-24 09:32:00+08:00 , long_shares: 1 , long_avg_cost: 0.0998 , final_amount: 998.00
+		 SHSE.10008536 , position long. now: 2025-02-24 09:32:00+08:00 , long_shares: 7 , long_avg_cost: 0.0371 , final_amount: 2597.00
+Long，Take profit:  SHSE.10008526 ,  2025-02-24 09:40:00+08:00 , profit ratio: 0.12024048096192382 , price: 0.1118
+Long，Close: SHSE.10008526 ,  2025-02-24 09:40:00+08:00 , long_shares: 1 , long_avg_cost: 0.0998 , total_amount: 998.00
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-24 09:40:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008536 , position long. now: 2025-02-24 09:40:00+08:00 , long_shares: 7 , long_avg_cost: 0.0371 , final_amount: 2597.00
+Long，Buy more: SHSE.10008536 ,  2025-02-24 09:48:00+08:00 , new_shares: 14 , price: 0.0274 , invest_amount: 0.3836
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-24 09:48:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008536 , position long. now: 2025-02-24 09:48:00+08:00 , long_shares: 21 , long_avg_cost: 0.0307 , final_amount: 6447.00
+Long，Buy 1st: SHSE.10008526 ,  2025-02-24 14:01:00+08:00 , new_shares: 1 , price: 0.0995 , invest_amount: 0.0995
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-24 14:01:00+08:00 , long_shares: 1 , long_avg_cost: 0.099 , final_amount: 990.00
+		 SHSE.10008536 , position long. now: 2025-02-24 14:01:00+08:00 , long_shares: 21 , long_avg_cost: 0.0307 , final_amount: 6447.00
+Long，Take profit:  SHSE.10008536 ,  2025-02-24 14:02:00+08:00 , profit ratio: 0.13029315960912052 , price: 0.0347
+Long，Close: SHSE.10008536 ,  2025-02-24 14:02:00+08:00 , long_shares: 21 , long_avg_cost: 0.0307 , total_amount: 6447.00
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-24 14:02:00+08:00 , long_shares: 1 , long_avg_cost: 0.099 , final_amount: 990.00
+		 SHSE.10008536 , position long. now: 2025-02-24 14:02:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SHSE.10008536 ,  2025-02-24 14:02:00+08:00 , new_shares: 2 , price: 0.0347 , invest_amount: 0.0694
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-24 14:02:00+08:00 , long_shares: 1 , long_avg_cost: 0.099 , final_amount: 990.00
+		 SHSE.10008536 , position long. now: 2025-02-24 14:02:00+08:00 , long_shares: 2 , long_avg_cost: 0.0348 , final_amount: 696.00
+Long，Take profit:  SHSE.10008536 ,  2025-02-25 09:31:00+08:00 , profit ratio: 0.1810344827586207 , price: 0.0411
+Long，Close: SHSE.10008536 ,  2025-02-25 09:31:00+08:00 , long_shares: 2 , long_avg_cost: 0.0348 , total_amount: 696.00
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-25 09:31:00+08:00 , long_shares: 1 , long_avg_cost: 0.099 , final_amount: 990.00
+		 SHSE.10008536 , position long. now: 2025-02-25 09:31:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SHSE.10008536 ,  2025-02-25 09:31:00+08:00 , new_shares: 2 , price: 0.0411 , invest_amount: 0.0822
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-25 09:31:00+08:00 , long_shares: 1 , long_avg_cost: 0.099 , final_amount: 990.00
+		 SHSE.10008536 , position long. now: 2025-02-25 09:31:00+08:00 , long_shares: 2 , long_avg_cost: 0.0411 , final_amount: 822.00
+Long，Buy more: SHSE.10008526 ,  2025-02-25 14:36:00+08:00 , new_shares: 2 , price: 0.0741 , invest_amount: 0.1482
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-25 14:36:00+08:00 , long_shares: 3 , long_avg_cost: 0.0824 , final_amount: 2472.00
+		 SHSE.10008536 , position long. now: 2025-02-25 14:36:00+08:00 , long_shares: 2 , long_avg_cost: 0.0411 , final_amount: 822.00
+Long，Take profit:  SHSE.10008536 ,  2025-02-25 14:36:00+08:00 , profit ratio: 0.1411192214111922 , price: 0.0469
+Long，Close: SHSE.10008536 ,  2025-02-25 14:36:00+08:00 , long_shares: 2 , long_avg_cost: 0.0411 , total_amount: 822.00
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-25 14:36:00+08:00 , long_shares: 3 , long_avg_cost: 0.0824 , final_amount: 2472.00
+		 SHSE.10008536 , position long. now: 2025-02-25 14:36:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SHSE.10008536 ,  2025-02-25 14:36:00+08:00 , new_shares: 2 , price: 0.0469 , invest_amount: 0.0938
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-25 14:36:00+08:00 , long_shares: 3 , long_avg_cost: 0.0824 , final_amount: 2472.00
+		 SHSE.10008536 , position long. now: 2025-02-25 14:36:00+08:00 , long_shares: 2 , long_avg_cost: 0.0469 , final_amount: 938.00
+Long，Buy more: SHSE.10008536 ,  2025-02-26 11:06:00+08:00 , new_shares: 5 , price: 0.0344 , invest_amount: 0.172
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-26 11:06:00+08:00 , long_shares: 3 , long_avg_cost: 0.0824 , final_amount: 2472.00
+		 SHSE.10008536 , position long. now: 2025-02-26 11:06:00+08:00 , long_shares: 7 , long_avg_cost: 0.0379 , final_amount: 2653.00
+Long，Take profit:  SHSE.10008526 ,  2025-02-26 13:59:00+08:00 , profit ratio: 0.12257281553398056 , price: 0.0925
+Long，Close: SHSE.10008526 ,  2025-02-26 13:59:00+08:00 , long_shares: 3 , long_avg_cost: 0.0824 , total_amount: 2472.00
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-26 13:59:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008536 , position long. now: 2025-02-26 13:59:00+08:00 , long_shares: 7 , long_avg_cost: 0.0379 , final_amount: 2653.00
+Long，Buy 1st: SHSE.10008526 ,  2025-02-26 13:59:00+08:00 , new_shares: 1 , price: 0.0925 , invest_amount: 0.0925
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-26 13:59:00+08:00 , long_shares: 1 , long_avg_cost: 0.0922 , final_amount: 922.00
+		 SHSE.10008536 , position long. now: 2025-02-26 13:59:00+08:00 , long_shares: 7 , long_avg_cost: 0.0379 , final_amount: 2653.00
+Long，Take profit:  SHSE.10008526 ,  2025-02-27 09:50:00+08:00 , profit ratio: 0.12147505422993493 , price: 0.1034
+Long，Close: SHSE.10008526 ,  2025-02-27 09:50:00+08:00 , long_shares: 1 , long_avg_cost: 0.0922 , total_amount: 922.00
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-27 09:50:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008536 , position long. now: 2025-02-27 09:50:00+08:00 , long_shares: 7 , long_avg_cost: 0.0379 , final_amount: 2653.00
+Long，Buy 1st: SHSE.10008526 ,  2025-02-27 09:52:00+08:00 , new_shares: 1 , price: 0.0987 , invest_amount: 0.0987
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-27 09:52:00+08:00 , long_shares: 1 , long_avg_cost: 0.0988 , final_amount: 988.00
+		 SHSE.10008536 , position long. now: 2025-02-27 09:52:00+08:00 , long_shares: 7 , long_avg_cost: 0.0379 , final_amount: 2653.00
+Long，Buy more: SHSE.10008536 ,  2025-02-27 14:29:00+08:00 , new_shares: 14 , price: 0.0282 , invest_amount: 0.3948
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-27 14:29:00+08:00 , long_shares: 1 , long_avg_cost: 0.0988 , final_amount: 988.00
+		 SHSE.10008536 , position long. now: 2025-02-27 14:29:00+08:00 , long_shares: 21 , long_avg_cost: 0.0314 , final_amount: 6594.00
+Long，Take profit:  SHSE.10008526 ,  2025-02-28 09:45:00+08:00 , profit ratio: 0.1325910931174089 , price: 0.1119
+Long，Close: SHSE.10008526 ,  2025-02-28 09:45:00+08:00 , long_shares: 1 , long_avg_cost: 0.0988 , total_amount: 988.00
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-28 09:45:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008536 , position long. now: 2025-02-28 09:45:00+08:00 , long_shares: 21 , long_avg_cost: 0.0314 , final_amount: 6594.00
+Long，Buy 1st: SHSE.10008526 ,  2025-02-28 10:01:00+08:00 , new_shares: 1 , price: 0.0997 , invest_amount: 0.0997
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-28 10:01:00+08:00 , long_shares: 1 , long_avg_cost: 0.1001 , final_amount: 1001.00
+		 SHSE.10008536 , position long. now: 2025-02-28 10:01:00+08:00 , long_shares: 21 , long_avg_cost: 0.0314 , final_amount: 6594.00
+Long，Take profit:  SHSE.10008536 ,  2025-02-28 13:20:00+08:00 , profit ratio: 0.13375796178343957 , price: 0.0356
+Long，Close: SHSE.10008536 ,  2025-02-28 13:20:00+08:00 , long_shares: 21 , long_avg_cost: 0.0314 , total_amount: 6594.00
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-28 13:20:00+08:00 , long_shares: 1 , long_avg_cost: 0.1001 , final_amount: 1001.00
+		 SHSE.10008536 , position long. now: 2025-02-28 13:20:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SHSE.10008536 ,  2025-02-28 13:20:00+08:00 , new_shares: 2 , price: 0.0356 , invest_amount: 0.0712
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-28 13:20:00+08:00 , long_shares: 1 , long_avg_cost: 0.1001 , final_amount: 1001.00
+		 SHSE.10008536 , position long. now: 2025-02-28 13:20:00+08:00 , long_shares: 2 , long_avg_cost: 0.0357 , final_amount: 714.00
+Long，Take profit:  SHSE.10008536 ,  2025-02-28 14:01:00+08:00 , profit ratio: 0.12324929971988778 , price: 0.0401
+Long，Close: SHSE.10008536 ,  2025-02-28 14:01:00+08:00 , long_shares: 2 , long_avg_cost: 0.0357 , total_amount: 714.00
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-28 14:01:00+08:00 , long_shares: 1 , long_avg_cost: 0.1001 , final_amount: 1001.00
+		 SHSE.10008536 , position long. now: 2025-02-28 14:01:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SHSE.10008536 ,  2025-02-28 14:01:00+08:00 , new_shares: 2 , price: 0.0401 , invest_amount: 0.0802
+current position:
+		 SHSE.10008526 , position long. now: 2025-02-28 14:01:00+08:00 , long_shares: 1 , long_avg_cost: 0.1001 , final_amount: 1001.00
+		 SHSE.10008536 , position long. now: 2025-02-28 14:01:00+08:00 , long_shares: 2 , long_avg_cost: 0.0401 , final_amount: 802.00
+Long，Buy more: SHSE.10008526 ,  2025-03-03 11:27:00+08:00 , new_shares: 2 , price: 0.0749 , invest_amount: 0.1498
+current position:
+		 SHSE.10008526 , position long. now: 2025-03-03 11:27:00+08:00 , long_shares: 3 , long_avg_cost: 0.0834 , final_amount: 2502.00
+		 SHSE.10008536 , position long. now: 2025-03-03 11:27:00+08:00 , long_shares: 2 , long_avg_cost: 0.0401 , final_amount: 802.00
+Long，Take profit:  SHSE.10008536 ,  2025-03-03 13:53:00+08:00 , profit ratio: 0.12468827930174575 , price: 0.0451
+Long，Close: SHSE.10008536 ,  2025-03-03 13:53:00+08:00 , long_shares: 2 , long_avg_cost: 0.0401 , total_amount: 802.00
+current position:
+		 SHSE.10008526 , position long. now: 2025-03-03 13:53:00+08:00 , long_shares: 3 , long_avg_cost: 0.0834 , final_amount: 2502.00
+		 SHSE.10008536 , position long. now: 2025-03-03 13:53:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SHSE.10008536 ,  2025-03-03 13:53:00+08:00 , new_shares: 2 , price: 0.0451 , invest_amount: 0.0902
+current position:
+		 SHSE.10008526 , position long. now: 2025-03-03 13:53:00+08:00 , long_shares: 3 , long_avg_cost: 0.0834 , final_amount: 2502.00
+		 SHSE.10008536 , position long. now: 2025-03-03 13:53:00+08:00 , long_shares: 2 , long_avg_cost: 0.0449 , final_amount: 898.00
+Long，Buy more: SHSE.10008526 ,  2025-03-03 14:14:00+08:00 , new_shares: 6 , price: 0.0622 , invest_amount: 0.3732
+current position:
+		 SHSE.10008526 , position long. now: 2025-03-03 14:14:00+08:00 , long_shares: 9 , long_avg_cost: 0.0695 , final_amount: 6255.00
+		 SHSE.10008536 , position long. now: 2025-03-03 14:14:00+08:00 , long_shares: 2 , long_avg_cost: 0.0449 , final_amount: 898.00
+Long，Take profit:  SHSE.10008536 ,  2025-03-03 14:20:00+08:00 , profit ratio: 0.12249443207126944 , price: 0.0504
+Long，Close: SHSE.10008536 ,  2025-03-03 14:20:00+08:00 , long_shares: 2 , long_avg_cost: 0.0449 , total_amount: 898.00
+current position:
+		 SHSE.10008526 , position long. now: 2025-03-03 14:20:00+08:00 , long_shares: 9 , long_avg_cost: 0.0695 , final_amount: 6255.00
+		 SHSE.10008536 , position long. now: 2025-03-03 14:20:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SHSE.10008536 ,  2025-03-03 14:20:00+08:00 , new_shares: 1 , price: 0.0504 , invest_amount: 0.0504
+current position:
+		 SHSE.10008526 , position long. now: 2025-03-03 14:20:00+08:00 , long_shares: 9 , long_avg_cost: 0.0695 , final_amount: 6255.00
+		 SHSE.10008536 , position long. now: 2025-03-03 14:20:00+08:00 , long_shares: 1 , long_avg_cost: 0.0502 , final_amount: 502.00
+Long，Take profit:  SHSE.10008536 ,  2025-03-04 09:38:00+08:00 , profit ratio: 0.1354581673306773 , price: 0.057
+Long，Close: SHSE.10008536 ,  2025-03-04 09:38:00+08:00 , long_shares: 1 , long_avg_cost: 0.0502 , total_amount: 502.00
+current position:
+		 SHSE.10008526 , position long. now: 2025-03-04 09:38:00+08:00 , long_shares: 9 , long_avg_cost: 0.0695 , final_amount: 6255.00
+		 SHSE.10008536 , position long. now: 2025-03-04 09:38:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SHSE.10008536 ,  2025-03-04 09:38:00+08:00 , new_shares: 1 , price: 0.057 , invest_amount: 0.057
+current position:
+		 SHSE.10008526 , position long. now: 2025-03-04 09:38:00+08:00 , long_shares: 9 , long_avg_cost: 0.0695 , final_amount: 6255.00
+		 SHSE.10008536 , position long. now: 2025-03-04 09:38:00+08:00 , long_shares: 1 , long_avg_cost: 0.0572 , final_amount: 572.00
+Long，Buy more: SHSE.10008536 ,  2025-03-05 09:43:00+08:00 , new_shares: 4 , price: 0.0424 , invest_amount: 0.1696
+current position:
+		 SHSE.10008526 , position long. now: 2025-03-05 09:43:00+08:00 , long_shares: 9 , long_avg_cost: 0.0695 , final_amount: 6255.00
+		 SHSE.10008536 , position long. now: 2025-03-05 09:43:00+08:00 , long_shares: 5 , long_avg_cost: 0.0454 , final_amount: 2270.00
+Long，stop_loss. loss_ratio: 0.3458149779735683 , price: 0.0297
+Long，Close: SHSE.10008536 ,  2025-03-06 09:31:00+08:00 , long_shares: 5 , long_avg_cost: 0.0454 , total_amount: 2270.00
+current position:
+		 SHSE.10008526 , position long. now: 2025-03-06 09:31:00+08:00 , long_shares: 9 , long_avg_cost: 0.0695 , final_amount: 6255.00
+		 SHSE.10008536 , position long. now: 2025-03-06 09:31:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SHSE.10008536 ,  2025-03-06 09:31:00+08:00 , new_shares: 3 , price: 0.0297 , invest_amount: 0.0891
+current position:
+		 SHSE.10008526 , position long. now: 2025-03-06 09:31:00+08:00 , long_shares: 9 , long_avg_cost: 0.0695 , final_amount: 6255.00
+		 SHSE.10008536 , position long. now: 2025-03-06 09:31:00+08:00 , long_shares: 3 , long_avg_cost: 0.0297 , final_amount: 891.00
+Long，Take profit:  SHSE.10008526 ,  2025-03-06 09:32:00+08:00 , profit ratio: 0.1424460431654675 , price: 0.0794
+Long，Close: SHSE.10008526 ,  2025-03-06 09:32:00+08:00 , long_shares: 9 , long_avg_cost: 0.0695 , total_amount: 6255.00
+current position:
+		 SHSE.10008526 , position long. now: 2025-03-06 09:32:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008536 , position long. now: 2025-03-06 09:32:00+08:00 , long_shares: 3 , long_avg_cost: 0.0297 , final_amount: 891.00
+Long，Buy 1st: SHSE.10008526 ,  2025-03-06 09:32:00+08:00 , new_shares: 1 , price: 0.0794 , invest_amount: 0.0794
+current position:
+		 SHSE.10008526 , position long. now: 2025-03-06 09:32:00+08:00 , long_shares: 1 , long_avg_cost: 0.0796 , final_amount: 796.00
+		 SHSE.10008536 , position long. now: 2025-03-06 09:32:00+08:00 , long_shares: 3 , long_avg_cost: 0.0297 , final_amount: 891.00
+Long，Take profit:  SHSE.10008526 ,  2025-03-06 10:00:00+08:00 , profit ratio: 0.12688442211055273 , price: 0.0897
+Long，Close: SHSE.10008526 ,  2025-03-06 10:00:00+08:00 , long_shares: 1 , long_avg_cost: 0.0796 , total_amount: 796.00
+current position:
+		 SHSE.10008526 , position long. now: 2025-03-06 10:00:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008536 , position long. now: 2025-03-06 10:00:00+08:00 , long_shares: 3 , long_avg_cost: 0.0297 , final_amount: 891.00
+Long，Buy 1st: SHSE.10008526 ,  2025-03-06 10:00:00+08:00 , new_shares: 1 , price: 0.0897 , invest_amount: 0.0897
+current position:
+		 SHSE.10008526 , position long. now: 2025-03-06 10:00:00+08:00 , long_shares: 1 , long_avg_cost: 0.0898 , final_amount: 898.00
+		 SHSE.10008536 , position long. now: 2025-03-06 10:00:00+08:00 , long_shares: 3 , long_avg_cost: 0.0297 , final_amount: 891.00
+Long，Buy more: SHSE.10008536 ,  2025-03-06 10:03:00+08:00 , new_shares: 9 , price: 0.0219 , invest_amount: 0.1971
+current position:
+		 SHSE.10008526 , position long. now: 2025-03-06 10:03:00+08:00 , long_shares: 1 , long_avg_cost: 0.0898 , final_amount: 898.00
+		 SHSE.10008536 , position long. now: 2025-03-06 10:03:00+08:00 , long_shares: 12 , long_avg_cost: 0.0237 , final_amount: 2844.00
+Long，Take profit:  SHSE.10008526 ,  2025-03-06 13:20:00+08:00 , profit ratio: 0.1269487750556792 , price: 0.1012
+Long，Close: SHSE.10008526 ,  2025-03-06 13:20:00+08:00 , long_shares: 1 , long_avg_cost: 0.0898 , total_amount: 898.00
+current position:
+		 SHSE.10008526 , position long. now: 2025-03-06 13:20:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008536 , position long. now: 2025-03-06 13:20:00+08:00 , long_shares: 12 , long_avg_cost: 0.0237 , final_amount: 2844.00
+Long，Buy 1st: SHSE.10008526 ,  2025-03-06 13:21:00+08:00 , new_shares: 1 , price: 0.0981 , invest_amount: 0.0981
+current position:
+		 SHSE.10008526 , position long. now: 2025-03-06 13:21:00+08:00 , long_shares: 1 , long_avg_cost: 0.098 , final_amount: 980.00
+		 SHSE.10008536 , position long. now: 2025-03-06 13:21:00+08:00 , long_shares: 12 , long_avg_cost: 0.0237 , final_amount: 2844.00
+Long，Buy more: SHSE.10008536 ,  2025-03-06 14:10:00+08:00 , new_shares: 22 , price: 0.0176 , invest_amount: 0.38720000000000004
+current position:
+		 SHSE.10008526 , position long. now: 2025-03-06 14:10:00+08:00 , long_shares: 1 , long_avg_cost: 0.098 , final_amount: 980.00
+		 SHSE.10008536 , position long. now: 2025-03-06 14:10:00+08:00 , long_shares: 34 , long_avg_cost: 0.0198 , final_amount: 6732.00
+Long，Take profit:  SHSE.10008526 ,  2025-03-06 14:22:00+08:00 , profit ratio: 0.12346938775510204 , price: 0.1101
+Long，Close: SHSE.10008526 ,  2025-03-06 14:22:00+08:00 , long_shares: 1 , long_avg_cost: 0.098 , total_amount: 980.00
+current position:
+		 SHSE.10008526 , position long. now: 2025-03-06 14:22:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008536 , position long. now: 2025-03-06 14:22:00+08:00 , long_shares: 34 , long_avg_cost: 0.0198 , final_amount: 6732.00
+Long，Buy 1st: SHSE.10008526 ,  2025-03-07 09:31:00+08:00 , new_shares: 1 , price: 0.0997 , invest_amount: 0.0997
+current position:
+		 SHSE.10008526 , position long. now: 2025-03-07 09:31:00+08:00 , long_shares: 1 , long_avg_cost: 0.0997 , final_amount: 997.00
+		 SHSE.10008536 , position long. now: 2025-03-07 09:31:00+08:00 , long_shares: 34 , long_avg_cost: 0.0198 , final_amount: 6732.00
+Long，Buy more: SHSE.10008536 ,  2025-03-07 13:09:00+08:00 , new_shares: 54 , price: 0.0148 , invest_amount: 0.7992
+current position:
+		 SHSE.10008526 , position long. now: 2025-03-07 13:09:00+08:00 , long_shares: 1 , long_avg_cost: 0.0997 , final_amount: 997.00
+		 SHSE.10008536 , position long. now: 2025-03-07 13:09:00+08:00 , long_shares: 88 , long_avg_cost: 0.0168 , final_amount: 14784.00
+Done! From start, time elapsed: 3.1886062622070312 seconds
+{'SHSE.10008536', 'SHSE.10008526'} backtest finished:  {'account_id': '95eadb57-f0cb-11ef-b05b-80304917db79', 'pnl_ratio': 0.30892454358562826, 'pnl_ratio_annual': 1.1745568584245243, 'sharp_ratio': 2.6901692149858123, 'max_drawdown': 0.07419180085003155, 'risk_ratio': 0.39746524208715595, 'open_count': 69, 'close_count': 42, 'win_count': 41, 'lose_count': 1, 'win_ratio': 0.9761904761904762, 'calmar_ratio': 15.831356631964336, 'created_at': datetime.datetime(2025, 3, 8, 16, 50, 3, 956457, tzinfo=datetime.timezone(datetime.timedelta(seconds=28800), 'Asia/Shanghai')), 'updated_at': datetime.datetime(2025, 3, 8, 16, 50, 7, 100064, tzinfo=datetime.timezone(datetime.timedelta(seconds=28800), 'Asia/Shanghai'))}
+
+Process finished with exit code 0
+
+
+
+
+
+
+

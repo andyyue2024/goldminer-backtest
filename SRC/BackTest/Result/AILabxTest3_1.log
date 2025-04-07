@@ -1,0 +1,2102 @@
+D:\Workplace-Pycharm\.venv\Scripts\python.exe D:\Workplace-Pycharm\QuantitativeTransaction\SRC\sq\test\test_gm\for159869\AILabxTest3.py
+----------------------------------------
+python sdk version: 3.0.168
+c sdk version: 3.7.4
+----------------------------------------
+Start...
+2023-09-19 09:31:00+08:00  algo...
+Start to buy: SHSE.518880
+execute_buy: 20000, order_id:000000001
+execute_buy: 2100, order_id:000000002
+Done to order to buy: SHSE.518880
+Done, bought
+2023-09-20 09:31:00+08:00  algo...
+2023-09-21 09:31:00+08:00  algo...
+2023-09-22 09:31:00+08:00  algo...
+2023-09-25 09:31:00+08:00  algo...
+2023-09-26 09:31:00+08:00  algo...
+Start to sell: SHSE.518880
+execute_sell: 20000, order_id:000000003
+execute_sell: 2100, order_id:000000004
+Done to order to sell: SHSE.518880
+Done, sold
+Start to buy: SHSE.513100
+execute_buy: 20000, order_id:000000005
+execute_buy: 20000, order_id:000000006
+execute_buy: 20000, order_id:000000007
+execute_buy: 20000, order_id:000000008
+execute_buy: 12500, order_id:000000009
+Done to order to buy: SHSE.513100
+Done, bought
+2023-09-27 09:31:00+08:00  algo...
+2023-09-28 09:31:00+08:00  algo...
+Start to sell: SHSE.513100
+execute_sell: 20000, order_id:000000010
+execute_sell: 20000, order_id:000000011
+execute_sell: 20000, order_id:000000012
+execute_sell: 20000, order_id:000000013
+execute_sell: 12500, order_id:000000014
+Done to order to sell: SHSE.513100
+Done, sold
+Start to buy: SHSE.513500
+execute_buy: 20000, order_id:000000015
+execute_buy: 20000, order_id:000000016
+execute_buy: 20000, order_id:000000017
+execute_buy: 7700, order_id:000000018
+Done to order to buy: SHSE.513500
+Done, bought
+2023-10-09 09:31:00+08:00  algo...
+2023-10-10 09:31:00+08:00  algo...
+2023-10-11 09:31:00+08:00  algo...
+Start to sell: SHSE.513500
+execute_sell: 20000, order_id:000000019
+execute_sell: 20000, order_id:000000020
+execute_sell: 20000, order_id:000000021
+execute_sell: 7700, order_id:000000022
+Done to order to sell: SHSE.513500
+Done, sold
+Start to buy: SHSE.513100
+execute_buy: 20000, order_id:000000023
+execute_buy: 20000, order_id:000000024
+execute_buy: 20000, order_id:000000025
+execute_buy: 20000, order_id:000000026
+execute_buy: 10800, order_id:000000027
+Done to order to buy: SHSE.513100
+Done, bought
+2023-10-12 09:31:00+08:00  algo...
+2023-10-13 09:31:00+08:00  algo...
+Start to sell: SHSE.513100
+execute_sell: 20000, order_id:000000028
+execute_sell: 20000, order_id:000000029
+execute_sell: 20000, order_id:000000030
+execute_sell: 20000, order_id:000000031
+execute_sell: 10800, order_id:000000032
+Done to order to sell: SHSE.513100
+Done, sold
+Start to buy: SZSE.162719
+execute_buy: 20000, order_id:000000033
+execute_buy: 20000, order_id:000000034
+execute_buy: 3500, order_id:000000035
+Done to order to buy: SZSE.162719
+Done, bought
+2023-10-16 09:31:00+08:00  algo...
+2023-10-17 09:31:00+08:00  algo...
+Start to sell: SZSE.162719
+execute_sell: 20000, order_id:000000036
+execute_sell: 20000, order_id:000000037
+Done to order to sell: SZSE.162719
+Done, sold
+Start to buy: SHSE.510180
+execute_buy: 20000, order_id:000000038
+execute_buy: 11500, order_id:000000039
+Done to order to buy: SHSE.510180
+Done, bought
+2023-10-18 09:31:00+08:00  algo...
+2023-10-19 09:31:00+08:00  algo...
+2023-10-20 09:31:00+08:00  algo...
+2023-10-23 09:31:00+08:00  algo...
+2023-10-24 09:31:00+08:00  algo...
+2023-10-25 09:31:00+08:00  algo...
+2023-10-26 09:31:00+08:00  algo...
+2023-10-27 09:31:00+08:00  algo...
+Start to sell: SHSE.510180
+execute_sell: 20000, order_id:000000040
+execute_sell: 11500, order_id:000000041
+Done to order to sell: SHSE.510180
+Done, sold
+Start to buy: SZSE.159915
+execute_buy: 20000, order_id:000000042
+execute_buy: 20000, order_id:000000043
+execute_buy: 16500, order_id:000000044
+Done to order to buy: SZSE.159915
+Done, bought
+2023-10-30 09:31:00+08:00  algo...
+Start to sell: SZSE.159915
+execute_sell: 20000, order_id:000000045
+execute_sell: 20000, order_id:000000046
+execute_sell: 16500, order_id:000000047
+Done to order to sell: SZSE.159915
+Done, sold
+Start to buy: SZSE.159509
+execute_buy: 20000, order_id:000000048
+execute_buy: 20000, order_id:000000049
+execute_buy: 20000, order_id:000000050
+execute_buy: 20000, order_id:000000051
+execute_buy: 20000, order_id:000000052
+execute_buy: 16500, order_id:000000053
+Done to order to buy: SZSE.159509
+Done, bought
+2023-10-31 09:31:00+08:00  algo...
+2023-11-01 09:31:00+08:00  algo...
+2023-11-02 09:31:00+08:00  algo...
+2023-11-03 09:31:00+08:00  algo...
+2023-11-06 09:31:00+08:00  algo...
+2023-11-07 09:31:00+08:00  algo...
+2023-11-08 09:31:00+08:00  algo...
+2023-11-09 09:31:00+08:00  algo...
+2023-11-10 09:31:00+08:00  algo...
+Start to sell: SZSE.159509
+execute_sell: 20000, order_id:000000054
+execute_sell: 20000, order_id:000000055
+execute_sell: 20000, order_id:000000056
+execute_sell: 20000, order_id:000000057
+execute_sell: 20000, order_id:000000058
+Done to order to sell: SZSE.159509
+Done, sold
+Start to buy: SHSE.518880
+execute_buy: 20000, order_id:000000059
+execute_buy: 5000, order_id:000000060
+Done to order to buy: SHSE.518880
+Done, bought
+2023-11-13 09:31:00+08:00  algo...
+2023-11-14 09:31:00+08:00  algo...
+2023-11-15 09:31:00+08:00  algo...
+2023-11-16 09:31:00+08:00  algo...
+2023-11-17 09:31:00+08:00  algo...
+Start to sell: SHSE.518880
+execute_sell: 20000, order_id:000000061
+execute_sell: 5000, order_id:000000062
+Done to order to sell: SHSE.518880
+Done, sold
+Start to buy: SHSE.513330
+execute_buy: 20000, order_id:000000063
+execute_buy: 20000, order_id:000000064
+execute_buy: 20000, order_id:000000065
+execute_buy: 20000, order_id:000000066
+execute_buy: 20000, order_id:000000067
+execute_buy: 20000, order_id:000000068
+execute_buy: 20000, order_id:000000069
+execute_buy: 20000, order_id:000000070
+execute_buy: 20000, order_id:000000071
+execute_buy: 20000, order_id:000000072
+execute_buy: 20000, order_id:000000073
+execute_buy: 20000, order_id:000000074
+execute_buy: 20000, order_id:000000075
+execute_buy: 20000, order_id:000000076
+execute_buy: 4400, order_id:000000077
+Done to order to buy: SHSE.513330
+Done, bought
+2023-11-20 09:31:00+08:00  algo...
+Start to sell: SHSE.513330
+execute_sell: 20000, order_id:000000078
+execute_sell: 20000, order_id:000000079
+execute_sell: 20000, order_id:000000080
+execute_sell: 20000, order_id:000000081
+execute_sell: 20000, order_id:000000082
+execute_sell: 20000, order_id:000000083
+execute_sell: 20000, order_id:000000084
+execute_sell: 20000, order_id:000000085
+execute_sell: 20000, order_id:000000086
+execute_sell: 20000, order_id:000000087
+execute_sell: 20000, order_id:000000088
+execute_sell: 20000, order_id:000000089
+execute_sell: 20000, order_id:000000090
+execute_sell: 20000, order_id:000000091
+Done to order to sell: SHSE.513330
+Done, sold
+Start to buy: SHSE.513500
+execute_buy: 20000, order_id:000000092
+execute_buy: 20000, order_id:000000093
+execute_buy: 20000, order_id:000000094
+execute_buy: 12200, order_id:000000095
+Done to order to buy: SHSE.513500
+Done, bought
+2023-11-21 09:31:00+08:00  algo...
+2023-11-22 09:31:00+08:00  algo...
+Start to sell: SHSE.513500
+execute_sell: 20000, order_id:000000096
+execute_sell: 20000, order_id:000000097
+execute_sell: 20000, order_id:000000098
+Done to order to sell: SHSE.513500
+Done, sold
+Start to buy: SZSE.159509
+execute_buy: 20000, order_id:000000099
+execute_buy: 20000, order_id:000000100
+execute_buy: 20000, order_id:000000101
+execute_buy: 20000, order_id:000000102
+execute_buy: 20000, order_id:000000103
+execute_buy: 5700, order_id:000000104
+Done to order to buy: SZSE.159509
+Done, bought
+2023-11-23 09:31:00+08:00  algo...
+2023-11-24 09:31:00+08:00  algo...
+2023-11-27 09:31:00+08:00  algo...
+2023-11-28 09:31:00+08:00  algo...
+2023-11-29 09:31:00+08:00  algo...
+Start to sell: SZSE.159509
+execute_sell: 20000, order_id:000000105
+execute_sell: 20000, order_id:000000106
+execute_sell: 20000, order_id:000000107
+execute_sell: 20000, order_id:000000108
+execute_sell: 20000, order_id:000000109
+Done to order to sell: SZSE.159509
+Done, sold
+Start to buy: SHSE.513520
+execute_buy: 20000, order_id:000000110
+execute_buy: 20000, order_id:000000111
+execute_buy: 20000, order_id:000000112
+execute_buy: 20000, order_id:000000113
+execute_buy: 8500, order_id:000000114
+Done to order to buy: SHSE.513520
+Done, bought
+2023-11-30 09:31:00+08:00  algo...
+2023-12-01 09:31:00+08:00  algo...
+2023-12-04 09:31:00+08:00  algo...
+2023-12-05 09:31:00+08:00  algo...
+Start to sell: SHSE.513520
+execute_sell: 20000, order_id:000000115
+execute_sell: 20000, order_id:000000116
+execute_sell: 20000, order_id:000000117
+execute_sell: 20000, order_id:000000118
+execute_sell: 8500, order_id:000000119
+Done to order to sell: SHSE.513520
+Done, sold
+Start to buy: SZSE.159531
+execute_buy: 20000, order_id:000000120
+execute_buy: 20000, order_id:000000121
+execute_buy: 20000, order_id:000000122
+execute_buy: 20000, order_id:000000123
+execute_buy: 20000, order_id:000000124
+execute_buy: 4900, order_id:000000125
+Done to order to buy: SZSE.159531
+Done, bought
+2023-12-06 09:31:00+08:00  algo...
+2023-12-07 09:31:00+08:00  algo...
+2023-12-08 09:31:00+08:00  algo...
+Start to sell: SZSE.159531
+execute_sell: 20000, order_id:000000126
+execute_sell: 20000, order_id:000000127
+execute_sell: 20000, order_id:000000128
+execute_sell: 20000, order_id:000000129
+execute_sell: 20000, order_id:000000130
+execute_sell: 4900, order_id:000000131
+Done to order to sell: SZSE.159531
+Done, sold
+Start to buy: SZSE.159509
+execute_buy: 20000, order_id:000000132
+execute_buy: 20000, order_id:000000133
+execute_buy: 20000, order_id:000000134
+execute_buy: 20000, order_id:000000135
+execute_buy: 20000, order_id:000000136
+execute_buy: 8200, order_id:000000137
+Done to order to buy: SZSE.159509
+Done, bought
+2023-12-11 09:31:00+08:00  algo...
+Start to sell: SZSE.159509
+execute_sell: 20000, order_id:000000138
+execute_sell: 20000, order_id:000000139
+execute_sell: 20000, order_id:000000140
+execute_sell: 20000, order_id:000000141
+execute_sell: 20000, order_id:000000142
+execute_sell: 8200, order_id:000000143
+Done to order to sell: SZSE.159509
+Done, sold
+Start to buy: SHSE.513100
+execute_buy: 20000, order_id:000000144
+execute_buy: 20000, order_id:000000145
+execute_buy: 20000, order_id:000000146
+execute_buy: 20000, order_id:000000147
+execute_buy: 15800, order_id:000000148
+Done to order to buy: SHSE.513100
+Done, bought
+2023-12-12 09:31:00+08:00  algo...
+2023-12-13 09:31:00+08:00  algo...
+2023-12-14 09:31:00+08:00  algo...
+2023-12-15 09:31:00+08:00  algo...
+Start to sell: SHSE.513100
+execute_sell: 20000, order_id:000000149
+execute_sell: 20000, order_id:000000150
+execute_sell: 20000, order_id:000000151
+execute_sell: 20000, order_id:000000152
+execute_sell: 15800, order_id:000000153
+Done to order to sell: SHSE.513100
+Done, sold
+Start to buy: SZSE.159509
+execute_buy: 20000, order_id:000000154
+execute_buy: 20000, order_id:000000155
+execute_buy: 20000, order_id:000000156
+execute_buy: 20000, order_id:000000157
+execute_buy: 20000, order_id:000000158
+execute_buy: 7700, order_id:000000159
+Done to order to buy: SZSE.159509
+Done, bought
+2023-12-18 09:31:00+08:00  algo...
+2023-12-19 09:31:00+08:00  algo...
+2023-12-20 09:31:00+08:00  algo...
+2023-12-21 09:31:00+08:00  algo...
+Start to sell: SZSE.159509
+execute_sell: 20000, order_id:000000160
+execute_sell: 20000, order_id:000000161
+execute_sell: 20000, order_id:000000162
+execute_sell: 20000, order_id:000000163
+execute_sell: 20000, order_id:000000164
+execute_sell: 7700, order_id:000000165
+Done to order to sell: SZSE.159509
+Done, sold
+Start to buy: SHSE.513520
+execute_buy: 20000, order_id:000000166
+execute_buy: 20000, order_id:000000167
+execute_buy: 20000, order_id:000000168
+execute_buy: 20000, order_id:000000169
+execute_buy: 7000, order_id:000000170
+Done to order to buy: SHSE.513520
+Done, bought
+2023-12-22 09:31:00+08:00  algo...
+2023-12-25 09:31:00+08:00  algo...
+2023-12-26 09:31:00+08:00  algo...
+2023-12-27 09:31:00+08:00  algo...
+2023-12-28 09:31:00+08:00  algo...
+2023-12-29 09:31:00+08:00  algo...
+2024-01-02 09:31:00+08:00  algo...
+2024-01-03 09:31:00+08:00  algo...
+2024-01-04 09:31:00+08:00  algo...
+2024-01-05 09:31:00+08:00  algo...
+Start to sell: SHSE.513520
+execute_sell: 20000, order_id:000000171
+execute_sell: 20000, order_id:000000172
+execute_sell: 20000, order_id:000000173
+execute_sell: 20000, order_id:000000174
+execute_sell: 7000, order_id:000000175
+Done to order to sell: SHSE.513520
+Done, sold
+Start to buy: SZSE.159915
+execute_buy: 20000, order_id:000000176
+execute_buy: 20000, order_id:000000177
+execute_buy: 20000, order_id:000000178
+execute_buy: 5100, order_id:000000179
+Done to order to buy: SZSE.159915
+Done, bought
+2024-01-08 09:31:00+08:00  algo...
+Start to sell: SZSE.159915
+execute_sell: 20000, order_id:000000180
+execute_sell: 20000, order_id:000000181
+execute_sell: 20000, order_id:000000182
+execute_sell: 5100, order_id:000000183
+Done to order to sell: SZSE.159915
+Done, sold
+Start to buy: SZSE.162719
+execute_buy: 20000, order_id:000000184
+execute_buy: 20000, order_id:000000185
+execute_buy: 8700, order_id:000000186
+Done to order to buy: SZSE.162719
+Done, bought
+2024-01-09 09:31:00+08:00  algo...
+2024-01-10 09:31:00+08:00  algo...
+Start to sell: SZSE.162719
+execute_sell: 20000, order_id:000000187
+execute_sell: 20000, order_id:000000188
+execute_sell: 8700, order_id:000000189
+Done to order to sell: SZSE.162719
+Done, sold
+Start to buy: SHSE.513520
+execute_buy: 20000, order_id:000000190
+execute_buy: 20000, order_id:000000191
+execute_buy: 20000, order_id:000000192
+execute_buy: 20000, order_id:000000193
+execute_buy: 200, order_id:000000194
+Done to order to buy: SHSE.513520
+Done, bought
+2024-01-11 09:31:00+08:00  algo...
+2024-01-12 09:31:00+08:00  algo...
+2024-01-15 09:31:00+08:00  algo...
+2024-01-16 09:31:00+08:00  algo...
+2024-01-17 09:31:00+08:00  algo...
+2024-01-18 09:31:00+08:00  algo...
+2024-01-19 09:31:00+08:00  algo...
+2024-01-22 09:31:00+08:00  algo...
+2024-01-23 09:31:00+08:00  algo...
+2024-01-24 09:31:00+08:00  algo...
+2024-01-25 09:31:00+08:00  algo...
+2024-01-26 09:31:00+08:00  algo...
+Start to sell: SHSE.513520
+execute_sell: 20000, order_id:000000195
+execute_sell: 20000, order_id:000000196
+execute_sell: 20000, order_id:000000197
+execute_sell: 20000, order_id:000000198
+execute_sell: 200, order_id:000000199
+Done to order to sell: SHSE.513520
+Done, sold
+Start to buy: SZSE.159509
+execute_buy: 20000, order_id:000000200
+execute_buy: 20000, order_id:000000201
+execute_buy: 20000, order_id:000000202
+execute_buy: 20000, order_id:000000203
+execute_buy: 15000, order_id:000000204
+Done to order to buy: SZSE.159509
+Done, bought
+2024-01-29 09:31:00+08:00  algo...
+2024-01-30 09:31:00+08:00  algo...
+2024-01-31 09:31:00+08:00  algo...
+2024-02-01 09:31:00+08:00  algo...
+2024-02-02 09:31:00+08:00  algo...
+Start to sell: SZSE.159509
+execute_sell: 20000, order_id:000000205
+execute_sell: 20000, order_id:000000206
+execute_sell: 20000, order_id:000000207
+execute_sell: 20000, order_id:000000208
+Done to order to sell: SZSE.159509
+Done, sold
+Start to buy: SHSE.513520
+execute_buy: 20000, order_id:000000209
+execute_buy: 20000, order_id:000000210
+execute_buy: 20000, order_id:000000211
+execute_buy: 17600, order_id:000000212
+Done to order to buy: SHSE.513520
+Done, bought
+2024-02-05 09:31:00+08:00  algo...
+Start to sell: SHSE.513520
+execute_sell: 20000, order_id:000000213
+execute_sell: 20000, order_id:000000214
+execute_sell: 20000, order_id:000000215
+execute_sell: 17600, order_id:000000216
+Done to order to sell: SHSE.513520
+Done, sold
+Start to buy: SZSE.159509
+execute_buy: 20000, order_id:000000217
+execute_buy: 20000, order_id:000000218
+execute_buy: 20000, order_id:000000219
+execute_buy: 20000, order_id:000000220
+execute_buy: 13400, order_id:000000221
+Done to order to buy: SZSE.159509
+Done, bought
+2024-02-06 09:31:00+08:00  algo...
+Start to sell: SZSE.159509
+execute_sell: 20000, order_id:000000222
+execute_sell: 20000, order_id:000000223
+execute_sell: 20000, order_id:000000224
+execute_sell: 20000, order_id:000000225
+execute_sell: 13400, order_id:000000226
+Done to order to sell: SZSE.159509
+Done, sold
+Start to buy: SHSE.512100
+execute_buy: 20000, order_id:000000227
+execute_buy: 20000, order_id:000000228
+execute_buy: 20000, order_id:000000229
+execute_buy: 5100, order_id:000000230
+Done to order to buy: SHSE.512100
+Done, bought
+2024-02-07 09:31:00+08:00  algo...
+2024-02-08 09:31:00+08:00  algo...
+2024-02-19 09:31:00+08:00  algo...
+Start to sell: SHSE.512100
+execute_sell: 20000, order_id:000000231
+execute_sell: 20000, order_id:000000232
+execute_sell: 20000, order_id:000000233
+execute_sell: 5100, order_id:000000234
+Done to order to sell: SHSE.512100
+Done, sold
+Start to buy: SZSE.159531
+execute_buy: 20000, order_id:000000235
+execute_buy: 20000, order_id:000000236
+execute_buy: 20000, order_id:000000237
+execute_buy: 20000, order_id:000000238
+execute_buy: 20000, order_id:000000239
+execute_buy: 20000, order_id:000000240
+execute_buy: 20000, order_id:000000241
+execute_buy: 20000, order_id:000000242
+execute_buy: 15800, order_id:000000243
+Done to order to buy: SZSE.159531
+Done, bought
+2024-02-20 09:31:00+08:00  algo...
+2024-02-21 09:31:00+08:00  algo...
+2024-02-22 09:31:00+08:00  algo...
+2024-02-23 09:31:00+08:00  algo...
+2024-02-26 09:31:00+08:00  algo...
+2024-02-27 09:31:00+08:00  algo...
+Start to sell: SZSE.159531
+execute_sell: 20000, order_id:000000244
+execute_sell: 20000, order_id:000000245
+execute_sell: 20000, order_id:000000246
+execute_sell: 20000, order_id:000000247
+execute_sell: 20000, order_id:000000248
+execute_sell: 20000, order_id:000000249
+execute_sell: 20000, order_id:000000250
+execute_sell: 20000, order_id:000000251
+execute_sell: 15800, order_id:000000252
+Done to order to sell: SZSE.159531
+Done, sold
+Start to buy: SZSE.159509
+execute_buy: 20000, order_id:000000253
+execute_buy: 20000, order_id:000000254
+execute_buy: 20000, order_id:000000255
+execute_buy: 20000, order_id:000000256
+execute_buy: 20000, order_id:000000257
+execute_buy: 14700, order_id:000000258
+Done to order to buy: SZSE.159509
+Done, bought
+2024-02-28 09:31:00+08:00  algo...
+2024-02-29 09:31:00+08:00  algo...
+2024-03-01 09:31:00+08:00  algo...
+2024-03-04 09:31:00+08:00  algo...
+Start to sell: SZSE.159509
+execute_sell: 20000, order_id:000000259
+execute_sell: 20000, order_id:000000260
+execute_sell: 20000, order_id:000000261
+execute_sell: 20000, order_id:000000262
+execute_sell: 20000, order_id:000000263
+execute_sell: 14700, order_id:000000264
+Done to order to sell: SZSE.159509
+Done, sold
+Start to buy: SHSE.510180
+execute_buy: 20000, order_id:000000265
+execute_buy: 20000, order_id:000000266
+execute_buy: 7400, order_id:000000267
+Done to order to buy: SHSE.510180
+Done, bought
+2024-03-05 09:31:00+08:00  algo...
+Start to sell: SHSE.510180
+execute_sell: 20000, order_id:000000268
+execute_sell: 20000, order_id:000000269
+execute_sell: 7400, order_id:000000270
+Done to order to sell: SHSE.510180
+Done, sold
+2024-03-06 09:31:00+08:00  algo...
+Start to buy: SZSE.159509
+execute_buy: 20000, order_id:000000271
+execute_buy: 20000, order_id:000000272
+execute_buy: 20000, order_id:000000273
+execute_buy: 20000, order_id:000000274
+execute_buy: 20000, order_id:000000275
+execute_buy: 15400, order_id:000000276
+Done to order to buy: SZSE.159509
+Done, bought
+2024-03-07 09:31:00+08:00  algo...
+2024-03-08 09:31:00+08:00  algo...
+2024-03-11 09:31:00+08:00  algo...
+2024-03-12 09:31:00+08:00  algo...
+2024-03-13 09:31:00+08:00  algo...
+2024-03-14 09:31:00+08:00  algo...
+2024-03-15 09:31:00+08:00  algo...
+2024-03-18 09:31:00+08:00  algo...
+Start to sell: SZSE.159509
+execute_sell: 20000, order_id:000000277
+execute_sell: 20000, order_id:000000278
+execute_sell: 20000, order_id:000000279
+execute_sell: 20000, order_id:000000280
+execute_sell: 20000, order_id:000000281
+execute_sell: 15400, order_id:000000282
+Done to order to sell: SZSE.159509
+Done, sold
+Start to buy: SZSE.159857
+execute_buy: 20000, order_id:000000283
+execute_buy: 20000, order_id:000000284
+execute_buy: 20000, order_id:000000285
+execute_buy: 20000, order_id:000000286
+execute_buy: 20000, order_id:000000287
+execute_buy: 20000, order_id:000000288
+execute_buy: 20000, order_id:000000289
+execute_buy: 20000, order_id:000000290
+execute_buy: 20000, order_id:000000291
+execute_buy: 20000, order_id:000000292
+execute_buy: 19800, order_id:000000293
+Done to order to buy: SZSE.159857
+Done, bought
+2024-03-19 09:31:00+08:00  algo...
+Start to sell: SZSE.159857
+execute_sell: 20000, order_id:000000294
+execute_sell: 20000, order_id:000000295
+execute_sell: 20000, order_id:000000296
+execute_sell: 20000, order_id:000000297
+execute_sell: 20000, order_id:000000298
+execute_sell: 20000, order_id:000000299
+execute_sell: 20000, order_id:000000300
+execute_sell: 20000, order_id:000000301
+execute_sell: 20000, order_id:000000302
+execute_sell: 20000, order_id:000000303
+Done to order to sell: SZSE.159857
+Done, sold
+Start to buy: SZSE.162719
+execute_buy: 20000, order_id:000000304
+execute_buy: 20000, order_id:000000305
+execute_buy: 20000, order_id:000000306
+execute_buy: 5100, order_id:000000307
+Done to order to buy: SZSE.162719
+Done, bought
+2024-03-20 09:31:00+08:00  algo...
+2024-03-21 09:31:00+08:00  algo...
+2024-03-22 09:31:00+08:00  algo...
+2024-03-25 09:31:00+08:00  algo...
+2024-03-26 09:31:00+08:00  algo...
+2024-03-27 09:31:00+08:00  algo...
+2024-03-28 09:31:00+08:00  algo...
+2024-03-29 09:31:00+08:00  algo...
+2024-04-01 09:31:00+08:00  algo...
+2024-04-02 09:31:00+08:00  algo...
+Start to sell: SZSE.162719
+execute_sell: 20000, order_id:000000308
+execute_sell: 20000, order_id:000000309
+execute_sell: 20000, order_id:000000310
+execute_sell: 5100, order_id:000000311
+Done to order to sell: SZSE.162719
+Done, sold
+Start to buy: SZSE.159531
+execute_buy: 20000, order_id:000000312
+execute_buy: 20000, order_id:000000313
+execute_buy: 20000, order_id:000000314
+execute_buy: 20000, order_id:000000315
+execute_buy: 20000, order_id:000000316
+execute_buy: 20000, order_id:000000317
+execute_buy: 20000, order_id:000000318
+execute_buy: 20000, order_id:000000319
+execute_buy: 20000, order_id:000000320
+execute_buy: 6500, order_id:000000321
+Done to order to buy: SZSE.159531
+Done, bought
+2024-04-03 09:31:00+08:00  algo...
+Start to sell: SZSE.159531
+execute_sell: 20000, order_id:000000322
+execute_sell: 20000, order_id:000000323
+execute_sell: 20000, order_id:000000324
+execute_sell: 20000, order_id:000000325
+execute_sell: 20000, order_id:000000326
+execute_sell: 20000, order_id:000000327
+execute_sell: 20000, order_id:000000328
+execute_sell: 20000, order_id:000000329
+execute_sell: 20000, order_id:000000330
+Done to order to sell: SZSE.159531
+Done, sold
+Start to buy: SZSE.162719
+execute_buy: 20000, order_id:000000331
+execute_buy: 20000, order_id:000000332
+execute_buy: 20000, order_id:000000333
+execute_buy: 3700, order_id:000000334
+Done to order to buy: SZSE.162719
+Done, bought
+2024-04-08 09:31:00+08:00  algo...
+2024-04-09 09:31:00+08:00  algo...
+2024-04-10 09:31:00+08:00  algo...
+2024-04-11 09:31:00+08:00  algo...
+2024-04-12 09:31:00+08:00  algo...
+2024-04-15 09:31:00+08:00  algo...
+Start to sell: SZSE.162719
+execute_sell: 20000, order_id:000000335
+execute_sell: 20000, order_id:000000336
+execute_sell: 20000, order_id:000000337
+execute_sell: 3700, order_id:000000338
+Done to order to sell: SZSE.162719
+Done, sold
+Start to buy: SHSE.518880
+execute_buy: 20000, order_id:000000339
+execute_buy: 10900, order_id:000000340
+Done to order to buy: SHSE.518880
+Done, bought
+2024-04-16 09:31:00+08:00  algo...
+2024-04-17 09:31:00+08:00  algo...
+2024-04-18 09:31:00+08:00  algo...
+2024-04-19 09:31:00+08:00  algo...
+Start to sell: SHSE.518880
+execute_sell: 20000, order_id:000000341
+execute_sell: 10900, order_id:000000342
+Done to order to sell: SHSE.518880
+Done, sold
+Start to buy: SZSE.159531
+execute_buy: 20000, order_id:000000343
+execute_buy: 20000, order_id:000000344
+execute_buy: 20000, order_id:000000345
+execute_buy: 20000, order_id:000000346
+execute_buy: 20000, order_id:000000347
+execute_buy: 20000, order_id:000000348
+execute_buy: 20000, order_id:000000349
+execute_buy: 20000, order_id:000000350
+execute_buy: 20000, order_id:000000351
+execute_buy: 20000, order_id:000000352
+execute_buy: 3900, order_id:000000353
+Done to order to buy: SZSE.159531
+Done, bought
+2024-04-22 09:31:00+08:00  algo...
+2024-04-23 09:31:00+08:00  algo...
+2024-04-24 09:31:00+08:00  algo...
+Start to sell: SZSE.159531
+execute_sell: 20000, order_id:000000354
+execute_sell: 20000, order_id:000000355
+execute_sell: 20000, order_id:000000356
+execute_sell: 20000, order_id:000000357
+execute_sell: 20000, order_id:000000358
+execute_sell: 20000, order_id:000000359
+execute_sell: 20000, order_id:000000360
+execute_sell: 20000, order_id:000000361
+execute_sell: 20000, order_id:000000362
+execute_sell: 20000, order_id:000000363
+Done to order to sell: SZSE.159531
+Done, sold
+Start to buy: SHSE.518880
+execute_buy: 20000, order_id:000000364
+execute_buy: 11900, order_id:000000365
+Done to order to buy: SHSE.518880
+Done, bought
+2024-04-25 09:31:00+08:00  algo...
+2024-04-26 09:31:00+08:00  algo...
+2024-04-29 09:31:00+08:00  algo...
+Start to sell: SHSE.518880
+execute_sell: 20000, order_id:000000366
+execute_sell: 11900, order_id:000000367
+Done to order to sell: SHSE.518880
+Done, sold
+Start to buy: SHSE.513330
+execute_buy: 20000, order_id:000000368
+execute_buy: 20000, order_id:000000369
+execute_buy: 20000, order_id:000000370
+execute_buy: 20000, order_id:000000371
+execute_buy: 20000, order_id:000000372
+execute_buy: 20000, order_id:000000373
+execute_buy: 20000, order_id:000000374
+execute_buy: 20000, order_id:000000375
+execute_buy: 20000, order_id:000000376
+execute_buy: 20000, order_id:000000377
+execute_buy: 20000, order_id:000000378
+execute_buy: 20000, order_id:000000379
+execute_buy: 20000, order_id:000000380
+execute_buy: 20000, order_id:000000381
+execute_buy: 20000, order_id:000000382
+execute_buy: 20000, order_id:000000383
+execute_buy: 20000, order_id:000000384
+execute_buy: 20000, order_id:000000385
+execute_buy: 20000, order_id:000000386
+execute_buy: 20000, order_id:000000387
+execute_buy: 20000, order_id:000000388
+execute_buy: 20000, order_id:000000389
+execute_buy: 13800, order_id:000000390
+Done to order to buy: SHSE.513330
+Done, bought
+2024-04-30 09:31:00+08:00  algo...
+2024-05-06 09:31:00+08:00  algo...
+2024-05-07 09:31:00+08:00  algo...
+2024-05-08 09:31:00+08:00  algo...
+2024-05-09 09:31:00+08:00  algo...
+2024-05-10 09:31:00+08:00  algo...
+2024-05-13 09:31:00+08:00  algo...
+2024-05-14 09:31:00+08:00  algo...
+2024-05-15 09:31:00+08:00  algo...
+2024-05-16 09:31:00+08:00  algo...
+2024-05-17 09:31:00+08:00  algo...
+2024-05-20 09:31:00+08:00  algo...
+2024-05-21 09:31:00+08:00  algo...
+2024-05-22 09:31:00+08:00  algo...
+2024-05-23 09:31:00+08:00  algo...
+2024-05-24 09:31:00+08:00  algo...
+2024-05-27 09:31:00+08:00  algo...
+Start to sell: SHSE.513330
+execute_sell: 20000, order_id:000000391
+execute_sell: 20000, order_id:000000392
+execute_sell: 20000, order_id:000000393
+execute_sell: 20000, order_id:000000394
+execute_sell: 20000, order_id:000000395
+execute_sell: 20000, order_id:000000396
+execute_sell: 20000, order_id:000000397
+execute_sell: 20000, order_id:000000398
+execute_sell: 20000, order_id:000000399
+execute_sell: 20000, order_id:000000400
+execute_sell: 20000, order_id:000000401
+execute_sell: 20000, order_id:000000402
+execute_sell: 20000, order_id:000000403
+execute_sell: 20000, order_id:000000404
+execute_sell: 20000, order_id:000000405
+execute_sell: 20000, order_id:000000406
+execute_sell: 20000, order_id:000000407
+execute_sell: 20000, order_id:000000408
+execute_sell: 20000, order_id:000000409
+execute_sell: 20000, order_id:000000410
+execute_sell: 20000, order_id:000000411
+execute_sell: 20000, order_id:000000412
+execute_sell: 13800, order_id:000000413
+Done to order to sell: SHSE.513330
+Done, sold
+Start to buy: SZSE.159857
+execute_buy: 20000, order_id:000000414
+execute_buy: 20000, order_id:000000415
+execute_buy: 20000, order_id:000000416
+execute_buy: 20000, order_id:000000417
+execute_buy: 20000, order_id:000000418
+execute_buy: 20000, order_id:000000419
+execute_buy: 20000, order_id:000000420
+execute_buy: 20000, order_id:000000421
+execute_buy: 20000, order_id:000000422
+execute_buy: 20000, order_id:000000423
+execute_buy: 20000, order_id:000000424
+execute_buy: 20000, order_id:000000425
+execute_buy: 18800, order_id:000000426
+Done to order to buy: SZSE.159857
+Done, bought
+2024-05-28 09:31:00+08:00  algo...
+2024-05-29 09:31:00+08:00  algo...
+2024-05-30 09:31:00+08:00  algo...
+Start to sell: SZSE.159857
+execute_sell: 20000, order_id:000000427
+execute_sell: 20000, order_id:000000428
+execute_sell: 20000, order_id:000000429
+execute_sell: 20000, order_id:000000430
+execute_sell: 20000, order_id:000000431
+execute_sell: 20000, order_id:000000432
+execute_sell: 20000, order_id:000000433
+execute_sell: 20000, order_id:000000434
+execute_sell: 20000, order_id:000000435
+execute_sell: 20000, order_id:000000436
+execute_sell: 20000, order_id:000000437
+execute_sell: 20000, order_id:000000438
+execute_sell: 18800, order_id:000000439
+Done to order to sell: SZSE.159857
+Done, sold
+Start to buy: SZSE.159509
+execute_buy: 20000, order_id:000000440
+execute_buy: 20000, order_id:000000441
+execute_buy: 20000, order_id:000000442
+execute_buy: 20000, order_id:000000443
+execute_buy: 20000, order_id:000000444
+execute_buy: 19200, order_id:000000445
+Done to order to buy: SZSE.159509
+Done, bought
+2024-05-31 09:31:00+08:00  algo...
+Start to sell: SZSE.159509
+execute_sell: 20000, order_id:000000446
+execute_sell: 20000, order_id:000000447
+execute_sell: 20000, order_id:000000448
+execute_sell: 20000, order_id:000000449
+execute_sell: 20000, order_id:000000450
+Done to order to sell: SZSE.159509
+Done, sold
+Start to buy: SHSE.512480
+execute_buy: 20000, order_id:000000451
+execute_buy: 20000, order_id:000000452
+execute_buy: 20000, order_id:000000453
+execute_buy: 20000, order_id:000000454
+execute_buy: 20000, order_id:000000455
+execute_buy: 20000, order_id:000000456
+execute_buy: 20000, order_id:000000457
+execute_buy: 20000, order_id:000000458
+execute_buy: 20000, order_id:000000459
+execute_buy: 20000, order_id:000000460
+execute_buy: 20000, order_id:000000461
+execute_buy: 20000, order_id:000000462
+execute_buy: 10100, order_id:000000463
+Done to order to buy: SHSE.512480
+Done, bought
+2024-06-03 09:31:00+08:00  algo...
+2024-06-04 09:31:00+08:00  algo...
+2024-06-05 09:31:00+08:00  algo...
+2024-06-06 09:31:00+08:00  algo...
+2024-06-07 09:31:00+08:00  algo...
+Start to sell: SHSE.512480
+execute_sell: 20000, order_id:000000464
+execute_sell: 20000, order_id:000000465
+execute_sell: 20000, order_id:000000466
+execute_sell: 20000, order_id:000000467
+execute_sell: 20000, order_id:000000468
+execute_sell: 20000, order_id:000000469
+execute_sell: 20000, order_id:000000470
+execute_sell: 20000, order_id:000000471
+execute_sell: 20000, order_id:000000472
+execute_sell: 20000, order_id:000000473
+execute_sell: 20000, order_id:000000474
+execute_sell: 20000, order_id:000000475
+execute_sell: 10100, order_id:000000476
+Done to order to sell: SHSE.512480
+Done, sold
+Start to buy: SZSE.159531
+execute_buy: 20000, order_id:000000477
+execute_buy: 20000, order_id:000000478
+execute_buy: 20000, order_id:000000479
+execute_buy: 20000, order_id:000000480
+execute_buy: 20000, order_id:000000481
+execute_buy: 20000, order_id:000000482
+execute_buy: 20000, order_id:000000483
+execute_buy: 20000, order_id:000000484
+execute_buy: 20000, order_id:000000485
+execute_buy: 20000, order_id:000000486
+execute_buy: 20000, order_id:000000487
+execute_buy: 2800, order_id:000000488
+Done to order to buy: SZSE.159531
+Done, bought
+2024-06-11 09:31:00+08:00  algo...
+2024-06-12 09:31:00+08:00  algo...
+2024-06-13 09:31:00+08:00  algo...
+2024-06-14 09:31:00+08:00  algo...
+2024-06-17 09:31:00+08:00  algo...
+2024-06-18 09:31:00+08:00  algo...
+Start to sell: SZSE.159531
+execute_sell: 20000, order_id:000000489
+execute_sell: 20000, order_id:000000490
+execute_sell: 20000, order_id:000000491
+execute_sell: 20000, order_id:000000492
+execute_sell: 20000, order_id:000000493
+execute_sell: 20000, order_id:000000494
+execute_sell: 20000, order_id:000000495
+execute_sell: 20000, order_id:000000496
+execute_sell: 20000, order_id:000000497
+execute_sell: 20000, order_id:000000498
+execute_sell: 20000, order_id:000000499
+Done to order to sell: SZSE.159531
+Done, sold
+2024-06-19 09:31:00+08:00  algo...
+2024-06-20 09:31:00+08:00  algo...
+Start to buy: SZSE.159509
+execute_buy: 20000, order_id:000000500
+execute_buy: 20000, order_id:000000501
+execute_buy: 20000, order_id:000000502
+execute_buy: 20000, order_id:000000503
+execute_buy: 20000, order_id:000000504
+execute_buy: 7900, order_id:000000505
+Done to order to buy: SZSE.159509
+Done, bought
+2024-06-21 09:31:00+08:00  algo...
+2024-06-24 09:31:00+08:00  algo...
+2024-06-25 09:31:00+08:00  algo...
+2024-06-26 09:31:00+08:00  algo...
+2024-06-27 09:31:00+08:00  algo...
+Start to sell: SZSE.159509
+execute_sell: 20000, order_id:000000506
+execute_sell: 20000, order_id:000000507
+execute_sell: 20000, order_id:000000508
+execute_sell: 20000, order_id:000000509
+execute_sell: 20000, order_id:000000510
+execute_sell: 7900, order_id:000000511
+Done to order to sell: SZSE.159509
+Done, sold
+Start to buy: SHSE.513520
+execute_buy: 20000, order_id:000000512
+execute_buy: 20000, order_id:000000513
+execute_buy: 20000, order_id:000000514
+execute_buy: 20000, order_id:000000515
+execute_buy: 20000, order_id:000000516
+execute_buy: 20000, order_id:000000517
+execute_buy: 8600, order_id:000000518
+Done to order to buy: SHSE.513520
+Done, bought
+2024-06-28 09:31:00+08:00  algo...
+2024-07-01 09:31:00+08:00  algo...
+2024-07-02 09:31:00+08:00  algo...
+2024-07-03 09:31:00+08:00  algo...
+2024-07-04 09:31:00+08:00  algo...
+2024-07-05 09:31:00+08:00  algo...
+2024-07-08 09:31:00+08:00  algo...
+2024-07-09 09:31:00+08:00  algo...
+2024-07-10 09:31:00+08:00  algo...
+2024-07-11 09:31:00+08:00  algo...
+2024-07-12 09:31:00+08:00  algo...
+2024-07-15 09:31:00+08:00  algo...
+2024-07-16 09:31:00+08:00  algo...
+2024-07-17 09:31:00+08:00  algo...
+2024-07-18 09:31:00+08:00  algo...
+Start to sell: SHSE.513520
+execute_sell: 20000, order_id:000000519
+execute_sell: 20000, order_id:000000520
+execute_sell: 20000, order_id:000000521
+execute_sell: 20000, order_id:000000522
+execute_sell: 20000, order_id:000000523
+execute_sell: 20000, order_id:000000524
+execute_sell: 8600, order_id:000000525
+Done to order to sell: SHSE.513520
+Done, sold
+Start to buy: SHSE.512100
+execute_buy: 20000, order_id:000000526
+execute_buy: 20000, order_id:000000527
+execute_buy: 20000, order_id:000000528
+execute_buy: 20000, order_id:000000529
+execute_buy: 20000, order_id:000000530
+execute_buy: 300, order_id:000000531
+Done to order to buy: SHSE.512100
+Done, bought
+2024-07-19 09:31:00+08:00  algo...
+2024-07-22 09:31:00+08:00  algo...
+2024-07-23 09:31:00+08:00  algo...
+Start to sell: SHSE.512100
+execute_sell: 20000, order_id:000000532
+execute_sell: 20000, order_id:000000533
+execute_sell: 20000, order_id:000000534
+execute_sell: 20000, order_id:000000535
+execute_sell: 20000, order_id:000000536
+Done to order to sell: SHSE.512100
+Done, sold
+Start to buy: SZSE.162719
+execute_buy: 20000, order_id:000000537
+execute_buy: 20000, order_id:000000538
+execute_buy: 20000, order_id:000000539
+execute_buy: 20000, order_id:000000540
+execute_buy: 900, order_id:000000541
+Done to order to buy: SZSE.162719
+Done, bought
+2024-07-24 09:31:00+08:00  algo...
+2024-07-25 09:31:00+08:00  algo...
+2024-07-26 09:31:00+08:00  algo...
+Start to sell: SZSE.162719
+execute_sell: 20000, order_id:000000542
+execute_sell: 20000, order_id:000000543
+execute_sell: 20000, order_id:000000544
+execute_sell: 20000, order_id:000000545
+execute_sell: 900, order_id:000000546
+Done to order to sell: SZSE.162719
+Done, sold
+Start to buy: SHSE.518880
+execute_buy: 20000, order_id:000000547
+execute_buy: 16000, order_id:000000548
+Done to order to buy: SHSE.518880
+Done, bought
+2024-07-29 09:31:00+08:00  algo...
+Start to sell: SHSE.518880
+execute_sell: 20000, order_id:000000549
+execute_sell: 16000, order_id:000000550
+Done to order to sell: SHSE.518880
+Done, sold
+Start to buy: SZSE.159509
+execute_buy: 20000, order_id:000000551
+execute_buy: 20000, order_id:000000552
+execute_buy: 20000, order_id:000000553
+execute_buy: 20000, order_id:000000554
+execute_buy: 20000, order_id:000000555
+execute_buy: 20000, order_id:000000556
+execute_buy: 8400, order_id:000000557
+Done to order to buy: SZSE.159509
+Done, bought
+2024-07-30 09:31:00+08:00  algo...
+2024-07-31 09:31:00+08:00  algo...
+2024-08-01 09:31:00+08:00  algo...
+2024-08-02 09:31:00+08:00  algo...
+2024-08-05 09:31:00+08:00  algo...
+Start to sell: SZSE.159509
+execute_sell: 20000, order_id:000000558
+execute_sell: 20000, order_id:000000559
+execute_sell: 20000, order_id:000000560
+execute_sell: 20000, order_id:000000561
+execute_sell: 20000, order_id:000000562
+execute_sell: 20000, order_id:000000563
+execute_sell: 8400, order_id:000000564
+Done to order to sell: SZSE.159509
+Done, sold
+Start to buy: SHSE.513330
+execute_buy: 20000, order_id:000000565
+execute_buy: 20000, order_id:000000566
+execute_buy: 20000, order_id:000000567
+execute_buy: 20000, order_id:000000568
+execute_buy: 20000, order_id:000000569
+execute_buy: 20000, order_id:000000570
+execute_buy: 20000, order_id:000000571
+execute_buy: 20000, order_id:000000572
+execute_buy: 20000, order_id:000000573
+execute_buy: 20000, order_id:000000574
+execute_buy: 20000, order_id:000000575
+execute_buy: 20000, order_id:000000576
+execute_buy: 20000, order_id:000000577
+execute_buy: 20000, order_id:000000578
+execute_buy: 20000, order_id:000000579
+execute_buy: 20000, order_id:000000580
+execute_buy: 20000, order_id:000000581
+execute_buy: 20000, order_id:000000582
+execute_buy: 20000, order_id:000000583
+execute_buy: 20000, order_id:000000584
+execute_buy: 20000, order_id:000000585
+execute_buy: 20000, order_id:000000586
+execute_buy: 20000, order_id:000000587
+execute_buy: 20000, order_id:000000588
+execute_buy: 20000, order_id:000000589
+execute_buy: 20000, order_id:000000590
+execute_buy: 20000, order_id:000000591
+execute_buy: 14500, order_id:000000592
+Done to order to buy: SHSE.513330
+Done, bought
+2024-08-06 09:31:00+08:00  algo...
+Start to sell: SHSE.513330
+execute_sell: 20000, order_id:000000593
+execute_sell: 20000, order_id:000000594
+execute_sell: 20000, order_id:000000595
+execute_sell: 20000, order_id:000000596
+execute_sell: 20000, order_id:000000597
+execute_sell: 20000, order_id:000000598
+execute_sell: 20000, order_id:000000599
+execute_sell: 20000, order_id:000000600
+execute_sell: 20000, order_id:000000601
+execute_sell: 20000, order_id:000000602
+execute_sell: 20000, order_id:000000603
+execute_sell: 20000, order_id:000000604
+execute_sell: 20000, order_id:000000605
+execute_sell: 20000, order_id:000000606
+execute_sell: 20000, order_id:000000607
+execute_sell: 20000, order_id:000000608
+execute_sell: 20000, order_id:000000609
+execute_sell: 20000, order_id:000000610
+execute_sell: 20000, order_id:000000611
+execute_sell: 20000, order_id:000000612
+execute_sell: 20000, order_id:000000613
+execute_sell: 20000, order_id:000000614
+execute_sell: 20000, order_id:000000615
+execute_sell: 20000, order_id:000000616
+execute_sell: 20000, order_id:000000617
+execute_sell: 20000, order_id:000000618
+execute_sell: 20000, order_id:000000619
+Done to order to sell: SHSE.513330
+Done, sold
+Start to buy: SHSE.513500
+execute_buy: 20000, order_id:000000620
+execute_buy: 20000, order_id:000000621
+execute_buy: 20000, order_id:000000622
+execute_buy: 20000, order_id:000000623
+execute_buy: 20000, order_id:000000624
+execute_buy: 4300, order_id:000000625
+Done to order to buy: SHSE.513500
+Done, bought
+2024-08-07 09:31:00+08:00  algo...
+Start to sell: SHSE.513500
+execute_sell: 20000, order_id:000000626
+execute_sell: 20000, order_id:000000627
+execute_sell: 20000, order_id:000000628
+execute_sell: 20000, order_id:000000629
+execute_sell: 20000, order_id:000000630
+execute_sell: 4300, order_id:000000631
+Done to order to sell: SHSE.513500
+Done, sold
+Start to buy: SHSE.513520
+execute_buy: 20000, order_id:000000632
+execute_buy: 20000, order_id:000000633
+execute_buy: 20000, order_id:000000634
+execute_buy: 20000, order_id:000000635
+execute_buy: 20000, order_id:000000636
+execute_buy: 20000, order_id:000000637
+execute_buy: 20000, order_id:000000638
+execute_buy: 1400, order_id:000000639
+Done to order to buy: SHSE.513520
+Done, bought
+2024-08-08 09:31:00+08:00  algo...
+2024-08-09 09:31:00+08:00  algo...
+2024-08-12 09:31:00+08:00  algo...
+2024-08-13 09:31:00+08:00  algo...
+2024-08-14 09:31:00+08:00  algo...
+2024-08-15 09:31:00+08:00  algo...
+2024-08-16 09:31:00+08:00  algo...
+Start to sell: SHSE.513520
+execute_sell: 20000, order_id:000000640
+execute_sell: 20000, order_id:000000641
+execute_sell: 20000, order_id:000000642
+execute_sell: 20000, order_id:000000643
+execute_sell: 20000, order_id:000000644
+execute_sell: 20000, order_id:000000645
+execute_sell: 20000, order_id:000000646
+execute_sell: 1400, order_id:000000647
+Done to order to sell: SHSE.513520
+Done, sold
+Start to buy: SZSE.159509
+execute_buy: 20000, order_id:000000648
+execute_buy: 20000, order_id:000000649
+execute_buy: 20000, order_id:000000650
+execute_buy: 20000, order_id:000000651
+execute_buy: 20000, order_id:000000652
+execute_buy: 20000, order_id:000000653
+execute_buy: 11500, order_id:000000654
+Done to order to buy: SZSE.159509
+Done, bought
+2024-08-19 09:31:00+08:00  algo...
+2024-08-20 09:31:00+08:00  algo...
+Start to sell: SZSE.159509
+execute_sell: 20000, order_id:000000655
+execute_sell: 20000, order_id:000000656
+execute_sell: 20000, order_id:000000657
+execute_sell: 20000, order_id:000000658
+execute_sell: 20000, order_id:000000659
+execute_sell: 20000, order_id:000000660
+Done to order to sell: SZSE.159509
+Done, sold
+Start to buy: SHSE.513520
+execute_buy: 20000, order_id:000000661
+execute_buy: 20000, order_id:000000662
+execute_buy: 20000, order_id:000000663
+execute_buy: 20000, order_id:000000664
+execute_buy: 20000, order_id:000000665
+execute_buy: 20000, order_id:000000666
+execute_buy: 20000, order_id:000000667
+execute_buy: 400, order_id:000000668
+Done to order to buy: SHSE.513520
+Done, bought
+2024-08-21 09:31:00+08:00  algo...
+2024-08-22 09:31:00+08:00  algo...
+Start to sell: SHSE.513520
+execute_sell: 20000, order_id:000000669
+execute_sell: 20000, order_id:000000670
+execute_sell: 20000, order_id:000000671
+execute_sell: 20000, order_id:000000672
+execute_sell: 20000, order_id:000000673
+execute_sell: 20000, order_id:000000674
+execute_sell: 20000, order_id:000000675
+Done to order to sell: SHSE.513520
+Done, sold
+Start to buy: SHSE.518880
+execute_buy: 20000, order_id:000000676
+execute_buy: 17900, order_id:000000677
+Done to order to buy: SHSE.518880
+Done, bought
+2024-08-23 09:31:00+08:00  algo...
+2024-08-26 09:31:00+08:00  algo...
+2024-08-27 09:31:00+08:00  algo...
+Start to sell: SHSE.518880
+execute_sell: 20000, order_id:000000678
+execute_sell: 17900, order_id:000000679
+Done to order to sell: SHSE.518880
+Done, sold
+Start to buy: SZSE.159915
+execute_buy: 20000, order_id:000000680
+execute_buy: 20000, order_id:000000681
+execute_buy: 20000, order_id:000000682
+execute_buy: 20000, order_id:000000683
+execute_buy: 20000, order_id:000000684
+execute_buy: 20000, order_id:000000685
+execute_buy: 18700, order_id:000000686
+Done to order to buy: SZSE.159915
+Done, bought
+2024-08-28 09:31:00+08:00  algo...
+Start to sell: SZSE.159915
+execute_sell: 20000, order_id:000000687
+execute_sell: 20000, order_id:000000688
+execute_sell: 20000, order_id:000000689
+execute_sell: 20000, order_id:000000690
+execute_sell: 20000, order_id:000000691
+execute_sell: 20000, order_id:000000692
+execute_sell: 18700, order_id:000000693
+Done to order to sell: SZSE.159915
+Done, sold
+Start to buy: SHSE.510180
+execute_buy: 20000, order_id:000000694
+execute_buy: 20000, order_id:000000695
+execute_buy: 20000, order_id:000000696
+execute_buy: 3700, order_id:000000697
+Done to order to buy: SHSE.510180
+Done, bought
+2024-08-29 09:31:00+08:00  algo...
+Start to sell: SHSE.510180
+execute_sell: 20000, order_id:000000698
+execute_sell: 20000, order_id:000000699
+execute_sell: 20000, order_id:000000700
+execute_sell: 3700, order_id:000000701
+Done to order to sell: SHSE.510180
+Done, sold
+Start to buy: SHSE.512100
+execute_buy: 20000, order_id:000000702
+execute_buy: 20000, order_id:000000703
+execute_buy: 20000, order_id:000000704
+execute_buy: 20000, order_id:000000705
+execute_buy: 20000, order_id:000000706
+execute_buy: 13700, order_id:000000707
+Done to order to buy: SHSE.512100
+Done, bought
+2024-08-30 09:31:00+08:00  algo...
+2024-09-02 09:31:00+08:00  algo...
+2024-09-03 09:31:00+08:00  algo...
+2024-09-04 09:31:00+08:00  algo...
+2024-09-05 09:31:00+08:00  algo...
+2024-09-06 09:31:00+08:00  algo...
+2024-09-09 09:31:00+08:00  algo...
+Start to sell: SHSE.512100
+execute_sell: 20000, order_id:000000708
+execute_sell: 20000, order_id:000000709
+execute_sell: 20000, order_id:000000710
+execute_sell: 20000, order_id:000000711
+execute_sell: 20000, order_id:000000712
+Done to order to sell: SHSE.512100
+Done, sold
+Start to buy: SZSE.159509
+execute_buy: 20000, order_id:000000713
+execute_buy: 20000, order_id:000000714
+execute_buy: 20000, order_id:000000715
+execute_buy: 20000, order_id:000000716
+execute_buy: 20000, order_id:000000717
+execute_buy: 20000, order_id:000000718
+execute_buy: 20000, order_id:000000719
+execute_buy: 2800, order_id:000000720
+Done to order to buy: SZSE.159509
+Done, bought
+2024-09-10 09:31:00+08:00  algo...
+2024-09-11 09:31:00+08:00  algo...
+2024-09-12 09:31:00+08:00  algo...
+Start to sell: SZSE.159509
+execute_sell: 20000, order_id:000000721
+execute_sell: 20000, order_id:000000722
+execute_sell: 20000, order_id:000000723
+execute_sell: 20000, order_id:000000724
+execute_sell: 20000, order_id:000000725
+execute_sell: 20000, order_id:000000726
+execute_sell: 20000, order_id:000000727
+execute_sell: 2800, order_id:000000728
+Done to order to sell: SZSE.159509
+Done, sold
+Start to buy: SZSE.159915
+execute_buy: 20000, order_id:000000729
+execute_buy: 20000, order_id:000000730
+execute_buy: 20000, order_id:000000731
+execute_buy: 20000, order_id:000000732
+execute_buy: 20000, order_id:000000733
+execute_buy: 20000, order_id:000000734
+execute_buy: 16900, order_id:000000735
+Done to order to buy: SZSE.159915
+Done, bought
+2024-09-13 09:31:00+08:00  algo...
+2024-09-18 09:31:00+08:00  algo...
+2024-09-19 09:31:00+08:00  algo...
+Start to sell: SZSE.159915
+execute_sell: 20000, order_id:000000736
+execute_sell: 20000, order_id:000000737
+execute_sell: 20000, order_id:000000738
+execute_sell: 20000, order_id:000000739
+execute_sell: 20000, order_id:000000740
+execute_sell: 20000, order_id:000000741
+execute_sell: 16900, order_id:000000742
+Done to order to sell: SZSE.159915
+Done, sold
+Start to buy: SZSE.162719
+execute_buy: 20000, order_id:000000743
+execute_buy: 20000, order_id:000000744
+execute_buy: 20000, order_id:000000745
+execute_buy: 20000, order_id:000000746
+execute_buy: 11100, order_id:000000747
+Done to order to buy: SZSE.162719
+Done, bought
+2024-09-20 09:31:00+08:00  algo...
+2024-09-23 09:31:00+08:00  algo...
+2024-09-24 09:31:00+08:00  algo...
+2024-09-25 09:31:00+08:00  algo...
+Start to sell: SZSE.162719
+execute_sell: 20000, order_id:000000748
+execute_sell: 20000, order_id:000000749
+execute_sell: 20000, order_id:000000750
+execute_sell: 20000, order_id:000000751
+execute_sell: 11100, order_id:000000752
+Done to order to sell: SZSE.162719
+Done, sold
+Start to buy: SHSE.513330
+execute_buy: 20000, order_id:000000753
+execute_buy: 20000, order_id:000000754
+execute_buy: 20000, order_id:000000755
+execute_buy: 20000, order_id:000000756
+execute_buy: 20000, order_id:000000757
+execute_buy: 20000, order_id:000000758
+execute_buy: 20000, order_id:000000759
+execute_buy: 20000, order_id:000000760
+execute_buy: 20000, order_id:000000761
+execute_buy: 20000, order_id:000000762
+execute_buy: 20000, order_id:000000763
+execute_buy: 20000, order_id:000000764
+execute_buy: 20000, order_id:000000765
+execute_buy: 20000, order_id:000000766
+execute_buy: 20000, order_id:000000767
+execute_buy: 20000, order_id:000000768
+execute_buy: 20000, order_id:000000769
+execute_buy: 20000, order_id:000000770
+execute_buy: 20000, order_id:000000771
+execute_buy: 20000, order_id:000000772
+execute_buy: 20000, order_id:000000773
+execute_buy: 20000, order_id:000000774
+execute_buy: 20000, order_id:000000775
+execute_buy: 20000, order_id:000000776
+execute_buy: 20000, order_id:000000777
+execute_buy: 20000, order_id:000000778
+execute_buy: 20000, order_id:000000779
+execute_buy: 11900, order_id:000000780
+Done to order to buy: SHSE.513330
+Done, bought
+2024-09-26 09:31:00+08:00  algo...
+2024-09-27 09:31:00+08:00  algo...
+2024-09-30 09:31:00+08:00  algo...
+Start to sell: SHSE.513330
+execute_sell: 20000, order_id:000000781
+execute_sell: 20000, order_id:000000782
+execute_sell: 20000, order_id:000000783
+execute_sell: 20000, order_id:000000784
+execute_sell: 20000, order_id:000000785
+execute_sell: 20000, order_id:000000786
+execute_sell: 20000, order_id:000000787
+execute_sell: 20000, order_id:000000788
+execute_sell: 20000, order_id:000000789
+execute_sell: 20000, order_id:000000790
+execute_sell: 20000, order_id:000000791
+execute_sell: 20000, order_id:000000792
+execute_sell: 20000, order_id:000000793
+execute_sell: 20000, order_id:000000794
+execute_sell: 20000, order_id:000000795
+execute_sell: 20000, order_id:000000796
+execute_sell: 20000, order_id:000000797
+execute_sell: 20000, order_id:000000798
+execute_sell: 20000, order_id:000000799
+execute_sell: 20000, order_id:000000800
+execute_sell: 20000, order_id:000000801
+execute_sell: 20000, order_id:000000802
+execute_sell: 20000, order_id:000000803
+execute_sell: 20000, order_id:000000804
+execute_sell: 20000, order_id:000000805
+execute_sell: 20000, order_id:000000806
+execute_sell: 20000, order_id:000000807
+Done to order to sell: SHSE.513330
+Done, sold
+2024-10-08 09:31:00+08:00  algo...
+2024-10-09 09:31:00+08:00  algo...
+2024-10-10 09:31:00+08:00  algo...
+2024-10-11 09:31:00+08:00  algo...
+2024-10-14 09:31:00+08:00  algo...
+2024-10-15 09:31:00+08:00  algo...
+2024-10-16 09:31:00+08:00  algo...
+2024-10-17 09:31:00+08:00  algo...
+2024-10-18 09:31:00+08:00  algo...
+2024-10-21 09:31:00+08:00  algo...
+2024-10-22 09:31:00+08:00  algo...
+2024-10-23 09:31:00+08:00  algo...
+2024-10-24 09:31:00+08:00  algo...
+2024-10-25 09:31:00+08:00  algo...
+2024-10-28 09:31:00+08:00  algo...
+2024-10-29 09:31:00+08:00  algo...
+2024-10-30 09:31:00+08:00  algo...
+2024-10-31 09:31:00+08:00  algo...
+2024-11-01 09:31:00+08:00  algo...
+2024-11-04 09:31:00+08:00  algo...
+2024-11-05 09:31:00+08:00  algo...
+2024-11-06 09:31:00+08:00  algo...
+2024-11-07 09:31:00+08:00  algo...
+Start to buy: SHSE.512480
+execute_buy: 20000, order_id:000000808
+execute_buy: 20000, order_id:000000809
+execute_buy: 20000, order_id:000000810
+execute_buy: 20000, order_id:000000811
+execute_buy: 20000, order_id:000000812
+execute_buy: 20000, order_id:000000813
+execute_buy: 20000, order_id:000000814
+execute_buy: 20000, order_id:000000815
+execute_buy: 20000, order_id:000000816
+execute_buy: 20000, order_id:000000817
+execute_buy: 20000, order_id:000000818
+execute_buy: 14500, order_id:000000819
+Done to order to buy: SHSE.512480
+Done, bought
+2024-11-08 09:31:00+08:00  algo...
+Start to sell: SHSE.512480
+execute_sell: 20000, order_id:000000820
+execute_sell: 20000, order_id:000000821
+execute_sell: 20000, order_id:000000822
+execute_sell: 20000, order_id:000000823
+execute_sell: 20000, order_id:000000824
+execute_sell: 20000, order_id:000000825
+execute_sell: 20000, order_id:000000826
+execute_sell: 20000, order_id:000000827
+execute_sell: 20000, order_id:000000828
+execute_sell: 20000, order_id:000000829
+execute_sell: 20000, order_id:000000830
+execute_sell: 14500, order_id:000000831
+Done to order to sell: SHSE.512480
+Done, sold
+Start to buy: SHSE.513100
+execute_buy: 20000, order_id:000000832
+execute_buy: 20000, order_id:000000833
+execute_buy: 20000, order_id:000000834
+execute_buy: 20000, order_id:000000835
+execute_buy: 20000, order_id:000000836
+execute_buy: 20000, order_id:000000837
+execute_buy: 20000, order_id:000000838
+execute_buy: 20000, order_id:000000839
+execute_buy: 2600, order_id:000000840
+Done to order to buy: SHSE.513100
+Done, bought
+2024-11-11 09:31:00+08:00  algo...
+Start to sell: SHSE.513100
+execute_sell: 20000, order_id:000000841
+execute_sell: 20000, order_id:000000842
+execute_sell: 20000, order_id:000000843
+execute_sell: 20000, order_id:000000844
+execute_sell: 20000, order_id:000000845
+execute_sell: 20000, order_id:000000846
+execute_sell: 20000, order_id:000000847
+execute_sell: 20000, order_id:000000848
+execute_sell: 2600, order_id:000000849
+Done to order to sell: SHSE.513100
+Done, sold
+Start to buy: SZSE.162719
+execute_buy: 20000, order_id:000000850
+execute_buy: 20000, order_id:000000851
+execute_buy: 20000, order_id:000000852
+execute_buy: 20000, order_id:000000853
+execute_buy: 20000, order_id:000000854
+execute_buy: 6000, order_id:000000855
+Done to order to buy: SZSE.162719
+Done, bought
+2024-11-12 09:31:00+08:00  algo...
+2024-11-13 09:31:00+08:00  algo...
+2024-11-14 09:31:00+08:00  algo...
+2024-11-15 09:31:00+08:00  algo...
+Start to sell: SZSE.162719
+execute_sell: 20000, order_id:000000856
+execute_sell: 20000, order_id:000000857
+execute_sell: 20000, order_id:000000858
+execute_sell: 20000, order_id:000000859
+execute_sell: 20000, order_id:000000860
+Done to order to sell: SZSE.162719
+Done, sold
+Start to buy: SZSE.159531
+execute_buy: 20000, order_id:000000861
+execute_buy: 20000, order_id:000000862
+execute_buy: 20000, order_id:000000863
+execute_buy: 20000, order_id:000000864
+execute_buy: 20000, order_id:000000865
+execute_buy: 20000, order_id:000000866
+execute_buy: 20000, order_id:000000867
+execute_buy: 20000, order_id:000000868
+execute_buy: 20000, order_id:000000869
+execute_buy: 20000, order_id:000000870
+execute_buy: 20000, order_id:000000871
+execute_buy: 20000, order_id:000000872
+execute_buy: 6800, order_id:000000873
+Done to order to buy: SZSE.159531
+Done, bought
+2024-11-18 09:31:00+08:00  algo...
+Start to sell: SZSE.159531
+execute_sell: 20000, order_id:000000874
+execute_sell: 20000, order_id:000000875
+execute_sell: 20000, order_id:000000876
+execute_sell: 20000, order_id:000000877
+execute_sell: 20000, order_id:000000878
+execute_sell: 20000, order_id:000000879
+execute_sell: 20000, order_id:000000880
+execute_sell: 20000, order_id:000000881
+execute_sell: 20000, order_id:000000882
+execute_sell: 20000, order_id:000000883
+execute_sell: 20000, order_id:000000884
+execute_sell: 20000, order_id:000000885
+execute_sell: 6800, order_id:000000886
+Done to order to sell: SZSE.159531
+Done, sold
+Start to buy: SHSE.512100
+execute_buy: 20000, order_id:000000887
+execute_buy: 20000, order_id:000000888
+execute_buy: 20000, order_id:000000889
+execute_buy: 20000, order_id:000000890
+execute_buy: 20000, order_id:000000891
+execute_buy: 600, order_id:000000892
+Done to order to buy: SHSE.512100
+Done, bought
+2024-11-19 09:31:00+08:00  algo...
+Start to sell: SHSE.512100
+execute_sell: 20000, order_id:000000893
+execute_sell: 20000, order_id:000000894
+execute_sell: 20000, order_id:000000895
+execute_sell: 20000, order_id:000000896
+execute_sell: 20000, order_id:000000897
+execute_sell: 600, order_id:000000898
+Done to order to sell: SHSE.512100
+Done, sold
+Start to buy: SHSE.513500
+execute_buy: 20000, order_id:000000899
+execute_buy: 20000, order_id:000000900
+execute_buy: 20000, order_id:000000901
+execute_buy: 20000, order_id:000000902
+execute_buy: 20000, order_id:000000903
+execute_buy: 16200, order_id:000000904
+Done to order to buy: SHSE.513500
+Done, bought
+2024-11-20 09:31:00+08:00  algo...
+2024-11-21 09:31:00+08:00  algo...
+2024-11-22 09:31:00+08:00  algo...
+2024-11-25 09:31:00+08:00  algo...
+2024-11-26 09:31:00+08:00  algo...
+Start to sell: SHSE.513500
+execute_sell: 20000, order_id:000000905
+execute_sell: 20000, order_id:000000906
+execute_sell: 20000, order_id:000000907
+execute_sell: 20000, order_id:000000908
+execute_sell: 20000, order_id:000000909
+execute_sell: 16200, order_id:000000910
+Done to order to sell: SHSE.513500
+Done, sold
+Start to buy: SHSE.518880
+execute_buy: 20000, order_id:000000911
+execute_buy: 20000, order_id:000000912
+execute_buy: 2700, order_id:000000913
+Done to order to buy: SHSE.518880
+Done, bought
+2024-11-27 09:31:00+08:00  algo...
+Start to sell: SHSE.518880
+execute_sell: 20000, order_id:000000914
+execute_sell: 20000, order_id:000000915
+execute_sell: 2700, order_id:000000916
+Done to order to sell: SHSE.518880
+Done, sold
+Start to buy: SHSE.513500
+execute_buy: 20000, order_id:000000917
+execute_buy: 20000, order_id:000000918
+execute_buy: 20000, order_id:000000919
+execute_buy: 20000, order_id:000000920
+execute_buy: 20000, order_id:000000921
+execute_buy: 14500, order_id:000000922
+Done to order to buy: SHSE.513500
+Done, bought
+2024-11-28 09:31:00+08:00  algo...
+2024-11-29 09:31:00+08:00  algo...
+2024-12-02 09:31:00+08:00  algo...
+2024-12-03 09:31:00+08:00  algo...
+2024-12-04 09:31:00+08:00  algo...
+Start to sell: SHSE.513500
+execute_sell: 20000, order_id:000000923
+execute_sell: 20000, order_id:000000924
+execute_sell: 20000, order_id:000000925
+execute_sell: 20000, order_id:000000926
+execute_sell: 20000, order_id:000000927
+execute_sell: 14500, order_id:000000928
+Done to order to sell: SHSE.513500
+Done, sold
+Start to buy: SHSE.513520
+execute_buy: 20000, order_id:000000929
+execute_buy: 20000, order_id:000000930
+execute_buy: 20000, order_id:000000931
+execute_buy: 20000, order_id:000000932
+execute_buy: 20000, order_id:000000933
+execute_buy: 20000, order_id:000000934
+execute_buy: 20000, order_id:000000935
+execute_buy: 20000, order_id:000000936
+execute_buy: 13000, order_id:000000937
+Done to order to buy: SHSE.513520
+Done, bought
+2024-12-05 09:31:00+08:00  algo...
+2024-12-06 09:31:00+08:00  algo...
+2024-12-09 09:31:00+08:00  algo...
+2024-12-10 09:31:00+08:00  algo...
+2024-12-11 09:31:00+08:00  algo...
+Start to sell: SHSE.513520
+execute_sell: 20000, order_id:000000938
+execute_sell: 20000, order_id:000000939
+execute_sell: 20000, order_id:000000940
+execute_sell: 20000, order_id:000000941
+execute_sell: 20000, order_id:000000942
+execute_sell: 20000, order_id:000000943
+execute_sell: 20000, order_id:000000944
+execute_sell: 20000, order_id:000000945
+execute_sell: 13000, order_id:000000946
+Done to order to sell: SHSE.513520
+Done, sold
+Start to buy: SZSE.159857
+execute_buy: 20000, order_id:000000947
+execute_buy: 20000, order_id:000000948
+execute_buy: 20000, order_id:000000949
+execute_buy: 20000, order_id:000000950
+execute_buy: 20000, order_id:000000951
+execute_buy: 20000, order_id:000000952
+execute_buy: 20000, order_id:000000953
+execute_buy: 20000, order_id:000000954
+execute_buy: 20000, order_id:000000955
+execute_buy: 20000, order_id:000000956
+execute_buy: 20000, order_id:000000957
+execute_buy: 20000, order_id:000000958
+execute_buy: 20000, order_id:000000959
+execute_buy: 20000, order_id:000000960
+execute_buy: 20000, order_id:000000961
+execute_buy: 20000, order_id:000000962
+execute_buy: 20000, order_id:000000963
+execute_buy: 20000, order_id:000000964
+execute_buy: 3800, order_id:000000965
+Done to order to buy: SZSE.159857
+Done, bought
+2024-12-12 09:31:00+08:00  algo...
+2024-12-13 09:31:00+08:00  algo...
+2024-12-16 09:31:00+08:00  algo...
+Start to sell: SZSE.159857
+execute_sell: 20000, order_id:000000966
+execute_sell: 20000, order_id:000000967
+execute_sell: 20000, order_id:000000968
+execute_sell: 20000, order_id:000000969
+execute_sell: 20000, order_id:000000970
+execute_sell: 20000, order_id:000000971
+execute_sell: 20000, order_id:000000972
+execute_sell: 20000, order_id:000000973
+execute_sell: 20000, order_id:000000974
+execute_sell: 20000, order_id:000000975
+execute_sell: 20000, order_id:000000976
+execute_sell: 20000, order_id:000000977
+execute_sell: 20000, order_id:000000978
+execute_sell: 20000, order_id:000000979
+execute_sell: 20000, order_id:000000980
+execute_sell: 20000, order_id:000000981
+execute_sell: 20000, order_id:000000982
+execute_sell: 20000, order_id:000000983
+Done to order to sell: SZSE.159857
+Done, sold
+Start to buy: SHSE.510180
+execute_buy: 20000, order_id:000000984
+execute_buy: 20000, order_id:000000985
+execute_buy: 20000, order_id:000000986
+execute_buy: 7700, order_id:000000987
+Done to order to buy: SHSE.510180
+Done, bought
+2024-12-17 09:31:00+08:00  algo...
+2024-12-18 09:31:00+08:00  algo...
+Start to sell: SHSE.510180
+execute_sell: 20000, order_id:000000988
+execute_sell: 20000, order_id:000000989
+execute_sell: 20000, order_id:000000990
+Done to order to sell: SHSE.510180
+Done, sold
+Start to buy: SZSE.159509
+execute_buy: 20000, order_id:000000991
+execute_buy: 20000, order_id:000000992
+execute_buy: 20000, order_id:000000993
+execute_buy: 20000, order_id:000000994
+execute_buy: 20000, order_id:000000995
+execute_buy: 20000, order_id:000000996
+execute_buy: 20000, order_id:000000997
+execute_buy: 8500, order_id:000000998
+Done to order to buy: SZSE.159509
+Done, bought
+2024-12-19 09:31:00+08:00  algo...
+2024-12-20 09:31:00+08:00  algo...
+2024-12-23 09:31:00+08:00  algo...
+2024-12-24 09:31:00+08:00  algo...
+Start to sell: SZSE.159509
+execute_sell: 20000, order_id:000000999
+execute_sell: 20000, order_id:000001000
+execute_sell: 20000, order_id:000001001
+execute_sell: 20000, order_id:000001002
+execute_sell: 20000, order_id:000001003
+execute_sell: 20000, order_id:000001004
+execute_sell: 20000, order_id:000001005
+execute_sell: 8500, order_id:000001006
+Done to order to sell: SZSE.159509
+Done, sold
+Start to buy: SZSE.162719
+execute_buy: 20000, order_id:000001007
+execute_buy: 20000, order_id:000001008
+execute_buy: 20000, order_id:000001009
+execute_buy: 20000, order_id:000001010
+execute_buy: 20000, order_id:000001011
+execute_buy: 7600, order_id:000001012
+Done to order to buy: SZSE.162719
+Done, bought
+2024-12-25 09:31:00+08:00  algo...
+2024-12-26 09:31:00+08:00  algo...
+2024-12-27 09:31:00+08:00  algo...
+2024-12-30 09:31:00+08:00  algo...
+Start to sell: SZSE.162719
+execute_sell: 20000, order_id:000001013
+execute_sell: 20000, order_id:000001014
+execute_sell: 20000, order_id:000001015
+execute_sell: 20000, order_id:000001016
+execute_sell: 20000, order_id:000001017
+Done to order to sell: SZSE.162719
+Done, sold
+Start to buy: SHSE.513520
+execute_buy: 20000, order_id:000001018
+execute_buy: 20000, order_id:000001019
+execute_buy: 20000, order_id:000001020
+execute_buy: 20000, order_id:000001021
+execute_buy: 20000, order_id:000001022
+execute_buy: 20000, order_id:000001023
+execute_buy: 20000, order_id:000001024
+execute_buy: 19700, order_id:000001025
+Done to order to buy: SHSE.513520
+Done, bought
+2024-12-31 09:31:00+08:00  algo...
+2025-01-02 09:31:00+08:00  algo...
+2025-01-03 09:31:00+08:00  algo...
+2025-01-06 09:31:00+08:00  algo...
+2025-01-07 09:31:00+08:00  algo...
+2025-01-08 09:31:00+08:00  algo...
+Start to sell: SHSE.513520
+execute_sell: 20000, order_id:000001026
+execute_sell: 20000, order_id:000001027
+execute_sell: 20000, order_id:000001028
+execute_sell: 20000, order_id:000001029
+execute_sell: 20000, order_id:000001030
+execute_sell: 20000, order_id:000001031
+execute_sell: 20000, order_id:000001032
+Done to order to sell: SHSE.513520
+Done, sold
+Start to buy: SZSE.162719
+execute_buy: 20000, order_id:000001033
+execute_buy: 20000, order_id:000001034
+execute_buy: 20000, order_id:000001035
+execute_buy: 20000, order_id:000001036
+execute_buy: 20000, order_id:000001037
+execute_buy: 4800, order_id:000001038
+Done to order to buy: SZSE.162719
+Done, bought
+2025-01-09 09:31:00+08:00  algo...
+2025-01-10 09:31:00+08:00  algo...
+Start to sell: SZSE.162719
+execute_sell: 20000, order_id:000001039
+execute_sell: 20000, order_id:000001040
+execute_sell: 20000, order_id:000001041
+execute_sell: 20000, order_id:000001042
+execute_sell: 20000, order_id:000001043
+execute_sell: 4800, order_id:000001044
+Done to order to sell: SZSE.162719
+Done, sold
+Start to buy: SHSE.513520
+execute_buy: 20000, order_id:000001045
+execute_buy: 20000, order_id:000001046
+execute_buy: 20000, order_id:000001047
+execute_buy: 20000, order_id:000001048
+execute_buy: 20000, order_id:000001049
+execute_buy: 20000, order_id:000001050
+execute_buy: 20000, order_id:000001051
+execute_buy: 20000, order_id:000001052
+execute_buy: 1500, order_id:000001053
+Done to order to buy: SHSE.513520
+Done, bought
+2025-01-13 09:31:00+08:00  algo...
+2025-01-14 09:31:00+08:00  algo...
+2025-01-15 09:31:00+08:00  algo...
+2025-01-16 09:31:00+08:00  algo...
+2025-01-17 09:31:00+08:00  algo...
+2025-01-20 09:31:00+08:00  algo...
+2025-01-21 09:31:00+08:00  algo...
+2025-01-22 09:31:00+08:00  algo...
+2025-01-23 09:31:00+08:00  algo...
+2025-01-24 09:31:00+08:00  algo...
+2025-01-27 09:31:00+08:00  algo...
+2025-02-05 09:31:00+08:00  algo...
+2025-02-06 09:31:00+08:00  algo...
+2025-02-07 09:31:00+08:00  algo...
+Start to sell: SHSE.513520
+execute_sell: 20000, order_id:000001054
+execute_sell: 20000, order_id:000001055
+execute_sell: 20000, order_id:000001056
+execute_sell: 20000, order_id:000001057
+execute_sell: 20000, order_id:000001058
+execute_sell: 20000, order_id:000001059
+execute_sell: 20000, order_id:000001060
+execute_sell: 20000, order_id:000001061
+Done to order to sell: SHSE.513520
+Done, sold
+Start to buy: SHSE.513330
+execute_buy: 20000, order_id:000001062
+execute_buy: 20000, order_id:000001063
+execute_buy: 20000, order_id:000001064
+execute_buy: 20000, order_id:000001065
+execute_buy: 20000, order_id:000001066
+execute_buy: 20000, order_id:000001067
+execute_buy: 20000, order_id:000001068
+execute_buy: 20000, order_id:000001069
+execute_buy: 20000, order_id:000001070
+execute_buy: 20000, order_id:000001071
+execute_buy: 20000, order_id:000001072
+execute_buy: 20000, order_id:000001073
+execute_buy: 20000, order_id:000001074
+execute_buy: 20000, order_id:000001075
+execute_buy: 20000, order_id:000001076
+execute_buy: 20000, order_id:000001077
+execute_buy: 20000, order_id:000001078
+execute_buy: 20000, order_id:000001079
+execute_buy: 20000, order_id:000001080
+execute_buy: 20000, order_id:000001081
+execute_buy: 20000, order_id:000001082
+execute_buy: 20000, order_id:000001083
+execute_buy: 20000, order_id:000001084
+execute_buy: 20000, order_id:000001085
+execute_buy: 20000, order_id:000001086
+execute_buy: 20000, order_id:000001087
+execute_buy: 7200, order_id:000001088
+Done to order to buy: SHSE.513330
+Done, bought
+2025-02-10 09:31:00+08:00  algo...
+2025-02-11 09:31:00+08:00  algo...
+2025-02-12 09:31:00+08:00  algo...
+2025-02-13 09:31:00+08:00  algo...
+2025-02-14 09:31:00+08:00  algo...
+2025-02-17 09:31:00+08:00  algo...
+2025-02-18 09:31:00+08:00  algo...
+2025-02-19 09:31:00+08:00  algo...
+2025-02-20 09:31:00+08:00  algo...
+2025-02-21 09:31:00+08:00  algo...
+2025-02-24 09:31:00+08:00  algo...
+2025-02-25 09:31:00+08:00  algo...
+2025-02-26 09:31:00+08:00  algo...
+2025-02-27 09:31:00+08:00  algo...
+2025-02-28 09:31:00+08:00  algo...
+2025-03-03 09:31:00+08:00  algo...
+2025-03-04 09:31:00+08:00  algo...
+2025-03-05 09:31:00+08:00  algo...
+Start to sell: SHSE.513330
+execute_sell: 20000, order_id:000001089
+execute_sell: 20000, order_id:000001090
+execute_sell: 20000, order_id:000001091
+execute_sell: 20000, order_id:000001092
+execute_sell: 20000, order_id:000001093
+execute_sell: 20000, order_id:000001094
+execute_sell: 20000, order_id:000001095
+execute_sell: 20000, order_id:000001096
+execute_sell: 20000, order_id:000001097
+execute_sell: 20000, order_id:000001098
+execute_sell: 20000, order_id:000001099
+execute_sell: 20000, order_id:000001100
+execute_sell: 20000, order_id:000001101
+execute_sell: 20000, order_id:000001102
+execute_sell: 20000, order_id:000001103
+execute_sell: 20000, order_id:000001104
+execute_sell: 20000, order_id:000001105
+execute_sell: 20000, order_id:000001106
+execute_sell: 20000, order_id:000001107
+execute_sell: 20000, order_id:000001108
+execute_sell: 20000, order_id:000001109
+execute_sell: 20000, order_id:000001110
+execute_sell: 20000, order_id:000001111
+execute_sell: 20000, order_id:000001112
+execute_sell: 20000, order_id:000001113
+execute_sell: 20000, order_id:000001114
+Done to order to sell: SHSE.513330
+Done, sold
+Start to buy: SHSE.513500
+execute_buy: 20000, order_id:000001115
+execute_buy: 20000, order_id:000001116
+execute_buy: 20000, order_id:000001117
+execute_buy: 20000, order_id:000001118
+execute_buy: 20000, order_id:000001119
+execute_buy: 20000, order_id:000001120
+execute_buy: 10600, order_id:000001121
+Done to order to buy: SHSE.513500
+Done, bought
+2025-03-06 09:31:00+08:00  algo...
+2025-03-07 09:31:00+08:00  algo...
+2025-03-10 09:31:00+08:00  algo...
+Start to sell: SHSE.513500
+execute_sell: 20000, order_id:000001122
+execute_sell: 20000, order_id:000001123
+execute_sell: 20000, order_id:000001124
+execute_sell: 20000, order_id:000001125
+execute_sell: 20000, order_id:000001126
+execute_sell: 20000, order_id:000001127
+execute_sell: 10600, order_id:000001128
+Done to order to sell: SHSE.513500
+Done, sold
+2025-03-11 09:31:00+08:00  algo...
+Start to buy: SHSE.510180
+execute_buy: 20000, order_id:000001129
+execute_buy: 20000, order_id:000001130
+execute_buy: 20000, order_id:000001131
+execute_buy: 12500, order_id:000001132
+Done to order to buy: SHSE.510180
+Done, bought
+2025-03-12 09:31:00+08:00  algo...
+2025-03-13 09:31:00+08:00  algo...
+2025-03-14 09:31:00+08:00  algo...
+Start to sell: SHSE.510180
+execute_sell: 20000, order_id:000001133
+execute_sell: 20000, order_id:000001134
+execute_sell: 20000, order_id:000001135
+execute_sell: 12500, order_id:000001136
+Done to order to sell: SHSE.510180
+Done, sold
+Start to buy: SZSE.159509
+execute_buy: 20000, order_id:000001137
+execute_buy: 20000, order_id:000001138
+execute_buy: 20000, order_id:000001139
+execute_buy: 20000, order_id:000001140
+execute_buy: 20000, order_id:000001141
+execute_buy: 20000, order_id:000001142
+execute_buy: 20000, order_id:000001143
+execute_buy: 20000, order_id:000001144
+execute_buy: 20000, order_id:000001145
+execute_buy: 7500, order_id:000001146
+Done to order to buy: SZSE.159509
+Done, bought
+2025-03-17 09:31:00+08:00  algo...
+Start to sell: SZSE.159509
+execute_sell: 20000, order_id:000001147
+execute_sell: 20000, order_id:000001148
+execute_sell: 20000, order_id:000001149
+execute_sell: 20000, order_id:000001150
+execute_sell: 20000, order_id:000001151
+execute_sell: 20000, order_id:000001152
+execute_sell: 20000, order_id:000001153
+execute_sell: 20000, order_id:000001154
+execute_sell: 20000, order_id:000001155
+Done to order to sell: SZSE.159509
+Done, sold
+Start to buy: SHSE.510180
+execute_buy: 20000, order_id:000001156
+execute_buy: 20000, order_id:000001157
+execute_buy: 20000, order_id:000001158
+execute_buy: 11600, order_id:000001159
+Done to order to buy: SHSE.510180
+Done, bought
+2025-03-18 09:31:00+08:00  algo...
+Start to sell: SHSE.510180
+execute_sell: 20000, order_id:000001160
+execute_sell: 20000, order_id:000001161
+execute_sell: 20000, order_id:000001162
+execute_sell: 11600, order_id:000001163
+Done to order to sell: SHSE.510180
+Done, sold
+Start to buy: SZSE.159509
+execute_buy: 20000, order_id:000001164
+execute_buy: 20000, order_id:000001165
+execute_buy: 20000, order_id:000001166
+execute_buy: 20000, order_id:000001167
+execute_buy: 20000, order_id:000001168
+execute_buy: 20000, order_id:000001169
+execute_buy: 20000, order_id:000001170
+execute_buy: 20000, order_id:000001171
+execute_buy: 20000, order_id:000001172
+execute_buy: 6300, order_id:000001173
+Done to order to buy: SZSE.159509
+Done, bought
+2025-03-19 09:31:00+08:00  algo...
+Start to sell: SZSE.159509
+execute_sell: 20000, order_id:000001174
+execute_sell: 20000, order_id:000001175
+execute_sell: 20000, order_id:000001176
+execute_sell: 20000, order_id:000001177
+execute_sell: 20000, order_id:000001178
+execute_sell: 20000, order_id:000001179
+execute_sell: 20000, order_id:000001180
+execute_sell: 20000, order_id:000001181
+execute_sell: 20000, order_id:000001182
+Done to order to sell: SZSE.159509
+Done, sold
+Start to buy: SZSE.162719
+execute_buy: 20000, order_id:000001183
+execute_buy: 20000, order_id:000001184
+execute_buy: 20000, order_id:000001185
+execute_buy: 20000, order_id:000001186
+execute_buy: 20000, order_id:000001187
+execute_buy: 14900, order_id:000001188
+Done to order to buy: SZSE.162719
+Done, bought
+2025-03-20 09:31:00+08:00  algo...
+2025-03-21 09:31:00+08:00  algo...
+2025-03-24 09:31:00+08:00  algo...
+2025-03-25 09:31:00+08:00  algo...
+2025-03-26 09:31:00+08:00  algo...
+Start to sell: SZSE.162719
+execute_sell: 20000, order_id:000001189
+execute_sell: 20000, order_id:000001190
+execute_sell: 20000, order_id:000001191
+execute_sell: 20000, order_id:000001192
+execute_sell: 20000, order_id:000001193
+Done to order to sell: SZSE.162719
+Done, sold
+Start to buy: SHSE.513520
+execute_buy: 20000, order_id:000001194
+execute_buy: 20000, order_id:000001195
+execute_buy: 20000, order_id:000001196
+execute_buy: 20000, order_id:000001197
+execute_buy: 20000, order_id:000001198
+execute_buy: 20000, order_id:000001199
+execute_buy: 20000, order_id:000001200
+execute_buy: 20000, order_id:000001201
+execute_buy: 20000, order_id:000001202
+execute_buy: 6800, order_id:000001203
+Done to order to buy: SHSE.513520
+Done, bought
+2025-03-27 09:31:00+08:00  algo...
+Start to sell: SHSE.513520
+execute_sell: 20000, order_id:000001204
+execute_sell: 20000, order_id:000001205
+execute_sell: 20000, order_id:000001206
+execute_sell: 20000, order_id:000001207
+execute_sell: 20000, order_id:000001208
+execute_sell: 20000, order_id:000001209
+execute_sell: 20000, order_id:000001210
+execute_sell: 20000, order_id:000001211
+execute_sell: 20000, order_id:000001212
+execute_sell: 6800, order_id:000001213
+Done to order to sell: SHSE.513520
+Done, sold
+Start to buy: SHSE.513500
+execute_buy: 20000, order_id:000001214
+execute_buy: 20000, order_id:000001215
+execute_buy: 20000, order_id:000001216
+execute_buy: 20000, order_id:000001217
+execute_buy: 20000, order_id:000001218
+execute_buy: 20000, order_id:000001219
+execute_buy: 13600, order_id:000001220
+Done to order to buy: SHSE.513500
+Done, bought
+Done! From start, time elapsed: 93.87176012992859 seconds
+AAA backtest finished:  {'account_id': '630ce8b7-0c6d-11f0-a2bc-00155dd6c843', 'pnl_ratio': 1.6497580001198122, 'pnl_ratio_annual': 1.0830245864095889, 'sharp_ratio': 1.9726310131577174, 'max_drawdown': 0.15557120305305283, 'risk_ratio': 0.9998251318918031, 'open_count': 600, 'close_count': 593, 'win_count': 377, 'lose_count': 216, 'win_ratio': 0.6357504215851602, 'calmar_ratio': 6.961600637878054, 'created_at': datetime.datetime(2025, 4, 1, 19, 35, 37, 244188, tzinfo=datetime.timezone(datetime.timedelta(seconds=28800), 'Asia/Shanghai')), 'updated_at': datetime.datetime(2025, 4, 1, 19, 37, 11, 49367, tzinfo=datetime.timezone(datetime.timedelta(seconds=28800), 'Asia/Shanghai'))}
+
+Process finished with exit code 0

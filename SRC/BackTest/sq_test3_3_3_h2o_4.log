@@ -1,0 +1,319 @@
+D:\Workplace-Pycharm\.venv\Scripts\python.exe D:\Workplace-Pycharm\QuantitativeTransaction\SRC\sq\test\test_gm\for159869\sq_test3_3_3.py
+2025-02-15 16:49:10.729091: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-02-15 16:49:11.874620: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+----------------------------------------
+python sdk version: 3.0.168
+c sdk version: 3.7.4
+----------------------------------------
+[INFO]  Start...
+[INFO]  ForSZTrainer train...
+[INFO]  Model name: GBM_grid_1_AutoML_1_20250215_160840_model_5
+Checking whether there is an H2O instance running at http://localhost:54321..... not found.
+Attempting to start a local H2O server...
+; OpenJDK 64-Bit Server VM 18.9 (build 11.0.2+9, mixed mode)
+  Starting server from D:\Workplace-Pycharm\.venv\Lib\site-packages\h2o\backend\bin\h2o.jar
+  Ice root: C:\Users\Andy\AppData\Local\Temp\tmp2m6dsuod
+  JVM stdout: C:\Users\Andy\AppData\Local\Temp\tmp2m6dsuod\h2o_Andy_started_from_python.out
+  JVM stderr: C:\Users\Andy\AppData\Local\Temp\tmp2m6dsuod\h2o_Andy_started_from_python.err
+  Server is running at http://127.0.0.1:54321
+Connecting to H2O server at http://127.0.0.1:54321 ... successful.
+Warning: Your H2O cluster version is (7 months and 5 days) old.  There may be a newer version available.
+Please download and install the latest version from: https://h2o-release.s3.amazonaws.com/h2o/latest_stable.html
+--------------------------  -----------------------------
+H2O_cluster_uptime:         03 secs
+H2O_cluster_timezone:       Asia/Shanghai
+H2O_data_parsing_timezone:  UTC
+H2O_cluster_version:        3.46.0.4
+H2O_cluster_version_age:    7 months and 5 days
+H2O_cluster_name:           H2O_from_python_Andy_ycvifg
+H2O_cluster_total_nodes:    1
+H2O_cluster_free_memory:    3.844 Gb
+H2O_cluster_total_cores:    16
+H2O_cluster_allowed_cores:  16
+H2O_cluster_status:         locked, healthy
+H2O_connection_url:         http://127.0.0.1:54321
+H2O_connection_proxy:       {"http": null, "https": null}
+H2O_internal_security:      False
+Python_version:             3.12.3 final
+--------------------------  -----------------------------
+Parse progress: |████████████████████████████████████████████████████████████████| (done) 100%
+response column levels:  [['0', '1']]
+train shape: (838, 24)
+test shape: (19, 24)
+AutoML progress: |
+16:49:43.932: AutoML: XGBoost is not available; skipping it.
+
+███████████████████████████████████████████████████████████████| (done) 100%
+********************
+leaderboard:  model_id                                                      auc    logloss     aucpr    mean_per_class_error      rmse        mse
+StackedEnsemble_BestOfFamily_1_AutoML_1_20250215_164943  0.994437  0.091968   0.993725               0.0426614  0.175564  0.0308229
+StackedEnsemble_AllModels_1_AutoML_1_20250215_164943     0.994356  0.0946313  0.993586               0.0417447  0.176662  0.0312096
+GBM_grid_1_AutoML_1_20250215_164943_model_1              0.994159  0.10035    0.993348               0.0369435  0.178719  0.0319405
+XRT_1_AutoML_1_20250215_164943                           0.994139  0.127141   0.993446               0.0467208  0.186816  0.0349003
+GBM_grid_1_AutoML_1_20250215_164943_model_5              0.993806  0.0998893  0.992693               0.0459788  0.177228  0.0314099
+GBM_2_AutoML_1_20250215_164943                           0.993769  0.103787   0.992756               0.0408108  0.178273  0.0317811
+GBM_3_AutoML_1_20250215_164943                           0.99334   0.108926   0.992342               0.0439534  0.183855  0.0338025
+GBM_5_AutoML_1_20250215_164943                           0.993265  0.114034   0.992176               0.0457869  0.186351  0.0347268
+GBM_4_AutoML_1_20250215_164943                           0.99309   0.106322   0.992028               0.0492961  0.183216  0.0335682
+DRF_1_AutoML_1_20250215_164943                           0.992368  0.133082   0.991414               0.0552232  0.195402  0.0381819
+[22 rows x 7 columns]
+
+********************
+leaderboard.head:  model_id                                                      auc    logloss     aucpr    mean_per_class_error      rmse        mse
+StackedEnsemble_BestOfFamily_1_AutoML_1_20250215_164943  0.994437  0.091968   0.993725               0.0426614  0.175564  0.0308229
+StackedEnsemble_AllModels_1_AutoML_1_20250215_164943     0.994356  0.0946313  0.993586               0.0417447  0.176662  0.0312096
+GBM_grid_1_AutoML_1_20250215_164943_model_1              0.994159  0.10035    0.993348               0.0369435  0.178719  0.0319405
+XRT_1_AutoML_1_20250215_164943                           0.994139  0.127141   0.993446               0.0467208  0.186816  0.0349003
+GBM_grid_1_AutoML_1_20250215_164943_model_5              0.993806  0.0998893  0.992693               0.0459788  0.177228  0.0314099
+[5 rows x 7 columns]
+
+********************
+Best Model: Model Details
+=============
+H2OStackedEnsembleEstimator : Stacked Ensemble
+Model Key: StackedEnsemble_BestOfFamily_1_AutoML_1_20250215_164943
+
+
+Model Summary for Stacked Ensemble:
+key                                        value
+-----------------------------------------  ----------------
+Stacking strategy                          cross_validation
+Number of base models (used / total)       3/5
+# GBM base models (used / total)           1/1
+# DRF base models (used / total)           2/2
+# DeepLearning base models (used / total)  0/1
+# GLM base models (used / total)           0/1
+Metalearner algorithm                      GLM
+Metalearner fold assignment scheme         Random
+Metalearner nfolds                         5
+Metalearner fold_column
+Custom metalearner hyperparameters         None
+
+ModelMetricsBinomialGLM: stackedensemble
+** Reported on train data. **
+
+MSE: 0.00014035306121328278
+RMSE: 0.011847069731088898
+LogLoss: 0.0040732370169679925
+AUC: 1.0
+AUCPR: 1.0
+Gini: 1.0
+Null degrees of freedom: 837
+Residual degrees of freedom: 834
+Null deviance: 1156.8220837714948
+Residual deviance: 6.8267452404383135
+AIC: 14.826745240438314
+
+Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.9085485459201964
+       0    1    Error    Rate
+-----  ---  ---  -------  -----------
+0      451  0    0        (0.0/451.0)
+1      0    387  0        (0.0/387.0)
+Total  451  387  0        (0.0/838.0)
+
+Maximum Metrics: Maximum metrics at their respective thresholds
+metric                       threshold    value     idx
+---------------------------  -----------  --------  -----
+max f1                       0.908549     1         172
+max f2                       0.908549     1         172
+max f0point5                 0.908549     1         172
+max accuracy                 0.908549     1         172
+max precision                1            1         0
+max recall                   0.908549     1         172
+max specificity              1            1         0
+max absolute_mcc             0.908549     1         172
+max min_per_class_accuracy   0.908549     1         172
+max mean_per_class_accuracy  0.908549     1         172
+max tns                      1            451       0
+max fns                      1            172       0
+max fps                      4.3576e-13   451       399
+max tps                      0.908549     387       172
+max tnr                      1            1         0
+max fnr                      1            0.444444  0
+max fpr                      4.3576e-13   1         399
+max tpr                      0.908549     1         172
+
+Gains/Lift Table: Avg response rate: 46.18 %, avg score: 46.17 %
+group    cumulative_data_fraction    lower_threshold    lift     cumulative_lift    response_rate    score        cumulative_response_rate    cumulative_score    capture_rate    cumulative_capture_rate    gain     cumulative_gain    kolmogorov_smirnov
+-------  --------------------------  -----------------  -------  -----------------  ---------------  -----------  --------------------------  ------------------  --------------  -------------------------  -------  -----------------  --------------------
+1        0.0107399                   1                  2.16537  2.16537            1                1            1                           1                   0.0232558       0.0232558                  116.537  116.537            0.0232558
+2        0.0202864                   1                  2.16537  2.16537            1                1            1                           1                   0.0206718       0.0439276                  116.537  116.537            0.0439276
+3        0.0310263                   1                  2.16537  2.16537            1                1            1                           1                   0.0232558       0.0671835                  116.537  116.537            0.0671835
+4        0.0405728                   1                  2.16537  2.16537            1                1            1                           1                   0.0206718       0.0878553                  116.537  116.537            0.0878553
+5        0.0501193                   1                  2.16537  2.16537            1                1            1                           1                   0.0206718       0.108527                   116.537  116.537            0.108527
+6        0.100239                    1                  2.16537  2.16537            1                1            1                           1                   0.108527        0.217054                   116.537  116.537            0.217054
+7        0.150358                    1                  2.16537  2.16537            1                1            1                           1                   0.108527        0.325581                   116.537  116.537            0.325581
+8        0.200477                    1                  2.16537  2.16537            1                1            1                           1                   0.108527        0.434109                   116.537  116.537            0.434109
+9        0.300716                    0.999662           2.16537  2.16537            1                0.999941     1                           0.99998             0.217054        0.651163                   116.537  116.537            0.651163
+10       0.399761                    0.992223           2.16537  2.16537            1                0.997214     1                           0.999295            0.21447         0.865633                   116.537  116.537            0.865633
+11       0.5                         0.0186352          1.34047  2                  0.619048         0.614892     0.923628                    0.922231            0.134367        1                          34.047   100                0.929047
+12       0.600239                    0.00106946         0        1.666              0                0.0054646    0.769384                    0.769133            0               1                          -100     66.6004            0.742794
+13       0.699284                    3.09256e-11        0        1.43003            0                0.000245914  0.66041                     0.660229            0               1                          -100     43.0034            0.558758
+14       0.799523                    4.20534e-12        0        1.25075            0                1.18424e-11  0.577612                    0.577454            0               1                          -100     25.0746            0.372506
+15       0.899761                    1.72226e-12        0        1.11141            0                2.76325e-12  0.513263                    0.513122            0               1                          -100     11.1406            0.186253
+16       1                           3.10857e-13        0        1                  0                8.58398e-13  0.461814                    0.461688            0               1                          -100     0                  0
+
+ModelMetricsBinomialGLM: stackedensemble
+** Reported on cross-validation data. **
+
+MSE: 0.03082289357497252
+RMSE: 0.17556449975713348
+LogLoss: 0.09196804259339023
+AUC: 0.9944367096947925
+AUCPR: 0.9937246766066653
+Gini: 0.988873419389585
+Null degrees of freedom: 837
+Residual degrees of freedom: 834
+Null deviance: 1159.8989036659714
+Residual deviance: 154.1384393865219
+AIC: 162.1384393865219
+
+Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.45197493868540894
+       0    1    Error    Rate
+-----  ---  ---  -------  ------------
+0      430  21   0.0466   (21.0/451.0)
+1      15   372  0.0388   (15.0/387.0)
+Total  445  393  0.043    (36.0/838.0)
+
+Maximum Metrics: Maximum metrics at their respective thresholds
+metric                       threshold    value     idx
+---------------------------  -----------  --------  -----
+max f1                       0.451975     0.953846  203
+max f2                       0.0755566    0.972851  251
+max f0point5                 0.850846     0.972774  154
+max accuracy                 0.451975     0.957041  203
+max precision                1            1         0
+max recall                   0.0755566    1         251
+max specificity              1            1         0
+max absolute_mcc             0.451975     0.913767  203
+max min_per_class_accuracy   0.485938     0.953488  199
+max mean_per_class_accuracy  0.451975     0.957339  203
+max tns                      1            451       0
+max fns                      1            239       0
+max fps                      3.52625e-08  451       399
+max tps                      0.0755566    387       251
+max tnr                      1            1         0
+max fnr                      1            0.617571  0
+max fpr                      3.52625e-08  1         399
+max tpr                      0.0755566    1         251
+
+Gains/Lift Table: Avg response rate: 46.18 %, avg score: 46.17 %
+group    cumulative_data_fraction    lower_threshold    lift     cumulative_lift    response_rate    score        cumulative_response_rate    cumulative_score    capture_rate    cumulative_capture_rate    gain     cumulative_gain    kolmogorov_smirnov
+-------  --------------------------  -----------------  -------  -----------------  ---------------  -----------  --------------------------  ------------------  --------------  -------------------------  -------  -----------------  --------------------
+1        0.176611                    1                  2.16537  2.16537            1                1            1                           1                   0.382429        0.382429                   116.537  116.537            0.382429
+2        0.200477                    0.999863           2.16537  2.16537            1                0.999939     1                           0.999993            0.0516796       0.434109                   116.537  116.537            0.434109
+3        0.300716                    0.99443            2.16537  2.16537            1                0.998145     1                           0.999377            0.217054        0.651163                   116.537  116.537            0.651163
+4        0.399761                    0.912609           2.16537  2.16537            1                0.976761     1                           0.993774            0.21447         0.865633                   116.537  116.537            0.865633
+5        0.5                         0.280182           1.1858   1.96899            0.547619         0.581842     0.909308                    0.911191            0.118863        0.984496                   18.58    96.8992            0.900239
+6        0.600239                    0.00685954         0.15467  1.666              0.0714286        0.0585855    0.769384                    0.768807            0.0155039       1                          -84.533  66.6004            0.742794
+7        0.699284                    0.000675233        0        1.43003            0                0.00264081   0.66041                     0.660289            0               1                          -100     43.0034            0.558758
+8        1                           0                  0        1                  0                5.45185e-05  0.461814                    0.461746            0               1                          -100     0                  0
+
+Cross-Validation Metrics Summary:
+                      mean         sd            cv_1_valid    cv_2_valid    cv_3_valid    cv_4_valid    cv_5_valid
+--------------------  -----------  ------------  ------------  ------------  ------------  ------------  ------------
+accuracy              0.96327794   0.0136637995  0.9431818     0.96385545    0.9627329     0.9649123     0.98170733
+aic                   39.03022     7.7676883     51.295414     36.284378     35.36762      41.24032      30.963367
+auc                   0.99424857   0.0031213106  0.9889323     0.99529964    0.9952741     0.9945833     0.9971536
+err                   0.03672205   0.0136637995  0.056818184   0.036144577   0.03726708    0.03508772    0.018292682
+err_count             6.2          2.48998       10.0          6.0           6.0           6.0           3.0
+f0point5              0.9598758    0.011812556   0.9505208     0.95238096    0.95652175    0.96          0.97995543
+f1                    0.9591319    0.016803063   0.9358974     0.96          0.95652175    0.96          0.98324025
+f2                    0.9585056    0.023617748   0.92171717    0.9677419     0.95652175    0.96          0.9865471
+lift_top_group        2.1798546    0.19473332    2.2           2.2432432     2.3333333     2.28          1.8426967
+loglikelihood         0.0          0.0           0.0           0.0           0.0           0.0           0.0
+---                   ---          ---           ---           ---           ---           ---           ---
+mean_per_class_error  0.037449487  0.014417163   0.059375      0.035252646   0.038043477   0.035625      0.018951312
+mse                   0.03028557   0.007904066   0.043269932   0.028984847   0.028102394   0.029389935   0.021680743
+null_deviance         231.97978    7.9997        242.59122     228.43637     220.99574     235.0571      232.81847
+pr_auc                0.99329823   0.0037160325  0.98735577    0.99435014    0.99385476    0.9933304     0.9976
+precision             0.96043885   0.011034248   0.9605263     0.94736844    0.95652175    0.96          0.9777778
+r2                    0.87733763   0.031771675   0.82547796    0.8826812     0.88524854    0.88064015    0.9126404
+recall                0.95815176   0.028490948   0.9125        0.972973      0.95652175    0.96          0.98876405
+residual_deviance     30.630219    7.676385      43.295414     28.284376     27.367619     31.240316     22.963367
+rmse                  0.17291601   0.021955147   0.20801426    0.17024936    0.16763769    0.17143492    0.14724381
+specificity           0.9669493    0.006248406   0.96875       0.95652175    0.9673913     0.96875       0.97333336
+[24 rows x 8 columns]
+
+stackedensemble prediction progress: |███████████████████████████████████████████| (done) 100%
+********************
+predictions.head:    predict           p0           p1
+        0  1            1.15073e-12
+        1  0.000785375  0.999215
+        0  1            4.74562e-12
+        1  0.000792215  0.999208
+        0  0.999096     0.000903594
+        1  1.04805e-13  1
+        1  0.0182144    0.981786
+        1  0.277281     0.722719
+        1  0.00152475   0.998475
+        0  1            5.41841e-13
+[10 rows x 3 columns]
+
+********************
+metrics: ModelMetricsBinomialGLM: stackedensemble
+** Reported on test data. **
+
+MSE: 0.01481513748889355
+RMSE: 0.12171744940185672
+LogLoss: 0.050893914527108584
+AUC: 1.0
+AUCPR: 1.0
+Gini: 1.0
+Null degrees of freedom: 18
+Residual degrees of freedom: 15
+Null deviance: 25.991611260783724
+Residual deviance: 1.9339687520301267
+AIC: 9.933968752030127
+
+Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.7227189945037348
+       0    1    Error    Rate
+-----  ---  ---  -------  ----------
+0      11   0    0        (0.0/11.0)
+1      0    8    0        (0.0/8.0)
+Total  11   8    0        (0.0/19.0)
+
+Maximum Metrics: Maximum metrics at their respective thresholds
+metric                       threshold    value    idx
+---------------------------  -----------  -------  -----
+max f1                       0.722719     1        7
+max f2                       0.722719     1        7
+max f0point5                 0.722719     1        7
+max accuracy                 0.722719     1        7
+max precision                1            1        0
+max recall                   0.722719     1        7
+max specificity              1            1        0
+max absolute_mcc             0.722719     1        7
+max min_per_class_accuracy   0.722719     1        7
+max mean_per_class_accuracy  0.722719     1        7
+max tns                      1            11       0
+max fns                      1            7        0
+max fps                      3.83013e-13  11       18
+max tps                      0.722719     8        7
+max tnr                      1            1        0
+max fnr                      1            0.875    0
+max fpr                      3.83013e-13  1        18
+max tpr                      0.722719     1        7
+
+Gains/Lift Table: Avg response rate: 42.11 %, avg score: 42.93 %
+group    cumulative_data_fraction    lower_threshold    lift    cumulative_lift    response_rate    score        cumulative_response_rate    cumulative_score    capture_rate    cumulative_capture_rate    gain    cumulative_gain    kolmogorov_smirnov
+-------  --------------------------  -----------------  ------  -----------------  ---------------  -----------  --------------------------  ------------------  --------------  -------------------------  ------  -----------------  --------------------
+1        0.0526316                   0.999989           2.375   2.375              1                1            1                           1                   0.125           0.125                      137.5   137.5              0.125
+2        0.0526316                   0.999979           0       2.375              0                0            1                           1                   0               0.125                      -100    137.5              0.125
+3        0.0526316                   0.999968           0       2.375              0                0            1                           1                   0               0.125                      -100    137.5              0.125
+4        0.0526316                   0.999958           0       2.375              0                0            1                           1                   0               0.125                      -100    137.5              0.125
+5        0.0526316                   0.999947           0       2.375              0                0            1                           1                   0               0.125                      -100    137.5              0.125
+6        0.105263                    0.99936            2.375   2.375              1                0.999941     1                           0.999971            0.125           0.25                       137.5   137.5              0.25
+7        0.157895                    0.99921            2.375   2.375              1                0.999215     1                           0.999719            0.125           0.375                      137.5   137.5              0.375
+8        0.210526                    0.998768           2.375   2.375              1                0.999208     1                           0.999591            0.125           0.5                        137.5   137.5              0.5
+9        0.315789                    0.987824           2.375   2.375              1                0.995162     1                           0.998115            0.25            0.75                       137.5   137.5              0.75
+10       0.421053                    0.66854            2.375   2.375              1                0.852252     1                           0.961649            0.25            1                          137.5   137.5              1
+11       0.526316                    0.0060578          0       1.9                0                0.228941     0.8                         0.815107            0               1                          -100    90                 0.818182
+12       0.578947                    0.00159737         0       1.72727            0                0.00437249   0.727273                    0.741404            0               1                          -100    72.7273            0.727273
+13       0.684211                    3.86911e-11        0       1.46154            0                0.000451797  0.615385                    0.627412            0               1                          -100    46.1538            0.545455
+14       0.789474                    4.06407e-12        0       1.26667            0                1.95589e-11  0.533333                    0.543757            0               1                          -100    26.6667            0.363636
+15       0.894737                    1.02895e-12        0       1.11765            0                2.09624e-12  0.470588                    0.479785            0               1                          -100    11.7647            0.181818
+16       1                           3.83013e-13        0       1                  0                4.62427e-13  0.421053                    0.429282            0               1                          -100    0                  0
+********************
+Accuracy: [[0.7227189945037348, 1.0]]
+[INFO]  getting best model finished!, time elapsed: 432.8164026737213 seconds

@@ -1,0 +1,199 @@
+{
+  "default": {
+    "hostAddr": "127.0.0.1",
+    "rpcPort": "7001",
+    "rpcGwPort": "7002",
+    "subPort": "7003",
+    "subGwPort": "7004",
+    "enabledExchanges": [
+      "SHSE",
+      "SZSE",
+      "CFFEX",
+      "SHFE",
+      "DCE",
+      "CZCE",
+      "INE",
+      "GFEX",
+      "BK"
+    ],
+    "userDataDir": "C:/Users/Andy/.ydgm3"
+  },
+  "deamon": {
+    "servAddr": "120.86.189.206",
+    "rpcPort": "27201",
+    "rpcGwPort": "27202",
+    "siteId": "public-site-1"
+  },
+  "entries": [
+    {
+      "servAddr": "61.142.9.48",
+      "rpcPort": "27201",
+      "rpcGwPort": "27202"
+    },
+    {
+      "servAddr": "120.86.189.206",
+      "rpcPort": "27201",
+      "rpcGwPort": "27202"
+    }
+  ],
+  "internal": {
+    "productId": "yingda",
+    "productVer": "3.20.3.6"
+  },
+  "discovery": {
+    "service": [
+      {
+        "name": "ds-live-sub-fut",
+        "id": "ds-live-sub-fut",
+        "tags": [
+          "service-type:ds-live",
+          "sec-type:fut",
+          "exch:CFFEX|SHFE|DCE|CZCE|INE|GFEX|BK",
+          "service-entry:期货行情站点",
+          "selected"
+        ],
+        "address": "120.79.236.137",
+        "port": "7021",
+        "intro": "期货实时行情订阅，掘金云服务",
+        "scheme": "TCP"
+      },
+      {
+        "name": "ds-live-sub-fut-ws",
+        "id": "ds-live-sub-fut-ws",
+        "tags": [
+          "service-type:ds-live",
+          "sec-type:fut",
+          "exch:CFFEX|SHFE|DCE|CZCE|INE|GFEX|BK",
+          "service-entry:期货行情站点",
+          "selected"
+        ],
+        "address": "120.79.236.137",
+        "port": "7022",
+        "intro": "期货实时行情订阅, websocket接口，掘金云服务",
+        "scheme": "WS",
+        "path": "/mqtt"
+      },
+      {
+        "name": "ds-live-sub-stk",
+        "id": "ds-live-sub-stk",
+        "tags": [
+          "service-type:ds-live",
+          "sec-type:stk",
+          "service-entry:股票行情站点",
+          "exch:SZSE|SHSE",
+          "selected"
+        ],
+        "address": "120.86.189.206",
+        "port": "27021",
+        "intro": "股票实时行情订阅.",
+        "scheme": "TCP"
+      },
+      {
+        "name": "ds-live-sub-stk-ws",
+        "id": "ds-live-sub-stk-ws",
+        "tags": [
+          "service-type:ds-live",
+          "sec-type:stk",
+          "exch:SZSE|SHSE",
+          "service-entry:股票行情站点",
+          "selected"
+        ],
+        "address": "120.86.189.206",
+        "port": "27022",
+        "intro": "实时行情订阅, websocket接口.",
+        "scheme": "WS",
+        "path": "/mqtt"
+      },
+      {
+        "id": "ds-history-rpc",
+        "name": "ds-history-rpc",
+        "address": "127.0.0.1",
+        "port": "7050",
+        "scheme": "H2C"
+      },
+      {
+        "id": "ds-history-rpcgw",
+        "name": "ds-history-rpcgw",
+        "address": "127.0.0.1",
+        "port": "7051",
+        "scheme": "HTTP"
+      },
+      {
+        "id": "ds-backtest-rpc",
+        "name": "ds-backtest-rpc",
+        "address": "127.0.0.1",
+        "port": "7050",
+        "scheme": "H2C"
+      },
+      {
+        "id": "ds-backtest-rpcgw",
+        "name": "ds-backtest-rpcgw",
+        "address": "127.0.0.1",
+        "port": "7051",
+        "scheme": "HTTP"
+      },
+      {
+        "id": "local-ds-proxy-rpc",
+        "name": "local-ds-proxy-rpc",
+        "address": "127.0.0.1",
+        "port": "7050",
+        "scheme": "H2C"
+      },
+      {
+        "id": "local-ds-proxy-rpcgw",
+        "name": "local-ds-proxy-rpcgw",
+        "address": "127.0.0.1",
+        "port": "7051",
+        "scheme": "HTTP"
+      },
+      {
+        "id": "ds-fundamental-rpc",
+        "name": "ds-fundamental-rpc",
+        "address": "127.0.0.1",
+        "port": "7050",
+        "scheme": "H2C"
+      },
+      {
+        "id": "ds-fundamental-rpcgw",
+        "name": "ds-fundamental-rpcgw",
+        "address": "127.0.0.1",
+        "port": "7051",
+        "scheme": "HTTP"
+      },
+      {
+        "id": "ds-fundamental-rpc-utc",
+        "name": "ds-fundamental-rpc-utc",
+        "address": "127.0.0.1",
+        "port": "7050",
+        "scheme": "H2C"
+      },
+      {
+        "id": "ds-fundamental-rpc-utcgw",
+        "name": "ds-fundamental-rpc-utcgw",
+        "address": "127.0.0.1",
+        "port": "7051",
+        "scheme": "HTTP"
+      },
+      {
+        "id": "ds-core-rpc",
+        "name": "ds-core-rpc",
+        "address": "127.0.0.1",
+        "port": "7050",
+        "scheme": "H2C"
+      },
+      {
+        "id": "ds-core-rpcgw",
+        "name": "ds-core-rpcgw",
+        "address": "127.0.0.1",
+        "port": "7051",
+        "scheme": "HTTP"
+      }
+    ]
+  },
+  "logger": {
+    "outputPaths": [
+      "stdout",
+      "winfile:///C:/Users/Andy/.ydgm3/logs/20250330T124253/gmserv.log"
+    ]
+  }
+}

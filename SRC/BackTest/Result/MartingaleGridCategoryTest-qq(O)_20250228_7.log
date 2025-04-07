@@ -1,0 +1,67 @@
+不做全局风控。
+
+    # 马丁格尔核心参数
+    # context.symbol = 'SHSE.10008528'  # 交易标的
+    context.symbol = 'SHSE.10008547'  # 交易标的
+    context.frequency = "60s"
+    context.base_investment = 1000  # 基准投资金额（元）
+    context.multiplier = 2  # 加仓倍数
+    context.max_layers = 7  # 最大加仓层数
+    context.price_interval = 0.14  # 价格间隔3%。当加仓倍数是2时，平均成本下降约为价格间隔的一半。
+    context.take_profit_ratio = 0.18  # 止盈比例（2%）
+    context.stop_loss_ratio = 0.30  # 总亏损止损20%
+    context.base_shares = 1  # 标的下单的最小数量
+    context.enable_short = False  # 是否启用做空
+
+
+
+
+
+    run(strategy_id='95eadb57-f0cb-11ef-b05b-80304917db79',
+        filename=(os.path.basename(__file__)),
+        mode=MODE_BACKTEST,
+        token='6860051c58995ae01c30a27d5b72000bababa8e6',
+        backtest_start_time='2025-01-06 09:31:00',
+        backtest_end_time='2025-02-27 15:00:00',
+        backtest_adjust=ADJUST_NONE,
+        backtest_initial_cash=30000,
+        backtest_commission_unit=4.5,
+        backtest_slippage_ratio=0.0001,
+        backtest_marginfloat_ratio1=0.2,
+        backtest_marginfloat_ratio2=0.4,
+        backtest_match_mode=0)
+
+
+D:\Workplace-Pycharm\.venv\Scripts\python.exe "D:\Workplace-Pycharm\QuantitativeTransaction\SRC\sq\test\test_gm\for159869\MartingaleGridCategoryTest-qq(O).py"
+----------------------------------------
+python sdk version: 3.0.168
+c sdk version: 3.7.4
+----------------------------------------
+Long，Buy 1st: SHSE.10008547 ,  2025-01-06 09:42:00+08:00 , new_shares: 1 , price: 0.1 , invest_amount: 0.1
+Long，Buy more: SHSE.10008547 ,  2025-01-10 10:04:00+08:00 , new_shares: 2 , price: 0.086 , invest_amount: 0.172
+Long，Buy more: SHSE.10008547 ,  2025-01-13 09:31:00+08:00 , new_shares: 5 , price: 0.0768 , invest_amount: 0.38399999999999995
+Long，take_profit. profit_ratio: 0.1951219512195124 , price: 0.098
+Long，Close: SHSE.10008547 ,  2025-01-14 14:02:00+08:00 , long_shares: 8 , long_avg_cost: 0.08199999999999999 , total_amount: 0.6559999999999999
+Long，Buy 1st: SHSE.10008547 ,  2025-01-14 14:02:00+08:00 , new_shares: 1 , price: 0.098 , invest_amount: 0.098
+Long，Buy more: SHSE.10008547 ,  2025-01-22 09:53:00+08:00 , new_shares: 2 , price: 0.084 , invest_amount: 0.168
+Long，take_profit. profit_ratio: 0.18984962406015027 , price: 0.1055
+Long，Close: SHSE.10008547 ,  2025-01-23 09:43:00+08:00 , long_shares: 3 , long_avg_cost: 0.08866666666666667 , total_amount: 0.266
+Long，Buy 1st: SHSE.10008547 ,  2025-01-23 10:03:00+08:00 , new_shares: 1 , price: 0.098 , invest_amount: 0.098
+Long，Buy more: SHSE.10008547 ,  2025-02-05 09:32:00+08:00 , new_shares: 2 , price: 0.083 , invest_amount: 0.166
+Long，Buy more: SHSE.10008547 ,  2025-02-05 09:55:00+08:00 , new_shares: 5 , price: 0.0755 , invest_amount: 0.3775
+Long，Buy more: SHSE.10008547 ,  2025-02-05 13:06:00+08:00 , new_shares: 11 , price: 0.0688 , invest_amount: 0.7568
+Long，Buy more: SHSE.10008547 ,  2025-02-06 09:42:00+08:00 , new_shares: 25 , price: 0.0626 , invest_amount: 1.5650000000000002
+Long，take_profit. profit_ratio: 0.19083454257078233 , price: 0.0802
+Long，Close: SHSE.10008547 ,  2025-02-07 11:15:00+08:00 , long_shares: 44 , long_avg_cost: 0.06734772727272728 , total_amount: 2.9633000000000003
+Long，Buy 1st: SHSE.10008547 ,  2025-02-07 11:15:00+08:00 , new_shares: 1 , price: 0.0802 , invest_amount: 0.0802
+Long，take_profit. profit_ratio: 0.18329177057356616 , price: 0.0949
+Long，Close: SHSE.10008547 ,  2025-02-21 11:01:00+08:00 , long_shares: 1 , long_avg_cost: 0.0802 , total_amount: 0.0802
+Long，Buy 1st: SHSE.10008547 ,  2025-02-21 11:01:00+08:00 , new_shares: 1 , price: 0.0949 , invest_amount: 0.0949
+Long，Buy more: SHSE.10008547 ,  2025-02-24 14:03:00+08:00 , new_shares: 2 , price: 0.0814 , invest_amount: 0.1628
+Long，Buy more: SHSE.10008547 ,  2025-02-25 14:29:00+08:00 , new_shares: 5 , price: 0.073 , invest_amount: 0.365
+Done! From start, time elapsed: 0.6239326000213623 seconds
+SHSE.10008547 backtest finished:  {'account_id': '95eadb57-f0cb-11ef-b05b-80304917db79', 'pnl_ratio': 0.25648964388941725, 'pnl_ratio_annual': 1.7663909437667413, 'sharp_ratio': 4.102208088420368, 'max_drawdown': 0.04035927931544712, 'risk_ratio': 0.16805783959605666, 'open_count': 14, 'close_count': 4, 'win_count': 4, 'win_ratio': 1.0, 'calmar_ratio': 43.766662183451636, 'created_at': datetime.datetime(2025, 2, 28, 15, 20, 36, 880216, tzinfo=datetime.timezone(datetime.timedelta(seconds=28800), 'Asia/Shanghai')), 'updated_at': datetime.datetime(2025, 2, 28, 15, 20, 37, 455726, tzinfo=datetime.timezone(datetime.timedelta(seconds=28800), 'Asia/Shanghai')), 'lose_count': 0}
+
+Process finished with exit code 0
+
+

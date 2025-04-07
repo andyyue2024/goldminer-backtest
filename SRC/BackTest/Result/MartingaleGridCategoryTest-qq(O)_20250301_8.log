@@ -1,0 +1,73 @@
+不做全局风控。
+
+    # 马丁格尔核心参数
+    # context.symbol = 'SHSE.10008528'  # 交易标的
+    context.symbol = 'SHSE.10008531'  # 交易标的
+    context.frequency = "60s"
+    context.base_investment = 1000  # 基准投资金额（元）
+    context.multiplier = 2  # 加仓倍数
+    context.max_layers = 5  # 最大加仓层数
+    context.price_interval = 0.35  # 价格间隔3%。当加仓倍数是2时，平均成本下降约为价格间隔的一半。
+    context.take_profit_ratio = 0.10  # 止盈比例（2%）
+    context.stop_loss_ratio = 0.40  # 总亏损止损20%
+    context.base_shares = 1  # 标的下单的最小数量（手或张）
+    context.base_volume = 10000  # 标的每手或每张代表的交易数量
+    context.enable_short = False  # 是否启用做空
+
+
+
+
+
+    run(strategy_id='95eadb57-f0cb-11ef-b05b-80304917db79',
+        filename=(os.path.basename(__file__)),
+        mode=MODE_BACKTEST,
+        token='6860051c58995ae01c30a27d5b72000bababa8e6',
+        backtest_start_time='2024-12-31 09:31:00',
+        backtest_end_time='2025-01-31 15:00:00',
+        backtest_adjust=ADJUST_NONE,
+        backtest_initial_cash=31000,
+        backtest_commission_unit=4.5,
+        backtest_slippage_ratio=0.0001,
+        backtest_marginfloat_ratio1=0.2,
+        backtest_marginfloat_ratio2=0.4,
+        backtest_match_mode=0)
+
+
+D:\Workplace-Pycharm\.venv\Scripts\python.exe "D:\Workplace-Pycharm\QuantitativeTransaction\SRC\sq\test\test_gm\for159869\MartingaleGridCategoryTest-qq(O).py"
+----------------------------------------
+python sdk version: 3.0.168
+c sdk version: 3.7.4
+----------------------------------------
+	position long. now: 2024-12-31 09:31:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+SHSE.10008531 , base_price: 0.0669 ,  2024-12-31 09:32:00+08:00
+Long，Buy 1st: SHSE.10008531 ,  2024-12-31 09:35:00+08:00 , new_shares: 1 , price: 0.0652 , invest_amount: 0.0652
+	position long. now: 2024-12-31 09:35:00+08:00 , long_shares: 1 , long_avg_cost: 0.0658 , final_amount: 658.00
+Long，Buy more: SHSE.10008531 ,  2025-01-02 13:10:00+08:00 , new_shares: 4 , price: 0.0421 , invest_amount: 0.1684
+	position long. now: 2025-01-02 13:10:00+08:00 , long_shares: 5 , long_avg_cost: 0.0469 , final_amount: 2345.00
+Long，Buy more: SHSE.10008531 ,  2025-01-03 14:07:00+08:00 , new_shares: 13 , price: 0.0303 , invest_amount: 0.39390000000000003
+	position long. now: 2025-01-03 14:07:00+08:00 , long_shares: 18 , long_avg_cost: 0.0351 , final_amount: 6318.00
+Long，Buy more: SHSE.10008531 ,  2025-01-09 14:05:00+08:00 , new_shares: 35 , price: 0.0227 , invest_amount: 0.7945000000000001
+	position long. now: 2025-01-09 14:05:00+08:00 , long_shares: 53 , long_avg_cost: 0.0269 , final_amount: 14257.00
+Long，take_profit. profit_ratio: 0.10780669144981411 , price: 0.0298
+Long，Close: SHSE.10008531 ,  2025-01-16 09:45:00+08:00 , long_shares: 53 , long_avg_cost: 0.0269 , total_amount: 14257.00
+	position long. now: 2025-01-16 09:45:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SHSE.10008531 ,  2025-01-16 09:45:00+08:00 , new_shares: 3 , price: 0.0298 , invest_amount: 0.08940000000000001
+	position long. now: 2025-01-16 09:45:00+08:00 , long_shares: 3 , long_avg_cost: 0.0302 , final_amount: 906.00
+Long，Buy more: SHSE.10008531 ,  2025-01-22 09:51:00+08:00 , new_shares: 10 , price: 0.0194 , invest_amount: 0.194
+	position long. now: 2025-01-22 09:51:00+08:00 , long_shares: 13 , long_avg_cost: 0.022 , final_amount: 2860.00
+Long，take_profit. profit_ratio: 0.11818181818181826 , price: 0.0246
+Long，Close: SHSE.10008531 ,  2025-01-23 09:37:00+08:00 , long_shares: 13 , long_avg_cost: 0.022 , total_amount: 2860.00
+	position long. now: 2025-01-23 09:37:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SHSE.10008531 ,  2025-01-23 09:37:00+08:00 , new_shares: 4 , price: 0.0246 , invest_amount: 0.0984
+	position long. now: 2025-01-23 09:37:00+08:00 , long_shares: 4 , long_avg_cost: 0.0246 , final_amount: 984.00
+Long，take_profit. profit_ratio: 0.13821138211382114 , price: 0.028
+Long，Close: SHSE.10008531 ,  2025-01-23 09:39:00+08:00 , long_shares: 4 , long_avg_cost: 0.0246 , total_amount: 984.00
+	position long. now: 2025-01-23 09:39:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SHSE.10008531 ,  2025-01-23 09:39:00+08:00 , new_shares: 3 , price: 0.028 , invest_amount: 0.084
+	position long. now: 2025-01-23 09:39:00+08:00 , long_shares: 3 , long_avg_cost: 0.028 , final_amount: 840.00
+Done! From start, time elapsed: 0.7618367671966553 seconds
+SHSE.10008531 backtest finished:  {'account_id': '95eadb57-f0cb-11ef-b05b-80304917db79', 'pnl_ratio': 0.04134102622888261, 'pnl_ratio_annual': 0.538909806197934, 'sharp_ratio': 0.8968293604239439, 'max_drawdown': 0.1344164864410458, 'risk_ratio': 0.025802964128446057, 'open_count': 8, 'close_count': 3, 'win_count': 3, 'win_ratio': 1.0, 'calmar_ratio': 4.009253778808572, 'created_at': datetime.datetime(2025, 3, 1, 11, 36, 13, 998453, tzinfo=datetime.timezone(datetime.timedelta(seconds=28800), 'Asia/Shanghai')), 'updated_at': datetime.datetime(2025, 3, 1, 11, 36, 14, 668384, tzinfo=datetime.timezone(datetime.timedelta(seconds=28800), 'Asia/Shanghai')), 'lose_count': 0}
+
+Process finished with exit code 0
+
+

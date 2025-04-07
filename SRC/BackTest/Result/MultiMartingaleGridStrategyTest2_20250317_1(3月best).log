@@ -1,0 +1,146 @@
+
+context.symbol_list = [ # 3月
+    'SHSE.10008525',
+]
+
+run(strategy_id='95eadb57-f0cb-11ef-b05b-80304917db79',
+        filename=(os.path.basename(__file__)),
+        mode=MODE_BACKTEST,
+        token='6860051c58995ae01c30a27d5b72000bababa8e6',
+        backtest_start_time='2025-01-01 09:31:00',
+        backtest_end_time='2025-03-14 15:00:00',
+        # backtest_start_time='2024-09-01 09:31:00',
+        # backtest_end_time='2025-01-07 15:00:00',
+        backtest_adjust=ADJUST_NONE,
+        backtest_initial_cash=30000,
+        backtest_commission_unit=4.5,
+        backtest_slippage_ratio=0.0001,
+        backtest_marginfloat_ratio1=0.2,
+        backtest_marginfloat_ratio2=0.4,
+        backtest_match_mode=0)
+
+base_investment=2000,  # 基准投资金额（元）
+multiplier=2,  # 加仓倍数
+max_layers=9,  # 最大加仓层数
+price_interval=0.23,  # 价格间隔3%。当加仓倍数是2时，平均成本下降约为价格间隔的一半。
+take_profit_ratio=0.20,  # 止盈比例（2%）
+stop_loss_ratio=0.30,  # 总亏损止损20%
+base_shares=1,  # 标的下单的最小数量（手或张）
+base_volume=10000,  # 标的每手或每张代表的交易数量
+enable_short=False,  # 是否启用做空
+
+
+D:\Workplace-Pycharm\.venv\Scripts\python.exe D:\Workplace-Pycharm\QuantitativeTransaction\SRC\sq\test\test_gm\for159869\MultiMartingaleGridStrategyTest2.py
+----------------------------------------
+python sdk version: 3.0.168
+c sdk version: 3.7.4
+----------------------------------------
+Symbol List: ['SHSE.10008525']
+current position:
+		 SHSE.10008525 , position long. now: 2025-01-01 09:31:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Base price:
+		 SHSE.10008525 , base_price: 0.1854 ,  2025-01-02 09:35:00+08:00
+Long，Buy 1st: SHSE.10008525 ,  2025-01-02 09:38:00+08:00 , new_shares: 1 , price: 0.1834 , invest_amount: 0.1834
+current position:
+		 SHSE.10008525 , position long. now: 2025-01-02 09:38:00+08:00 , long_shares: 1 , long_avg_cost: 0.1802 , final_amount: 1802.00
+Long，Buy more: SHSE.10008525 ,  2025-01-02 14:40:00+08:00 , new_shares: 2 , price: 0.1377 , invest_amount: 0.2754
+current position:
+		 SHSE.10008525 , position long. now: 2025-01-02 14:40:00+08:00 , long_shares: 3 , long_avg_cost: 0.1517 , final_amount: 4551.00
+Long，Buy more: SHSE.10008525 ,  2025-01-06 09:55:00+08:00 , new_shares: 6 , price: 0.1163 , invest_amount: 0.6978
+current position:
+		 SHSE.10008525 , position long. now: 2025-01-06 09:55:00+08:00 , long_shares: 9 , long_avg_cost: 0.1279 , final_amount: 11511.00
+Long，Buy more: SHSE.10008525 ,  2025-01-13 09:33:00+08:00 , new_shares: 16 , price: 0.0942 , invest_amount: 1.5072
+current position:
+		 SHSE.10008525 , position long. now: 2025-01-13 09:33:00+08:00 , long_shares: 25 , long_avg_cost: 0.1063 , final_amount: 26575.00
+Long，Take profit:  SHSE.10008525 ,  2025-01-14 14:04:00+08:00 , profit ratio: 0.20413922859830663 , price: 0.128
+Long，Close: SHSE.10008525 ,  2025-01-14 14:04:00+08:00 , long_shares: 25 , long_avg_cost: 0.1063 , total_amount: 26575.00
+current position:
+		 SHSE.10008525 , position long. now: 2025-01-14 14:04:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SHSE.10008525 ,  2025-01-14 14:04:00+08:00 , new_shares: 1 , price: 0.128 , invest_amount: 0.128
+current position:
+		 SHSE.10008525 , position long. now: 2025-01-14 14:04:00+08:00 , long_shares: 1 , long_avg_cost: 0.1281 , final_amount: 1281.00
+Long，Buy more: SHSE.10008525 ,  2025-01-22 09:44:00+08:00 , new_shares: 4 , price: 0.0976 , invest_amount: 0.3904
+current position:
+		 SHSE.10008525 , position long. now: 2025-01-22 09:44:00+08:00 , long_shares: 5 , long_avg_cost: 0.1032 , final_amount: 5160.00
+Long，Take profit:  SHSE.10008525 ,  2025-01-23 09:39:00+08:00 , profit ratio: 0.21124031007751937 , price: 0.125
+Long，Close: SHSE.10008525 ,  2025-01-23 09:39:00+08:00 , long_shares: 5 , long_avg_cost: 0.1032 , total_amount: 5160.00
+current position:
+		 SHSE.10008525 , position long. now: 2025-01-23 09:39:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SHSE.10008525 ,  2025-01-23 09:39:00+08:00 , new_shares: 1 , price: 0.125 , invest_amount: 0.125
+current position:
+		 SHSE.10008525 , position long. now: 2025-01-23 09:39:00+08:00 , long_shares: 1 , long_avg_cost: 0.1274 , final_amount: 1274.00
+Long，Buy more: SHSE.10008525 ,  2025-01-23 11:17:00+08:00 , new_shares: 4 , price: 0.0979 , invest_amount: 0.3916
+current position:
+		 SHSE.10008525 , position long. now: 2025-01-23 11:17:00+08:00 , long_shares: 5 , long_avg_cost: 0.1051 , final_amount: 5255.00
+Long，Buy more: SHSE.10008525 ,  2025-02-05 10:02:00+08:00 , new_shares: 10 , price: 0.08 , invest_amount: 0.8
+current position:
+		 SHSE.10008525 , position long. now: 2025-02-05 10:02:00+08:00 , long_shares: 15 , long_avg_cost: 0.0887 , final_amount: 13305.00
+Long，Take profit:  SHSE.10008525 ,  2025-02-07 11:15:00+08:00 , profit ratio: 0.24239007891770017 , price: 0.1102
+Long，Close: SHSE.10008525 ,  2025-02-07 11:15:00+08:00 , long_shares: 15 , long_avg_cost: 0.0887 , total_amount: 13305.00
+current position:
+		 SHSE.10008525 , position long. now: 2025-02-07 11:15:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SHSE.10008525 ,  2025-02-07 11:15:00+08:00 , new_shares: 1 , price: 0.1102 , invest_amount: 0.1102
+current position:
+		 SHSE.10008525 , position long. now: 2025-02-07 11:15:00+08:00 , long_shares: 1 , long_avg_cost: 0.11 , final_amount: 1100.00
+Long，Take profit:  SHSE.10008525 ,  2025-02-13 10:03:00+08:00 , profit ratio: 0.2145454545454545 , price: 0.1336
+Long，Close: SHSE.10008525 ,  2025-02-13 10:03:00+08:00 , long_shares: 1 , long_avg_cost: 0.11 , total_amount: 1100.00
+current position:
+		 SHSE.10008525 , position long. now: 2025-02-13 10:03:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SHSE.10008525 ,  2025-02-13 10:03:00+08:00 , new_shares: 1 , price: 0.1336 , invest_amount: 0.1336
+current position:
+		 SHSE.10008525 , position long. now: 2025-02-13 10:03:00+08:00 , long_shares: 1 , long_avg_cost: 0.1338 , final_amount: 1338.00
+Long，Take profit:  SHSE.10008525 ,  2025-02-21 11:00:00+08:00 , profit ratio: 0.20029895366218228 , price: 0.1606
+Long，Close: SHSE.10008525 ,  2025-02-21 11:00:00+08:00 , long_shares: 1 , long_avg_cost: 0.1338 , total_amount: 1338.00
+current position:
+		 SHSE.10008525 , position long. now: 2025-02-21 11:00:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SHSE.10008525 ,  2025-02-21 11:00:00+08:00 , new_shares: 1 , price: 0.1606 , invest_amount: 0.1606
+current position:
+		 SHSE.10008525 , position long. now: 2025-02-21 11:00:00+08:00 , long_shares: 1 , long_avg_cost: 0.1616 , final_amount: 1616.00
+Long，Buy more: SHSE.10008525 ,  2025-02-25 10:05:00+08:00 , new_shares: 3 , price: 0.123 , invest_amount: 0.369
+current position:
+		 SHSE.10008525 , position long. now: 2025-02-25 10:05:00+08:00 , long_shares: 4 , long_avg_cost: 0.1323 , final_amount: 5292.00
+Long，Buy more: SHSE.10008525 ,  2025-03-03 14:07:00+08:00 , new_shares: 7 , price: 0.1009 , invest_amount: 0.7063
+current position:
+		 SHSE.10008525 , position long. now: 2025-03-03 14:07:00+08:00 , long_shares: 11 , long_avg_cost: 0.1123 , final_amount: 12353.00
+Long，Buy more: SHSE.10008525 ,  2025-03-04 09:40:00+08:00 , new_shares: 18 , price: 0.0863 , invest_amount: 1.5534000000000001
+current position:
+		 SHSE.10008525 , position long. now: 2025-03-04 09:40:00+08:00 , long_shares: 29 , long_avg_cost: 0.096 , final_amount: 27840.00
+Long，Take profit:  SHSE.10008525 ,  2025-03-06 09:31:00+08:00 , profit ratio: 0.22499999999999992 , price: 0.1176
+Long，Close: SHSE.10008525 ,  2025-03-06 09:31:00+08:00 , long_shares: 29 , long_avg_cost: 0.096 , total_amount: 27840.00
+current position:
+		 SHSE.10008525 , position long. now: 2025-03-06 09:31:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SHSE.10008525 ,  2025-03-06 09:31:00+08:00 , new_shares: 1 , price: 0.1176 , invest_amount: 0.1176
+current position:
+		 SHSE.10008525 , position long. now: 2025-03-06 09:31:00+08:00 , long_shares: 1 , long_avg_cost: 0.1177 , final_amount: 1177.00
+Long，Take profit:  SHSE.10008525 ,  2025-03-06 10:05:00+08:00 , profit ratio: 0.205607476635514 , price: 0.1419
+Long，Close: SHSE.10008525 ,  2025-03-06 10:05:00+08:00 , long_shares: 1 , long_avg_cost: 0.1177 , total_amount: 1177.00
+current position:
+		 SHSE.10008525 , position long. now: 2025-03-06 10:05:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SHSE.10008525 ,  2025-03-06 10:05:00+08:00 , new_shares: 1 , price: 0.1419 , invest_amount: 0.1419
+current position:
+		 SHSE.10008525 , position long. now: 2025-03-06 10:05:00+08:00 , long_shares: 1 , long_avg_cost: 0.1411 , final_amount: 1411.00
+Long，Take profit:  SHSE.10008525 ,  2025-03-14 09:57:00+08:00 , profit ratio: 0.20127569099929135 , price: 0.1695
+Long，Close: SHSE.10008525 ,  2025-03-14 09:57:00+08:00 , long_shares: 1 , long_avg_cost: 0.1411 , total_amount: 1411.00
+current position:
+		 SHSE.10008525 , position long. now: 2025-03-14 09:57:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SHSE.10008525 ,  2025-03-14 09:57:00+08:00 , new_shares: 1 , price: 0.1695 , invest_amount: 0.1695
+current position:
+		 SHSE.10008525 , position long. now: 2025-03-14 09:57:00+08:00 , long_shares: 1 , long_avg_cost: 0.1696 , final_amount: 1696.00
+Long，Take profit:  SHSE.10008525 ,  2025-03-14 11:15:00+08:00 , profit ratio: 0.20224056603773582 , price: 0.2039
+Long，Close: SHSE.10008525 ,  2025-03-14 11:15:00+08:00 , long_shares: 1 , long_avg_cost: 0.1696 , total_amount: 1696.00
+current position:
+		 SHSE.10008525 , position long. now: 2025-03-14 11:15:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Done! From start, time elapsed: 1.7592287063598633 seconds
+{'SHSE.10008525'} backtest finished:  {'account_id': '95eadb57-f0cb-11ef-b05b-80304917db79', 'pnl_ratio': 0.5596775051730375, 'pnl_ratio_annual': 2.8372540192799818, 'sharp_ratio': 3.6466524487205603, 'max_drawdown': 0.0804862152321441, 'open_count': 18, 'close_count': 9, 'win_count': 9, 'win_ratio': 1.0, 'calmar_ratio': 35.25142797554303, 'created_at': datetime.datetime(2025, 3, 17, 11, 11, 59, 467601, tzinfo=datetime.timezone(datetime.timedelta(seconds=28800), 'Asia/Shanghai')), 'updated_at': datetime.datetime(2025, 3, 17, 11, 12, 1, 219320, tzinfo=datetime.timezone(datetime.timedelta(seconds=28800), 'Asia/Shanghai')), 'risk_ratio': 0.0, 'lose_count': 0}
+
+Process finished with exit code 0
+
+
+
+
+
+
+
+
+
+
