@@ -406,13 +406,13 @@ class AILabxStrategy:
 
     def sell_target(self, target: str):
         print("sell_target: ", target)
-        order_target_percent(symbol=target, percent=0, order_type=OrderType_Market,
-                             position_side=PositionSide_Long)
+        order_target_percent(symbol=target, percent=0, order_type=OrderType_Limit,
+                             position_side=PositionSide_Long, price=self.latest_price(target))
 
     def buy_target(self, target: str):
         print("buy_target: ", target)
         self.last_symbol = target
-        order_target_percent(symbol=target, percent=1. / self.max_count, order_type=OrderType_Market,
+        order_target_percent(symbol=target, percent=1. / self.max_count, order_type=OrderType_Limit,
                              position_side=PositionSide_Long, price=self.latest_price(target))
 
     def should_sell(self, target: str):
@@ -442,6 +442,7 @@ def init(context):
     context.ai_labx_strategy = AILabxStrategy(context=context, white_list=list(index_list.keys()))
 
     schedule(schedule_func=algo, date_rule='1d', time_rule='09:31:00')
+    schedule(schedule_func=algo, date_rule='1d', time_rule='09:51:00')
 
 
 def algo(context):
