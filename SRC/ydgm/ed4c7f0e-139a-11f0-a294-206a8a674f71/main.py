@@ -393,10 +393,13 @@ class AILabxStrategy:
         if len(in_list) == 1 and self.last_symbol == in_list[0]:
             if self.should_sell(self.last_symbol):
                 self.sell_target(self.last_symbol)
-                self.last_symbol = ""
+                # self.last_symbol = ""
             return []
-        order_close_all()
-        print("order_close_all: ")
+        positions = self.context.account().positions(side=PositionSide_Long)
+        if len(positions) > 0:
+            print("order_close_all: ")
+            order_close_all()
+
         hold_target_list = []
         for target in in_list:
             if not self.should_sell(target):
@@ -411,7 +414,7 @@ class AILabxStrategy:
 
     def buy_target(self, target: str):
         print("buy_target: ", target)
-        self.last_symbol = target
+        # self.last_symbol = target
         order_target_percent(symbol=target, percent=1. / self.max_count, order_type=OrderType_Limit,
                              position_side=PositionSide_Long, price=self.latest_price(target))
 
@@ -425,8 +428,15 @@ class AILabxStrategy:
         return current_data[0]["price"]
 
     def execute(self, now):
+        # update info
         self.now = now
         self.ailabx.now = self.now
+        positions = self.context.account().positions(side=PositionSide_Long)
+        if len(positions) > 0:
+            self.last_symbol = positions[0].symbol
+        else:
+            self.last_symbol = ""
+
         ret_list = self.filter()
         ret_list = self.sort(ret_list)
         ret_list = self.filter_top(ret_list)
@@ -455,10 +465,10 @@ def on_order_status(context, order):
     if order.status == OrderStatus_Filled:  # 完全成交
         print(f"order OrderStatus_Filled, {order}")
     elif order.status in [OrderStatus_Canceled, OrderStatus_PartiallyFilled]:  # 已撤单/部分成交撤单
-        print(f"order OrderStatus_Canceled or OrderStatus_PartiallyFilled, {order.order_id}")
+        print(f"order OrderStatus_Canceled or OrderStatus_PartiallyFilled, {order}")
         # self.handle_order_retry(order)
     elif order.status in [OrderStatus_Rejected]:  # 已拒绝
-        print(f"order OrderStatus_Rejected, {order.ord_rej_reason}")
+        print(f"order OrderStatus_Rejected, {order}")
 
 
 def on_backtest_finished(context, indicator):
