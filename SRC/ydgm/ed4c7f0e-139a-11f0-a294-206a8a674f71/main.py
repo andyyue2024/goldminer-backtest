@@ -390,14 +390,17 @@ class AILabxStrategy:
         return in_list[0:top_count]
 
     def try_to_order(self, in_list: list) -> list:
+        positions = self.context.account().positions(side=PositionSide_Long)
+        hold_symbol_list = [p.symbol for p in positions]
+        if len(in_list) > 0:
+            print("target: ", in_list, "; already hold: ", hold_symbol_list)
         if len(in_list) == 1 and self.last_symbol == in_list[0]:
             if self.should_sell(self.last_symbol):
                 self.sell_target(self.last_symbol)
                 # self.last_symbol = ""
             return []
-        positions = self.context.account().positions(side=PositionSide_Long)
         if len(positions) > 0:
-            print("order_close_all: ")
+            print("order_close_all: ", hold_symbol_list)
             order_close_all()
 
         hold_target_list = []
@@ -406,6 +409,23 @@ class AILabxStrategy:
                 self.buy_target(target)
                 hold_target_list.append(target)
         return hold_target_list
+
+    def try_to_order2(self, in_list: list) -> list:
+        to_buy_list = []
+        positions = self.context.account().positions(side=PositionSide_Long)
+        hold_symbol_list = [p.symbol for p in positions]
+        if len(in_list) > 0:
+            print("target: ", in_list, "; already hold: ", hold_symbol_list)
+        for hold_symbol in hold_symbol_list:
+            if (hold_symbol not in in_list or
+                    (hold_symbol in in_list and self.should_sell(hold_symbol))):  # 命中强制卖出条件
+                self.sell_target(hold_symbol)
+
+        for target_symbol in in_list:
+            if (not self.should_sell(target_symbol)) and (target_symbol not in hold_symbol_list):
+                self.buy_target(target_symbol)
+                to_buy_list.append(target_symbol)
+        return to_buy_list
 
     def sell_target(self, target: str):
         print("sell_target: ", target)
@@ -428,6 +448,8 @@ class AILabxStrategy:
         return current_data[0]["price"]
 
     def execute(self, now):
+        order_cancel_all()
+
         # update info
         self.now = now
         self.ailabx.now = self.now
@@ -453,6 +475,13 @@ def init(context):
 
     schedule(schedule_func=algo, date_rule='1d', time_rule='09:31:00')
     schedule(schedule_func=algo, date_rule='1d', time_rule='09:51:00')
+    # schedule(schedule_func=algo, date_rule='1d', time_rule='10:11:00')
+    # schedule(schedule_func=algo, date_rule='1d', time_rule='10:41:00')
+    # schedule(schedule_func=algo, date_rule='1d', time_rule='11:11:00')
+    # schedule(schedule_func=algo, date_rule='1d', time_rule='13:11:00')
+    # schedule(schedule_func=algo, date_rule='1d', time_rule='13:41:00')
+    # schedule(schedule_func=algo, date_rule='1d', time_rule='14:11:00')
+    # schedule(schedule_func=algo, date_rule='1d', time_rule='14:41:00')
 
 
 def algo(context):
