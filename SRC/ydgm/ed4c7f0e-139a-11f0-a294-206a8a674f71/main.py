@@ -475,13 +475,13 @@ def init(context):
 
     schedule(schedule_func=algo, date_rule='1d', time_rule='09:31:00')
     schedule(schedule_func=algo, date_rule='1d', time_rule='09:51:00')
-    # schedule(schedule_func=algo, date_rule='1d', time_rule='10:11:00')
-    # schedule(schedule_func=algo, date_rule='1d', time_rule='10:41:00')
-    # schedule(schedule_func=algo, date_rule='1d', time_rule='11:11:00')
-    # schedule(schedule_func=algo, date_rule='1d', time_rule='13:11:00')
-    # schedule(schedule_func=algo, date_rule='1d', time_rule='13:41:00')
-    # schedule(schedule_func=algo, date_rule='1d', time_rule='14:11:00')
-    # schedule(schedule_func=algo, date_rule='1d', time_rule='14:41:00')
+    schedule(schedule_func=algo, date_rule='1d', time_rule='10:11:00')
+    schedule(schedule_func=algo, date_rule='1d', time_rule='10:41:00')
+    schedule(schedule_func=algo, date_rule='1d', time_rule='11:11:00')
+    schedule(schedule_func=algo, date_rule='1d', time_rule='13:11:00')
+    schedule(schedule_func=algo, date_rule='1d', time_rule='13:41:00')
+    schedule(schedule_func=algo, date_rule='1d', time_rule='14:11:00')
+    schedule(schedule_func=algo, date_rule='1d', time_rule='14:41:00')
 
 
 def algo(context):
