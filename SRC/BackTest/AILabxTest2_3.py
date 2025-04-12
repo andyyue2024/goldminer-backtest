@@ -547,6 +547,18 @@ def run_strategy(paras: dict, p_index: int):
     return context.result
 
 
+def write_to_file(results, output_file_path=f'./data/AILabxTest2_3_info.xlsx'):
+    info = [item[0] for item in results if len(item) > 0]
+    info = pd.DataFrame(info,
+                        columns=[
+                            'pnl_ratio', 'pnl_ratio_annual', 'sharp_ratio', 'max_drawdown',
+                            'w_aa', 'w_bb', 'w_cc', 'w_dd'
+                        ])
+    print(f"row length: {len(info)}")
+    # info.to_csv('./data/info.csv', index=False)
+    info.to_excel(output_file_path, index=False)
+
+
 if __name__ == '__main__':
     # 参数组合列表
     print('构建参数组：')
@@ -554,7 +566,7 @@ if __name__ == '__main__':
     # w_aa = 0.1, w_bb = 0.2, w_cc = 1, w_dd = 0.18
     sequence_aa = np.round(np.arange(0.05, 1.05, 0.05), 2).tolist()
     sequence_bb = np.round(np.arange(0.05, 0.35, 0.05), 2).tolist()
-    sequence_dd = np.round(np.arange(0.12, 0.25, 0.01), 2).tolist()
+    sequence_dd = np.round(np.arange(0.08, 0.25, 0.01), 2).tolist()
     # sequence_aa = np.round(np.linspace(0.05, 1.05, 2), 2).tolist()
     # sequence_bb = np.round(np.linspace(0.05, 0.35, 2), 2).tolist()
     # sequence_dd = np.round(np.linspace(0.08, 0.25, 2), 2).tolist()
@@ -565,31 +577,29 @@ if __name__ == '__main__':
                 paras_list.append({"w_aa": w_aa, "w_bb": w_bb, "w_cc": 1, "w_dd": w_dd})
     print("长度：", len(paras_list))
 
-
     def handle_error(error):
         try:
-            pass
-        except Exception as ee:
             print(f"任务出错: {error}")
+        except Exception as ee:
+            print(f"任务出错: {ee}")
 
+    def callback(result):
+        # # 每完成一个任务，记录结果
+        result_list.append(result)
+        write_to_file(result_list) if len(result_list) % 100 == 0 else None
+
+    result_list = []
     # 多进程并行
     print('多进程并行运行参数优化...')
     pool = multiprocessing.Pool(processes=20, maxtasksperchild=1)  # create 12 processes
     processes_list = [pool.apply_async(func=run_strategy, kwds={'paras': paras_list[i], 'p_index': i},
-                                       error_callback=handle_error) for i in range(len(paras_list))]
+                                       error_callback=handle_error, callback=callback
+                                       ) for i in range(len(paras_list))]
     pool.close()
     pool.join()
     print('运行结束！')
 
     # 获取组合的回测结果,并导出
-    result_list = [pro.get() for pro in processes_list]
-    info = [item[0] for item in result_list if len(item) > 0]
-    info = pd.DataFrame(info,
-                        columns=[
-                            'pnl_ratio', 'pnl_ratio_annual', 'sharp_ratio', 'max_drawdown',
-                            'w_aa', 'w_bb', 'w_cc', 'w_dd'
-                        ])
-    print(info)
-    # info.to_csv('./data/info.csv', index=False)
-    output_file_path = f'./data/AILabxTest2_3_info.xlsx'
-    info.to_excel(output_file_path, index=False)
+    write_to_file(results=[pro.get() for pro in processes_list],
+                  output_file_path=f'./data/AILabxTest2_3_info_{len(processes_list)}.xlsx')
+
