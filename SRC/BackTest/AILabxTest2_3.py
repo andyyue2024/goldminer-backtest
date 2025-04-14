@@ -5,10 +5,18 @@ import pandas as pd
 import numpy as np
 import os
 from gm.api import *
+import pandas as pd
+import multiprocessing
 
 """
-ai labx test2
+ai labx test2_3
 
+基本思想：设定所需优化的参数数值范围及步长，将参数数值循环输入进策略，进行遍历回测，
+        记录每次回测结果和参数，根据某种规则将回测结果排序，找到最好的参数。
+1、定义策略函数  AILabxStrategy
+2、多进程循环输入参数数值
+3、获取回测报告，生成DataFrame格式
+4、排序
 """
 
 
@@ -149,7 +157,6 @@ class AILabxTool:
             # filtered_df = df[(df['A'] > 2) & (df['B'] < 8)]
             history_data = self.all_data[(self.all_data['bob'] <= self.last_day) & (self.all_data['symbol'] == symbol)]
             history_data = history_data.tail(window)
-
 
         # 提取收盘价序列
         data = np.asarray(history_data[field].values)
@@ -364,7 +371,7 @@ class AILabxStrategy:
         self.w_dd = w_dd
         self.last_symbol = ""
 
-    def filter(self, in_list: list=None):
+    def filter(self, in_list: list = None):
         if in_list is None:
             in_list = []
         return in_list + [item for item in self.white_list if item not in in_list]
@@ -395,7 +402,7 @@ class AILabxStrategy:
                 self.last_symbol = ""
             return []
         order_close_all()
-        print("order_close_all: ")
+        # print("order_close_all: ")
         hold_target_list = []
         for target in in_list:
             if not self.should_sell(target):
@@ -404,12 +411,12 @@ class AILabxStrategy:
         return hold_target_list
 
     def sell_target(self, target: str):
-        print("sell_target: ", target)
+        # print("sell_target: ", target)
         order_target_percent(symbol=target, percent=0, order_type=OrderType_Market,
-                             position_side=PositionSide_Long, price=self.latest_price(target))
+                             position_side=PositionSide_Long)
 
     def buy_target(self, target: str):
-        print("buy_target: ", target)
+        # print("buy_target: ", target)
         self.last_symbol = target
         order_target_percent(symbol=target, percent=1. / self.max_count, order_type=OrderType_Market,
                              position_side=PositionSide_Long, price=self.latest_price(target))
@@ -438,20 +445,27 @@ def init(context):
     print("Start...")
     context.num = 1
     context.symbol = "AAA"
-    context.ai_labx_strategy = AILabxStrategy(context=context, white_list=list(index_list.keys()))
+    context.ai_labx_strategy = AILabxStrategy(context=context, white_list=list(index_list.keys()),
+                                              w_aa=context.paras['w_aa'], w_bb=context.paras['w_bb'],
+                                              w_cc=context.paras['w_cc'], w_dd=context.paras['w_dd']
+                                              )
 
     schedule(schedule_func=algo, date_rule='1d', time_rule='09:31:00')
 
 
 def algo(context):
-    print(context.now, " algo...")
-    context.ai_labx_strategy.execute(context.now)
+    # print(context.now, " algo...")
+    try:
+        context.ai_labx_strategy.execute(context.now)
+    except Exception as ee:
+        print(f"Processes {context.p_index} failed, algo: {ee}")
 
 
 def on_order_status(context, order):
     # 订单状态更新处理
     if order.status == OrderStatus_Filled:  # 完全成交
-        print(f"order OrderStatus_Filled, {order}")
+        # print(f"order OrderStatus_Filled, {order}")
+        pass
     elif order.status in [OrderStatus_Canceled, OrderStatus_PartiallyFilled]:  # 已撤单/部分成交撤单
         print(f"order OrderStatus_Canceled or OrderStatus_PartiallyFilled, {order.order_id}")
         # self.handle_order_retry(order)
@@ -460,8 +474,15 @@ def on_order_status(context, order):
 
 
 def on_backtest_finished(context, indicator):
-    print(f"Done! From start, time elapsed: {time.time() - context.start_time} seconds")
-    print(f"{context.symbol} backtest finished: ", indicator)
+    print(f"Processes {context.p_index}: Done! From start, time elapsed: {time.time() - context.start_time} seconds")
+    # print(f"{context.symbol} backtest finished: ", indicator)
+    # 回测业绩指标数据
+    data = [
+        indicator['pnl_ratio'], indicator['pnl_ratio_annual'], indicator['sharp_ratio'], indicator['max_drawdown'],
+        context.paras['w_aa'], context.paras['w_bb'], context.paras['w_cc'], context.paras['w_dd']
+    ]
+    # 将超参加入context.result
+    context.result.append(data)
 
 
 index_list = {
@@ -483,7 +504,28 @@ index_list = {
 
 }
 
-if __name__ == "__main__":
+
+def run_strategy(paras: dict, p_index: int):
+    # 导入上下文
+    from gm.model.storage import context
+    # 用context传入参数
+    context.paras = paras
+    context.p_index = p_index
+    # context.result用以存储超参
+    context.result = []
+    '''
+        strategy_id策略ID,由系统生成
+        filename文件名,请与本文件名保持一致
+        mode实时模式:MODE_LIVE回测模式:MODE_BACKTEST
+        token绑定计算机的ID,可在系统设置-密钥管理中生成
+        backtest_start_time回测开始时间
+        backtest_end_time回测结束时间
+        backtest_adjust股票复权方式不复权:ADJUST_NONE前复权:ADJUST_PREV后复权:ADJUST_POST
+        backtest_initial_cash回测初始资金
+        backtest_commission_ratio回测佣金比例
+        backtest_slippage_ratio回测滑点比例
+        backtest_match_mode市价撮合模式，以下一tick/bar开盘价撮合:0，以当前tick/bar收盘价撮合：1
+    '''
     run(
         # strategy_id='19236129-09e5-11f0-99ab-00155dd6c843',  # gfgm
         filename=(os.path.basename(__file__)),
@@ -502,4 +544,62 @@ if __name__ == "__main__":
         backtest_marginfloat_ratio1=0.2,
         backtest_marginfloat_ratio2=0.4,
         backtest_match_mode=0)
+    return context.result
+
+
+def write_to_file(results, output_file_path=f'./data/AILabxTest2_3_info.xlsx'):
+    info = [item[0] for item in results if len(item) > 0]
+    info = pd.DataFrame(info,
+                        columns=[
+                            'pnl_ratio', 'pnl_ratio_annual', 'sharp_ratio', 'max_drawdown',
+                            'w_aa', 'w_bb', 'w_cc', 'w_dd'
+                        ])
+    print(f"row length: {len(info)}")
+    # info.to_csv('./data/info.csv', index=False)
+    info.to_excel(output_file_path, index=False)
+
+
+if __name__ == '__main__':
+    # 参数组合列表
+    print('构建参数组：')
+    paras_list = []
+    # w_aa = 0.1, w_bb = 0.2, w_cc = 1, w_dd = 0.18
+    sequence_aa = np.round(np.arange(0.05, 1.05, 0.05), 2).tolist()
+    sequence_bb = np.round(np.arange(0.05, 0.35, 0.05), 2).tolist()
+    sequence_dd = np.round(np.arange(0.08, 0.25, 0.01), 2).tolist()
+    # sequence_aa = np.round(np.linspace(0.05, 1.05, 2), 2).tolist()
+    # sequence_bb = np.round(np.linspace(0.05, 0.35, 2), 2).tolist()
+    # sequence_dd = np.round(np.linspace(0.08, 0.25, 2), 2).tolist()
+    # 循环输入参数数值回测
+    for w_aa in sequence_aa:
+        for w_bb in sequence_bb:
+            for w_dd in sequence_dd:
+                paras_list.append({"w_aa": w_aa, "w_bb": w_bb, "w_cc": 1, "w_dd": w_dd})
+    print("长度：", len(paras_list))
+
+    def handle_error(error):
+        try:
+            print(f"任务出错: {error}")
+        except Exception as ee:
+            print(f"任务出错: {ee}")
+
+    def callback(result):
+        # # 每完成一个任务，记录结果
+        result_list.append(result)
+        write_to_file(result_list) if len(result_list) % 100 == 0 else None
+
+    result_list = []
+    # 多进程并行
+    print('多进程并行运行参数优化...')
+    pool = multiprocessing.Pool(processes=20, maxtasksperchild=1)  # create 12 processes
+    processes_list = [pool.apply_async(func=run_strategy, kwds={'paras': paras_list[i], 'p_index': i},
+                                       error_callback=handle_error, callback=callback
+                                       ) for i in range(len(paras_list))]
+    pool.close()
+    pool.join()
+    print('运行结束！')
+
+    # 获取组合的回测结果,并导出
+    write_to_file(results=[pro.get() for pro in processes_list],
+                  output_file_path=f'./data/AILabxTest2_3_info_{len(processes_list)}.xlsx')
 
