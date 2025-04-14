@@ -429,14 +429,19 @@ class AILabxStrategy:
 
     def sell_target(self, target: str):
         print("sell_target: ", target)
-        order_target_percent(symbol=target, percent=0, order_type=OrderType_Limit,
-                             position_side=PositionSide_Long, price=self.latest_price(target))
+        # order_target_percent(symbol=target, percent=0, order_type=OrderType_Limit,
+        #                      position_side=PositionSide_Long, price=self.latest_price(target))
+        order_percent(symbol=target, percent=1. / self.max_count, side=OrderSide_Sell, order_type=OrderType_Limit,
+                      position_effect=PositionEffect_Close, price=self.latest_price(target))
 
     def buy_target(self, target: str):
         print("buy_target: ", target)
         # self.last_symbol = target
-        order_target_percent(symbol=target, percent=1. / self.max_count, order_type=OrderType_Limit,
-                             position_side=PositionSide_Long, price=self.latest_price(target))
+        # order_target_percent(symbol=target, percent=1. / self.max_count, order_type=OrderType_Limit,
+        #                      position_side=PositionSide_Long, price=self.latest_price(target))
+        order_percent(symbol=target, percent=1. / self.max_count, side=OrderSide_Buy, order_type=OrderType_Limit,
+                      position_effect=PositionEffect_Open, price=self.latest_price(target))
+
 
     def should_sell(self, target: str):
         return self.ailabx.roc(target, "close", 21) > self.w_dd
@@ -481,7 +486,7 @@ def init(context):
     schedule(schedule_func=algo, date_rule='1d', time_rule='13:11:00')
     schedule(schedule_func=algo, date_rule='1d', time_rule='13:41:00')
     schedule(schedule_func=algo, date_rule='1d', time_rule='14:11:00')
-    schedule(schedule_func=algo, date_rule='1d', time_rule='14:41:00')
+    schedule(schedule_func=algo, date_rule='1d', time_rule='14:44:00')
 
 
 def algo(context):
