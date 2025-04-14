@@ -406,7 +406,7 @@ class AILabxStrategy:
     def sell_target(self, target: str):
         print("sell_target: ", target)
         order_target_percent(symbol=target, percent=0, order_type=OrderType_Market,
-                             position_side=PositionSide_Long)
+                             position_side=PositionSide_Long, price=self.latest_price(target))
 
     def buy_target(self, target: str):
         print("buy_target: ", target)
