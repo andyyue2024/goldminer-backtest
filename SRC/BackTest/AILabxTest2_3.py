@@ -45,7 +45,7 @@ class AILabxTool:
 
     def get_score(self, symbol):
         # trend_score2 = self.trend_score2(symbol, "close", 25)
-        trend_score = self.trend_score(symbol, "close", 25)
+        trend_score = self.trend_score(symbol, "close", 26)
         roc_score1 = self.roc(symbol, "close", 5)
         roc_score2 = self.roc(symbol, "close", 10)
         ma_score1 = self.ma(symbol, "volume", 5)
@@ -422,7 +422,7 @@ class AILabxStrategy:
                              position_side=PositionSide_Long, price=self.latest_price(target))
 
     def should_sell(self, target: str):
-        return self.ailabx.roc(target, "close", 21) > self.w_dd
+        return self.ailabx.roc(target, "close", 18) > self.w_dd
         # return False
 
     @staticmethod
