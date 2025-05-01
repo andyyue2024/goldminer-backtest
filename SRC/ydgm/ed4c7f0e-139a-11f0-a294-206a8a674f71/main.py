@@ -466,6 +466,7 @@ class AILabxStrategy:
 
         ret_list = self.filter()
         ret_list = self.sort(ret_list)
+        print("sort: ", ret_list)
         ret_list = self.filter_top(ret_list)
         ret_list = self.try_to_order(ret_list)
         return ret_list
