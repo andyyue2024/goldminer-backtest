@@ -466,6 +466,7 @@ class AILabxStrategy:
 
         ret_list = self.filter()
         ret_list = self.sort(ret_list)
+        print("sort: ", ret_list)
         ret_list = self.filter_top(ret_list)
         ret_list = self.try_to_order(ret_list)
         return ret_list
@@ -486,7 +487,7 @@ def init(context):
     schedule(schedule_func=algo, date_rule='1d', time_rule='13:11:00')
     schedule(schedule_func=algo, date_rule='1d', time_rule='13:41:00')
     schedule(schedule_func=algo, date_rule='1d', time_rule='14:11:00')
-    schedule(schedule_func=algo, date_rule='1d', time_rule='14:44:00')
+    schedule(schedule_func=algo, date_rule='1d', time_rule='14:41:00')
 
 
 def algo(context):
@@ -526,6 +527,7 @@ index_list = {
     "SZSE.162719": "石油LOF",
     "SHSE.513500": "标普500ETF",
     "SZSE.159915": "创业板ETF",
+    "SHSE.513030": "德国ETF",
 
 }
 

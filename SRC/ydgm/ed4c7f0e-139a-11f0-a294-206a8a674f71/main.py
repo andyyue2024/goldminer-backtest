@@ -527,6 +527,7 @@ index_list = {
     "SZSE.162719": "石油LOF",
     "SHSE.513500": "标普500ETF",
     "SZSE.159915": "创业板ETF",
+    "SHSE.513030": "德国ETF",
 
 }
 
