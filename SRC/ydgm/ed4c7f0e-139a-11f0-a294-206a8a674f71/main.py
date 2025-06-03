@@ -479,6 +479,9 @@ def init(context):
     context.symbol = "AAA"
     context.ai_labx_strategy = AILabxStrategy(context=context, white_list=list(index_list.keys()))
 
+    schedule(schedule_func=algo, date_rule='1d', time_rule='07:11:00')
+    schedule(schedule_func=algo, date_rule='1d', time_rule='07:41:00')
+    schedule(schedule_func=algo, date_rule='1d', time_rule='09:11:00')
     schedule(schedule_func=algo, date_rule='1d', time_rule='09:31:00')
     schedule(schedule_func=algo, date_rule='1d', time_rule='09:51:00')
     schedule(schedule_func=algo, date_rule='1d', time_rule='10:11:00')
