@@ -45,7 +45,7 @@ class AILabxTool:
 
     def get_score(self, symbol):
         # trend_score2 = self.trend_score2(symbol, "close", 25)
-        trend_score = self.trend_score(symbol, "close", 26)
+        trend_score = self.trend_score(symbol, "close", 25)
         roc_score1 = self.roc(symbol, "close", 5)
         roc_score2 = self.roc(symbol, "close", 10)
         ma_score1 = self.ma(symbol, "volume", 5)
@@ -371,7 +371,7 @@ class AILabxStrategy:
         self.w_dd = w_dd
         self.last_symbol = ""
 
-    def filter(self, in_list: list = None):
+    def filter(self, in_list: list=None):
         if in_list is None:
             in_list = []
         return in_list + [item for item in self.white_list if item not in in_list]
@@ -396,13 +396,20 @@ class AILabxStrategy:
         return in_list[0:top_count]
 
     def try_to_order(self, in_list: list) -> list:
+        positions = self.context.account().positions(side=PositionSide_Long)
+        hold_symbol_list = [p.symbol for p in positions]
+        if len(in_list) > 0:
+            # print("target: ", in_list, "; already hold: ", hold_symbol_list)
+            pass
         if len(in_list) == 1 and self.last_symbol == in_list[0]:
             if self.should_sell(self.last_symbol):
                 self.sell_target(self.last_symbol)
-                self.last_symbol = ""
+                # self.last_symbol = ""
             return []
-        order_close_all()
-        # print("order_close_all: ")
+        if len(positions) > 0:
+            # print("order_close_all: ", hold_symbol_list)
+            order_close_all()
+
         hold_target_list = []
         for target in in_list:
             if not self.should_sell(target):
@@ -410,19 +417,41 @@ class AILabxStrategy:
                 hold_target_list.append(target)
         return hold_target_list
 
+    def try_to_order2(self, in_list: list) -> list:
+        to_buy_list = []
+        positions = self.context.account().positions(side=PositionSide_Long)
+        hold_symbol_list = [p.symbol for p in positions]
+        if len(in_list) > 0:
+            print("target: ", in_list, "; already hold: ", hold_symbol_list)
+        for hold_symbol in hold_symbol_list:
+            if (hold_symbol not in in_list or
+                    (hold_symbol in in_list and self.should_sell(hold_symbol))):  # 命中强制卖出条件
+                self.sell_target(hold_symbol)
+
+        for target_symbol in in_list:
+            if (not self.should_sell(target_symbol)) and (target_symbol not in hold_symbol_list):
+                self.buy_target(target_symbol)
+                to_buy_list.append(target_symbol)
+        return to_buy_list
+
     def sell_target(self, target: str):
         # print("sell_target: ", target)
-        order_target_percent(symbol=target, percent=0, order_type=OrderType_Market,
-                             position_side=PositionSide_Long)
+        # order_target_percent(symbol=target, percent=0, order_type=OrderType_Limit,
+        #                      position_side=PositionSide_Long, price=self.latest_price(target))
+        order_percent(symbol=target, percent=1. / self.max_count, side=OrderSide_Sell, order_type=OrderType_Limit,
+                      position_effect=PositionEffect_Close, price=self.latest_price(target))
 
     def buy_target(self, target: str):
         # print("buy_target: ", target)
-        self.last_symbol = target
-        order_target_percent(symbol=target, percent=1. / self.max_count, order_type=OrderType_Market,
-                             position_side=PositionSide_Long, price=self.latest_price(target))
+        # self.last_symbol = target
+        # order_target_percent(symbol=target, percent=1. / self.max_count, order_type=OrderType_Limit,
+        #                      position_side=PositionSide_Long, price=self.latest_price(target))
+        order_percent(symbol=target, percent=1. / self.max_count, side=OrderSide_Buy, order_type=OrderType_Limit,
+                      position_effect=PositionEffect_Open, price=self.latest_price(target))
+
 
     def should_sell(self, target: str):
-        return self.ailabx.roc(target, "close", 18) > self.w_dd
+        return self.ailabx.roc(target, "close", 21) > self.w_dd
         # return False
 
     @staticmethod
@@ -431,10 +460,20 @@ class AILabxStrategy:
         return current_data[0]["price"]
 
     def execute(self, now):
+        order_cancel_all()
+
+        # update info
         self.now = now
         self.ailabx.now = self.now
+        positions = self.context.account().positions(side=PositionSide_Long)
+        if len(positions) > 0:
+            self.last_symbol = positions[0].symbol
+        else:
+            self.last_symbol = ""
+
         ret_list = self.filter()
         ret_list = self.sort(ret_list)
+        # print("sort: ", ret_list)
         ret_list = self.filter_top(ret_list)
         ret_list = self.try_to_order(ret_list)
         return ret_list
@@ -501,6 +540,7 @@ index_list = {
     "SZSE.162719": "石油LOF",
     "SHSE.513500": "标普500ETF",
     "SZSE.159915": "创业板ETF",
+    "SHSE.513030": "德国ETF",
 
 }
 
@@ -534,7 +574,7 @@ def run_strategy(paras: dict, p_index: int):
         strategy_id='630ce8b7-0c6d-11f0-a2bc-00155dd6c843',  # ydgm 回测
         token='c8bd4de742240da9483aecd05a2f5e52900786eb',  # ydgm
         backtest_start_time="2023-09-19 09:30:00",
-        backtest_end_time='2025-03-27 15:00:00',
+        backtest_end_time='2025-06-17 15:00:00',
         # backtest_end_time='2023-10-20 15:00:00',
         backtest_adjust=ADJUST_NONE,
         backtest_initial_cash=100000,
