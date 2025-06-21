@@ -314,10 +314,12 @@ class MultiMartingaleGridStrategy:
                   "{:.2f}".format(self.long_avg_cost * self.long_shares * self.base_volume))
             self.long_layers = 0
             self.long_avg_cost = 0.0
-            self.long_shares = 0
+            # self.long_shares = 0
             self.last_trade_side = 0
-            order_target_volume(symbol=self.symbol, volume=0, position_side=PositionSide_Long,
-                                order_type=OrderType_Market)
+            # order_target_volume(symbol=self.symbol, volume=0, position_side=PositionSide_Long,
+            #                     order_type=OrderType_Market)
+            order_volume(symbol=self.symbol, volume=self.long_shares, side=OrderSide_Sell,
+                         order_type=OrderType_Market, position_effect=PositionEffect_Close)
 
     def close_short_position(self):
         position = self.context.account().position(symbol=self.symbol, side=PositionSide_Short)
@@ -327,10 +329,12 @@ class MultiMartingaleGridStrategy:
                   "{:.2f}".format(self.short_avg_cost * self.short_shares * self.base_volume))
             self.short_layers = 0
             self.short_avg_cost = 0.0
-            self.short_shares = 0
+            # self.short_shares = 0
             self.last_trade_side = 0
-            order_target_volume(symbol=self.symbol, volume=0, position_side=PositionSide_Short,
-                                order_type=OrderType_Market)
+            # order_target_volume(symbol=self.symbol, volume=0, position_side=PositionSide_Short,
+            #                     order_type=OrderType_Market)
+            order_volume(symbol=self.symbol, volume=self.short_shares, side=OrderSide_Buy,
+                         order_type=OrderType_Market, position_effect=PositionEffect_Close)
 
     def check_force_close(self, price):
         # 总资产风控
@@ -373,6 +377,26 @@ class MultiMartingaleGridStrategy:
             ratio = (day_delta - LEFT_DAYS) / (RIGHT_DAYS - LEFT_DAYS)
             self.price_interval = self.price_interval_min + (self.price_interval_max - self.price_interval_min) * ratio
             self.take_profit_ratio = self.take_profit_ratio_max + (self.take_profit_ratio_min - self.take_profit_ratio_max) * ratio
+
+
+# def order_volume(symbol,
+#                  volume,
+#                  side,
+#                  order_type,
+#                  position_effect,
+#                  price=0,
+#                  order_duration=OrderDuration_Unknown,
+#                  order_qualifier=OrderQualifier_Unknown,
+#                  account="",
+#                  ):
+#     # 执行多头加仓
+#     # order_volume(symbol=self.symbol, volume=new_shares, side=OrderSide_Buy,
+#     #              order_type=OrderType_Market, position_effect=PositionEffect_Open)
+#     # 执行空头加仓
+#     # order_volume(symbol=self.symbol, volume=new_shares, side=OrderSide_Sell,
+#     #              order_type=OrderType_Market, position_effect=PositionEffect_Open)
+#
+#     pass
 
 
 def init(context):
