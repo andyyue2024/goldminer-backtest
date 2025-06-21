@@ -378,14 +378,18 @@ class MultiMartingaleGridStrategy:
 def init(context):
     context.start_time = time.time()
     context.frequency = "60s"
+    # context.symbol_list = [ # 12
+    #     'SHSE.10009222',
+    #     'SHSE.10009231',
+    # ]
     context.symbol_list = [ # 9
         'SHSE.10008800',
         'SHSE.10008809',
     ]
     # context.symbol_list = [ # 6
-    #     'SHSE.10008557',
-    #     # 'SHSE.10008546',
-    #     # 'SHSE.10008555'
+    #     # 'SHSE.10008557',
+    #     'SHSE.10008546',
+    #     'SHSE.10008555'
     # ]
     # context.symbol_list = [ # 3
     #     'SHSE.10008525',
@@ -397,11 +401,11 @@ def init(context):
 
     # interval_parameters = {'price_interval_min': 0.14,   # 6月0.14
     #                        'take_profit_ratio_max': 0.23,   # 6月0.23
-    #                        'price_interval_max': 0.14,  # 3月0.25
-    #                        'take_profit_ratio_min': 0.23,  # 3月0.13
+    #                        'price_interval_max': 0.25,  # 3月0.25
+    #                        'take_profit_ratio_min': 0.13,  # 3月0.13
     #                        }
     context.symbol_strategies = {symbol: MultiMartingaleGridStrategy(context, symbol, base_investment=1350,
-                                                                     price_interval=0.14, take_profit_ratio=0.23,
+                                                                     price_interval=0.14, take_profit_ratio=0.25,
                                                                      stop_loss_ratio=0.50
                                                                      # enable_interval=True, interval_parameters=interval_parameters
                                                                      ) for symbol in context.symbol_list}
@@ -514,7 +518,7 @@ if __name__ == '__main__':
         mode=MODE_BACKTEST,
         token='6860051c58995ae01c30a27d5b72000bababa8e6',
         backtest_start_time='2025-03-01 09:31:00',
-        backtest_end_time='2025-03-22 15:00:00',
+        backtest_end_time='2025-06-07 15:00:00',
         # backtest_start_time='2024-09-01 09:31:00',
         # backtest_end_time='2025-01-07 15:00:00',
         backtest_adjust=ADJUST_NONE,

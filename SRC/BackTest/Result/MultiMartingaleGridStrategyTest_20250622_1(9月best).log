@@ -1,0 +1,1629 @@
+说明：
+1.标的是9月份，认购和认沽
+2.开始日期是3月1日，结束日期是6月7日。
+3.最佳参数组合price_interval=0.14, take_profit_ratio=0.25, base_investment=1350,stop_loss_ratio=0.50
+context.symbol_list = [ # 9
+    'SHSE.10008800',
+    'SHSE.10008809',
+]
+
+pnl_ratio': 0.7680574027769268, 'pnl_ratio_annual': 2.9202182501414407, 'sharp_ratio': 3.8747667653928652, 'max_drawdown': 0.1392922310914737
+
+run(strategy_id='95eadb57-f0cb-11ef-b05b-80304917db79',
+        filename=(os.path.basename(__file__)),
+        mode=MODE_BACKTEST,
+        token='6860051c58995ae01c30a27d5b72000bababa8e6',
+        backtest_start_time='2025-03-01 09:31:00',
+        backtest_end_time='2025-06-07 15:00:00',
+        # backtest_start_time='2024-09-01 09:31:00',
+        # backtest_end_time='2025-01-07 15:00:00',
+        backtest_adjust=ADJUST_NONE,
+        backtest_initial_cash=40000,
+        backtest_commission_unit=4.5,
+        backtest_slippage_ratio=0.0001,
+        backtest_marginfloat_ratio1=0.2,
+        backtest_marginfloat_ratio2=0.4,
+        backtest_match_mode=0)
+
+base_investment=1350,  # 基准投资金额（元）
+multiplier=2,  # 加仓倍数
+max_layers=9,  # 最大加仓层数
+price_interval=0.14,  # 价格间隔3%。当加仓倍数是2时，平均成本下降约为价格间隔的一半。
+take_profit_ratio=0.25,  # 止盈比例（2%）
+stop_loss_ratio=0.50,  # 总亏损止损20%
+base_shares=1,  # 标的下单的最小数量（手或张）
+base_volume=10000,  # 标的每手或每张代表的交易数量
+enable_short=False,  # 是否启用做空
+
+
+D:\Workplace-Pycharm\.venv\Scripts\python.exe D:\Workplace-Pycharm\goldminer-backtest\SRC\BackTest\MultiMartingaleGridStrategyTest2.py
+----------------------------------------
+python sdk version: 3.0.168
+c sdk version: 3.7.4
+----------------------------------------
+Symbol List: ['SHSE.10008800', 'SHSE.10008809']
+current position:
+		 SHSE.10008800 , position long. now: 2025-03-01 09:31:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008809 , position long. now: 2025-03-01 09:31:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Base price:
+		 SHSE.10008800 , base_price: 0.138 ,  2025-03-03 09:31:00+08:00
+Base price:
+		 SHSE.10008809 , base_price: 0.1451 ,  2025-03-03 09:33:00+08:00
+Long，Buy 1st: SHSE.10008800 ,  2025-03-03 09:48:00+08:00 , new_shares: 1 , price: 0.1347 , invest_amount: 0.1347
+current position:
+		 SHSE.10008800 , position long. now: 2025-03-03 09:48:00+08:00 , long_shares: 1 , long_avg_cost: 0.1344 , final_amount: 1344.00
+		 SHSE.10008809 , position long. now: 2025-03-03 09:48:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy more: SHSE.10008800 ,  2025-03-04 09:42:00+08:00 , new_shares: 2 , price: 0.1154 , invest_amount: 0.2308
+current position:
+		 SHSE.10008800 , position long. now: 2025-03-04 09:42:00+08:00 , long_shares: 3 , long_avg_cost: 0.1232 , final_amount: 3696.00
+		 SHSE.10008809 , position long. now: 2025-03-04 09:42:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SHSE.10008809 ,  2025-03-06 09:36:00+08:00 , new_shares: 1 , price: 0.1344 , invest_amount: 0.1344
+current position:
+		 SHSE.10008800 , position long. now: 2025-03-06 09:36:00+08:00 , long_shares: 3 , long_avg_cost: 0.1232 , final_amount: 3696.00
+		 SHSE.10008809 , position long. now: 2025-03-06 09:36:00+08:00 , long_shares: 1 , long_avg_cost: 0.1334 , final_amount: 1334.00
+Long，Buy more: SHSE.10008809 ,  2025-03-14 09:52:00+08:00 , new_shares: 2 , price: 0.1146 , invest_amount: 0.2292
+current position:
+		 SHSE.10008800 , position long. now: 2025-03-14 09:52:00+08:00 , long_shares: 3 , long_avg_cost: 0.1232 , final_amount: 3696.00
+		 SHSE.10008809 , position long. now: 2025-03-14 09:52:00+08:00 , long_shares: 3 , long_avg_cost: 0.1194 , final_amount: 3582.00
+Long，Take profit:  SHSE.10008800 ,  2025-03-14 09:55:00+08:00 , profit ratio: 0.2662337662337662 , price: 0.156
+Long，Close: SHSE.10008800 ,  2025-03-14 09:55:00+08:00 , long_shares: 3 , long_avg_cost: 0.1232 , total_amount: 3696.00
+current position:
+		 SHSE.10008800 , position long. now: 2025-03-14 09:55:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008809 , position long. now: 2025-03-14 09:55:00+08:00 , long_shares: 3 , long_avg_cost: 0.1194 , final_amount: 3582.00
+Long，Buy more: SHSE.10008809 ,  2025-03-14 10:57:00+08:00 , new_shares: 5 , price: 0.1022 , invest_amount: 0.511
+current position:
+		 SHSE.10008800 , position long. now: 2025-03-14 10:57:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008809 , position long. now: 2025-03-14 10:57:00+08:00 , long_shares: 8 , long_avg_cost: 0.1088 , final_amount: 8704.00
+Long，Buy more: SHSE.10008809 ,  2025-03-17 09:36:00+08:00 , new_shares: 11 , price: 0.0935 , invest_amount: 1.0285
+current position:
+		 SHSE.10008800 , position long. now: 2025-03-17 09:36:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008809 , position long. now: 2025-03-17 09:36:00+08:00 , long_shares: 19 , long_avg_cost: 0.1003 , final_amount: 19057.00
+Long，Take profit:  SHSE.10008809 ,  2025-03-21 13:50:00+08:00 , profit ratio: 0.25423728813559315 , price: 0.1258
+Long，Close: SHSE.10008809 ,  2025-03-21 13:50:00+08:00 , long_shares: 19 , long_avg_cost: 0.1003 , total_amount: 19057.00
+current position:
+		 SHSE.10008800 , position long. now: 2025-03-21 13:50:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008809 , position long. now: 2025-03-21 13:50:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SHSE.10008809 ,  2025-03-21 13:50:00+08:00 , new_shares: 1 , price: 0.1258 , invest_amount: 0.1258
+current position:
+		 SHSE.10008800 , position long. now: 2025-03-21 13:50:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008809 , position long. now: 2025-03-21 13:50:00+08:00 , long_shares: 1 , long_avg_cost: 0.1244 , final_amount: 1244.00
+Long，Buy 1st: SHSE.10008800 ,  2025-03-26 13:48:00+08:00 , new_shares: 1 , price: 0.1347 , invest_amount: 0.1347
+current position:
+		 SHSE.10008800 , position long. now: 2025-03-26 13:48:00+08:00 , long_shares: 1 , long_avg_cost: 0.1352 , final_amount: 1352.00
+		 SHSE.10008809 , position long. now: 2025-03-26 13:48:00+08:00 , long_shares: 1 , long_avg_cost: 0.1244 , final_amount: 1244.00
+Long，Buy more: SHSE.10008809 ,  2025-03-27 10:50:00+08:00 , new_shares: 2 , price: 0.1054 , invest_amount: 0.2108
+current position:
+		 SHSE.10008800 , position long. now: 2025-03-27 10:50:00+08:00 , long_shares: 1 , long_avg_cost: 0.1352 , final_amount: 1352.00
+		 SHSE.10008809 , position long. now: 2025-03-27 10:50:00+08:00 , long_shares: 3 , long_avg_cost: 0.1121 , final_amount: 3363.00
+Long，Buy more: SHSE.10008800 ,  2025-04-07 09:31:00+08:00 , new_shares: 3 , price: 0.0742 , invest_amount: 0.22260000000000002
+current position:
+		 SHSE.10008800 , position long. now: 2025-04-07 09:31:00+08:00 , long_shares: 4 , long_avg_cost: 0.1333 , final_amount: 5332.00
+		 SHSE.10008809 , position long. now: 2025-04-07 09:31:00+08:00 , long_shares: 3 , long_avg_cost: 0.1121 , final_amount: 3363.00
+Long，Take profit:  SHSE.10008809 ,  2025-04-07 09:31:00+08:00 , profit ratio: 0.6672613737734167 , price: 0.1869
+Long，Close: SHSE.10008809 ,  2025-04-07 09:31:00+08:00 , long_shares: 3 , long_avg_cost: 0.1121 , total_amount: 3363.00
+current position:
+		 SHSE.10008800 , position long. now: 2025-04-07 09:31:00+08:00 , long_shares: 4 , long_avg_cost: 0.1333 , final_amount: 5332.00
+		 SHSE.10008809 , position long. now: 2025-04-07 09:31:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy more: SHSE.10008800 ,  2025-04-07 09:40:00+08:00 , new_shares: 6 , price: 0.08 , invest_amount: 0.48
+current position:
+		 SHSE.10008800 , position long. now: 2025-04-07 09:40:00+08:00 , long_shares: 10 , long_avg_cost: 0.0983 , final_amount: 9830.00
+		 SHSE.10008809 , position long. now: 2025-04-07 09:40:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy more: SHSE.10008800 ,  2025-04-07 09:42:00+08:00 , new_shares: 14 , price: 0.075 , invest_amount: 1.05
+current position:
+		 SHSE.10008800 , position long. now: 2025-04-07 09:42:00+08:00 , long_shares: 24 , long_avg_cost: 0.111 , final_amount: 26640.00
+		 SHSE.10008809 , position long. now: 2025-04-07 09:42:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy more: SHSE.10008800 ,  2025-04-07 09:48:00+08:00 , new_shares: 28 , price: 0.0752 , invest_amount: 2.1056
+on_order_status, now: 2025-04-07 09:48:00+08:00 , info: 8 ,  资金不足 可用=20445.374
+current position:
+		 SHSE.10008800 , position long. now: 2025-04-07 09:48:00+08:00 , long_shares: 24 , long_avg_cost: 0.111 , final_amount: 26640.00
+		 SHSE.10008809 , position long. now: 2025-04-07 09:48:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy more: SHSE.10008800 ,  2025-04-07 09:49:00+08:00 , new_shares: 27 , price: 0.0788 , invest_amount: 2.1275999999999997
+on_order_status, now: 2025-04-07 09:49:00+08:00 , info: 8 ,  资金不足 可用=20445.374
+current position:
+		 SHSE.10008800 , position long. now: 2025-04-07 09:49:00+08:00 , long_shares: 24 , long_avg_cost: 0.111 , final_amount: 26640.00
+		 SHSE.10008809 , position long. now: 2025-04-07 09:49:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy more: SHSE.10008800 ,  2025-04-07 10:05:00+08:00 , new_shares: 24 , price: 0.0881 , invest_amount: 2.1144
+on_order_status, now: 2025-04-07 10:05:00+08:00 , info: 8 ,  资金不足 可用=20445.374
+current position:
+		 SHSE.10008800 , position long. now: 2025-04-07 10:05:00+08:00 , long_shares: 24 , long_avg_cost: 0.111 , final_amount: 26640.00
+		 SHSE.10008809 , position long. now: 2025-04-07 10:05:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy more: SHSE.10008800 ,  2025-04-07 11:12:00+08:00 , new_shares: 22 , price: 0.0954 , invest_amount: 2.0987999999999998
+on_order_status, now: 2025-04-07 11:12:00+08:00 , info: 8 ,  资金不足 可用=20445.374
+current position:
+		 SHSE.10008800 , position long. now: 2025-04-07 11:12:00+08:00 , long_shares: 24 , long_avg_cost: 0.111 , final_amount: 26640.00
+		 SHSE.10008809 , position long. now: 2025-04-07 11:12:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy more: SHSE.10008800 ,  2025-04-07 11:15:00+08:00 , new_shares: 22 , price: 0.0944 , invest_amount: 2.0768
+on_order_status, now: 2025-04-07 11:15:00+08:00 , info: 8 ,  资金不足 可用=20445.374
+current position:
+		 SHSE.10008800 , position long. now: 2025-04-07 11:15:00+08:00 , long_shares: 24 , long_avg_cost: 0.111 , final_amount: 26640.00
+		 SHSE.10008809 , position long. now: 2025-04-07 11:15:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy more: SHSE.10008800 ,  2025-04-07 13:37:00+08:00 , new_shares: 23 , price: 0.0933 , invest_amount: 2.1458999999999997
+on_order_status, now: 2025-04-07 13:37:00+08:00 , info: 8 ,  资金不足 可用=20445.374
+current position:
+		 SHSE.10008800 , position long. now: 2025-04-07 13:37:00+08:00 , long_shares: 24 , long_avg_cost: 0.111 , final_amount: 26640.00
+		 SHSE.10008809 , position long. now: 2025-04-07 13:37:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy more: SHSE.10008800 ,  2025-04-07 13:38:00+08:00 , new_shares: 23 , price: 0.0926 , invest_amount: 2.1298
+on_order_status, now: 2025-04-07 13:38:00+08:00 , info: 8 ,  资金不足 可用=20445.374
+current position:
+		 SHSE.10008800 , position long. now: 2025-04-07 13:38:00+08:00 , long_shares: 24 , long_avg_cost: 0.111 , final_amount: 26640.00
+		 SHSE.10008809 , position long. now: 2025-04-07 13:38:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy more: SHSE.10008800 ,  2025-04-07 13:41:00+08:00 , new_shares: 23 , price: 0.0928 , invest_amount: 2.1344
+on_order_status, now: 2025-04-07 13:41:00+08:00 , info: 8 ,  资金不足 可用=20445.374
+current position:
+		 SHSE.10008800 , position long. now: 2025-04-07 13:41:00+08:00 , long_shares: 24 , long_avg_cost: 0.111 , final_amount: 26640.00
+		 SHSE.10008809 , position long. now: 2025-04-07 13:41:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy more: SHSE.10008800 ,  2025-04-07 13:44:00+08:00 , new_shares: 23 , price: 0.0918 , invest_amount: 2.1114
+on_order_status, now: 2025-04-07 13:44:00+08:00 , info: 8 ,  资金不足 可用=20445.374
+current position:
+		 SHSE.10008800 , position long. now: 2025-04-07 13:44:00+08:00 , long_shares: 24 , long_avg_cost: 0.111 , final_amount: 26640.00
+		 SHSE.10008809 , position long. now: 2025-04-07 13:44:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy more: SHSE.10008800 ,  2025-04-07 13:45:00+08:00 , new_shares: 23 , price: 0.0907 , invest_amount: 2.0861
+on_order_status, now: 2025-04-07 13:45:00+08:00 , info: 8 ,  资金不足 可用=20445.374
+current position:
+		 SHSE.10008800 , position long. now: 2025-04-07 13:45:00+08:00 , long_shares: 24 , long_avg_cost: 0.111 , final_amount: 26640.00
+		 SHSE.10008809 , position long. now: 2025-04-07 13:45:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy more: SHSE.10008800 ,  2025-04-07 13:46:00+08:00 , new_shares: 23 , price: 0.0921 , invest_amount: 2.1183
+on_order_status, now: 2025-04-07 13:46:00+08:00 , info: 8 ,  资金不足 可用=20445.374
+current position:
+		 SHSE.10008800 , position long. now: 2025-04-07 13:46:00+08:00 , long_shares: 24 , long_avg_cost: 0.111 , final_amount: 26640.00
+		 SHSE.10008809 , position long. now: 2025-04-07 13:46:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy more: SHSE.10008800 ,  2025-04-07 13:48:00+08:00 , new_shares: 23 , price: 0.0929 , invest_amount: 2.1367
+on_order_status, now: 2025-04-07 13:48:00+08:00 , info: 8 ,  资金不足 可用=20445.374
+current position:
+		 SHSE.10008800 , position long. now: 2025-04-07 13:48:00+08:00 , long_shares: 24 , long_avg_cost: 0.111 , final_amount: 26640.00
+		 SHSE.10008809 , position long. now: 2025-04-07 13:48:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy more: SHSE.10008800 ,  2025-04-07 13:49:00+08:00 , new_shares: 23 , price: 0.0932 , invest_amount: 2.1436
+on_order_status, now: 2025-04-07 13:49:00+08:00 , info: 8 ,  资金不足 可用=20445.374
+current position:
+		 SHSE.10008800 , position long. now: 2025-04-07 13:49:00+08:00 , long_shares: 24 , long_avg_cost: 0.111 , final_amount: 26640.00
+		 SHSE.10008809 , position long. now: 2025-04-07 13:49:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy more: SHSE.10008800 ,  2025-04-07 13:50:00+08:00 , new_shares: 24 , price: 0.09 , invest_amount: 2.16
+on_order_status, now: 2025-04-07 13:50:00+08:00 , info: 8 ,  资金不足 可用=20445.374
+current position:
+		 SHSE.10008800 , position long. now: 2025-04-07 13:50:00+08:00 , long_shares: 24 , long_avg_cost: 0.111 , final_amount: 26640.00
+		 SHSE.10008809 , position long. now: 2025-04-07 13:50:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy more: SHSE.10008800 ,  2025-04-07 13:51:00+08:00 , new_shares: 23 , price: 0.0926 , invest_amount: 2.1298
+current position:
+		 SHSE.10008800 , position long. now: 2025-04-07 13:51:00+08:00 , long_shares: 47 , long_avg_cost: 0.0991 , final_amount: 46577.00
+		 SHSE.10008809 , position long. now: 2025-04-07 13:51:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Take profit:  SHSE.10008800 ,  2025-04-08 09:37:00+08:00 , profit ratio: 0.3319878910191727 , price: 0.132
+Long，Close: SHSE.10008800 ,  2025-04-08 09:37:00+08:00 , long_shares: 47 , long_avg_cost: 0.0991 , total_amount: 46577.00
+current position:
+		 SHSE.10008800 , position long. now: 2025-04-08 09:37:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008809 , position long. now: 2025-04-08 09:37:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SHSE.10008800 ,  2025-04-08 09:37:00+08:00 , new_shares: 1 , price: 0.132 , invest_amount: 0.132
+current position:
+		 SHSE.10008800 , position long. now: 2025-04-08 09:37:00+08:00 , long_shares: 1 , long_avg_cost: 0.132 , final_amount: 1320.00
+		 SHSE.10008809 , position long. now: 2025-04-08 09:37:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy more: SHSE.10008800 ,  2025-04-08 09:47:00+08:00 , new_shares: 2 , price: 0.1132 , invest_amount: 0.2264
+current position:
+		 SHSE.10008800 , position long. now: 2025-04-08 09:47:00+08:00 , long_shares: 3 , long_avg_cost: 0.1213 , final_amount: 3639.00
+		 SHSE.10008809 , position long. now: 2025-04-08 09:47:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy more: SHSE.10008800 ,  2025-04-08 10:18:00+08:00 , new_shares: 5 , price: 0.1027 , invest_amount: 0.5135
+current position:
+		 SHSE.10008800 , position long. now: 2025-04-08 10:18:00+08:00 , long_shares: 8 , long_avg_cost: 0.111 , final_amount: 8880.00
+		 SHSE.10008809 , position long. now: 2025-04-08 10:18:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy more: SHSE.10008800 ,  2025-04-08 10:49:00+08:00 , new_shares: 11 , price: 0.0954 , invest_amount: 1.0493999999999999
+current position:
+		 SHSE.10008800 , position long. now: 2025-04-08 10:49:00+08:00 , long_shares: 19 , long_avg_cost: 0.1021 , final_amount: 19399.00
+		 SHSE.10008809 , position long. now: 2025-04-08 10:49:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy more: SHSE.10008800 ,  2025-04-08 13:08:00+08:00 , new_shares: 24 , price: 0.0875 , invest_amount: 2.0999999999999996
+current position:
+		 SHSE.10008800 , position long. now: 2025-04-08 13:08:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-04-08 13:08:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+Long，Buy 1st: SHSE.10008809 ,  2025-04-17 10:18:00+08:00 , new_shares: 1 , price: 0.135 , invest_amount: 0.135
+current position:
+		 SHSE.10008800 , position long. now: 2025-04-17 10:18:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-04-17 10:18:00+08:00 , long_shares: 1 , long_avg_cost: 0.1342 , final_amount: 1342.00
+Long，Buy more: SHSE.10008809 ,  2025-05-07 09:31:00+08:00 , new_shares: 2 , price: 0.1049 , invest_amount: 0.2098
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-07 09:31:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-07 09:31:00+08:00 , long_shares: 3 , long_avg_cost: 0.1177 , final_amount: 3531.00
+Long，Buy more: SHSE.10008809 ,  2025-05-08 09:39:00+08:00 , new_shares: 5 , price: 0.1011 , invest_amount: 0.5055
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-08 09:39:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-08 09:39:00+08:00 , long_shares: 8 , long_avg_cost: 0.1069 , final_amount: 8552.00
+Long，Buy more: SHSE.10008809 ,  2025-05-08 11:12:00+08:00 , new_shares: 11 , price: 0.0917 , invest_amount: 1.0087000000000002
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-08 11:12:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-08 11:12:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-12 10:18:00+08:00 , new_shares: 25 , price: 0.0838 , invest_amount: 2.095
+on_order_status, now: 2025-05-12 10:18:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-12 10:18:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-12 10:18:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-12 10:19:00+08:00 , new_shares: 25 , price: 0.0843 , invest_amount: 2.1075
+on_order_status, now: 2025-05-12 10:19:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-12 10:19:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-12 10:19:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-12 10:27:00+08:00 , new_shares: 25 , price: 0.084 , invest_amount: 2.1
+on_order_status, now: 2025-05-12 10:27:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-12 10:27:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-12 10:27:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-12 10:28:00+08:00 , new_shares: 25 , price: 0.0841 , invest_amount: 2.1025
+on_order_status, now: 2025-05-12 10:28:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-12 10:28:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-12 10:28:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-13 09:49:00+08:00 , new_shares: 25 , price: 0.0845 , invest_amount: 2.1125000000000003
+on_order_status, now: 2025-05-13 09:49:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-13 09:49:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-13 09:49:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-13 09:51:00+08:00 , new_shares: 25 , price: 0.0845 , invest_amount: 2.1125000000000003
+on_order_status, now: 2025-05-13 09:51:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-13 09:51:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-13 09:51:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-13 09:58:00+08:00 , new_shares: 25 , price: 0.0843 , invest_amount: 2.1075
+on_order_status, now: 2025-05-13 09:58:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-13 09:58:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-13 09:58:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-13 10:09:00+08:00 , new_shares: 25 , price: 0.0845 , invest_amount: 2.1125000000000003
+on_order_status, now: 2025-05-13 10:09:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-13 10:09:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-13 10:09:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-13 10:11:00+08:00 , new_shares: 25 , price: 0.0843 , invest_amount: 2.1075
+on_order_status, now: 2025-05-13 10:11:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-13 10:11:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-13 10:11:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-13 11:07:00+08:00 , new_shares: 25 , price: 0.0843 , invest_amount: 2.1075
+on_order_status, now: 2025-05-13 11:07:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-13 11:07:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-13 11:07:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-13 11:15:00+08:00 , new_shares: 25 , price: 0.0845 , invest_amount: 2.1125000000000003
+on_order_status, now: 2025-05-13 11:15:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-13 11:15:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-13 11:15:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-13 11:16:00+08:00 , new_shares: 25 , price: 0.0843 , invest_amount: 2.1075
+on_order_status, now: 2025-05-13 11:16:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-13 11:16:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-13 11:16:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-13 13:18:00+08:00 , new_shares: 25 , price: 0.0845 , invest_amount: 2.1125000000000003
+on_order_status, now: 2025-05-13 13:18:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-13 13:18:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-13 13:18:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-13 13:31:00+08:00 , new_shares: 25 , price: 0.0841 , invest_amount: 2.1025
+on_order_status, now: 2025-05-13 13:31:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-13 13:31:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-13 13:31:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-13 13:35:00+08:00 , new_shares: 25 , price: 0.0845 , invest_amount: 2.1125000000000003
+on_order_status, now: 2025-05-13 13:35:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-13 13:35:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-13 13:35:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-13 13:43:00+08:00 , new_shares: 25 , price: 0.0837 , invest_amount: 2.0925
+on_order_status, now: 2025-05-13 13:43:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-13 13:43:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-13 13:43:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-13 13:46:00+08:00 , new_shares: 25 , price: 0.0836 , invest_amount: 2.09
+on_order_status, now: 2025-05-13 13:46:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-13 13:46:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-13 13:46:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-13 14:03:00+08:00 , new_shares: 25 , price: 0.0835 , invest_amount: 2.0875
+on_order_status, now: 2025-05-13 14:03:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-13 14:03:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-13 14:03:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-13 14:04:00+08:00 , new_shares: 25 , price: 0.0833 , invest_amount: 2.0825
+on_order_status, now: 2025-05-13 14:04:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-13 14:04:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-13 14:04:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-13 14:05:00+08:00 , new_shares: 25 , price: 0.0834 , invest_amount: 2.085
+on_order_status, now: 2025-05-13 14:05:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-13 14:05:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-13 14:05:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-13 14:06:00+08:00 , new_shares: 25 , price: 0.0832 , invest_amount: 2.08
+on_order_status, now: 2025-05-13 14:06:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-13 14:06:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-13 14:06:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-13 14:33:00+08:00 , new_shares: 25 , price: 0.0841 , invest_amount: 2.1025
+on_order_status, now: 2025-05-13 14:33:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-13 14:33:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-13 14:33:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-13 14:34:00+08:00 , new_shares: 25 , price: 0.0839 , invest_amount: 2.0975
+on_order_status, now: 2025-05-13 14:34:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-13 14:34:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-13 14:34:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-13 14:35:00+08:00 , new_shares: 25 , price: 0.0838 , invest_amount: 2.095
+on_order_status, now: 2025-05-13 14:35:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-13 14:35:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-13 14:35:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-13 14:37:00+08:00 , new_shares: 25 , price: 0.0837 , invest_amount: 2.0925
+on_order_status, now: 2025-05-13 14:37:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-13 14:37:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-13 14:37:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-13 14:39:00+08:00 , new_shares: 25 , price: 0.0838 , invest_amount: 2.095
+on_order_status, now: 2025-05-13 14:39:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-13 14:39:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-13 14:39:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-13 14:45:00+08:00 , new_shares: 25 , price: 0.0843 , invest_amount: 2.1075
+on_order_status, now: 2025-05-13 14:45:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-13 14:45:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-13 14:45:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-13 14:46:00+08:00 , new_shares: 25 , price: 0.0844 , invest_amount: 2.11
+on_order_status, now: 2025-05-13 14:46:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-13 14:46:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-13 14:46:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 09:31:00+08:00 , new_shares: 26 , price: 0.0819 , invest_amount: 2.1294
+on_order_status, now: 2025-05-14 09:31:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 09:31:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 09:31:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 09:32:00+08:00 , new_shares: 26 , price: 0.082 , invest_amount: 2.132
+on_order_status, now: 2025-05-14 09:32:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 09:32:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 09:32:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 09:33:00+08:00 , new_shares: 26 , price: 0.0802 , invest_amount: 2.0852
+on_order_status, now: 2025-05-14 09:33:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 09:33:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 09:33:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 09:34:00+08:00 , new_shares: 26 , price: 0.0802 , invest_amount: 2.0852
+on_order_status, now: 2025-05-14 09:34:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 09:34:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 09:34:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 09:35:00+08:00 , new_shares: 27 , price: 0.08 , invest_amount: 2.16
+on_order_status, now: 2025-05-14 09:35:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 09:35:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 09:35:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 09:36:00+08:00 , new_shares: 27 , price: 0.0797 , invest_amount: 2.1519
+on_order_status, now: 2025-05-14 09:36:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 09:36:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 09:36:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 09:37:00+08:00 , new_shares: 27 , price: 0.0794 , invest_amount: 2.1438
+on_order_status, now: 2025-05-14 09:37:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 09:37:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 09:37:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 09:38:00+08:00 , new_shares: 27 , price: 0.0793 , invest_amount: 2.1411
+on_order_status, now: 2025-05-14 09:38:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 09:38:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 09:38:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 09:39:00+08:00 , new_shares: 27 , price: 0.0798 , invest_amount: 2.1546
+on_order_status, now: 2025-05-14 09:39:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 09:39:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 09:39:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 09:41:00+08:00 , new_shares: 26 , price: 0.0802 , invest_amount: 2.0852
+on_order_status, now: 2025-05-14 09:41:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 09:41:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 09:41:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 09:42:00+08:00 , new_shares: 27 , price: 0.079 , invest_amount: 2.133
+on_order_status, now: 2025-05-14 09:42:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 09:42:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 09:42:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 09:43:00+08:00 , new_shares: 27 , price: 0.078 , invest_amount: 2.106
+on_order_status, now: 2025-05-14 09:43:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 09:43:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 09:43:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 09:45:00+08:00 , new_shares: 27 , price: 0.0792 , invest_amount: 2.1384000000000003
+on_order_status, now: 2025-05-14 09:45:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 09:45:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 09:45:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 09:46:00+08:00 , new_shares: 27 , price: 0.079 , invest_amount: 2.133
+on_order_status, now: 2025-05-14 09:46:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 09:46:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 09:46:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 09:47:00+08:00 , new_shares: 27 , price: 0.0793 , invest_amount: 2.1411
+on_order_status, now: 2025-05-14 09:47:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 09:47:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 09:47:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 09:48:00+08:00 , new_shares: 27 , price: 0.0793 , invest_amount: 2.1411
+on_order_status, now: 2025-05-14 09:48:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 09:48:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 09:48:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 09:49:00+08:00 , new_shares: 27 , price: 0.0791 , invest_amount: 2.1357
+on_order_status, now: 2025-05-14 09:49:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 09:49:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 09:49:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 09:50:00+08:00 , new_shares: 27 , price: 0.0788 , invest_amount: 2.1275999999999997
+on_order_status, now: 2025-05-14 09:50:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 09:50:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 09:50:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 09:52:00+08:00 , new_shares: 27 , price: 0.078 , invest_amount: 2.106
+on_order_status, now: 2025-05-14 09:52:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 09:52:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 09:52:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 09:53:00+08:00 , new_shares: 27 , price: 0.0786 , invest_amount: 2.1222000000000003
+on_order_status, now: 2025-05-14 09:53:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 09:53:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 09:53:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 09:54:00+08:00 , new_shares: 27 , price: 0.079 , invest_amount: 2.133
+on_order_status, now: 2025-05-14 09:54:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 09:54:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 09:54:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 09:56:00+08:00 , new_shares: 27 , price: 0.0787 , invest_amount: 2.1249000000000002
+on_order_status, now: 2025-05-14 09:56:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 09:56:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 09:56:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 09:58:00+08:00 , new_shares: 27 , price: 0.0785 , invest_amount: 2.1195
+on_order_status, now: 2025-05-14 09:58:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 09:58:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 09:58:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 10:01:00+08:00 , new_shares: 27 , price: 0.078 , invest_amount: 2.106
+on_order_status, now: 2025-05-14 10:01:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 10:01:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 10:01:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 10:02:00+08:00 , new_shares: 27 , price: 0.078 , invest_amount: 2.106
+on_order_status, now: 2025-05-14 10:02:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 10:02:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 10:02:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 10:05:00+08:00 , new_shares: 27 , price: 0.0785 , invest_amount: 2.1195
+on_order_status, now: 2025-05-14 10:05:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 10:05:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 10:05:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 10:07:00+08:00 , new_shares: 27 , price: 0.078 , invest_amount: 2.106
+on_order_status, now: 2025-05-14 10:07:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 10:07:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 10:07:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 10:08:00+08:00 , new_shares: 27 , price: 0.0784 , invest_amount: 2.1168
+on_order_status, now: 2025-05-14 10:08:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 10:08:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 10:08:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 10:09:00+08:00 , new_shares: 27 , price: 0.0779 , invest_amount: 2.1033
+on_order_status, now: 2025-05-14 10:09:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 10:09:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 10:09:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 10:11:00+08:00 , new_shares: 27 , price: 0.0782 , invest_amount: 2.1114
+on_order_status, now: 2025-05-14 10:11:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 10:11:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 10:11:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 10:12:00+08:00 , new_shares: 27 , price: 0.0786 , invest_amount: 2.1222000000000003
+on_order_status, now: 2025-05-14 10:12:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 10:12:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 10:12:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 10:14:00+08:00 , new_shares: 27 , price: 0.0786 , invest_amount: 2.1222000000000003
+on_order_status, now: 2025-05-14 10:14:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 10:14:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 10:14:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 10:15:00+08:00 , new_shares: 27 , price: 0.079 , invest_amount: 2.133
+on_order_status, now: 2025-05-14 10:15:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 10:15:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 10:15:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 10:16:00+08:00 , new_shares: 27 , price: 0.0788 , invest_amount: 2.1275999999999997
+on_order_status, now: 2025-05-14 10:16:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 10:16:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 10:16:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 10:17:00+08:00 , new_shares: 27 , price: 0.0792 , invest_amount: 2.1384000000000003
+on_order_status, now: 2025-05-14 10:17:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 10:17:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 10:17:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 10:20:00+08:00 , new_shares: 27 , price: 0.0788 , invest_amount: 2.1275999999999997
+on_order_status, now: 2025-05-14 10:20:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 10:20:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 10:20:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 10:21:00+08:00 , new_shares: 27 , price: 0.0787 , invest_amount: 2.1249000000000002
+on_order_status, now: 2025-05-14 10:21:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 10:21:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 10:21:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 10:29:00+08:00 , new_shares: 27 , price: 0.0788 , invest_amount: 2.1275999999999997
+on_order_status, now: 2025-05-14 10:29:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 10:29:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 10:29:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 10:30:00+08:00 , new_shares: 27 , price: 0.0788 , invest_amount: 2.1275999999999997
+on_order_status, now: 2025-05-14 10:30:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 10:30:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 10:30:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 10:31:00+08:00 , new_shares: 27 , price: 0.0793 , invest_amount: 2.1411
+on_order_status, now: 2025-05-14 10:31:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 10:31:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 10:31:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 10:32:00+08:00 , new_shares: 27 , price: 0.0795 , invest_amount: 2.1465
+on_order_status, now: 2025-05-14 10:32:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 10:32:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 10:32:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 10:33:00+08:00 , new_shares: 26 , price: 0.0801 , invest_amount: 2.0826000000000002
+on_order_status, now: 2025-05-14 10:33:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 10:33:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 10:33:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 10:45:00+08:00 , new_shares: 26 , price: 0.0809 , invest_amount: 2.1034
+on_order_status, now: 2025-05-14 10:45:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 10:45:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 10:45:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 10:47:00+08:00 , new_shares: 27 , price: 0.0798 , invest_amount: 2.1546
+on_order_status, now: 2025-05-14 10:47:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 10:47:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 10:47:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 10:48:00+08:00 , new_shares: 27 , price: 0.0797 , invest_amount: 2.1519
+on_order_status, now: 2025-05-14 10:48:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 10:48:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 10:48:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 10:55:00+08:00 , new_shares: 27 , price: 0.0791 , invest_amount: 2.1357
+on_order_status, now: 2025-05-14 10:55:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 10:55:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 10:55:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 10:57:00+08:00 , new_shares: 27 , price: 0.0783 , invest_amount: 2.1140999999999996
+on_order_status, now: 2025-05-14 10:57:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 10:57:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 10:57:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 10:59:00+08:00 , new_shares: 27 , price: 0.0781 , invest_amount: 2.1087000000000002
+on_order_status, now: 2025-05-14 10:59:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 10:59:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 10:59:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 11:03:00+08:00 , new_shares: 27 , price: 0.0781 , invest_amount: 2.1087000000000002
+on_order_status, now: 2025-05-14 11:03:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 11:03:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 11:03:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 11:05:00+08:00 , new_shares: 27 , price: 0.078 , invest_amount: 2.106
+on_order_status, now: 2025-05-14 11:05:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 11:05:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 11:05:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 11:07:00+08:00 , new_shares: 27 , price: 0.0777 , invest_amount: 2.0979
+on_order_status, now: 2025-05-14 11:07:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 11:07:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 11:07:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 11:08:00+08:00 , new_shares: 28 , price: 0.076 , invest_amount: 2.128
+on_order_status, now: 2025-05-14 11:08:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 11:08:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 11:08:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 11:09:00+08:00 , new_shares: 28 , price: 0.0751 , invest_amount: 2.1028000000000002
+on_order_status, now: 2025-05-14 11:09:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 11:09:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 11:09:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 11:10:00+08:00 , new_shares: 28 , price: 0.0764 , invest_amount: 2.1391999999999998
+on_order_status, now: 2025-05-14 11:10:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 11:10:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 11:10:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 11:11:00+08:00 , new_shares: 28 , price: 0.0767 , invest_amount: 2.1476
+on_order_status, now: 2025-05-14 11:11:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 11:11:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 11:11:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 11:12:00+08:00 , new_shares: 28 , price: 0.0768 , invest_amount: 2.1504
+on_order_status, now: 2025-05-14 11:12:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 11:12:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 11:12:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 11:13:00+08:00 , new_shares: 28 , price: 0.0769 , invest_amount: 2.1532
+on_order_status, now: 2025-05-14 11:13:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 11:13:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 11:13:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 11:14:00+08:00 , new_shares: 28 , price: 0.0771 , invest_amount: 2.1588000000000003
+on_order_status, now: 2025-05-14 11:14:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 11:14:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 11:14:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 11:15:00+08:00 , new_shares: 27 , price: 0.0775 , invest_amount: 2.0925
+on_order_status, now: 2025-05-14 11:15:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 11:15:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 11:15:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 11:17:00+08:00 , new_shares: 28 , price: 0.0759 , invest_amount: 2.1252
+on_order_status, now: 2025-05-14 11:17:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 11:17:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 11:17:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 11:18:00+08:00 , new_shares: 28 , price: 0.0747 , invest_amount: 2.0916
+on_order_status, now: 2025-05-14 11:18:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 11:18:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 11:18:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 11:19:00+08:00 , new_shares: 29 , price: 0.0742 , invest_amount: 2.1518
+on_order_status, now: 2025-05-14 11:19:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 11:19:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 11:19:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 11:20:00+08:00 , new_shares: 28 , price: 0.0753 , invest_amount: 2.1084
+on_order_status, now: 2025-05-14 11:20:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 11:20:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 11:20:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 11:21:00+08:00 , new_shares: 28 , price: 0.0753 , invest_amount: 2.1084
+on_order_status, now: 2025-05-14 11:21:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 11:21:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 11:21:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 11:22:00+08:00 , new_shares: 28 , price: 0.0756 , invest_amount: 2.1168
+on_order_status, now: 2025-05-14 11:22:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 11:22:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 11:22:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 11:23:00+08:00 , new_shares: 28 , price: 0.0756 , invest_amount: 2.1168
+on_order_status, now: 2025-05-14 11:23:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 11:23:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 11:23:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 11:25:00+08:00 , new_shares: 28 , price: 0.0755 , invest_amount: 2.114
+on_order_status, now: 2025-05-14 11:25:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 11:25:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 11:25:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 11:26:00+08:00 , new_shares: 28 , price: 0.0763 , invest_amount: 2.1364
+on_order_status, now: 2025-05-14 11:26:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 11:26:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 11:26:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 11:28:00+08:00 , new_shares: 28 , price: 0.0761 , invest_amount: 2.1308
+on_order_status, now: 2025-05-14 11:28:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 11:28:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 11:28:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 11:29:00+08:00 , new_shares: 28 , price: 0.0759 , invest_amount: 2.1252
+on_order_status, now: 2025-05-14 11:29:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 11:29:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 11:29:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 13:02:00+08:00 , new_shares: 28 , price: 0.0752 , invest_amount: 2.1056
+on_order_status, now: 2025-05-14 13:02:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 13:02:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 13:02:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 13:03:00+08:00 , new_shares: 28 , price: 0.0753 , invest_amount: 2.1084
+on_order_status, now: 2025-05-14 13:03:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 13:03:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 13:03:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 13:05:00+08:00 , new_shares: 29 , price: 0.0744 , invest_amount: 2.1576
+on_order_status, now: 2025-05-14 13:05:00+08:00 , info: 8 ,  资金不足 可用=2566.239
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 13:05:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , final_amount: 40721.00
+		 SHSE.10008809 , position long. now: 2025-05-14 13:05:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Take profit:  SHSE.10008800 ,  2025-05-14 13:06:00+08:00 , profit ratio: 0.2502639915522703 , price: 0.1184
+Long，Close: SHSE.10008800 ,  2025-05-14 13:06:00+08:00 , long_shares: 43 , long_avg_cost: 0.0947 , total_amount: 40721.00
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 13:06:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008809 , position long. now: 2025-05-14 13:06:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy 1st: SHSE.10008800 ,  2025-05-14 13:06:00+08:00 , new_shares: 1 , price: 0.1184 , invest_amount: 0.1184
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 13:06:00+08:00 , long_shares: 1 , long_avg_cost: 0.1188 , final_amount: 1188.00
+		 SHSE.10008809 , position long. now: 2025-05-14 13:06:00+08:00 , long_shares: 19 , long_avg_cost: 0.0983 , final_amount: 18677.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 13:07:00+08:00 , new_shares: 29 , price: 0.0731 , invest_amount: 2.1199
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 13:07:00+08:00 , long_shares: 1 , long_avg_cost: 0.1188 , final_amount: 1188.00
+		 SHSE.10008809 , position long. now: 2025-05-14 13:07:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 13:16:00+08:00 , new_shares: 61 , price: 0.0702 , invest_amount: 4.2822
+on_order_status, now: 2025-05-14 13:16:00+08:00 , info: 8 ,  资金不足 可用=30898.388
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 13:16:00+08:00 , long_shares: 1 , long_avg_cost: 0.1188 , final_amount: 1188.00
+		 SHSE.10008809 , position long. now: 2025-05-14 13:16:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 13:19:00+08:00 , new_shares: 61 , price: 0.0703 , invest_amount: 4.2883000000000004
+on_order_status, now: 2025-05-14 13:19:00+08:00 , info: 8 ,  资金不足 可用=30898.388
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 13:19:00+08:00 , long_shares: 1 , long_avg_cost: 0.1188 , final_amount: 1188.00
+		 SHSE.10008809 , position long. now: 2025-05-14 13:19:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 13:20:00+08:00 , new_shares: 61 , price: 0.07 , invest_amount: 4.2700000000000005
+on_order_status, now: 2025-05-14 13:20:00+08:00 , info: 8 ,  资金不足 可用=30898.388
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 13:20:00+08:00 , long_shares: 1 , long_avg_cost: 0.1188 , final_amount: 1188.00
+		 SHSE.10008809 , position long. now: 2025-05-14 13:20:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 13:22:00+08:00 , new_shares: 61 , price: 0.07 , invest_amount: 4.2700000000000005
+on_order_status, now: 2025-05-14 13:22:00+08:00 , info: 8 ,  资金不足 可用=30898.388
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 13:22:00+08:00 , long_shares: 1 , long_avg_cost: 0.1188 , final_amount: 1188.00
+		 SHSE.10008809 , position long. now: 2025-05-14 13:22:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 13:23:00+08:00 , new_shares: 60 , price: 0.0709 , invest_amount: 4.2540000000000004
+on_order_status, now: 2025-05-14 13:23:00+08:00 , info: 8 ,  资金不足 可用=30898.388
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 13:23:00+08:00 , long_shares: 1 , long_avg_cost: 0.1188 , final_amount: 1188.00
+		 SHSE.10008809 , position long. now: 2025-05-14 13:23:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 13:24:00+08:00 , new_shares: 61 , price: 0.0708 , invest_amount: 4.3188
+on_order_status, now: 2025-05-14 13:24:00+08:00 , info: 8 ,  资金不足 可用=30898.388
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 13:24:00+08:00 , long_shares: 1 , long_avg_cost: 0.1188 , final_amount: 1188.00
+		 SHSE.10008809 , position long. now: 2025-05-14 13:24:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 13:25:00+08:00 , new_shares: 61 , price: 0.0701 , invest_amount: 4.2761
+on_order_status, now: 2025-05-14 13:25:00+08:00 , info: 8 ,  资金不足 可用=30898.388
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 13:25:00+08:00 , long_shares: 1 , long_avg_cost: 0.1188 , final_amount: 1188.00
+		 SHSE.10008809 , position long. now: 2025-05-14 13:25:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 13:36:00+08:00 , new_shares: 61 , price: 0.0707 , invest_amount: 4.3126999999999995
+on_order_status, now: 2025-05-14 13:36:00+08:00 , info: 8 ,  资金不足 可用=30898.388
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 13:36:00+08:00 , long_shares: 1 , long_avg_cost: 0.1188 , final_amount: 1188.00
+		 SHSE.10008809 , position long. now: 2025-05-14 13:36:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 13:37:00+08:00 , new_shares: 62 , price: 0.0696 , invest_amount: 4.3152
+on_order_status, now: 2025-05-14 13:37:00+08:00 , info: 8 ,  资金不足 可用=30898.388
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 13:37:00+08:00 , long_shares: 1 , long_avg_cost: 0.1188 , final_amount: 1188.00
+		 SHSE.10008809 , position long. now: 2025-05-14 13:37:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 13:38:00+08:00 , new_shares: 61 , price: 0.0701 , invest_amount: 4.2761
+on_order_status, now: 2025-05-14 13:38:00+08:00 , info: 8 ,  资金不足 可用=30898.388
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 13:38:00+08:00 , long_shares: 1 , long_avg_cost: 0.1188 , final_amount: 1188.00
+		 SHSE.10008809 , position long. now: 2025-05-14 13:38:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 13:39:00+08:00 , new_shares: 62 , price: 0.069 , invest_amount: 4.2780000000000005
+on_order_status, now: 2025-05-14 13:39:00+08:00 , info: 8 ,  资金不足 可用=30898.388
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 13:39:00+08:00 , long_shares: 1 , long_avg_cost: 0.1188 , final_amount: 1188.00
+		 SHSE.10008809 , position long. now: 2025-05-14 13:39:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 13:40:00+08:00 , new_shares: 62 , price: 0.0694 , invest_amount: 4.3028
+on_order_status, now: 2025-05-14 13:40:00+08:00 , info: 8 ,  资金不足 可用=30898.388
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 13:40:00+08:00 , long_shares: 1 , long_avg_cost: 0.1188 , final_amount: 1188.00
+		 SHSE.10008809 , position long. now: 2025-05-14 13:40:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 13:41:00+08:00 , new_shares: 61 , price: 0.0702 , invest_amount: 4.2822
+on_order_status, now: 2025-05-14 13:41:00+08:00 , info: 8 ,  资金不足 可用=30898.388
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 13:41:00+08:00 , long_shares: 1 , long_avg_cost: 0.1188 , final_amount: 1188.00
+		 SHSE.10008809 , position long. now: 2025-05-14 13:41:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Take profit:  SHSE.10008800 ,  2025-05-14 13:42:00+08:00 , profit ratio: 0.2516835016835016 , price: 0.1487
+Long，Close: SHSE.10008800 ,  2025-05-14 13:42:00+08:00 , long_shares: 1 , long_avg_cost: 0.1188 , total_amount: 1188.00
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 13:42:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008809 , position long. now: 2025-05-14 13:42:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 13:42:00+08:00 , new_shares: 60 , price: 0.071 , invest_amount: 4.26
+on_order_status, now: 2025-05-14 13:42:00+08:00 , info: 8 ,  资金不足 可用=32383.739
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 13:42:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008809 , position long. now: 2025-05-14 13:42:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 13:44:00+08:00 , new_shares: 60 , price: 0.071 , invest_amount: 4.26
+on_order_status, now: 2025-05-14 13:44:00+08:00 , info: 8 ,  资金不足 可用=32383.739
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 13:44:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008809 , position long. now: 2025-05-14 13:44:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 13:45:00+08:00 , new_shares: 60 , price: 0.0711 , invest_amount: 4.266
+on_order_status, now: 2025-05-14 13:45:00+08:00 , info: 8 ,  资金不足 可用=32383.739
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 13:45:00+08:00 , long_shares: 0 , long_avg_cost: 0.0 , final_amount: 0.00
+		 SHSE.10008809 , position long. now: 2025-05-14 13:45:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy 1st: SHSE.10008800 ,  2025-05-14 14:12:00+08:00 , new_shares: 1 , price: 0.135 , invest_amount: 0.135
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 14:12:00+08:00 , long_shares: 1 , long_avg_cost: 0.1354 , final_amount: 1354.00
+		 SHSE.10008809 , position long. now: 2025-05-14 14:12:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 14:14:00+08:00 , new_shares: 60 , price: 0.0713 , invest_amount: 4.2780000000000005
+on_order_status, now: 2025-05-14 14:14:00+08:00 , info: 8 ,  资金不足 可用=31025.104
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 14:14:00+08:00 , long_shares: 1 , long_avg_cost: 0.1354 , final_amount: 1354.00
+		 SHSE.10008809 , position long. now: 2025-05-14 14:14:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 14:15:00+08:00 , new_shares: 60 , price: 0.0712 , invest_amount: 4.272
+on_order_status, now: 2025-05-14 14:15:00+08:00 , info: 8 ,  资金不足 可用=31025.104
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 14:15:00+08:00 , long_shares: 1 , long_avg_cost: 0.1354 , final_amount: 1354.00
+		 SHSE.10008809 , position long. now: 2025-05-14 14:15:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 14:16:00+08:00 , new_shares: 60 , price: 0.0713 , invest_amount: 4.2780000000000005
+on_order_status, now: 2025-05-14 14:16:00+08:00 , info: 8 ,  资金不足 可用=31025.104
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 14:16:00+08:00 , long_shares: 1 , long_avg_cost: 0.1354 , final_amount: 1354.00
+		 SHSE.10008809 , position long. now: 2025-05-14 14:16:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 14:23:00+08:00 , new_shares: 60 , price: 0.0711 , invest_amount: 4.266
+on_order_status, now: 2025-05-14 14:23:00+08:00 , info: 8 ,  资金不足 可用=31025.104
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 14:23:00+08:00 , long_shares: 1 , long_avg_cost: 0.1354 , final_amount: 1354.00
+		 SHSE.10008809 , position long. now: 2025-05-14 14:23:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 14:25:00+08:00 , new_shares: 60 , price: 0.0709 , invest_amount: 4.2540000000000004
+on_order_status, now: 2025-05-14 14:25:00+08:00 , info: 8 ,  资金不足 可用=31025.104
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 14:25:00+08:00 , long_shares: 1 , long_avg_cost: 0.1354 , final_amount: 1354.00
+		 SHSE.10008809 , position long. now: 2025-05-14 14:25:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 14:27:00+08:00 , new_shares: 60 , price: 0.0712 , invest_amount: 4.272
+on_order_status, now: 2025-05-14 14:27:00+08:00 , info: 8 ,  资金不足 可用=31025.104
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 14:27:00+08:00 , long_shares: 1 , long_avg_cost: 0.1354 , final_amount: 1354.00
+		 SHSE.10008809 , position long. now: 2025-05-14 14:27:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 14:31:00+08:00 , new_shares: 60 , price: 0.0709 , invest_amount: 4.2540000000000004
+on_order_status, now: 2025-05-14 14:31:00+08:00 , info: 8 ,  资金不足 可用=31025.104
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 14:31:00+08:00 , long_shares: 1 , long_avg_cost: 0.1354 , final_amount: 1354.00
+		 SHSE.10008809 , position long. now: 2025-05-14 14:31:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 14:32:00+08:00 , new_shares: 61 , price: 0.0707 , invest_amount: 4.3126999999999995
+on_order_status, now: 2025-05-14 14:32:00+08:00 , info: 8 ,  资金不足 可用=31025.104
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 14:32:00+08:00 , long_shares: 1 , long_avg_cost: 0.1354 , final_amount: 1354.00
+		 SHSE.10008809 , position long. now: 2025-05-14 14:32:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 14:34:00+08:00 , new_shares: 60 , price: 0.071 , invest_amount: 4.26
+on_order_status, now: 2025-05-14 14:34:00+08:00 , info: 8 ,  资金不足 可用=31025.104
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 14:34:00+08:00 , long_shares: 1 , long_avg_cost: 0.1354 , final_amount: 1354.00
+		 SHSE.10008809 , position long. now: 2025-05-14 14:34:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 14:35:00+08:00 , new_shares: 61 , price: 0.0707 , invest_amount: 4.3126999999999995
+on_order_status, now: 2025-05-14 14:35:00+08:00 , info: 8 ,  资金不足 可用=31025.104
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 14:35:00+08:00 , long_shares: 1 , long_avg_cost: 0.1354 , final_amount: 1354.00
+		 SHSE.10008809 , position long. now: 2025-05-14 14:35:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 14:37:00+08:00 , new_shares: 60 , price: 0.0711 , invest_amount: 4.266
+on_order_status, now: 2025-05-14 14:37:00+08:00 , info: 8 ,  资金不足 可用=31025.104
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 14:37:00+08:00 , long_shares: 1 , long_avg_cost: 0.1354 , final_amount: 1354.00
+		 SHSE.10008809 , position long. now: 2025-05-14 14:37:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 14:45:00+08:00 , new_shares: 61 , price: 0.07 , invest_amount: 4.2700000000000005
+on_order_status, now: 2025-05-14 14:45:00+08:00 , info: 8 ,  资金不足 可用=31025.104
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 14:45:00+08:00 , long_shares: 1 , long_avg_cost: 0.1354 , final_amount: 1354.00
+		 SHSE.10008809 , position long. now: 2025-05-14 14:45:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 14:46:00+08:00 , new_shares: 61 , price: 0.0701 , invest_amount: 4.2761
+on_order_status, now: 2025-05-14 14:46:00+08:00 , info: 8 ,  资金不足 可用=31025.104
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 14:46:00+08:00 , long_shares: 1 , long_avg_cost: 0.1354 , final_amount: 1354.00
+		 SHSE.10008809 , position long. now: 2025-05-14 14:46:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 14:47:00+08:00 , new_shares: 61 , price: 0.07 , invest_amount: 4.2700000000000005
+on_order_status, now: 2025-05-14 14:47:00+08:00 , info: 8 ,  资金不足 可用=31025.104
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 14:47:00+08:00 , long_shares: 1 , long_avg_cost: 0.1354 , final_amount: 1354.00
+		 SHSE.10008809 , position long. now: 2025-05-14 14:47:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 14:48:00+08:00 , new_shares: 61 , price: 0.0697 , invest_amount: 4.2517
+on_order_status, now: 2025-05-14 14:48:00+08:00 , info: 8 ,  资金不足 可用=31025.104
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 14:48:00+08:00 , long_shares: 1 , long_avg_cost: 0.1354 , final_amount: 1354.00
+		 SHSE.10008809 , position long. now: 2025-05-14 14:48:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 14:50:00+08:00 , new_shares: 61 , price: 0.07 , invest_amount: 4.2700000000000005
+on_order_status, now: 2025-05-14 14:50:00+08:00 , info: 8 ,  资金不足 可用=31025.104
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 14:50:00+08:00 , long_shares: 1 , long_avg_cost: 0.1354 , final_amount: 1354.00
+		 SHSE.10008809 , position long. now: 2025-05-14 14:50:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 14:52:00+08:00 , new_shares: 61 , price: 0.0703 , invest_amount: 4.2883000000000004
+on_order_status, now: 2025-05-14 14:52:00+08:00 , info: 8 ,  资金不足 可用=31025.104
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 14:52:00+08:00 , long_shares: 1 , long_avg_cost: 0.1354 , final_amount: 1354.00
+		 SHSE.10008809 , position long. now: 2025-05-14 14:52:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 14:53:00+08:00 , new_shares: 61 , price: 0.0707 , invest_amount: 4.3126999999999995
+on_order_status, now: 2025-05-14 14:53:00+08:00 , info: 8 ,  资金不足 可用=31025.104
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 14:53:00+08:00 , long_shares: 1 , long_avg_cost: 0.1354 , final_amount: 1354.00
+		 SHSE.10008809 , position long. now: 2025-05-14 14:53:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 14:54:00+08:00 , new_shares: 60 , price: 0.0709 , invest_amount: 4.2540000000000004
+on_order_status, now: 2025-05-14 14:54:00+08:00 , info: 8 ,  资金不足 可用=31025.104
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 14:54:00+08:00 , long_shares: 1 , long_avg_cost: 0.1354 , final_amount: 1354.00
+		 SHSE.10008809 , position long. now: 2025-05-14 14:54:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-14 14:56:00+08:00 , new_shares: 60 , price: 0.0714 , invest_amount: 4.284000000000001
+on_order_status, now: 2025-05-14 14:56:00+08:00 , info: 8 ,  资金不足 可用=31025.104
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-14 14:56:00+08:00 , long_shares: 1 , long_avg_cost: 0.1354 , final_amount: 1354.00
+		 SHSE.10008809 , position long. now: 2025-05-14 14:56:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-15 09:31:00+08:00 , new_shares: 61 , price: 0.0705 , invest_amount: 4.3004999999999995
+on_order_status, now: 2025-05-15 09:31:00+08:00 , info: 8 ,  资金不足 可用=31025.104
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-15 09:31:00+08:00 , long_shares: 1 , long_avg_cost: 0.1354 , final_amount: 1354.00
+		 SHSE.10008809 , position long. now: 2025-05-15 09:31:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-15 09:32:00+08:00 , new_shares: 61 , price: 0.0703 , invest_amount: 4.2883000000000004
+on_order_status, now: 2025-05-15 09:32:00+08:00 , info: 8 ,  资金不足 可用=31025.104
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-15 09:32:00+08:00 , long_shares: 1 , long_avg_cost: 0.1354 , final_amount: 1354.00
+		 SHSE.10008809 , position long. now: 2025-05-15 09:32:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-15 09:33:00+08:00 , new_shares: 62 , price: 0.0693 , invest_amount: 4.2966
+on_order_status, now: 2025-05-15 09:33:00+08:00 , info: 8 ,  资金不足 可用=31025.104
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-15 09:33:00+08:00 , long_shares: 1 , long_avg_cost: 0.1354 , final_amount: 1354.00
+		 SHSE.10008809 , position long. now: 2025-05-15 09:33:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-15 09:34:00+08:00 , new_shares: 62 , price: 0.0691 , invest_amount: 4.284199999999999
+on_order_status, now: 2025-05-15 09:34:00+08:00 , info: 8 ,  资金不足 可用=31025.104
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-15 09:34:00+08:00 , long_shares: 1 , long_avg_cost: 0.1354 , final_amount: 1354.00
+		 SHSE.10008809 , position long. now: 2025-05-15 09:34:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-15 09:35:00+08:00 , new_shares: 61 , price: 0.0704 , invest_amount: 4.2944
+on_order_status, now: 2025-05-15 09:35:00+08:00 , info: 8 ,  资金不足 可用=31025.104
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-15 09:35:00+08:00 , long_shares: 1 , long_avg_cost: 0.1354 , final_amount: 1354.00
+		 SHSE.10008809 , position long. now: 2025-05-15 09:35:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-15 09:36:00+08:00 , new_shares: 61 , price: 0.0706 , invest_amount: 4.3065999999999995
+on_order_status, now: 2025-05-15 09:36:00+08:00 , info: 8 ,  资金不足 可用=31025.104
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-15 09:36:00+08:00 , long_shares: 1 , long_avg_cost: 0.1354 , final_amount: 1354.00
+		 SHSE.10008809 , position long. now: 2025-05-15 09:36:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-15 09:37:00+08:00 , new_shares: 61 , price: 0.0706 , invest_amount: 4.3065999999999995
+on_order_status, now: 2025-05-15 09:37:00+08:00 , info: 8 ,  资金不足 可用=31025.104
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-15 09:37:00+08:00 , long_shares: 1 , long_avg_cost: 0.1354 , final_amount: 1354.00
+		 SHSE.10008809 , position long. now: 2025-05-15 09:37:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-15 09:39:00+08:00 , new_shares: 60 , price: 0.0712 , invest_amount: 4.272
+on_order_status, now: 2025-05-15 09:39:00+08:00 , info: 8 ,  资金不足 可用=31025.104
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-15 09:39:00+08:00 , long_shares: 1 , long_avg_cost: 0.1354 , final_amount: 1354.00
+		 SHSE.10008809 , position long. now: 2025-05-15 09:39:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-15 09:40:00+08:00 , new_shares: 60 , price: 0.0712 , invest_amount: 4.272
+on_order_status, now: 2025-05-15 09:40:00+08:00 , info: 8 ,  资金不足 可用=31025.104
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-15 09:40:00+08:00 , long_shares: 1 , long_avg_cost: 0.1354 , final_amount: 1354.00
+		 SHSE.10008809 , position long. now: 2025-05-15 09:40:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-15 09:41:00+08:00 , new_shares: 60 , price: 0.0711 , invest_amount: 4.266
+on_order_status, now: 2025-05-15 09:41:00+08:00 , info: 8 ,  资金不足 可用=31025.104
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-15 09:41:00+08:00 , long_shares: 1 , long_avg_cost: 0.1354 , final_amount: 1354.00
+		 SHSE.10008809 , position long. now: 2025-05-15 09:41:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-15 09:43:00+08:00 , new_shares: 61 , price: 0.0705 , invest_amount: 4.3004999999999995
+on_order_status, now: 2025-05-15 09:43:00+08:00 , info: 8 ,  资金不足 可用=31025.104
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-15 09:43:00+08:00 , long_shares: 1 , long_avg_cost: 0.1354 , final_amount: 1354.00
+		 SHSE.10008809 , position long. now: 2025-05-15 09:43:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-15 09:44:00+08:00 , new_shares: 61 , price: 0.0702 , invest_amount: 4.2822
+on_order_status, now: 2025-05-15 09:44:00+08:00 , info: 8 ,  资金不足 可用=31025.104
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-15 09:44:00+08:00 , long_shares: 1 , long_avg_cost: 0.1354 , final_amount: 1354.00
+		 SHSE.10008809 , position long. now: 2025-05-15 09:44:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-15 09:46:00+08:00 , new_shares: 61 , price: 0.0699 , invest_amount: 4.2639000000000005
+on_order_status, now: 2025-05-15 09:46:00+08:00 , info: 8 ,  资金不足 可用=31025.104
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-15 09:46:00+08:00 , long_shares: 1 , long_avg_cost: 0.1354 , final_amount: 1354.00
+		 SHSE.10008809 , position long. now: 2025-05-15 09:46:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-15 09:47:00+08:00 , new_shares: 61 , price: 0.0698 , invest_amount: 4.2578000000000005
+on_order_status, now: 2025-05-15 09:47:00+08:00 , info: 8 ,  资金不足 可用=31025.104
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-15 09:47:00+08:00 , long_shares: 1 , long_avg_cost: 0.1354 , final_amount: 1354.00
+		 SHSE.10008809 , position long. now: 2025-05-15 09:47:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-15 09:49:00+08:00 , new_shares: 61 , price: 0.0705 , invest_amount: 4.3004999999999995
+on_order_status, now: 2025-05-15 09:49:00+08:00 , info: 8 ,  资金不足 可用=31025.104
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-15 09:49:00+08:00 , long_shares: 1 , long_avg_cost: 0.1354 , final_amount: 1354.00
+		 SHSE.10008809 , position long. now: 2025-05-15 09:49:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-15 09:50:00+08:00 , new_shares: 60 , price: 0.0709 , invest_amount: 4.2540000000000004
+on_order_status, now: 2025-05-15 09:50:00+08:00 , info: 8 ,  资金不足 可用=31025.104
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-15 09:50:00+08:00 , long_shares: 1 , long_avg_cost: 0.1354 , final_amount: 1354.00
+		 SHSE.10008809 , position long. now: 2025-05-15 09:50:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-15 10:12:00+08:00 , new_shares: 60 , price: 0.071 , invest_amount: 4.26
+on_order_status, now: 2025-05-15 10:12:00+08:00 , info: 8 ,  资金不足 可用=31025.104
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-15 10:12:00+08:00 , long_shares: 1 , long_avg_cost: 0.1354 , final_amount: 1354.00
+		 SHSE.10008809 , position long. now: 2025-05-15 10:12:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008800 ,  2025-05-16 09:55:00+08:00 , new_shares: 2 , price: 0.1159 , invest_amount: 0.2318
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-16 09:55:00+08:00 , long_shares: 3 , long_avg_cost: 0.1225 , final_amount: 3675.00
+		 SHSE.10008809 , position long. now: 2025-05-16 09:55:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008800 ,  2025-05-19 09:39:00+08:00 , new_shares: 5 , price: 0.105 , invest_amount: 0.525
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-19 09:39:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-19 09:39:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-20 09:40:00+08:00 , new_shares: 60 , price: 0.0713 , invest_amount: 4.2780000000000005
+on_order_status, now: 2025-05-20 09:40:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-20 09:40:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-20 09:40:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-20 09:41:00+08:00 , new_shares: 60 , price: 0.0712 , invest_amount: 4.272
+on_order_status, now: 2025-05-20 09:41:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-20 09:41:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-20 09:41:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-20 09:42:00+08:00 , new_shares: 60 , price: 0.071 , invest_amount: 4.26
+on_order_status, now: 2025-05-20 09:42:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-20 09:42:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-20 09:42:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-20 09:43:00+08:00 , new_shares: 61 , price: 0.0707 , invest_amount: 4.3126999999999995
+on_order_status, now: 2025-05-20 09:43:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-20 09:43:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-20 09:43:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-20 09:44:00+08:00 , new_shares: 60 , price: 0.0713 , invest_amount: 4.2780000000000005
+on_order_status, now: 2025-05-20 09:44:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-20 09:44:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-20 09:44:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-20 09:45:00+08:00 , new_shares: 60 , price: 0.0712 , invest_amount: 4.272
+on_order_status, now: 2025-05-20 09:45:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-20 09:45:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-20 09:45:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 09:35:00+08:00 , new_shares: 60 , price: 0.0714 , invest_amount: 4.284000000000001
+on_order_status, now: 2025-05-21 09:35:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 09:35:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 09:35:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 09:36:00+08:00 , new_shares: 60 , price: 0.071 , invest_amount: 4.26
+on_order_status, now: 2025-05-21 09:36:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 09:36:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 09:36:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 09:52:00+08:00 , new_shares: 60 , price: 0.0709 , invest_amount: 4.2540000000000004
+on_order_status, now: 2025-05-21 09:52:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 09:52:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 09:52:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 09:54:00+08:00 , new_shares: 60 , price: 0.0709 , invest_amount: 4.2540000000000004
+on_order_status, now: 2025-05-21 09:54:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 09:54:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 09:54:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 09:56:00+08:00 , new_shares: 60 , price: 0.0714 , invest_amount: 4.284000000000001
+on_order_status, now: 2025-05-21 09:56:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 09:56:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 09:56:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 09:58:00+08:00 , new_shares: 61 , price: 0.0705 , invest_amount: 4.3004999999999995
+on_order_status, now: 2025-05-21 09:58:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 09:58:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 09:58:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 09:59:00+08:00 , new_shares: 61 , price: 0.0702 , invest_amount: 4.2822
+on_order_status, now: 2025-05-21 09:59:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 09:59:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 09:59:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 10:00:00+08:00 , new_shares: 60 , price: 0.0711 , invest_amount: 4.266
+on_order_status, now: 2025-05-21 10:00:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 10:00:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 10:00:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 10:02:00+08:00 , new_shares: 60 , price: 0.0714 , invest_amount: 4.284000000000001
+on_order_status, now: 2025-05-21 10:02:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 10:02:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 10:02:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 10:16:00+08:00 , new_shares: 60 , price: 0.0714 , invest_amount: 4.284000000000001
+on_order_status, now: 2025-05-21 10:16:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 10:16:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 10:16:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 10:18:00+08:00 , new_shares: 60 , price: 0.0712 , invest_amount: 4.272
+on_order_status, now: 2025-05-21 10:18:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 10:18:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 10:18:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 10:20:00+08:00 , new_shares: 60 , price: 0.0713 , invest_amount: 4.2780000000000005
+on_order_status, now: 2025-05-21 10:20:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 10:20:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 10:20:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 10:24:00+08:00 , new_shares: 61 , price: 0.0707 , invest_amount: 4.3126999999999995
+on_order_status, now: 2025-05-21 10:24:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 10:24:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 10:24:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 10:25:00+08:00 , new_shares: 61 , price: 0.07 , invest_amount: 4.2700000000000005
+on_order_status, now: 2025-05-21 10:25:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 10:25:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 10:25:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 10:26:00+08:00 , new_shares: 61 , price: 0.0699 , invest_amount: 4.2639000000000005
+on_order_status, now: 2025-05-21 10:26:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 10:26:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 10:26:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 10:27:00+08:00 , new_shares: 61 , price: 0.0702 , invest_amount: 4.2822
+on_order_status, now: 2025-05-21 10:27:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 10:27:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 10:27:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 10:28:00+08:00 , new_shares: 62 , price: 0.0695 , invest_amount: 4.309
+on_order_status, now: 2025-05-21 10:28:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 10:28:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 10:28:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 10:29:00+08:00 , new_shares: 62 , price: 0.0693 , invest_amount: 4.2966
+on_order_status, now: 2025-05-21 10:29:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 10:29:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 10:29:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 10:30:00+08:00 , new_shares: 62 , price: 0.0692 , invest_amount: 4.2904
+on_order_status, now: 2025-05-21 10:30:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 10:30:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 10:30:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 10:31:00+08:00 , new_shares: 62 , price: 0.0689 , invest_amount: 4.2718
+on_order_status, now: 2025-05-21 10:31:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 10:31:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 10:31:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 10:32:00+08:00 , new_shares: 62 , price: 0.0693 , invest_amount: 4.2966
+on_order_status, now: 2025-05-21 10:32:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 10:32:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 10:32:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 10:33:00+08:00 , new_shares: 61 , price: 0.0698 , invest_amount: 4.2578000000000005
+on_order_status, now: 2025-05-21 10:33:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 10:33:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 10:33:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 10:36:00+08:00 , new_shares: 63 , price: 0.0679 , invest_amount: 4.2777
+on_order_status, now: 2025-05-21 10:36:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 10:36:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 10:36:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 10:37:00+08:00 , new_shares: 63 , price: 0.0684 , invest_amount: 4.309200000000001
+on_order_status, now: 2025-05-21 10:37:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 10:37:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 10:37:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 10:39:00+08:00 , new_shares: 62 , price: 0.0691 , invest_amount: 4.284199999999999
+on_order_status, now: 2025-05-21 10:39:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 10:39:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 10:39:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 10:41:00+08:00 , new_shares: 62 , price: 0.0693 , invest_amount: 4.2966
+on_order_status, now: 2025-05-21 10:41:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 10:41:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 10:41:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 10:42:00+08:00 , new_shares: 62 , price: 0.0691 , invest_amount: 4.284199999999999
+on_order_status, now: 2025-05-21 10:42:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 10:42:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 10:42:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 10:43:00+08:00 , new_shares: 62 , price: 0.0687 , invest_amount: 4.259399999999999
+on_order_status, now: 2025-05-21 10:43:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 10:43:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 10:43:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 10:45:00+08:00 , new_shares: 62 , price: 0.069 , invest_amount: 4.2780000000000005
+on_order_status, now: 2025-05-21 10:45:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 10:45:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 10:45:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 10:46:00+08:00 , new_shares: 62 , price: 0.0688 , invest_amount: 4.2656
+on_order_status, now: 2025-05-21 10:46:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 10:46:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 10:46:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 10:47:00+08:00 , new_shares: 62 , price: 0.0692 , invest_amount: 4.2904
+on_order_status, now: 2025-05-21 10:47:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 10:47:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 10:47:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 10:48:00+08:00 , new_shares: 62 , price: 0.0693 , invest_amount: 4.2966
+on_order_status, now: 2025-05-21 10:48:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 10:48:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 10:48:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 10:49:00+08:00 , new_shares: 62 , price: 0.0689 , invest_amount: 4.2718
+on_order_status, now: 2025-05-21 10:49:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 10:49:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 10:49:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 10:50:00+08:00 , new_shares: 62 , price: 0.0686 , invest_amount: 4.2532
+on_order_status, now: 2025-05-21 10:50:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 10:50:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 10:50:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 10:51:00+08:00 , new_shares: 63 , price: 0.0685 , invest_amount: 4.3155
+on_order_status, now: 2025-05-21 10:51:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 10:51:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 10:51:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 10:52:00+08:00 , new_shares: 63 , price: 0.0678 , invest_amount: 4.2714
+on_order_status, now: 2025-05-21 10:52:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 10:52:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 10:52:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 10:53:00+08:00 , new_shares: 64 , price: 0.0674 , invest_amount: 4.3136
+on_order_status, now: 2025-05-21 10:53:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 10:53:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 10:53:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 10:54:00+08:00 , new_shares: 64 , price: 0.0675 , invest_amount: 4.32
+on_order_status, now: 2025-05-21 10:54:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 10:54:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 10:54:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 10:55:00+08:00 , new_shares: 64 , price: 0.0672 , invest_amount: 4.3008
+on_order_status, now: 2025-05-21 10:55:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 10:55:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 10:55:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 10:56:00+08:00 , new_shares: 64 , price: 0.067 , invest_amount: 4.288
+on_order_status, now: 2025-05-21 10:56:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 10:56:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 10:56:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 10:57:00+08:00 , new_shares: 63 , price: 0.0679 , invest_amount: 4.2777
+on_order_status, now: 2025-05-21 10:57:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 10:57:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 10:57:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 10:58:00+08:00 , new_shares: 63 , price: 0.0682 , invest_amount: 4.2966
+on_order_status, now: 2025-05-21 10:58:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 10:58:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 10:58:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 10:59:00+08:00 , new_shares: 63 , price: 0.0683 , invest_amount: 4.3029
+on_order_status, now: 2025-05-21 10:59:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 10:59:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 10:59:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 11:00:00+08:00 , new_shares: 63 , price: 0.068 , invest_amount: 4.284000000000001
+on_order_status, now: 2025-05-21 11:00:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 11:00:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 11:00:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 11:02:00+08:00 , new_shares: 63 , price: 0.0678 , invest_amount: 4.2714
+on_order_status, now: 2025-05-21 11:02:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 11:02:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 11:02:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 11:03:00+08:00 , new_shares: 62 , price: 0.0687 , invest_amount: 4.259399999999999
+on_order_status, now: 2025-05-21 11:03:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 11:03:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 11:03:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 11:04:00+08:00 , new_shares: 63 , price: 0.0682 , invest_amount: 4.2966
+on_order_status, now: 2025-05-21 11:04:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 11:04:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 11:04:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 11:05:00+08:00 , new_shares: 63 , price: 0.0683 , invest_amount: 4.3029
+on_order_status, now: 2025-05-21 11:05:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 11:05:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 11:05:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 11:06:00+08:00 , new_shares: 62 , price: 0.0687 , invest_amount: 4.259399999999999
+on_order_status, now: 2025-05-21 11:06:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 11:06:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 11:06:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 11:07:00+08:00 , new_shares: 63 , price: 0.0685 , invest_amount: 4.3155
+on_order_status, now: 2025-05-21 11:07:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 11:07:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 11:07:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 11:08:00+08:00 , new_shares: 62 , price: 0.0691 , invest_amount: 4.284199999999999
+on_order_status, now: 2025-05-21 11:08:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 11:08:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 11:08:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 11:09:00+08:00 , new_shares: 62 , price: 0.0693 , invest_amount: 4.2966
+on_order_status, now: 2025-05-21 11:09:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 11:09:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 11:09:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 11:10:00+08:00 , new_shares: 62 , price: 0.0694 , invest_amount: 4.3028
+on_order_status, now: 2025-05-21 11:10:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 11:10:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 11:10:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 11:11:00+08:00 , new_shares: 62 , price: 0.0691 , invest_amount: 4.284199999999999
+on_order_status, now: 2025-05-21 11:11:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 11:11:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 11:11:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 11:12:00+08:00 , new_shares: 62 , price: 0.069 , invest_amount: 4.2780000000000005
+on_order_status, now: 2025-05-21 11:12:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 11:12:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 11:12:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 11:13:00+08:00 , new_shares: 62 , price: 0.0691 , invest_amount: 4.284199999999999
+on_order_status, now: 2025-05-21 11:13:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 11:13:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 11:13:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 11:14:00+08:00 , new_shares: 61 , price: 0.0697 , invest_amount: 4.2517
+on_order_status, now: 2025-05-21 11:14:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 11:14:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 11:14:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 11:15:00+08:00 , new_shares: 62 , price: 0.0695 , invest_amount: 4.309
+on_order_status, now: 2025-05-21 11:15:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 11:15:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 11:15:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 11:20:00+08:00 , new_shares: 62 , price: 0.0696 , invest_amount: 4.3152
+on_order_status, now: 2025-05-21 11:20:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 11:20:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 11:20:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 11:23:00+08:00 , new_shares: 62 , price: 0.0687 , invest_amount: 4.259399999999999
+on_order_status, now: 2025-05-21 11:23:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 11:23:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 11:23:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 11:25:00+08:00 , new_shares: 62 , price: 0.0689 , invest_amount: 4.2718
+on_order_status, now: 2025-05-21 11:25:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 11:25:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 11:25:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 11:26:00+08:00 , new_shares: 62 , price: 0.0693 , invest_amount: 4.2966
+on_order_status, now: 2025-05-21 11:26:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 11:26:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 11:26:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 11:28:00+08:00 , new_shares: 62 , price: 0.0694 , invest_amount: 4.3028
+on_order_status, now: 2025-05-21 11:28:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 11:28:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 11:28:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 11:29:00+08:00 , new_shares: 61 , price: 0.0698 , invest_amount: 4.2578000000000005
+on_order_status, now: 2025-05-21 11:29:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 11:29:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 11:29:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 11:30:00+08:00 , new_shares: 61 , price: 0.07 , invest_amount: 4.2700000000000005
+on_order_status, now: 2025-05-21 11:30:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 11:30:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 11:30:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 13:02:00+08:00 , new_shares: 61 , price: 0.0705 , invest_amount: 4.3004999999999995
+on_order_status, now: 2025-05-21 13:02:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 13:02:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 13:02:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 13:03:00+08:00 , new_shares: 61 , price: 0.0704 , invest_amount: 4.2944
+on_order_status, now: 2025-05-21 13:03:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 13:03:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 13:03:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 13:04:00+08:00 , new_shares: 61 , price: 0.0703 , invest_amount: 4.2883000000000004
+on_order_status, now: 2025-05-21 13:04:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 13:04:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 13:04:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 13:05:00+08:00 , new_shares: 61 , price: 0.0701 , invest_amount: 4.2761
+on_order_status, now: 2025-05-21 13:05:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 13:05:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 13:05:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 13:06:00+08:00 , new_shares: 61 , price: 0.07 , invest_amount: 4.2700000000000005
+on_order_status, now: 2025-05-21 13:06:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 13:06:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 13:06:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 13:07:00+08:00 , new_shares: 61 , price: 0.0704 , invest_amount: 4.2944
+on_order_status, now: 2025-05-21 13:07:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 13:07:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 13:07:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 13:08:00+08:00 , new_shares: 61 , price: 0.0698 , invest_amount: 4.2578000000000005
+on_order_status, now: 2025-05-21 13:08:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 13:08:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 13:08:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 13:09:00+08:00 , new_shares: 61 , price: 0.0702 , invest_amount: 4.2822
+on_order_status, now: 2025-05-21 13:09:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 13:09:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 13:09:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 13:12:00+08:00 , new_shares: 61 , price: 0.0704 , invest_amount: 4.2944
+on_order_status, now: 2025-05-21 13:12:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 13:12:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 13:12:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 13:15:00+08:00 , new_shares: 61 , price: 0.0699 , invest_amount: 4.2639000000000005
+on_order_status, now: 2025-05-21 13:15:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 13:15:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 13:15:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 13:16:00+08:00 , new_shares: 61 , price: 0.0702 , invest_amount: 4.2822
+on_order_status, now: 2025-05-21 13:16:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 13:16:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 13:16:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 13:17:00+08:00 , new_shares: 61 , price: 0.0701 , invest_amount: 4.2761
+on_order_status, now: 2025-05-21 13:17:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 13:17:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 13:17:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 13:25:00+08:00 , new_shares: 61 , price: 0.07 , invest_amount: 4.2700000000000005
+on_order_status, now: 2025-05-21 13:25:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 13:25:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 13:25:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 13:29:00+08:00 , new_shares: 61 , price: 0.0705 , invest_amount: 4.3004999999999995
+on_order_status, now: 2025-05-21 13:29:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 13:29:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 13:29:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 13:30:00+08:00 , new_shares: 61 , price: 0.0706 , invest_amount: 4.3065999999999995
+on_order_status, now: 2025-05-21 13:30:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 13:30:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 13:30:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 13:31:00+08:00 , new_shares: 61 , price: 0.0705 , invest_amount: 4.3004999999999995
+on_order_status, now: 2025-05-21 13:31:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 13:31:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 13:31:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 13:35:00+08:00 , new_shares: 61 , price: 0.0707 , invest_amount: 4.3126999999999995
+on_order_status, now: 2025-05-21 13:35:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 13:35:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 13:35:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 13:36:00+08:00 , new_shares: 60 , price: 0.071 , invest_amount: 4.26
+on_order_status, now: 2025-05-21 13:36:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 13:36:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 13:36:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 13:37:00+08:00 , new_shares: 60 , price: 0.071 , invest_amount: 4.26
+on_order_status, now: 2025-05-21 13:37:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 13:37:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 13:37:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 13:38:00+08:00 , new_shares: 60 , price: 0.0713 , invest_amount: 4.2780000000000005
+on_order_status, now: 2025-05-21 13:38:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 13:38:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 13:38:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 13:39:00+08:00 , new_shares: 61 , price: 0.0708 , invest_amount: 4.3188
+on_order_status, now: 2025-05-21 13:39:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 13:39:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 13:39:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 13:41:00+08:00 , new_shares: 60 , price: 0.0709 , invest_amount: 4.2540000000000004
+on_order_status, now: 2025-05-21 13:41:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 13:41:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 13:41:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 13:43:00+08:00 , new_shares: 60 , price: 0.0711 , invest_amount: 4.266
+on_order_status, now: 2025-05-21 13:43:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 13:43:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 13:43:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 13:44:00+08:00 , new_shares: 60 , price: 0.0712 , invest_amount: 4.272
+on_order_status, now: 2025-05-21 13:44:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 13:44:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 13:44:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 13:45:00+08:00 , new_shares: 60 , price: 0.0711 , invest_amount: 4.266
+on_order_status, now: 2025-05-21 13:45:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 13:45:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 13:45:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 13:46:00+08:00 , new_shares: 60 , price: 0.0712 , invest_amount: 4.272
+on_order_status, now: 2025-05-21 13:46:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 13:46:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 13:46:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 13:48:00+08:00 , new_shares: 60 , price: 0.0712 , invest_amount: 4.272
+on_order_status, now: 2025-05-21 13:48:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 13:48:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 13:48:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 13:50:00+08:00 , new_shares: 60 , price: 0.0714 , invest_amount: 4.284000000000001
+on_order_status, now: 2025-05-21 13:50:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 13:50:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 13:50:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 13:52:00+08:00 , new_shares: 60 , price: 0.0712 , invest_amount: 4.272
+on_order_status, now: 2025-05-21 13:52:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 13:52:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 13:52:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 13:53:00+08:00 , new_shares: 60 , price: 0.0713 , invest_amount: 4.2780000000000005
+on_order_status, now: 2025-05-21 13:53:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 13:53:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 13:53:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 13:55:00+08:00 , new_shares: 60 , price: 0.0712 , invest_amount: 4.272
+on_order_status, now: 2025-05-21 13:55:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 13:55:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 13:55:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 14:12:00+08:00 , new_shares: 60 , price: 0.071 , invest_amount: 4.26
+on_order_status, now: 2025-05-21 14:12:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 14:12:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 14:12:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 14:20:00+08:00 , new_shares: 60 , price: 0.0712 , invest_amount: 4.272
+on_order_status, now: 2025-05-21 14:20:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 14:20:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 14:20:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 14:31:00+08:00 , new_shares: 60 , price: 0.0713 , invest_amount: 4.2780000000000005
+on_order_status, now: 2025-05-21 14:31:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 14:31:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 14:31:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 14:32:00+08:00 , new_shares: 60 , price: 0.0713 , invest_amount: 4.2780000000000005
+on_order_status, now: 2025-05-21 14:32:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 14:32:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 14:32:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 14:33:00+08:00 , new_shares: 60 , price: 0.0714 , invest_amount: 4.284000000000001
+on_order_status, now: 2025-05-21 14:33:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 14:33:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 14:33:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 14:39:00+08:00 , new_shares: 60 , price: 0.071 , invest_amount: 4.26
+on_order_status, now: 2025-05-21 14:39:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 14:39:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 14:39:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 14:40:00+08:00 , new_shares: 60 , price: 0.0712 , invest_amount: 4.272
+on_order_status, now: 2025-05-21 14:40:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 14:40:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 14:40:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 14:47:00+08:00 , new_shares: 60 , price: 0.0712 , invest_amount: 4.272
+on_order_status, now: 2025-05-21 14:47:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 14:47:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 14:47:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-21 14:53:00+08:00 , new_shares: 60 , price: 0.0714 , invest_amount: 4.284000000000001
+on_order_status, now: 2025-05-21 14:53:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-21 14:53:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-21 14:53:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-22 11:25:00+08:00 , new_shares: 60 , price: 0.0714 , invest_amount: 4.284000000000001
+on_order_status, now: 2025-05-22 11:25:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-22 11:25:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-22 11:25:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-23 09:48:00+08:00 , new_shares: 60 , price: 0.0712 , invest_amount: 4.272
+on_order_status, now: 2025-05-23 09:48:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-23 09:48:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-23 09:48:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008809 ,  2025-05-23 11:04:00+08:00 , new_shares: 60 , price: 0.0714 , invest_amount: 4.284000000000001
+on_order_status, now: 2025-05-23 11:04:00+08:00 , info: 8 ,  资金不足 可用=23417.847
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-23 11:04:00+08:00 , long_shares: 8 , long_avg_cost: 0.1116 , final_amount: 8928.00
+		 SHSE.10008809 , position long. now: 2025-05-23 11:04:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008800 ,  2025-05-27 11:26:00+08:00 , new_shares: 11 , price: 0.0958 , invest_amount: 1.0537999999999998
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-27 11:26:00+08:00 , long_shares: 19 , long_avg_cost: 0.1023 , final_amount: 19437.00
+		 SHSE.10008809 , position long. now: 2025-05-27 11:26:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008800 ,  2025-05-30 10:11:00+08:00 , new_shares: 24 , price: 0.0875 , invest_amount: 2.0999999999999996
+on_order_status, now: 2025-05-30 10:11:00+08:00 , info: 8 ,  资金不足 可用=12862.296
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-30 10:11:00+08:00 , long_shares: 19 , long_avg_cost: 0.1023 , final_amount: 19437.00
+		 SHSE.10008809 , position long. now: 2025-05-30 10:11:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008800 ,  2025-05-30 10:12:00+08:00 , new_shares: 24 , price: 0.0879 , invest_amount: 2.1096000000000004
+on_order_status, now: 2025-05-30 10:12:00+08:00 , info: 8 ,  资金不足 可用=12862.296
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-30 10:12:00+08:00 , long_shares: 19 , long_avg_cost: 0.1023 , final_amount: 19437.00
+		 SHSE.10008809 , position long. now: 2025-05-30 10:12:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Long，Buy more: SHSE.10008800 ,  2025-05-30 10:19:00+08:00 , new_shares: 24 , price: 0.0877 , invest_amount: 2.1048
+on_order_status, now: 2025-05-30 10:19:00+08:00 , info: 8 ,  资金不足 可用=12862.296
+current position:
+		 SHSE.10008800 , position long. now: 2025-05-30 10:19:00+08:00 , long_shares: 19 , long_avg_cost: 0.1023 , final_amount: 19437.00
+		 SHSE.10008809 , position long. now: 2025-05-30 10:19:00+08:00 , long_shares: 48 , long_avg_cost: 0.0831 , final_amount: 39888.00
+Done! From start, time elapsed: 2.540984630584717 seconds
+{'SHSE.10008800', 'SHSE.10008809'} backtest finished:  {'account_id': '95eadb57-f0cb-11ef-b05b-80304917db79', 'pnl_ratio': 0.7680574027769268, 'pnl_ratio_annual': 2.9202182501414407, 'sharp_ratio': 3.8747667653928652, 'max_drawdown': 0.1392922310914737, 'risk_ratio': 0.8290997782857432, 'open_count': 28, 'close_count': 6, 'win_count': 6, 'win_ratio': 1.0, 'calmar_ratio': 20.964688606529123, 'created_at': datetime.datetime(2025, 6, 21, 13, 2, 12, 6459, tzinfo=datetime.timezone(datetime.timedelta(seconds=28800), 'Asia/Shanghai')), 'updated_at': datetime.datetime(2025, 6, 21, 13, 2, 14, 123170, tzinfo=datetime.timezone(datetime.timedelta(seconds=28800), 'Asia/Shanghai')), 'lose_count': 0}
+
+Process finished with exit code 0
+
+
+
+
+
+
+
