@@ -526,21 +526,21 @@ def on_backtest_finished(context, indicator):
 
 index_list = {
     # List
-    "SZSE.159509": "纳指科技ETF",
+    # "SZSE.159509": "纳指科技ETF",
     "SHSE.518880": "黄金ETF",
-    "SHSE.512480": "半导体ETF",
-    "SZSE.159531": "中证2000ETF",
+    # "SHSE.512480": "半导体ETF",
+    # "SZSE.159531": "中证2000ETF",
     "SHSE.513100": "纳指ETF",
-    "SHSE.513520": "日经ETF",
-    "SZSE.159857": "光伏ETF",
-    "SHSE.512100": "中证1000ETF",
-    "SHSE.510180": "上证180ETF",
-    "SHSE.588000": "科创50ETF",
-    "SHSE.513330": "恒生互联网ETF",
-    "SZSE.162719": "石油LOF",
-    "SHSE.513500": "标普500ETF",
+    # "SHSE.513520": "日经ETF",
+    # "SZSE.159857": "光伏ETF",
+    # "SHSE.512100": "中证1000ETF",
+    # "SHSE.510180": "上证180ETF",
+    # "SHSE.588000": "科创50ETF",
+    # "SHSE.513330": "恒生互联网ETF",
+    # "SZSE.162719": "石油LOF",
+    # "SHSE.513500": "标普500ETF",
     "SZSE.159915": "创业板ETF",
-    "SHSE.513030": "德国ETF",
+    # "SHSE.513030": "德国ETF",
 
 }
 
@@ -573,7 +573,7 @@ def run_strategy(paras: dict, p_index: int):
         # token='6860051c58995ae01c30a27d5b72000bababa8e6',  # gfgm
         strategy_id='630ce8b7-0c6d-11f0-a2bc-00155dd6c843',  # ydgm 回测
         token='c8bd4de742240da9483aecd05a2f5e52900786eb',  # ydgm
-        backtest_start_time="2023-09-19 09:30:00",
+        backtest_start_time="2013-08-29 09:30:00",
         backtest_end_time='2025-06-17 15:00:00',
         # backtest_end_time='2023-10-20 15:00:00',
         backtest_adjust=ADJUST_NONE,
@@ -605,8 +605,8 @@ if __name__ == '__main__':
     paras_list = []
     # w_aa = 0.1, w_bb = 0.2, w_cc = 1, w_dd = 0.18
     sequence_aa = np.round(np.arange(0.05, 1.05, 0.05), 2).tolist()
-    sequence_bb = np.round(np.arange(0.05, 0.35, 0.05), 2).tolist()
-    sequence_dd = np.round(np.arange(0.08, 0.25, 0.01), 2).tolist()
+    sequence_bb = np.round(np.arange(0.05, 0.85, 0.05), 2).tolist()
+    sequence_dd = np.round(np.arange(0.10, 0.25, 0.03), 2).tolist()
     # sequence_aa = np.round(np.linspace(0.05, 1.05, 2), 2).tolist()
     # sequence_bb = np.round(np.linspace(0.05, 0.35, 2), 2).tolist()
     # sequence_dd = np.round(np.linspace(0.08, 0.25, 2), 2).tolist()
