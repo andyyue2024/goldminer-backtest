@@ -7,7 +7,7 @@ from gm.api import *
 from numpy.lib.scimath import logn
 from datetime import datetime, timedelta
 
-# 可运行，验证过。按照价格分割，逐层倍增。支持多标的。面向实盘。
+# 可运行，验证过。按照价格分割，逐层倍增。支持多标的。面向实盘。还未完成
 # 该文件包含MultiMartingaleGridStrategy类
 '''
 马丁格尔-网格 多标的组合策略

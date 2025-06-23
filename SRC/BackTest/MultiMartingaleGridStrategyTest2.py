@@ -406,9 +406,13 @@ def init(context):
     #     'SHSE.10009222',
     #     'SHSE.10009231',
     # ]
-    context.symbol_list = [ # 9
-        'SHSE.10008800',
-        'SHSE.10008809',
+    # context.symbol_list = [  # 9
+    #     'SHSE.10008800',
+    #     'SHSE.10008809',
+    # ]
+    context.symbol_list = [  # 9 创
+        'SZSE.90005064',
+        'SZSE.90005073',
     ]
     # context.symbol_list = [ # 6
     #     # 'SHSE.10008557',
@@ -429,7 +433,7 @@ def init(context):
     #                        'take_profit_ratio_min': 0.13,  # 3月0.13
     #                        }
     context.symbol_strategies = {symbol: MultiMartingaleGridStrategy(context, symbol, base_investment=1350,
-                                                                     price_interval=0.14, take_profit_ratio=0.25,
+                                                                     price_interval=0.15, take_profit_ratio=0.15,
                                                                      stop_loss_ratio=0.50
                                                                      # enable_interval=True, interval_parameters=interval_parameters
                                                                      ) for symbol in context.symbol_list}
