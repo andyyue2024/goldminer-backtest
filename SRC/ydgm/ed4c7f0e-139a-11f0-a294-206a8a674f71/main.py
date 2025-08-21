@@ -370,6 +370,12 @@ class AILabxStrategy:
             in_list = []
         return in_list + [item for item in self.white_list if item not in in_list]
 
+    def filter_for_selling(self, in_list: list = None):
+        # filter symbols that should be selling before sorting
+        if in_list is None:
+            in_list = []
+        return [item for item in in_list if not self.should_sell(item)]
+
     def sort(self, in_list: list, ascending=False) -> list:
         symbol_list = list(in_list)
         scores = []
@@ -390,6 +396,23 @@ class AILabxStrategy:
         return in_list[0:top_count]
 
     def try_to_order(self, in_list: list) -> list:
+        positions = self.context.account().positions(side=PositionSide_Long)
+        hold_symbol_list = [p.symbol for p in positions]
+        if len(in_list) > 0:
+            print("target: ", in_list, "; already hold: ", hold_symbol_list)
+        if len(in_list) == 1 and self.last_symbol == in_list[0]:
+            return []
+        if len(positions) > 0:
+            print("order_close_all: ", hold_symbol_list)
+            order_close_all()
+
+        hold_target_list = []
+        for target in in_list:
+            self.buy_target(target)
+            hold_target_list.append(target)
+        return hold_target_list
+
+    def try_to_order1(self, in_list: list) -> list:
         positions = self.context.account().positions(side=PositionSide_Long)
         hold_symbol_list = [p.symbol for p in positions]
         if len(in_list) > 0:
@@ -465,6 +488,7 @@ class AILabxStrategy:
             self.last_symbol = ""
 
         ret_list = self.filter()
+        ret_list = self.filter_for_selling(ret_list)
         ret_list = self.sort(ret_list)
         print("sort: ", ret_list)
         ret_list = self.filter_top(ret_list)
