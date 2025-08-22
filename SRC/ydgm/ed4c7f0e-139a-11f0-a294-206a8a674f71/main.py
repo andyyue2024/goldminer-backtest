@@ -575,7 +575,7 @@ index_list = {
     "SZSE.159915": "创业板ETF",
     "SHSE.512100": "中证1000ETF",
     "SHSE.563300": "中证2000ETF",
-    "SHSE.588100": "科创信息技术ETF",
+    "SHSE.588100": "科创信息技术ETF",  # little
     "SHSE.513040": "港股通互联网ETF",
     "SHSE.563000": "中国A50ETF",
     "SZSE.159560": "芯片50ETF",
@@ -584,16 +584,16 @@ index_list = {
     "SHSE.518880": "黄金ETF",
     "SHSE.513330": "恒生互联网ETF",
     "SHSE.513090": "香港证券ETF",
-    "SZSE.159505": "国证2000指数ETF",
+    # "SZSE.159505": "国证2000指数ETF",  # very little
     "SHSE.513180": "恒生科技指数ETF",
     "SHSE.513130": "恒生科技ETF",
     "SZSE.159857": "光伏ETF",
     "SHSE.512480": "半导体ETF",
-    "SHSE.561600": "消费电子ETF",
+    "SHSE.561600": "消费电子ETF",  # little
     "SHSE.513100": "纳指ETF",
     "SHSE.588000": "科创50ETF",
     "SHSE.513500": "标普500ETF",
-    "SZSE.159619": "基建ETF",
+    "SZSE.159619": "基建ETF",  # little
     "SHSE.515880": "通信ETF",
     "SHSE.513380": "恒生科技ETF龙头",
 
