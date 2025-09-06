@@ -354,7 +354,7 @@ class AILabxTool:
 
 
 class AILabxStrategy:
-    def __init__(self, context, white_list: list = None, max_count: int = 1, w_aa=0.2, w_bb=1.5, w_cc=1, w_dd=0.16):
+    def __init__(self, context, white_list: list = None, max_count: int = 1, w_aa=0.2, w_bb=1.5, w_cc=1, w_dd=0.18):
         self.now = None
         self.context = context
         self.white_list = list(white_list)
@@ -608,7 +608,6 @@ index_list = {
 
 }
 
-
 if __name__ == '__main__':
     '''
         strategy_id策略ID, 由系统生成
@@ -627,8 +626,8 @@ if __name__ == '__main__':
         filename='main.py',
         mode=MODE_BACKTEST,
         token='c8bd4de742240da9483aecd05a2f5e52900786eb',
-        backtest_start_time="2023-09-19 09:30:00",
-        backtest_end_time='2025-08-21 15:00:00',
+        backtest_start_time="2024-01-09 09:30:00",
+        backtest_end_time='2025-09-08 15:00:00',
         # backtest_end_time='2023-10-20 15:00:00',
         backtest_adjust=ADJUST_NONE,
         backtest_initial_cash=100000,
