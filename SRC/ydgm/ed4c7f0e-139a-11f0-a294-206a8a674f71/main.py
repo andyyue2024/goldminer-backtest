@@ -354,7 +354,7 @@ class AILabxTool:
 
 
 class AILabxStrategy:
-    def __init__(self, context, white_list: list = None, max_count: int = 1, w_aa=0.2, w_bb=1.5, w_cc=1, w_dd=0.18):
+    def __init__(self, context, white_list: list = None, max_count: int = 1, w_aa=0.2, w_bb=1.5, w_cc=1, w_dd=0.16):
         self.now = None
         self.context = context
         self.white_list = list(white_list)
@@ -631,7 +631,7 @@ if __name__ == '__main__':
         backtest_start_time="2024-01-09 09:30:00",
         backtest_end_time='2025-09-08 15:00:00',
         # backtest_end_time='2023-10-20 15:00:00',
-        backtest_adjust=ADJUST_NONE,
+        backtest_adjust=ADJUST_PREV,
         backtest_initial_cash=100000,
         backtest_commission_ratio=0.0005,  # 0.0005
         backtest_commission_unit=1,
