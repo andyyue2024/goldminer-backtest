@@ -402,9 +402,8 @@ class AILabxStrategy:
             print("target: ", in_list, "; already hold: ", hold_symbol_list)
         if len(in_list) == 1 and self.last_symbol == in_list[0]:
             return []
-        if len(positions) > 0:
-            print("order_close_all: ", hold_symbol_list)
-            order_close_all()
+        for position in positions:
+            self.sell_target_position(position)
 
         hold_target_list = []
         for target in in_list:
@@ -456,6 +455,12 @@ class AILabxStrategy:
         #                      position_side=PositionSide_Long, price=self.latest_price(target))
         order_percent(symbol=target, percent=1. / self.max_count, side=OrderSide_Sell, order_type=OrderType_Limit,
                       position_effect=PositionEffect_Close, price=self.latest_price(target))
+
+    def sell_target_position(self, p):
+        target = p.symbol
+        print("sell_target: ", target)
+        order_volume(symbol=target, volume=p.volume, side=OrderSide_Sell, order_type=OrderType_Limit,
+                     position_effect=PositionEffect_Close, price=self.latest_price(target))
 
     def buy_target(self, target: str):
         print("buy_target: ", target)
