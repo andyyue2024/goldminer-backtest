@@ -49,7 +49,7 @@ class AILabxTool:
         roc_score1 = self.roc(symbol, "close", 5)
         roc_score2 = self.roc(symbol, "close", 10)
         ma_score1 = self.ma(symbol, "volume", 5)
-        ma_score2 = self.ma(symbol, "volume", 20)
+        ma_score2 = self.ma(symbol, "volume", 19)
         aa = trend_score
         bb = roc_score1 + roc_score2
         cc = ma_score1 / ma_score2
@@ -360,7 +360,7 @@ class AILabxTool:
 
 
 class AILabxStrategy:
-    def __init__(self, context, white_list: list = None, max_count: int = 1, w_aa=0.1, w_bb=0.2, w_cc=1, w_dd=0.18):
+    def __init__(self, context, white_list: list = None, max_count: int = 1, w_aa=0.2, w_bb=1.5, w_cc=1, w_dd=0.16):
         self.now = None
         self.context = context
         self.white_list = list(white_list)
@@ -375,6 +375,12 @@ class AILabxStrategy:
         if in_list is None:
             in_list = []
         return in_list + [item for item in self.white_list if item not in in_list]
+
+    def filter_for_selling(self, in_list: list = None):
+        # filter symbols that should be selling before sorting
+        if in_list is None:
+            in_list = []
+        return [item for item in in_list if not self.should_sell(item)]
 
     def sort(self, in_list: list, ascending=False) -> list:
         symbol_list = list(in_list)
@@ -401,6 +407,22 @@ class AILabxStrategy:
         if len(in_list) > 0:
             # print("target: ", in_list, "; already hold: ", hold_symbol_list)
             pass
+        if len(in_list) == 1 and self.last_symbol == in_list[0]:
+            return []
+        for position in positions:
+            self.sell_target_position(position)
+
+        hold_target_list = []
+        for target in in_list:
+            self.buy_target(target)
+            hold_target_list.append(target)
+        return hold_target_list
+
+    def try_to_order1(self, in_list: list) -> list:
+        positions = self.context.account().positions(side=PositionSide_Long)
+        hold_symbol_list = [p.symbol for p in positions]
+        if len(in_list) > 0:
+            print("target: ", in_list, "; already hold: ", hold_symbol_list)
         if len(in_list) == 1 and self.last_symbol == in_list[0]:
             if self.should_sell(self.last_symbol):
                 self.sell_target(self.last_symbol)
@@ -441,6 +463,12 @@ class AILabxStrategy:
         order_percent(symbol=target, percent=1. / self.max_count, side=OrderSide_Sell, order_type=OrderType_Limit,
                       position_effect=PositionEffect_Close, price=self.latest_price(target))
 
+    def sell_target_position(self, p):
+        target = p.symbol
+        # print("sell_target: ", target)
+        order_volume(symbol=target, volume=p.volume, side=OrderSide_Sell, order_type=OrderType_Limit,
+                     position_effect=PositionEffect_Close, price=self.latest_price(target))
+
     def buy_target(self, target: str):
         # print("buy_target: ", target)
         # self.last_symbol = target
@@ -451,7 +479,7 @@ class AILabxStrategy:
 
 
     def should_sell(self, target: str):
-        return self.ailabx.roc(target, "close", 21) > self.w_dd
+        return self.ailabx.roc(target, "close", 20) > self.w_dd
         # return False
 
     @staticmethod
@@ -472,6 +500,7 @@ class AILabxStrategy:
             self.last_symbol = ""
 
         ret_list = self.filter()
+        ret_list = self.filter_for_selling(ret_list)
         ret_list = self.sort(ret_list)
         # print("sort: ", ret_list)
         ret_list = self.filter_top(ret_list)
@@ -526,21 +555,45 @@ def on_backtest_finished(context, indicator):
 
 index_list = {
     # List
-    # "SZSE.159509": "纳指科技ETF",
-    "SHSE.518880": "黄金ETF",
-    # "SHSE.512480": "半导体ETF",
-    # "SZSE.159531": "中证2000ETF",
-    "SHSE.513100": "纳指ETF",
-    # "SHSE.513520": "日经ETF",
-    # "SZSE.159857": "光伏ETF",
-    # "SHSE.512100": "中证1000ETF",
-    # "SHSE.510180": "上证180ETF",
-    # "SHSE.588000": "科创50ETF",
-    # "SHSE.513330": "恒生互联网ETF",
-    # "SZSE.162719": "石油LOF",
-    # "SHSE.513500": "标普500ETF",
+    "SHSE.513290": "纳指生物科技ETF",
+    "SHSE.513520": "日经ETF",
+    "SZSE.159509": "纳指科技ETF",
+    "SHSE.513030": "德国ETF",
     "SZSE.159915": "创业板ETF",
-    # "SHSE.513030": "德国ETF",
+    "SHSE.512100": "中证1000ETF",
+    "SHSE.563300": "中证2000ETF",
+    "SHSE.588100": "科创信息技术ETF",  # little
+    "SHSE.513040": "港股通互联网ETF",
+    "SHSE.563000": "中国A50ETF",
+    "SZSE.159560": "芯片50ETF",
+    "SZSE.159819": "人工智能ETF",
+    "SZSE.162719": "石油LOF",
+    "SHSE.518880": "黄金ETF",
+    "SHSE.513330": "恒生互联网ETF",
+    "SHSE.513090": "香港证券ETF",
+    # "SZSE.159505": "国证2000指数ETF",  # very little
+    "SHSE.513180": "恒生科技指数ETF",
+    "SHSE.513130": "恒生科技ETF",
+    "SZSE.159857": "光伏ETF",
+    "SHSE.512480": "半导体ETF",
+    "SHSE.561600": "消费电子ETF",  # little
+    "SHSE.513100": "纳指ETF",
+    "SHSE.588000": "科创50ETF",
+    "SHSE.513500": "标普500ETF",
+    "SZSE.159619": "基建ETF",  # little
+    "SHSE.515880": "通信ETF",
+    "SHSE.513380": "恒生科技ETF龙头",
+    "SHSE.510300": "沪深300ETF",
+    # "SHSE.510050": "上证50ETF",
+    "SHSE.510500": "中证500ETF",
+    "SHSE.588080": "科创板50ETF",
+    # "SHSE.512890": "红利低波ETF",
+    "SHSE.513120": "港股创新药ETF",
+    # "SHSE.511380": "可转债ETF",
+    # "SHSE.562500": "机器人ETF",
+    # "SHSE.512690": "酒ETF",
+    "SZSE.159920": "恒生ETF",
+    # "SZSE.159928": "消费ETF",
 
 }
 
@@ -573,12 +626,12 @@ def run_strategy(paras: dict, p_index: int):
         # token='6860051c58995ae01c30a27d5b72000bababa8e6',  # gfgm
         strategy_id='630ce8b7-0c6d-11f0-a2bc-00155dd6c843',  # ydgm 回测
         token='c8bd4de742240da9483aecd05a2f5e52900786eb',  # ydgm
-        backtest_start_time="2013-08-29 09:30:00",
-        backtest_end_time='2025-06-17 15:00:00',
+        backtest_start_time="2024-01-09 09:30:00",
+        backtest_end_time='2025-09-08 15:00:00',
         # backtest_end_time='2023-10-20 15:00:00',
-        backtest_adjust=ADJUST_NONE,
+        backtest_adjust=ADJUST_PREV,
         backtest_initial_cash=100000,
-        backtest_commission_ratio=0.0000,  # 0.0005
+        backtest_commission_ratio=0.0005,  # 0.0005
         backtest_commission_unit=1,
         backtest_slippage_ratio=0.0001,
         backtest_marginfloat_ratio1=0.2,
@@ -604,9 +657,9 @@ if __name__ == '__main__':
     print('构建参数组：')
     paras_list = []
     # w_aa = 0.1, w_bb = 0.2, w_cc = 1, w_dd = 0.18
-    sequence_aa = np.round(np.arange(0.05, 1.05, 0.05), 2).tolist()
-    sequence_bb = np.round(np.arange(0.05, 0.85, 0.05), 2).tolist()
-    sequence_dd = np.round(np.arange(0.10, 0.25, 0.03), 2).tolist()
+    sequence_aa = np.round(np.arange(0.10, 0.60, 0.05), 2).tolist()
+    sequence_bb = np.round(np.arange(0.10, 2.00, 0.05), 2).tolist()
+    sequence_dd = np.round(np.arange(0.15, 0.20, 0.01), 2).tolist()
     # sequence_aa = np.round(np.linspace(0.05, 1.05, 2), 2).tolist()
     # sequence_bb = np.round(np.linspace(0.05, 0.35, 2), 2).tolist()
     # sequence_dd = np.round(np.linspace(0.08, 0.25, 2), 2).tolist()
