@@ -354,7 +354,7 @@ class AILabxTool:
 
 
 class AILabxStrategy:
-    def __init__(self, context, white_list: list = None, max_count: int = 1, w_aa=0.2, w_bb=1.5, w_cc=1, w_dd=0.16):
+    def __init__(self, context, white_list: list = None, max_count: int = 1, w_aa=0.25, w_bb=0.75, w_cc=1, w_dd=0.17):
         self.now = None
         self.context = context
         self.white_list = list(white_list)
