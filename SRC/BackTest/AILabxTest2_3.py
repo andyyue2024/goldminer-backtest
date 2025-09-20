@@ -49,7 +49,7 @@ class AILabxTool:
         roc_score1 = self.roc(symbol, "close", 5)
         roc_score2 = self.roc(symbol, "close", 10)
         ma_score1 = self.ma(symbol, "volume", 5)
-        ma_score2 = self.ma(symbol, "volume", 19)
+        ma_score2 = self.ma(symbol, "volume", 18)
         aa = trend_score
         bb = roc_score1 + roc_score2
         cc = ma_score1 / ma_score2
