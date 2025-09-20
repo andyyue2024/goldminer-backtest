@@ -42,7 +42,7 @@ class AILabxTool:
         roc_score1 = self.roc(symbol, "close", 5)
         roc_score2 = self.roc(symbol, "close", 10)
         ma_score1 = self.ma(symbol, "volume", 5)
-        ma_score2 = self.ma(symbol, "volume", 19)
+        ma_score2 = self.ma(symbol, "volume", 18)
         aa = trend_score
         bb = roc_score1 + roc_score2
         cc = ma_score1 / ma_score2
@@ -354,7 +354,7 @@ class AILabxTool:
 
 
 class AILabxStrategy:
-    def __init__(self, context, white_list: list = None, max_count: int = 1, w_aa=0.25, w_bb=0.75, w_cc=1, w_dd=0.17):
+    def __init__(self, context, white_list: list = None, max_count: int = 1, w_aa=0.20, w_bb=1.90, w_cc=1, w_dd=0.17):
         self.now = None
         self.context = context
         self.white_list = list(white_list)
