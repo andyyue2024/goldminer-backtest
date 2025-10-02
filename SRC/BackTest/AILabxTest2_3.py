@@ -466,7 +466,7 @@ class AILabxStrategy:
     def sell_target_position(self, p):
         target = p.symbol
         # print("sell_target: ", target)
-        order_volume(symbol=target, volume=p.volume, side=OrderSide_Sell, order_type=OrderType_Limit,
+        order_volume(symbol=target, volume=p.volume, side=OrderSide_Sell, order_type=OrderType_Market,
                      position_effect=PositionEffect_Close, price=self.latest_price(target))
 
     def buy_target(self, target: str):
@@ -474,7 +474,7 @@ class AILabxStrategy:
         # self.last_symbol = target
         # order_target_percent(symbol=target, percent=1. / self.max_count, order_type=OrderType_Limit,
         #                      position_side=PositionSide_Long, price=self.latest_price(target))
-        order_percent(symbol=target, percent=1. / self.max_count, side=OrderSide_Buy, order_type=OrderType_Limit,
+        order_percent(symbol=target, percent=1. / self.max_count, side=OrderSide_Buy, order_type=OrderType_Market,
                       position_effect=PositionEffect_Open, price=self.latest_price(target))
 
 
@@ -518,7 +518,8 @@ def init(context):
                                               w_cc=context.paras['w_cc'], w_dd=context.paras['w_dd']
                                               )
 
-    schedule(schedule_func=algo, date_rule='1d', time_rule='09:31:00')
+    schedule(schedule_func=algo, date_rule='1d', time_rule='09:32:00')
+    # subscribe(symbols=list(index_list.keys()), frequency="60s")
 
 
 def algo(context):
@@ -538,7 +539,8 @@ def on_order_status(context, order):
         print(f"order OrderStatus_Canceled or OrderStatus_PartiallyFilled, {order.order_id}")
         # self.handle_order_retry(order)
     elif order.status in [OrderStatus_Rejected]:  # 已拒绝
-        print(f"order OrderStatus_Rejected, {order.ord_rej_reason}")
+        # print(f"order OrderStatus_Rejected, {order.ord_rej_reason}")
+        pass
 
 
 def on_backtest_finished(context, indicator):
@@ -619,15 +621,94 @@ def run_strategy(paras: dict, p_index: int):
         backtest_slippage_ratio回测滑点比例
         backtest_match_mode市价撮合模式，以下一tick/bar开盘价撮合:0，以当前tick/bar收盘价撮合：1
     '''
+    '''
+        一、前一天收盘价买入
+            schedule(schedule_func=algo, date_rule='1d', time_rule='09:32:00')
+            不订阅 # subscribe(symbols=list(index_list.keys()), frequency="60s")
+            backtest_match_mode=0
+            order_type=OrderType_Limit
+            current(symbols=symbol)
+        二、某个时间9:32 执行。
+            schedule(schedule_func=algo, date_rule='1d', time_rule='09:32:00')
+            subscribe(symbols=list(index_list.keys()), frequency="60s")
+            backtest_match_mode=0
+            order_type=OrderType_Limit
+            current(symbols=symbol)
+        
+        三、当日收盘前执行。
+            schedule(schedule_func=algo, date_rule='1d', time_rule='09:32:00')
+            不订阅 # subscribe(symbols=list(index_list.keys()), frequency="60s")
+            backtest_match_mode=1
+            order_type=OrderType_Market     
+    '''
+    '''
+        一、前一天收盘价买入。
+        1.最佳参数：0.2， 1.9， 1， 0.17
+          20240109~20250908 前复权回测，收益增长10.9368*100%；年化收益率率3.4259*100%
+        
+        trend_score = self.trend_score(symbol, "close", 25)
+        roc_score1 = self.roc(symbol, "close", 5)
+        roc_score2 = self.roc(symbol, "close", 10)
+        ma_score1 = self.ma(symbol, "volume", 5)
+        ma_score2 = self.ma(symbol, "volume", 18)
+        aa = trend_score
+        bb = roc_score1 + roc_score2
+        cc = ma_score1 / ma_score2
+        score = aa * self.w_aa + bb * self.w_bb + cc * self.w_cc
+        
+        self.ailabx.roc(target, "close", 20) > self.w_dd
+        
+        
+        
+        二、9:32 执行。
+        1.最佳参数 0.2, 1.3， 1， 0.2
+          20240109~20250908 前复权回测，收益增长7.9616*100%；年化收益率率2.7266*100%
+        
+        trend_score = self.trend_score(symbol, "close", 25)
+        roc_score1 = self.roc(symbol, "close", 5)
+        roc_score2 = self.roc(symbol, "close", 10)
+        ma_score1 = self.ma(symbol, "volume", 5)
+        ma_score2 = self.ma(symbol, "volume", 18)
+        aa = trend_score
+        bb = roc_score1 + roc_score2
+        cc = ma_score1 / ma_score2
+        score = aa * self.w_aa + bb * self.w_bb + cc * self.w_cc
+        
+        self.ailabx.roc(target, "close", 20) > self.w_dd
+        
+        
+        三、当日收盘前执行。
+        1.最佳参数  0.45, 0.20， 1， 0.15
+          20240109~20250908 前复权回测，收益增长 5.8824*100%；年化收益率率2.1808*100%
+          20240109~20250929 前复权回测，收益增长 6.4797*100%；年化收益率率2.2282*100%
+          20210101~20250928 前复权回测，收益增长 7.8970*100%；年化收益率率0.5843*100%
+        
+        2.次佳参数  0.2, 1.3， 1， 0.2
+          20240109~20250908 前复权回测，收益增长 5.8176*100%；年化收益率率2.1628*100%
+          20240109~20250929 前复权回测，收益增长 5.7918*100%；年化收益率率2.0518*100%
+          20210101~20250928 前复权回测，收益增长 5.3997*100%；年化收益率率0.4781*100%
+        
+        trend_score = self.trend_score(symbol, "close", 25)
+        roc_score1 = self.roc(symbol, "close", 5)
+        roc_score2 = self.roc(symbol, "close", 10)
+        ma_score1 = self.ma(symbol, "volume", 5)
+        ma_score2 = self.ma(symbol, "volume", 18)
+        aa = trend_score
+        bb = roc_score1 + roc_score2
+        cc = ma_score1 / ma_score2
+        score = aa * self.w_aa + bb * self.w_bb + cc * self.w_cc
+        
+        self.ailabx.roc(target, "close", 20) > self.w_dd
+    '''
     run(
-        # strategy_id='19236129-09e5-11f0-99ab-00155dd6c843',  # gfgm
+        strategy_id='19236129-09e5-11f0-99ab-00155dd6c843',  # gfgm
         filename=(os.path.basename(__file__)),
         mode=MODE_BACKTEST,
-        # token='6860051c58995ae01c30a27d5b72000bababa8e6',  # gfgm
-        strategy_id='630ce8b7-0c6d-11f0-a2bc-00155dd6c843',  # ydgm 回测
-        token='c8bd4de742240da9483aecd05a2f5e52900786eb',  # ydgm
-        backtest_start_time="2024-01-09 09:30:00",
-        backtest_end_time='2025-09-08 15:00:00',
+        token='6860051c58995ae01c30a27d5b72000bababa8e6',  # gfgm
+        # strategy_id='630ce8b7-0c6d-11f0-a2bc-00155dd6c843',  # ydgm 回测
+        # token='c8bd4de742240da9483aecd05a2f5e52900786eb',  # ydgm
+        backtest_start_time="2021-01-01 09:30:00",
+        backtest_end_time='2025-09-28 15:00:00',
         # backtest_end_time='2023-10-20 15:00:00',
         backtest_adjust=ADJUST_PREV,
         backtest_initial_cash=100000,
@@ -636,7 +717,7 @@ def run_strategy(paras: dict, p_index: int):
         backtest_slippage_ratio=0.0001,
         backtest_marginfloat_ratio1=0.2,
         backtest_marginfloat_ratio2=0.4,
-        backtest_match_mode=0)
+        backtest_match_mode=1)
     return context.result
 
 
@@ -679,7 +760,7 @@ if __name__ == '__main__':
     def callback(result):
         # # 每完成一个任务，记录结果
         result_list.append(result)
-        write_to_file(result_list) if len(result_list) % 100 == 0 else None
+        write_to_file(result_list) if len(result_list) % 10 == 0 else None
 
     result_list = []
     # 多进程并行
