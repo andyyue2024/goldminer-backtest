@@ -616,6 +616,38 @@ def on_backtest_finished(context, indicator):
     print(f"{context.symbol} backtest finished: ", indicator)
 
 
+index_list = {
+    # List
+    "SHSE.513520": "日经ETF",
+    "SHSE.513290": "纳指生物科技ETF",
+    "SZSE.159509": "纳指科技ETF",
+    "SHSE.513030": "德国ETF",
+    "SZSE.513100": "纳指ETF",
+    "SHSE.159915": "创业板ETF",
+    "SHSE.512100": "中证1000ETF",
+    "SHSE.563300": "中证2000ETF",
+    "SHSE.560800": "数字经济ETF",
+    "SHSE.513040": "港股通互联网ETF",
+    "SZSE.518880": "黄金ETF",
+    "SZSE.159560": "芯片50ETF",
+    "SZSE.159819": "人工智能ETF",
+    "SHSE.162719": "石油LOF",
+    "SHSE.513330": "恒生互联网ETF",
+    "SHSE.513090": "香港证券ETF",
+    "SZSE.513380": "恒生科技ETF龙头",
+    "SHSE.561600": "消费电子ETF",
+    "SHSE.512480": "半导体ETF",
+    "SZSE.159752": "新能源龙头ETF",
+    "SHSE.159761": "新材料50ETF",
+    "SHSE.588000": "科创50ETF",
+    "SHSE.513500": "标普500ETF",
+    "SHSE.588100": "科创信息技术ETF",
+    "SHSE.515030": "新能源车ETF",
+    "SZSE.515880": "通信ETF",
+    "SHSE.515790": "光伏ETF",
+
+}
+
 index_list1 = {
     # List
     "SZSE.159509": "纳指科技ETF",
@@ -644,7 +676,7 @@ index_list1 = {
     # "SHSE.10009231": "op-put",
 }
 
-index_list = {
+index_list2 = {
     # List
     "SHSE.513290": "纳指生物科技ETF",
     "SHSE.513520": "日经ETF",
@@ -788,8 +820,8 @@ if __name__ == '__main__':
         mode=MODE_BACKTEST,
         token='6860051c58995ae01c30a27d5b72000bababa8e6',  # gfgm
         # token='c8bd4de742240da9483aecd05a2f5e52900786eb',
-        backtest_start_time="2025-09-19 09:30:00",
-        backtest_end_time='2025-09-29 15:00:00',
+        backtest_start_time="2024-01-09 09:30:00",
+        backtest_end_time='2025-09-08 15:00:00',
         # backtest_end_time='2023-10-20 15:00:00',
         backtest_adjust=ADJUST_PREV,
         backtest_initial_cash=100000,
