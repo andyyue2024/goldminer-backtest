@@ -36,12 +36,18 @@ class AILabxTool:
         self.last_day = AILabxTool.get_time_Ymd(self.now - timedelta(days=1)) if self.now else None
 
     def get_score(self, symbol):
+        # test result: trend_score == trend_score3
+        #              trend_score1 == trend_score2
+        # trend_score与trend_score1之间关系：Y = sign(X) * 128.4115 * |X + 0.009506|^1.5033 - 0.001011
+        # trend_score = self.trend_score(symbol, "close", 25)
+        # trend_score1 = self.trend_score1(symbol, "close", 25)
         # trend_score2 = self.trend_score2(symbol, "close", 25)
-        trend_score = self.trend_score(symbol, "close", 26)
+        # trend_score3 = self.trend_score3(symbol, "close", 25)
+        trend_score = self.trend_score(symbol, "close", 25)
         roc_score1 = self.roc(symbol, "close", 5)
         roc_score2 = self.roc(symbol, "close", 10)
         ma_score1 = self.ma(symbol, "volume", 5)
-        ma_score2 = self.ma(symbol, "volume", 20)
+        ma_score2 = self.ma(symbol, "volume", 18)
         aa = trend_score
         bb = roc_score1 + roc_score2
         cc = ma_score1 / ma_score2
@@ -229,6 +235,73 @@ class AILabxTool:
         # 返回斜率乘以拟合度
         return slope * r_squared
 
+    def trend_score3(self, symbol, field='close', window=20):
+        """计算趋势评分：年化收益率 × R平方"""
+
+        def calc_trend_score(s: np.ndarray) -> float:
+            """内部计算函数：一次性计算斜率、R平方和趋势评分"""
+            slope, _, r2 = _linear_regression_params(s)
+
+            if np.isnan(slope):
+                return np.nan
+
+            # 计算年化收益率并乘以R平方
+            annualized_return = np.exp(slope * 250) - 1
+            return annualized_return * r2
+
+        def _linear_regression_params(y_raw: np.ndarray) -> tuple[float, float, float]:
+            """复用核心逻辑：对数转换 + 回归参数计算（斜率、截距、R平方）    返回值：(slope, intercept, r_squared)    """
+            # === 与第一个函数完全一致的计算逻辑 ===
+            y = np.log(y_raw)  # 对数转换
+            x = np.arange(len(y))
+            n = len(x)
+            if n < 2:
+                return (np.nan, np.nan, 0.0)  # 窗口不足返回NaN
+            sum_x = x.sum()
+            sum_y = y.sum()
+            sum_x2 = (x ** 2).sum()
+            sum_xy = (x * y).sum()
+            denominator = n * sum_x2 - sum_x ** 2    # 处理零分母（完全无波动）
+            if denominator <= 1e-9:
+                return (0.0, sum_y / n, 0.0)    # 计算斜率/截距
+            slope = (n * sum_xy - sum_x * sum_y) / denominator
+            intercept = (sum_y - slope * sum_x) / n    # 计算R平方
+            y_pred = slope * x + intercept
+            ss_res = np.sum((y - y_pred) ** 2)
+            ss_tot = np.sum(y ** 2) - (sum_y ** 2) / n
+            r_squared = 1 - ss_res / ss_tot if ss_tot > 1e-9 else 0.0
+            r_squared = max(0.0, min(r_squared, 1.0))  # 限制在[0,1]范围
+            return (slope, intercept, r_squared)
+
+        # 确保窗口大小合适
+        if window < 2:
+            raise ValueError("窗口大小至少为2")
+        history_data = None
+        if self.all_data is None:
+            history_data = history_n(
+                symbol=symbol,
+                frequency='1d',
+                count=window,
+                end_time=self.last_day,
+                fields=field,
+                fill_missing="last",
+                adjust=ADJUST_PREV,
+                df=True
+            )
+        else:
+            # filtered_df = df[(df['A'] > 2) & (df['B'] < 8)]
+            history_data = self.all_data[
+                (self.all_data['bob'] <= self.last_day) & (self.all_data['symbol'] == symbol)]
+            history_data = history_data.tail(window)
+
+        # 提取收盘价序列
+        data = np.asarray(history_data[field].values)
+        # close = history_data[field].values
+        if len(data) < window:
+            return np.nan  # 数据不足时返回 NaN
+
+        return calc_trend_score(data)
+
     def roc(self, symbol, field='close', window=20):
         history_data = None
         if self.all_data is None:
@@ -353,7 +426,7 @@ class AILabxTool:
 
 
 class AILabxStrategy:
-    def __init__(self, context, white_list: list = None, max_count: int = 1, w_aa=0.1, w_bb=0.1, w_cc=1, w_dd=0.20):
+    def __init__(self, context, white_list: list = None, max_count: int = 1, w_aa=0.20, w_bb=1.3, w_cc=1, w_dd=0.20):
         self.now = None
         self.context = context
         self.white_list = list(white_list)
@@ -364,10 +437,16 @@ class AILabxStrategy:
         self.w_dd = w_dd
         self.last_symbol = ""
 
-    def filter(self, in_list: list=None):
+    def filter(self, in_list: list = None):
         if in_list is None:
             in_list = []
         return in_list + [item for item in self.white_list if item not in in_list]
+
+    def filter_for_selling(self, in_list: list = None):
+        # filter symbols that should be selling before sorting
+        if in_list is None:
+            in_list = []
+        return [item for item in in_list if not self.should_sell(item)]
 
     def sort(self, in_list: list, ascending=False) -> list:
         symbol_list = list(in_list)
@@ -389,13 +468,35 @@ class AILabxStrategy:
         return in_list[0:top_count]
 
     def try_to_order(self, in_list: list) -> list:
+        positions = self.context.account().positions(side=PositionSide_Long)
+        hold_symbol_list = [p.symbol for p in positions]
+        if len(in_list) > 0:
+            print("target: ", in_list, "; already hold: ", hold_symbol_list)
+        if len(in_list) == 1 and self.last_symbol == in_list[0]:
+            return []
+        for position in positions:
+            self.sell_target_position(position)
+
+        hold_target_list = []
+        for target in in_list:
+            self.buy_target(target)
+            hold_target_list.append(target)
+        return hold_target_list
+
+    def try_to_order1(self, in_list: list) -> list:
+        positions = self.context.account().positions(side=PositionSide_Long)
+        hold_symbol_list = [p.symbol for p in positions]
+        if len(in_list) > 0:
+            print("target: ", in_list, "; already hold: ", hold_symbol_list)
         if len(in_list) == 1 and self.last_symbol == in_list[0]:
             if self.should_sell(self.last_symbol):
                 self.sell_target(self.last_symbol)
-                self.last_symbol = ""
+                # self.last_symbol = ""
             return []
-        order_close_all()
-        print("order_close_all: ")
+        if len(positions) > 0:
+            print("order_close_all: ", hold_symbol_list)
+            order_close_all()
+
         hold_target_list = []
         for target in in_list:
             if not self.should_sell(target):
@@ -403,19 +504,47 @@ class AILabxStrategy:
                 hold_target_list.append(target)
         return hold_target_list
 
+    def try_to_order2(self, in_list: list) -> list:
+        to_buy_list = []
+        positions = self.context.account().positions(side=PositionSide_Long)
+        hold_symbol_list = [p.symbol for p in positions]
+        if len(in_list) > 0:
+            print("target: ", in_list, "; already hold: ", hold_symbol_list)
+        for hold_symbol in hold_symbol_list:
+            if (hold_symbol not in in_list or
+                    (hold_symbol in in_list and self.should_sell(hold_symbol))):  # 命中强制卖出条件
+                self.sell_target(hold_symbol)
+
+        for target_symbol in in_list:
+            if (not self.should_sell(target_symbol)) and (target_symbol not in hold_symbol_list):
+                self.buy_target(target_symbol)
+                to_buy_list.append(target_symbol)
+        return to_buy_list
+
     def sell_target(self, target: str):
         print("sell_target: ", target)
-        order_target_percent(symbol=target, percent=0, order_type=OrderType_Market,
-                             position_side=PositionSide_Long, price=self.latest_price(target))
+        # order_target_percent(symbol=target, percent=0, order_type=OrderType_Limit,
+        #                      position_side=PositionSide_Long, price=self.latest_price(target))
+        order_percent(symbol=target, percent=1. / self.max_count, side=OrderSide_Sell, order_type=OrderType_Limit,
+                      position_effect=PositionEffect_Close, price=self.latest_price(target))
+
+    def sell_target_position(self, p):
+        target = p.symbol
+        print("sell_target: ", target)
+        order_volume(symbol=target, volume=p.volume, side=OrderSide_Sell, order_type=OrderType_Market,
+                     position_effect=PositionEffect_Close, price=self.latest_price(target))
 
     def buy_target(self, target: str):
         print("buy_target: ", target)
-        self.last_symbol = target
-        order_target_percent(symbol=target, percent=1. / self.max_count, order_type=OrderType_Market,
-                             position_side=PositionSide_Long, price=self.latest_price(target))
+        # self.last_symbol = target
+        # order_target_percent(symbol=target, percent=1. / self.max_count, order_type=OrderType_Limit,
+        #                      position_side=PositionSide_Long, price=self.latest_price(target))
+        order_percent(symbol=target, percent=1. / self.max_count, side=OrderSide_Buy, order_type=OrderType_Market,
+                      position_effect=PositionEffect_Open, price=self.latest_price(target))
+
 
     def should_sell(self, target: str):
-        return self.ailabx.roc(target, "close", 18) > self.w_dd
+        return self.ailabx.roc(target, "close", 20) > self.w_dd
         # return False
 
     @staticmethod
@@ -424,10 +553,21 @@ class AILabxStrategy:
         return current_data[0]["price"]
 
     def execute(self, now):
+        order_cancel_all()
+
+        # update info
         self.now = now
         self.ailabx.now = self.now
+        positions = self.context.account().positions(side=PositionSide_Long)
+        if len(positions) > 0:
+            self.last_symbol = positions[0].symbol
+        else:
+            self.last_symbol = ""
+
         ret_list = self.filter()
+        ret_list = self.filter_for_selling(ret_list)
         ret_list = self.sort(ret_list)
+        print("sort: ", ret_list)
         ret_list = self.filter_top(ret_list)
         ret_list = self.try_to_order(ret_list)
         return ret_list
@@ -439,8 +579,20 @@ def init(context):
     context.num = 1
     context.symbol = "AAA"
     context.ai_labx_strategy = AILabxStrategy(context=context, white_list=list(index_list.keys()))
+    # subscribe(symbols=list(index_list.keys()), frequency="60s")
 
-    schedule(schedule_func=algo, date_rule='1d', time_rule='09:31:00')
+    # schedule(schedule_func=algo, date_rule='1d', time_rule='07:11:00')
+    # schedule(schedule_func=algo, date_rule='1d', time_rule='07:41:00')
+    # schedule(schedule_func=algo, date_rule='1d', time_rule='09:11:00')
+    schedule(schedule_func=algo, date_rule='1d', time_rule='09:32:00')
+    # schedule(schedule_func=algo, date_rule='1d', time_rule='09:51:00')
+    # schedule(schedule_func=algo, date_rule='1d', time_rule='10:11:00')
+    # schedule(schedule_func=algo, date_rule='1d', time_rule='10:41:00')
+    # schedule(schedule_func=algo, date_rule='1d', time_rule='11:11:00')
+    # schedule(schedule_func=algo, date_rule='1d', time_rule='13:11:00')
+    # schedule(schedule_func=algo, date_rule='1d', time_rule='13:41:00')
+    # schedule(schedule_func=algo, date_rule='1d', time_rule='14:11:00')
+    # schedule(schedule_func=algo, date_rule='1d', time_rule='14:41:00')
 
 
 def algo(context):
@@ -464,7 +616,7 @@ def on_backtest_finished(context, indicator):
     print(f"{context.symbol} backtest finished: ", indicator)
 
 
-index_list = {
+index_list1 = {
     # List
     "SZSE.159509": "纳指科技ETF",
     "SHSE.518880": "黄金ETF",
@@ -480,26 +632,171 @@ index_list = {
     "SZSE.162719": "石油LOF",
     "SHSE.513500": "标普500ETF",
     "SZSE.159915": "创业板ETF",
+    "SHSE.513030": "德国ETF",
+
+    # "SZSE.90005539": "op-call",
+    # "SZSE.90005588": "op-put",
+
+    # "SZSE.90005554": "op-call",
+    # "SZSE.90005563": "op-put",
+    #
+    # "SHSE.10009222": "op-call",
+    # "SHSE.10009231": "op-put",
+}
+
+index_list = {
+    # List
+    "SHSE.513290": "纳指生物科技ETF",
+    "SHSE.513520": "日经ETF",
+    "SZSE.159509": "纳指科技ETF",
+    "SHSE.513030": "德国ETF",
+    "SZSE.159915": "创业板ETF",
+    "SHSE.512100": "中证1000ETF",
+    "SHSE.563300": "中证2000ETF",
+    "SHSE.588100": "科创信息技术ETF",  # little
+    "SHSE.513040": "港股通互联网ETF",
+    "SHSE.563000": "中国A50ETF",
+    "SZSE.159560": "芯片50ETF",
+    "SZSE.159819": "人工智能ETF",
+    "SZSE.162719": "石油LOF",
+    "SHSE.518880": "黄金ETF",
+    "SHSE.513330": "恒生互联网ETF",
+    "SHSE.513090": "香港证券ETF",
+    # "SZSE.159505": "国证2000指数ETF",  # very little
+    "SHSE.513180": "恒生科技指数ETF",
+    "SHSE.513130": "恒生科技ETF",
+    "SZSE.159857": "光伏ETF",
+    "SHSE.512480": "半导体ETF",
+    "SHSE.561600": "消费电子ETF",  # little
+    "SHSE.513100": "纳指ETF",
+    "SHSE.588000": "科创50ETF",
+    "SHSE.513500": "标普500ETF",
+    "SZSE.159619": "基建ETF",  # little
+    "SHSE.515880": "通信ETF",
+    "SHSE.513380": "恒生科技ETF龙头",
+    "SHSE.510300": "沪深300ETF",
+    # "SHSE.510050": "上证50ETF",
+    "SHSE.510500": "中证500ETF",
+    "SHSE.588080": "科创板50ETF",
+    # "SHSE.512890": "红利低波ETF",
+    "SHSE.513120": "港股创新药ETF",
+    # "SHSE.511380": "可转债ETF",
+    # "SHSE.562500": "机器人ETF",
+    # "SHSE.512690": "酒ETF",
+    "SZSE.159920": "恒生ETF",
+    # "SZSE.159928": "消费ETF",
 
 }
 
-if __name__ == "__main__":
+if __name__ == '__main__':
+    '''
+        strategy_id策略ID,由系统生成
+        filename文件名,请与本文件名保持一致
+        mode实时模式:MODE_LIVE回测模式:MODE_BACKTEST
+        token绑定计算机的ID,可在系统设置-密钥管理中生成
+        backtest_start_time回测开始时间
+        backtest_end_time回测结束时间
+        backtest_adjust股票复权方式不复权:ADJUST_NONE前复权:ADJUST_PREV后复权:ADJUST_POST
+        backtest_initial_cash回测初始资金
+        backtest_commission_ratio回测佣金比例
+        backtest_slippage_ratio回测滑点比例
+        backtest_match_mode市价撮合模式，以下一tick/bar开盘价撮合:0，以当前tick/bar收盘价撮合：1
+    '''
+    '''
+        一、前一天收盘价买入
+            schedule(schedule_func=algo, date_rule='1d', time_rule='09:32:00')
+            不订阅 # subscribe(symbols=list(index_list.keys()), frequency="60s")
+            backtest_match_mode=0
+            order_type=OrderType_Limit
+            current(symbols=symbol)
+        二、某个时间9:32 执行。
+            schedule(schedule_func=algo, date_rule='1d', time_rule='09:32:00')
+            subscribe(symbols=list(index_list.keys()), frequency="60s")
+            backtest_match_mode=0
+            order_type=OrderType_Limit
+            current(symbols=symbol)
+        
+        三、当日收盘前执行。
+            schedule(schedule_func=algo, date_rule='1d', time_rule='09:32:00')
+            不订阅 # subscribe(symbols=list(index_list.keys()), frequency="60s")
+            backtest_match_mode=1
+            order_type=OrderType_Market     
+    '''
+    '''
+        一、前一天收盘价买入。
+        1.最佳参数：0.2， 1.9， 1， 0.17
+          20240109~20250908 前复权回测，收益增长10.9368*100%；年化收益率率3.4259*100%
+        
+        trend_score = self.trend_score(symbol, "close", 25)
+        roc_score1 = self.roc(symbol, "close", 5)
+        roc_score2 = self.roc(symbol, "close", 10)
+        ma_score1 = self.ma(symbol, "volume", 5)
+        ma_score2 = self.ma(symbol, "volume", 18)
+        aa = trend_score
+        bb = roc_score1 + roc_score2
+        cc = ma_score1 / ma_score2
+        score = aa * self.w_aa + bb * self.w_bb + cc * self.w_cc
+        
+        self.ailabx.roc(target, "close", 20) > self.w_dd
+        
+        
+        
+        二、9:32 执行。
+        1.最佳参数 0.2, 1.3， 1， 0.2
+          20240109~20250908 前复权回测，收益增长7.9616*100%；年化收益率率2.7266*100%
+        
+        trend_score = self.trend_score(symbol, "close", 25)
+        roc_score1 = self.roc(symbol, "close", 5)
+        roc_score2 = self.roc(symbol, "close", 10)
+        ma_score1 = self.ma(symbol, "volume", 5)
+        ma_score2 = self.ma(symbol, "volume", 18)
+        aa = trend_score
+        bb = roc_score1 + roc_score2
+        cc = ma_score1 / ma_score2
+        score = aa * self.w_aa + bb * self.w_bb + cc * self.w_cc
+        
+        self.ailabx.roc(target, "close", 20) > self.w_dd
+        
+        
+        三、当日收盘前执行。
+        1.最佳参数  0.45, 0.20， 1， 0.15
+          20240109~20250908 前复权回测，收益增长 5.8824*100%；年化收益率率2.1808*100%
+          20240109~20250929 前复权回测，收益增长 6.4797*100%；年化收益率率2.2282*100%
+          20210101~20250928 前复权回测，收益增长 7.8970*100%；年化收益率率0.5843*100%
+        
+        2.次佳参数  0.2, 1.3， 1， 0.2
+          20240109~20250908 前复权回测，收益增长 5.8176*100%；年化收益率率2.1628*100%
+          20240109~20250929 前复权回测，收益增长 5.7918*100%；年化收益率率2.0518*100%
+          20210101~20250928 前复权回测，收益增长 5.3997*100%；年化收益率率0.4781*100%
+        
+        trend_score = self.trend_score(symbol, "close", 25)
+        roc_score1 = self.roc(symbol, "close", 5)
+        roc_score2 = self.roc(symbol, "close", 10)
+        ma_score1 = self.ma(symbol, "volume", 5)
+        ma_score2 = self.ma(symbol, "volume", 18)
+        aa = trend_score
+        bb = roc_score1 + roc_score2
+        cc = ma_score1 / ma_score2
+        score = aa * self.w_aa + bb * self.w_bb + cc * self.w_cc
+        
+        self.ailabx.roc(target, "close", 20) > self.w_dd
+    '''
     run(
-        # strategy_id='19236129-09e5-11f0-99ab-00155dd6c843',  # gfgm
+        # strategy_id='ed4c7f0e-139a-11f0-a294-206a8a674f71',
+        strategy_id='19236129-09e5-11f0-99ab-00155dd6c843',  # gfgm
         filename=(os.path.basename(__file__)),
         mode=MODE_BACKTEST,
-        # token='6860051c58995ae01c30a27d5b72000bababa8e6',  # gfgm
-        strategy_id='630ce8b7-0c6d-11f0-a2bc-00155dd6c843',  # ydgm 回测
-        token='c8bd4de742240da9483aecd05a2f5e52900786eb',  # ydgm
-        backtest_start_time="2023-09-19 09:30:00",
-        backtest_end_time='2025-03-27 15:00:00',
+        token='6860051c58995ae01c30a27d5b72000bababa8e6',  # gfgm
+        # token='c8bd4de742240da9483aecd05a2f5e52900786eb',
+        backtest_start_time="2025-09-19 09:30:00",
+        backtest_end_time='2025-09-29 15:00:00',
         # backtest_end_time='2023-10-20 15:00:00',
-        backtest_adjust=ADJUST_NONE,
+        backtest_adjust=ADJUST_PREV,
         backtest_initial_cash=100000,
-        backtest_commission_ratio=0.0000,  # 0.0005
+        backtest_commission_ratio=0.0005,  # 0.0005
         backtest_commission_unit=1,
         backtest_slippage_ratio=0.0001,
         backtest_marginfloat_ratio1=0.2,
         backtest_marginfloat_ratio2=0.4,
-        backtest_match_mode=0)
+        backtest_match_mode=1)
 

@@ -6,7 +6,7 @@ import numpy as np
 import os
 from gm.api import *
 import pandas as pd
-import multiprocessing
+import multiprocessing as mp
 
 """
 ai labx test2_3
@@ -360,7 +360,8 @@ class AILabxTool:
 
 
 class AILabxStrategy:
-    def __init__(self, context, white_list: list = None, max_count: int = 1, w_aa=0.2, w_bb=1.5, w_cc=1, w_dd=0.16):
+    def __init__(self, context, white_list: list = None, max_count: int = 1,
+                 w_aa=0.2, w_bb=1.5, w_cc=1, w_dd=0.16, w_fd=20):
         self.now = None
         self.context = context
         self.white_list = list(white_list)
@@ -369,9 +370,10 @@ class AILabxStrategy:
         if context.mode == MODE_BACKTEST:
             self.ailabx.get_all_data(self.white_list, context.backtest_start_time, context.backtest_end_time)
         self.w_dd = w_dd
+        self.w_fd = w_fd
         self.last_symbol = ""
 
-    def filter(self, in_list: list=None):
+    def filter(self, in_list: list = None):
         if in_list is None:
             in_list = []
         return in_list + [item for item in self.white_list if item not in in_list]
@@ -477,9 +479,8 @@ class AILabxStrategy:
         order_percent(symbol=target, percent=1. / self.max_count, side=OrderSide_Buy, order_type=OrderType_Market,
                       position_effect=PositionEffect_Open, price=self.latest_price(target))
 
-
     def should_sell(self, target: str):
-        return self.ailabx.roc(target, "close", 20) > self.w_dd
+        return self.ailabx.roc(target, "close", self.w_fd) > self.w_dd
         # return False
 
     @staticmethod
@@ -515,10 +516,11 @@ def init(context):
     context.symbol = "AAA"
     context.ai_labx_strategy = AILabxStrategy(context=context, white_list=list(index_list.keys()),
                                               w_aa=context.paras['w_aa'], w_bb=context.paras['w_bb'],
-                                              w_cc=context.paras['w_cc'], w_dd=context.paras['w_dd']
+                                              w_cc=context.paras['w_cc'], w_dd=context.paras['w_dd'],
+                                              w_fd=context.paras['w_fd']
                                               )
 
-    schedule(schedule_func=algo, date_rule='1d', time_rule='09:32:00')
+    schedule(schedule_func=algo, date_rule='1d', time_rule='14:52:00')
     # subscribe(symbols=list(index_list.keys()), frequency="60s")
 
 
@@ -549,13 +551,46 @@ def on_backtest_finished(context, indicator):
     # 回测业绩指标数据
     data = [
         indicator['pnl_ratio'], indicator['pnl_ratio_annual'], indicator['sharp_ratio'], indicator['max_drawdown'],
-        context.paras['w_aa'], context.paras['w_bb'], context.paras['w_cc'], context.paras['w_dd']
+        context.paras['w_aa'], context.paras['w_bb'], context.paras['w_cc'], context.paras['w_dd'],
+        context.paras['w_fd']
     ]
     # 将超参加入context.result
     context.result.append(data)
 
 
 index_list = {
+    # List
+    "SHSE.513520": "日经ETF",
+    "SHSE.513290": "纳指生物科技ETF",
+    "SZSE.159509": "纳指科技ETF",
+    "SHSE.513030": "德国ETF",
+    "SZSE.513100": "纳指ETF",
+    "SHSE.159915": "创业板ETF",
+    "SHSE.512100": "中证1000ETF",
+    "SHSE.563300": "中证2000ETF",
+    "SHSE.560800": "数字经济ETF",
+    "SHSE.513040": "港股通互联网ETF",
+    "SZSE.518880": "黄金ETF",
+    "SZSE.159560": "芯片50ETF",
+    "SZSE.159819": "人工智能ETF",
+    "SHSE.162719": "石油LOF",
+    "SHSE.513330": "恒生互联网ETF",
+    "SHSE.513090": "香港证券ETF",
+    "SZSE.513380": "恒生科技ETF龙头",
+    "SHSE.561600": "消费电子ETF",
+    "SHSE.512480": "半导体ETF",
+    "SZSE.159752": "新能源龙头ETF",
+    "SHSE.159761": "新材料50ETF",
+    "SHSE.588000": "科创50ETF",
+    "SHSE.513500": "标普500ETF",
+    "SHSE.588100": "科创信息技术ETF",
+    "SHSE.515030": "新能源车ETF",
+    "SZSE.515880": "通信ETF",
+    "SHSE.515790": "光伏ETF",
+
+}
+
+index_list1 = {
     # List
     "SHSE.513290": "纳指生物科技ETF",
     "SHSE.513520": "日经ETF",
@@ -707,8 +742,8 @@ def run_strategy(paras: dict, p_index: int):
         token='6860051c58995ae01c30a27d5b72000bababa8e6',  # gfgm
         # strategy_id='630ce8b7-0c6d-11f0-a2bc-00155dd6c843',  # ydgm 回测
         # token='c8bd4de742240da9483aecd05a2f5e52900786eb',  # ydgm
-        backtest_start_time="2021-01-01 09:30:00",
-        backtest_end_time='2025-09-28 15:00:00',
+        backtest_start_time="2023-11-21 09:30:00",
+        backtest_end_time='2025-09-29 15:00:00',
         # backtest_end_time='2023-10-20 15:00:00',
         backtest_adjust=ADJUST_PREV,
         backtest_initial_cash=100000,
@@ -726,7 +761,7 @@ def write_to_file(results, output_file_path=f'./data/AILabxTest2_3_info.xlsx'):
     info = pd.DataFrame(info,
                         columns=[
                             'pnl_ratio', 'pnl_ratio_annual', 'sharp_ratio', 'max_drawdown',
-                            'w_aa', 'w_bb', 'w_cc', 'w_dd'
+                            'w_aa', 'w_bb', 'w_cc', 'w_dd', 'w_fd'
                         ])
     print(f"row length: {len(info)}")
     # info.to_csv('./data/info.csv', index=False)
@@ -738,9 +773,12 @@ if __name__ == '__main__':
     print('构建参数组：')
     paras_list = []
     # w_aa = 0.1, w_bb = 0.2, w_cc = 1, w_dd = 0.18
-    sequence_aa = np.round(np.arange(0.10, 0.60, 0.05), 2).tolist()
-    sequence_bb = np.round(np.arange(0.10, 2.00, 0.05), 2).tolist()
+    # sequence_aa = np.round(np.arange(0.10, 0.60, 0.05), 2).tolist()
+    sequence_aa = [0.20, 0.25, 0.45]
+    # sequence_bb = np.round(np.arange(0.10, 2.00, 0.05), 2).tolist()
+    sequence_bb = [0.17, 0.20, 1.30, 1.90]
     sequence_dd = np.round(np.arange(0.15, 0.20, 0.01), 2).tolist()
+    sequence_fd = [18, 20, 21]
     # sequence_aa = np.round(np.linspace(0.05, 1.05, 2), 2).tolist()
     # sequence_bb = np.round(np.linspace(0.05, 0.35, 2), 2).tolist()
     # sequence_dd = np.round(np.linspace(0.08, 0.25, 2), 2).tolist()
@@ -748,8 +786,10 @@ if __name__ == '__main__':
     for w_aa in sequence_aa:
         for w_bb in sequence_bb:
             for w_dd in sequence_dd:
-                paras_list.append({"w_aa": w_aa, "w_bb": w_bb, "w_cc": 1, "w_dd": w_dd})
+                for w_fd in sequence_fd:
+                    paras_list.append({"w_aa": w_aa, "w_bb": w_bb, "w_cc": 1, "w_dd": w_dd, "w_fd": w_fd})
     print("长度：", len(paras_list))
+
 
     def handle_error(error):
         try:
@@ -757,15 +797,19 @@ if __name__ == '__main__':
         except Exception as ee:
             print(f"任务出错: {ee}")
 
+
     def callback(result):
         # # 每完成一个任务，记录结果
         result_list.append(result)
         write_to_file(result_list) if len(result_list) % 10 == 0 else None
 
+
     result_list = []
     # 多进程并行
     print('多进程并行运行参数优化...')
-    pool = multiprocessing.Pool(processes=20, maxtasksperchild=1)  # create 12 processes
+    mp.set_start_method('spawn')
+    mp.freeze_support()
+    pool = mp.Pool(processes=20, maxtasksperchild=1)  # create 12 processes
     processes_list = [pool.apply_async(func=run_strategy, kwds={'paras': paras_list[i], 'p_index': i},
                                        error_callback=handle_error, callback=callback
                                        ) for i in range(len(paras_list))]
@@ -776,4 +820,3 @@ if __name__ == '__main__':
     # 获取组合的回测结果,并导出
     write_to_file(results=[pro.get() for pro in processes_list],
                   output_file_path=f'./data/AILabxTest2_3_info_{len(processes_list)}.xlsx')
-
