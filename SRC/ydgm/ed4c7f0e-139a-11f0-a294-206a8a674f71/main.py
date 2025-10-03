@@ -354,7 +354,7 @@ class AILabxTool:
 
 
 class AILabxStrategy:
-    def __init__(self, context, white_list: list = None, max_count: int = 1, w_aa=0.20, w_bb=1.90, w_cc=1, w_dd=0.17):
+    def __init__(self, context, white_list: list = None, max_count: int = 1, w_aa=0.20, w_bb=1.30, w_cc=1, w_dd=0.20):
         self.now = None
         self.context = context
         self.white_list = list(white_list)
@@ -510,16 +510,21 @@ def init(context):
 
     schedule(schedule_func=algo, date_rule='1d', time_rule='07:11:00')
     schedule(schedule_func=algo, date_rule='1d', time_rule='07:41:00')
-    schedule(schedule_func=algo, date_rule='1d', time_rule='09:11:00')
-    schedule(schedule_func=algo, date_rule='1d', time_rule='09:31:00')
-    schedule(schedule_func=algo, date_rule='1d', time_rule='09:51:00')
-    schedule(schedule_func=algo, date_rule='1d', time_rule='10:11:00')
-    schedule(schedule_func=algo, date_rule='1d', time_rule='10:41:00')
-    schedule(schedule_func=algo, date_rule='1d', time_rule='11:11:00')
-    schedule(schedule_func=algo, date_rule='1d', time_rule='13:11:00')
-    schedule(schedule_func=algo, date_rule='1d', time_rule='13:41:00')
-    schedule(schedule_func=algo, date_rule='1d', time_rule='14:11:00')
-    schedule(schedule_func=algo, date_rule='1d', time_rule='14:41:00')
+    # schedule(schedule_func=algo, date_rule='1d', time_rule='09:11:00')
+    # schedule(schedule_func=algo, date_rule='1d', time_rule='09:31:00')
+    # schedule(schedule_func=algo, date_rule='1d', time_rule='09:51:00')
+    # schedule(schedule_func=algo, date_rule='1d', time_rule='10:11:00')
+    # schedule(schedule_func=algo, date_rule='1d', time_rule='10:41:00')
+    # schedule(schedule_func=algo, date_rule='1d', time_rule='11:11:00')
+    # schedule(schedule_func=algo, date_rule='1d', time_rule='13:11:00')
+    # schedule(schedule_func=algo, date_rule='1d', time_rule='13:41:00')
+    # schedule(schedule_func=algo, date_rule='1d', time_rule='14:11:00')
+    # schedule(schedule_func=algo, date_rule='1d', time_rule='14:41:00')
+    schedule(schedule_func=algo, date_rule='1d', time_rule='14:45:00')
+    schedule(schedule_func=algo, date_rule='1d', time_rule='14:50:00')
+    schedule(schedule_func=algo, date_rule='1d', time_rule='14:52:00')
+    schedule(schedule_func=algo, date_rule='1d', time_rule='14:54:00')
+    schedule(schedule_func=algo, date_rule='1d', time_rule='14:56:00')
 
 
 def algo(context):
@@ -542,6 +547,38 @@ def on_backtest_finished(context, indicator):
     print(f"Done! From start, time elapsed: {time.time() - context.start_time} seconds")
     print(f"{context.symbol} backtest finished: ", indicator)
 
+
+index_list = {
+    # List
+    "SHSE.513520": "日经ETF",
+    "SHSE.513290": "纳指生物科技ETF",
+    "SZSE.159509": "纳指科技ETF",
+    "SHSE.513030": "德国ETF",
+    "SZSE.513100": "纳指ETF",
+    "SHSE.159915": "创业板ETF",
+    "SHSE.512100": "中证1000ETF",
+    "SHSE.563300": "中证2000ETF",
+    "SHSE.560800": "数字经济ETF",
+    "SHSE.513040": "港股通互联网ETF",
+    "SZSE.518880": "黄金ETF",
+    "SZSE.159560": "芯片50ETF",
+    "SZSE.159819": "人工智能ETF",
+    "SHSE.162719": "石油LOF",
+    "SHSE.513330": "恒生互联网ETF",
+    "SHSE.513090": "香港证券ETF",
+    "SZSE.513380": "恒生科技ETF龙头",
+    "SHSE.561600": "消费电子ETF",
+    "SHSE.512480": "半导体ETF",
+    "SZSE.159752": "新能源龙头ETF",
+    "SHSE.159761": "新材料50ETF",
+    "SHSE.588000": "科创50ETF",
+    "SHSE.513500": "标普500ETF",
+    "SHSE.588100": "科创信息技术ETF",
+    "SHSE.515030": "新能源车ETF",
+    "SZSE.515880": "通信ETF",
+    "SHSE.515790": "光伏ETF",
+
+}
 
 index_list1 = {
     # List
@@ -571,7 +608,7 @@ index_list1 = {
     # "SHSE.10009231": "op-put",
 }
 
-index_list = {
+index_list2 = {
     # List
     "SHSE.513290": "纳指生物科技ETF",
     "SHSE.513520": "日经ETF",
