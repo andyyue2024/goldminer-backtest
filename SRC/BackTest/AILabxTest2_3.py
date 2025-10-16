@@ -1,12 +1,11 @@
 # -*- coding: utf-8 -*-
 import time
 from datetime import datetime, timedelta
-import pandas as pd
-import numpy as np
 import os
 from gm.api import *
-import pandas as pd
 import multiprocessing as mp
+import pandas as pd
+import numpy as np
 
 """
 ai labx test2_3
@@ -736,7 +735,7 @@ def run_strategy(paras: dict, p_index: int):
         self.ailabx.roc(target, "close", 20) > self.w_dd
     '''
     run(
-        strategy_id='19236129-09e5-11f0-99ab-00155dd6c843',  # gfgm
+        strategy_id='5f98da58-a9b8-11f0-9808-84a938b5ecc6',  # gfgm
         filename=(os.path.basename(__file__)),
         mode=MODE_BACKTEST,
         token='6860051c58995ae01c30a27d5b72000bababa8e6',  # gfgm
@@ -769,14 +768,16 @@ def write_to_file(results, output_file_path=f'./data/AILabxTest2_3_info.xlsx'):
 
 
 if __name__ == '__main__':
+    mp.set_start_method('spawn')
+    # mp.freeze_support()
     # 参数组合列表
     print('构建参数组：')
     paras_list = []
     # w_aa = 0.1, w_bb = 0.2, w_cc = 1, w_dd = 0.18
-    # sequence_aa = np.round(np.arange(0.10, 0.60, 0.05), 2).tolist()
-    sequence_aa = [0.20, 0.25, 0.45]
-    # sequence_bb = np.round(np.arange(0.10, 2.00, 0.05), 2).tolist()
-    sequence_bb = [0.17, 0.20, 1.30, 1.90]
+    sequence_aa = np.round(np.arange(0.35, 0.60, 0.05), 2).tolist()
+    # sequence_aa = [0.20, 0.25, 0.45]
+    sequence_bb = np.round(np.arange(0.10, 2.00, 0.05), 2).tolist()
+    # sequence_bb = [0.17, 0.20, 1.30, 1.90]
     sequence_dd = np.round(np.arange(0.15, 0.20, 0.01), 2).tolist()
     sequence_fd = [18, 20, 21]
     # sequence_aa = np.round(np.linspace(0.05, 1.05, 2), 2).tolist()
@@ -807,8 +808,6 @@ if __name__ == '__main__':
     result_list = []
     # 多进程并行
     print('多进程并行运行参数优化...')
-    mp.set_start_method('spawn')
-    mp.freeze_support()
     pool = mp.Pool(processes=20, maxtasksperchild=1)  # create 12 processes
     processes_list = [pool.apply_async(func=run_strategy, kwds={'paras': paras_list[i], 'p_index': i},
                                        error_callback=handle_error, callback=callback

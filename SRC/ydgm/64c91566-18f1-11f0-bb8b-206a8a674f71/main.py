@@ -354,7 +354,7 @@ class AILabxTool:
 
 
 class AILabxStrategy:
-    def __init__(self, context, white_list: list = None, max_count: int = 1, w_aa=0.20, w_bb=1.30, w_cc=1, w_dd=0.20):
+    def __init__(self, context, white_list: list = None, max_count: int = 1, w_aa=0.10, w_bb=1.6, w_cc=1, w_dd=0.20):
         self.now = None
         self.context = context
         self.white_list = list(white_list)
@@ -472,7 +472,7 @@ class AILabxStrategy:
 
 
     def should_sell(self, target: str):
-        return self.ailabx.roc(target, "close", 20) > self.w_dd
+        return self.ailabx.roc(target, "close", 18) > self.w_dd
         # return False
 
     @staticmethod

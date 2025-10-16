@@ -426,7 +426,7 @@ class AILabxTool:
 
 
 class AILabxStrategy:
-    def __init__(self, context, white_list: list = None, max_count: int = 1, w_aa=0.20, w_bb=1.3, w_cc=1, w_dd=0.20):
+    def __init__(self, context, white_list: list = None, max_count: int = 1, w_aa=0.10, w_bb=1.6, w_cc=1, w_dd=0.20):
         self.now = None
         self.context = context
         self.white_list = list(white_list)
@@ -544,7 +544,7 @@ class AILabxStrategy:
 
 
     def should_sell(self, target: str):
-        return self.ailabx.roc(target, "close", 20) > self.w_dd
+        return self.ailabx.roc(target, "close", 18) > self.w_dd
         # return False
 
     @staticmethod
@@ -815,13 +815,13 @@ if __name__ == '__main__':
     '''
     run(
         # strategy_id='ed4c7f0e-139a-11f0-a294-206a8a674f71',
-        strategy_id='19236129-09e5-11f0-99ab-00155dd6c843',  # gfgm
+        strategy_id='5f98da58-a9b8-11f0-9808-84a938b5ecc6',  # gfgm
         filename=(os.path.basename(__file__)),
         mode=MODE_BACKTEST,
         token='6860051c58995ae01c30a27d5b72000bababa8e6',  # gfgm
         # token='c8bd4de742240da9483aecd05a2f5e52900786eb',
-        backtest_start_time="2024-01-09 09:30:00",
-        backtest_end_time='2025-09-08 15:00:00',
+        backtest_start_time="2023-11-21 09:30:00",
+        backtest_end_time='2025-10-16 15:00:00',
         # backtest_end_time='2023-10-20 15:00:00',
         backtest_adjust=ADJUST_PREV,
         backtest_initial_cash=100000,
