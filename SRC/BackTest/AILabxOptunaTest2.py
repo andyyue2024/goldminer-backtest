@@ -549,7 +549,7 @@ def on_order_status(context, order):
 
 
 def on_backtest_finished(context, indicator):
-    print(f"Processes {context.p_index}: Done! From start, time elapsed: {time.time() - context.start_time} seconds")
+    print(f"Processes {context.trial_number}: Done! From start, time elapsed: {time.time() - context.start_time} seconds")
     # print(f"{context.symbol} backtest finished: ", indicator)
     # 回测业绩指标数据
     data = [
@@ -638,7 +638,6 @@ index_list1 = {
 }
 
 
-
 def run_strategy(paras: dict, trial_number: int):
     # 导入上下文
     from gm.model.storage import context
@@ -655,8 +654,8 @@ def run_strategy(paras: dict, trial_number: int):
         mode=MODE_BACKTEST,
         # token='6860051c58995ae01c30a27d5b72000bababa8e6',  # gfgm
         token='c8bd4de742240da9483aecd05a2f5e52900786eb',
-        backtest_start_time="2025-09-21 09:30:00",
-        backtest_end_time='2025-10-21 15:00:00',
+        backtest_start_time="2025-10-13 09:30:00",
+        backtest_end_time='2025-10-18 15:00:00',
         backtest_adjust=ADJUST_PREV,
         backtest_initial_cash=100000,
         backtest_commission_ratio=0.0005,
@@ -666,6 +665,34 @@ def run_strategy(paras: dict, trial_number: int):
         backtest_marginfloat_ratio2=0.4,
         backtest_match_mode=1)
     return context.result
+
+
+def write_to_file(results, output_file_path=f'./data/AILabxOptunaTest2_info.xlsx'):
+    info = pd.DataFrame(results,
+                        columns=[
+                            'objective_value', 'pnl_ratio', 'pnl_ratio_annual',
+                            'sharp_ratio', 'max_drawdown', 'w_aa', 'w_bb',
+                            'w_cc', 'w_dd', 'w_fd'
+                        ])
+    print(f"row length: {len(info)}")
+    # info.to_csv('./data/info.csv', index=False)
+    info.to_excel(output_file_path, index=False)
+
+def format_trial_result(results, trial):
+    results.append([
+        trial.values[0] if trial.values else -float('inf'),  # 目标值
+        trial.user_attrs.get('pnl_ratio', 0),
+        trial.user_attrs.get('pnl_ratio_annual', 0),
+        trial.user_attrs.get('sharp_ratio', 0),
+        trial.user_attrs.get('max_drawdown', 0),
+        trial.params.get('w_aa', 0),
+        trial.params.get('w_bb', 0),
+        1,  # w_cc 固定为1
+        trial.params.get('w_dd', 0),
+        trial.params.get('w_fd', 0)
+    ])
+
+    return results
 
 
 def objective(trial):
@@ -700,6 +727,7 @@ def objective(trial):
 
             # 设置用户属性，用于后续分析
             trial.set_user_attr("pnl_ratio", metrics[0])
+            trial.set_user_attr("pnl_ratio_annual", metrics[1])
             trial.set_user_attr("sharp_ratio", metrics[2])
             trial.set_user_attr("max_drawdown", metrics[3])
 
@@ -723,33 +751,16 @@ class SaveResultsCallback:
 
     def __call__(self, study, trial):
         if trial.state == optuna.trial.TrialState.COMPLETE:
-            self.results.append([
-                trial.values[0] if trial.values else -float('inf'),  # 目标值
-                trial.user_attrs.get('pnl_ratio', 0),
-                trial.user_attrs.get('sharp_ratio', 0),
-                trial.user_attrs.get('max_drawdown', 0),
-                trial.params.get('w_aa', 0),
-                trial.params.get('w_bb', 0),
-                1,  # w_cc 固定为1
-                trial.params.get('w_dd', 0),
-                trial.params.get('w_fd', 0)
-            ])
-
+            self.results = format_trial_result(self.results, trial)
             # 定期保存
             if len(self.results) % self.save_interval == 0:
-                temp_df = pd.DataFrame(self.results,
-                                       columns=[
-                                           'objective_value', 'pnl_ratio', 'pnl_ratio_annual',
-                                           'sharp_ratio', 'max_drawdown', 'w_aa', 'w_bb',
-                                           'w_cc', 'w_dd', 'w_fd'
-                                       ])
-                temp_df.to_excel(f'./data/AILabxTest2_3_optuna_interim_{len(self.results)}.xlsx', index=False)
+                write_to_file(self.results, f'./data/AILabxOptunaTest2_interim_{len(self.results)}.xlsx')
                 print(f"已保存 {len(self.results)} 个试验的中间结果")
 
 
 if __name__ == '__main__':
     # 创建保存结果的回调实例
-    save_callback = SaveResultsCallback(save_interval=10)
+    save_callback = SaveResultsCallback(save_interval=2)
 
     # 创建 Optuna study
     study = optuna.create_study(
@@ -762,7 +773,7 @@ if __name__ == '__main__':
     # 运行优化
     study.optimize(
         objective,
-        n_trials=200,  # 试验次数，可以根据需要调整
+        n_trials=2,  # 试验次数，可以根据需要调整
         n_jobs=4,  # 并行任务数，根据CPU核心数调整
         callbacks=[save_callback],
         show_progress_bar=True
@@ -779,26 +790,10 @@ if __name__ == '__main__':
     final_results = []
     for trial in study.trials:
         if trial.state == optuna.trial.TrialState.COMPLETE:
-            final_results.append([
-                trial.values[0] if trial.values else -float('inf'),
-                trial.user_attrs.get('pnl_ratio', 0),
-                trial.user_attrs.get('sharp_ratio', 0),
-                trial.user_attrs.get('max_drawdown', 0),
-                trial.params.get('w_aa', 0),
-                trial.params.get('w_bb', 0),
-                1,
-                trial.params.get('w_dd', 0),
-                trial.params.get('w_fd', 0)
-            ])
+            final_results = format_trial_result(final_results, trial)
 
     # 保存到文件
-    final_df = pd.DataFrame(final_results,
-                            columns=[
-                                'objective_value', 'pnl_ratio', 'pnl_ratio_annual',
-                                'sharp_ratio', 'max_drawdown', 'w_aa', 'w_bb',
-                                'w_cc', 'w_dd', 'w_fd'
-                            ])
-    final_df.to_excel(f'./data/AILabxTest2_3_optuna_final_{len(final_df)}.xlsx', index=False)
+    write_to_file(final_results, f'./data/AILabxOptunaTest2_final_{len(final_results)}.xlsx')
 
     # 保存最佳参数
     best_params_df = pd.DataFrame([study.best_trial.params])
