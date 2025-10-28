@@ -747,18 +747,18 @@ def objective(trial):
     返回需要最大化的指标（年化收益率）
     """
     # 定义搜索空间
-    w_aa = trial.suggest_float('w_aa', 0.10, 0.60)
-    w_bb = trial.suggest_float('w_bb', 0.10, 2.00)
+    w_aa = trial.suggest_float('w_aa', -0.20, 0.60)   # default: 0.1
+    w_bb = trial.suggest_float('w_bb', 0.10, 2.00)   # default: 1.6
 
-    win_trend_score = trial.suggest_int('win_trend_score', 15, 30) # default: 25
+    win_trend_score = trial.suggest_int('win_trend_score', 15, 35) # default: 25
     win_roc_score1 = trial.suggest_int('win_roc_score1', 3, 7) # default: 5
-    win_roc_score2 = trial.suggest_int('win_roc_score2', 8, 15) # default: 10
+    win_roc_score2 = trial.suggest_int('win_roc_score2', 8, 20) # default: 10
     win_ma_score1 = trial.suggest_int('win_ma_score1', 3, 7) # default: 5
-    win_ma_score2 = trial.suggest_int('win_ma_score2', 15, 30) # default: 18
+    win_ma_score2 = trial.suggest_int('win_ma_score2', 10, 35) # default: 18
 
-    w_dd = trial.suggest_float('w_dd', 0.10, 0.21)
+    w_dd = trial.suggest_float('w_dd', 0.10, 0.21)      # default: 0.2
     # w_fd = trial.suggest_categorical('w_fd', [18])  # 固定值，但保持参数形式
-    w_fd = trial.suggest_int('w_fd', 15, 21)
+    w_fd = trial.suggest_int('w_fd', 15, 21)     # default: 18
 
     paras = {
         "w_aa": w_aa,
@@ -871,7 +871,7 @@ if __name__ == '__main__':
     # 运行优化
     study.optimize(
         objective,
-        n_trials=1000,  # 试验次数，可以根据需要调整
+        n_trials=20,  # 试验次数，可以根据需要调整
         n_jobs=16,  # 并行任务数，根据CPU核心数调整
         callbacks=[save_callback],
         show_progress_bar=True,
@@ -907,20 +907,24 @@ if __name__ == '__main__':
     if len(study.trials) > 1:
         try:
             import optuna.visualization as vis
+            from datetime import datetime
+
+            # 生成时间戳
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 
             # 优化历史
             fig1 = vis.plot_optimization_history(study)
-            fig1.write_image('./data/optimization_history.png')
+            fig1.write_image(f'./data/optimization_history_{timestamp}.png')
             print("优化历史图已保存")
 
             # 参数重要性
             fig2 = vis.plot_param_importances(study)
-            fig2.write_image('./data/param_importances.png')
+            fig2.write_image(f'./data/param_importances_{timestamp}.png')
             print("参数重要性图已保存")
 
             # 平行坐标图
             fig3 = vis.plot_parallel_coordinate(study)
-            fig3.write_image('./data/parallel_coordinate.png')
+            fig3.write_image(f'./data/parallel_coordinate_{timestamp}.png')
             print("平行坐标图已保存")
 
         except (ValueError, ImportError) as e:
