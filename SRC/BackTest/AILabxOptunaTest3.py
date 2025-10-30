@@ -747,18 +747,18 @@ def objective(trial):
     返回需要最大化的指标（年化收益率）
     """
     # 定义搜索空间
-    w_aa = trial.suggest_float('w_aa', -0.20, 0.60)   # default: 0.1
-    w_bb = trial.suggest_float('w_bb', 0.10, 2.00)   # default: 1.6
+    w_aa = trial.suggest_float('w_aa', -0.20, 1.10)   # default: 0.1
+    w_bb = trial.suggest_float('w_bb', 0.10, 3.50)   # default: 1.6
 
-    win_trend_score = trial.suggest_int('win_trend_score', 15, 35) # default: 25
-    win_roc_score1 = trial.suggest_int('win_roc_score1', 3, 7) # default: 5
+    win_trend_score = trial.suggest_int('win_trend_score', 15, 40) # default: 25
+    win_roc_score1 = trial.suggest_int('win_roc_score1', 2, 8) # default: 5
     win_roc_score2 = trial.suggest_int('win_roc_score2', 8, 20) # default: 10
-    win_ma_score1 = trial.suggest_int('win_ma_score1', 3, 7) # default: 5
-    win_ma_score2 = trial.suggest_int('win_ma_score2', 10, 35) # default: 18
+    win_ma_score1 = trial.suggest_int('win_ma_score1', 2, 8) # default: 5
+    win_ma_score2 = trial.suggest_int('win_ma_score2', 8, 35) # default: 18
 
-    w_dd = trial.suggest_float('w_dd', 0.10, 0.21)      # default: 0.2
+    w_dd = trial.suggest_float('w_dd', 0.05, 0.50)      # default: 0.2
     # w_fd = trial.suggest_categorical('w_fd', [18])  # 固定值，但保持参数形式
-    w_fd = trial.suggest_int('w_fd', 15, 21)     # default: 18
+    w_fd = trial.suggest_int('w_fd', 8, 35)     # default: 18
 
     paras = {
         "w_aa": w_aa,
@@ -871,7 +871,7 @@ if __name__ == '__main__':
     # 运行优化
     study.optimize(
         objective,
-        n_trials=20,  # 试验次数，可以根据需要调整
+        n_trials=400,  # 试验次数，可以根据需要调整
         n_jobs=16,  # 并行任务数，根据CPU核心数调整
         callbacks=[save_callback],
         show_progress_bar=True,
@@ -895,9 +895,10 @@ if __name__ == '__main__':
     write_to_file(final_results, f'./data/AILabxOptunaTest2_final_{len(final_results)}.xlsx')
 
     # 保存最佳参数
+    timestamp0 = datetime.now().strftime("%Y%m%d_%H%M%S")
     best_params_df = pd.DataFrame([study.best_trial.params])
     best_params_df['best_value'] = study.best_value
-    best_params_df.to_excel('./data/AILabxOptunaTest3_best_params.xlsx', index=False)
+    best_params_df.to_excel(f'./data/AILabxOptunaTest3_best_params_{timestamp0}.xlsx', index=False)
 
     print(f"总共完成 {len(study.trials)} 个试验")
     print("结果已保存到文件")
