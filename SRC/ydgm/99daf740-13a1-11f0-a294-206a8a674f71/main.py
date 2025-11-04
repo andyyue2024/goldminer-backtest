@@ -7,14 +7,8 @@ import numpy as np
 import os
 from gm.api import *
 
-
-
 """
-ai labx test3
-
-- support ai-labx sort
-- support splitting orders
-- speed by local cache
+ai labx test2 (保守)
 
 """
 
@@ -44,11 +38,11 @@ class AILabxTool:
 
     def get_score(self, symbol):
         # trend_score2 = self.trend_score2(symbol, "close", 25)
-        trend_score = self.trend_score(symbol, "close", 25)
-        roc_score1 = self.roc(symbol, "close", 5)
-        roc_score2 = self.roc(symbol, "close", 10)
-        ma_score1 = self.ma(symbol, "volume", 5)
-        ma_score2 = self.ma(symbol, "volume", 20)
+        trend_score = self.trend_score(symbol, "close", 28)
+        roc_score1 = self.roc(symbol, "close", 7)
+        roc_score2 = self.roc(symbol, "close", 20)
+        ma_score1 = self.ma(symbol, "volume", 6)
+        ma_score2 = self.ma(symbol, "volume", 18)
         aa = trend_score
         bb = roc_score1 + roc_score2
         cc = ma_score1 / ma_score2
@@ -156,6 +150,7 @@ class AILabxTool:
             # filtered_df = df[(df['A'] > 2) & (df['B'] < 8)]
             history_data = self.all_data[(self.all_data['bob'] <= self.last_day) & (self.all_data['symbol'] == symbol)]
             history_data = history_data.tail(window)
+
 
         # 提取收盘价序列
         data = np.asarray(history_data[field].values)
@@ -359,7 +354,8 @@ class AILabxTool:
 
 
 class AILabxStrategy:
-    def __init__(self, context, white_list: list = None, max_count: int = 1, w_aa=0.1, w_bb=0.2, w_cc=1, w_dd=0.18):
+    def __init__(self, context, white_list: list = None, max_count: int = 1,
+                 w_aa=1.0205656941415, w_bb=1.09583609560115, w_cc=1, w_dd=0.147494403988293):
         self.now = None
         self.context = context
         self.white_list = list(white_list)
@@ -368,17 +364,18 @@ class AILabxStrategy:
         if context.mode == MODE_BACKTEST:
             self.ailabx.get_all_data(self.white_list, context.backtest_start_time, context.backtest_end_time)
         self.w_dd = w_dd
-
-        self.enable_split_order = True
-        self.active_orders = {}  # 活跃订单跟踪
-        self.pending_orders = {}  # 待处理订单跟踪
-        self.max_retry = 3  # 最大撤单重试次数
-        self.order_size_limit = 20000  # 单笔订单数量限制（根据风控要求调整）
+        self.last_symbol = ""
 
     def filter(self, in_list: list = None):
         if in_list is None:
             in_list = []
         return in_list + [item for item in self.white_list if item not in in_list]
+
+    def filter_for_selling(self, in_list: list = None):
+        # filter symbols that should be selling before sorting
+        if in_list is None:
+            in_list = []
+        return [item for item in in_list if not self.should_sell(item)]
 
     def sort(self, in_list: list, ascending=False) -> list:
         symbol_list = list(in_list)
@@ -394,231 +391,115 @@ class AILabxStrategy:
         df = df.sort_values(["score"], ascending=ascending)
         return list(df["symbol"].to_list())
 
-    @staticmethod
-    def filter_top(in_list: list, top_count=1):
+    def filter_top(self, in_list: list, top_count=1):
         if not in_list:
             return []
         return in_list[0:top_count]
 
+    def try_to_order(self, in_list: list) -> list:
+        positions = self.context.account().positions(side=PositionSide_Long)
+        hold_symbol_list = [p.symbol for p in positions]
+        if len(in_list) > 0:
+            print("target: ", in_list, "; already hold: ", hold_symbol_list)
+        if len(in_list) == 1 and self.last_symbol == in_list[0]:
+            return []
+        for position in positions:
+            self.sell_target_position(position)
+
+        hold_target_list = []
+        for target in in_list:
+            self.buy_target(target)
+            hold_target_list.append(target)
+        return hold_target_list
+
+    def try_to_order1(self, in_list: list) -> list:
+        positions = self.context.account().positions(side=PositionSide_Long)
+        hold_symbol_list = [p.symbol for p in positions]
+        if len(in_list) > 0:
+            print("target: ", in_list, "; already hold: ", hold_symbol_list)
+        if len(in_list) == 1 and self.last_symbol == in_list[0]:
+            if self.should_sell(self.last_symbol):
+                self.sell_target(self.last_symbol)
+                # self.last_symbol = ""
+            return []
+        if len(positions) > 0:
+            print("order_close_all: ", hold_symbol_list)
+            order_close_all()
+
+        hold_target_list = []
+        for target in in_list:
+            if not self.should_sell(target):
+                self.buy_target(target)
+                hold_target_list.append(target)
+        return hold_target_list
+
+    def try_to_order2(self, in_list: list) -> list:
+        to_buy_list = []
+        positions = self.context.account().positions(side=PositionSide_Long)
+        hold_symbol_list = [p.symbol for p in positions]
+        if len(in_list) > 0:
+            print("target: ", in_list, "; already hold: ", hold_symbol_list)
+        for hold_symbol in hold_symbol_list:
+            if (hold_symbol not in in_list or
+                    (hold_symbol in in_list and self.should_sell(hold_symbol))):  # 命中强制卖出条件
+                self.sell_target(hold_symbol)
+
+        for target_symbol in in_list:
+            if (not self.should_sell(target_symbol)) and (target_symbol not in hold_symbol_list):
+                self.buy_target(target_symbol)
+                to_buy_list.append(target_symbol)
+        return to_buy_list
+
+    def sell_target(self, target: str):
+        print("sell_target: ", target)
+        # order_target_percent(symbol=target, percent=0, order_type=OrderType_Limit,
+        #                      position_side=PositionSide_Long, price=self.latest_price(target))
+        order_percent(symbol=target, percent=1. / self.max_count, side=OrderSide_Sell, order_type=OrderType_Limit,
+                      position_effect=PositionEffect_Close, price=self.latest_price(target))
+
+    def sell_target_position(self, p):
+        target = p.symbol
+        print("sell_target: ", target)
+        order_volume(symbol=target, volume=p.volume, side=OrderSide_Sell, order_type=OrderType_Limit,
+                     position_effect=PositionEffect_Close, price=self.latest_price(target))
+
+    def buy_target(self, target: str):
+        print("buy_target: ", target)
+        # self.last_symbol = target
+        # order_target_percent(symbol=target, percent=1. / self.max_count, order_type=OrderType_Limit,
+        #                      position_side=PositionSide_Long, price=self.latest_price(target))
+        order_percent(symbol=target, percent=1. / self.max_count, side=OrderSide_Buy, order_type=OrderType_Limit,
+                      position_effect=PositionEffect_Open, price=self.latest_price(target))
+
+
     def should_sell(self, target: str):
-        return self.ailabx.roc(target, "close", 21) > self.w_dd
+        return self.ailabx.roc(target, "close", 34) > self.w_dd
         # return False
-
-    def split_order(self, symbol, target_volume):
-        # 拆单逻辑（时间加权）
-        orders = []
-        if not self.enable_split_order:
-            orders.append({'symbol': symbol, 'volume': target_volume})
-            return orders
-        remaining = target_volume
-        while remaining > 0:
-            size = min(remaining, self.order_size_limit)
-            orders.append({'symbol': symbol, 'volume': size})
-            remaining -= size
-        return orders
-
-    def execute_sell(self, symbol, volume):
-        # 获取当前持仓
-        if volume <= 0:
-            return True
-
-        # 生成拆单指令
-        sub_orders = self.split_order(symbol, volume)
-        for order in sub_orders:
-            order_id = order_volume(symbol=order['symbol'],
-                                    volume=order['volume'],
-                                    side=OrderSide_Sell,
-                                    order_type=OrderType_Limit,
-                                    position_effect=PositionEffect_Close,
-                                    price=self.latest_price(symbol))[0]["order_id"]
-            self.active_orders[order_id] = {
-                'symbol': symbol,
-                'create_time': time.time(),
-                'retry_count': 0,
-                'original_volume': volume,  # 总需要平仓量
-                'filled_total': 0,  # 新增累计成交量字段
-                'side': OrderSide_Sell,
-                'position_effect': PositionEffect_Close
-            }
-            print(f"execute_sell: {order['volume']}, order_id:{order_id}")
-        return False
-
-    def execute_buy(self, symbol):
-        # 计算可用资金
-        account = self.context.account()
-        # positions = account.positions()
-        available_cash = account.cash['available']
-
-        # 获取最新价格计算可买数量
-        latest = self.latest_price(symbol)
-        max_volume = int(available_cash / (latest * 100)) * 100  # 按整手计算
-
-        # 生成拆单指令
-        sub_orders = self.split_order(symbol, max_volume)
-        for order in sub_orders:
-            order_id = order_volume(symbol=order['symbol'],
-                                    volume=order['volume'],
-                                    side=OrderSide_Buy,
-                                    order_type=OrderType_Limit,
-                                    position_effect=PositionEffect_Open,
-                                    price=latest)[0]["order_id"]
-            self.active_orders[order_id] = {
-                'symbol': symbol,
-                'create_time': time.time(),
-                'retry_count': 0,
-                'original_volume': max_volume,  # 总需要建仓量
-                'filled_total': 0,  # 新增累计成交量字段
-                'side': OrderSide_Buy,
-                'position_effect': PositionEffect_Open
-
-            }
-            print(f"execute_buy: {order['volume']} * {latest} = {order['volume'] * latest} vs {available_cash}, order_id:{order_id}")
-
-    def handle_order_retry(self, order):
-        order_info = self.active_orders.get(order.order_id)
-        if not order_info:
-            return
-
-        # 累计已成交量到总成交
-        order_info['filled_total'] += order.filled_volume  # 新增字段记录累计成交量
-        remaining = order_info['original_volume'] - order_info['filled_total']
-
-        # 检查完成情况
-        if remaining <= 0:
-            print(f"订单全部完成 {order_info['symbol']}")
-            return
-
-        # 检查重试次数
-        if order_info['retry_count'] >= self.max_retry:
-            print(f"达到最大重试次数 {order_info['symbol']} 剩余{remaining}未成交")
-            return
-
-        # 重新创建订单（带累计成交量跟踪）
-        new_order_id = order_volume(
-            symbol=order_info['symbol'],
-            volume=remaining,
-            side=order_info['side'],
-            order_type=OrderType_Limit,
-            position_effect=order_info['position_effect'],
-            price=self.latest_price(order_info['symbol'])
-        )[0]["order_id"]
-        print(f"Done to order again: {order.order_id} -> {new_order_id}")
-
-        # 更新订单记录（保持原始目标量）
-        self.active_orders[new_order_id] = {
-            'symbol': order_info['symbol'],
-            'create_time': time.time(),
-            'retry_count': order_info['retry_count'] + 1,
-            'original_volume': order_info['original_volume'],  # 保持原始目标量
-            'filled_total': order_info['filled_total'],  # 继承累计成交量
-            'side': order_info['side'],
-            'position_effect': order_info['position_effect']
-        }
-
-        # 删除原订单记录
-        del self.active_orders[order.order_id]
 
     @staticmethod
     def latest_price(symbol):
         current_data = current(symbols=symbol)
         return current_data[0]["price"]
 
-    def rebalance(self, target_symbol):
-        # 获取当前持仓
-        account = self.context.account()
-        positions = account.positions()
-        current_pos = {p.symbol: p.volume for p in positions}
-
-        # 选择最优标的
-        # target_symbol = self.select_optimal_symbol()
-        # self.counter += 1
-        # target_symbol = self.target_list[self.counter % 2]
-
-        # 卖出非目标持仓
-        for symbol, volume in list(current_pos.items()):
-            if (symbol != target_symbol or
-                    (symbol == target_symbol and self.should_sell(target_symbol))):  # 命中强制卖出条件
-                print(f"Start to sell: {symbol}")
-                if not self.execute_sell(symbol, volume):
-                    # print(f"Done to order to sell: {symbol}")
-                    pass
-
-        # 等待所有卖单完成
-        while len(self.active_orders) > 0:
-            pending_orders_tmp = {k: v for k, v in self.pending_orders.items() if v != 0}
-            for order_id in pending_orders_tmp.keys():
-                if order_id in self.active_orders.keys():
-                    del self.active_orders[order_id]
-                    # self.pending_orders[order_id] = 0
-                    del self.pending_orders[order_id]
-            time.sleep(0.05)
-
-        if len(current_pos) > 0 and (target_symbol not in current_pos):
-            # print(f"Done, sold")
-            pass
-
-        # 命中强制卖出条件
-        if self.should_sell(target_symbol):
-            return
-
-        # 买入目标标的
-        if target_symbol not in current_pos:
-            print(f"Start to buy: {target_symbol}")
-            self.execute_buy(target_symbol)
-            # print(f"Done to order to buy: {target_symbol}")
-
-        # 等待所有买单完成
-        while len(self.active_orders) > 0:
-            pending_orders_tmp = {k: v for k, v in self.pending_orders.items() if v != 0}
-            for order_id in pending_orders_tmp.keys():
-                if order_id in self.active_orders.keys():
-                    del self.active_orders[order_id]
-                    # self.pending_orders[order_id] = 0
-                    del self.pending_orders[order_id]
-            time.sleep(0.05)
-        if target_symbol not in current_pos:
-            # print(f"Done, bought")
-            pass
-
     def execute(self, now):
+        order_cancel_all()
+
+        # update info
         self.now = now
         self.ailabx.now = self.now
+        positions = self.context.account().positions(side=PositionSide_Long)
+        if len(positions) > 0:
+            self.last_symbol = positions[0].symbol
+        else:
+            self.last_symbol = ""
+
         ret_list = self.filter()
+        ret_list = self.filter_for_selling(ret_list)
         ret_list = self.sort(ret_list)
+        print("sort: ", ret_list)
         ret_list = self.filter_top(ret_list)
-        if len(ret_list) == 1:
-            self.rebalance(target_symbol=ret_list[0])
+        ret_list = self.try_to_order(ret_list)
         return ret_list
-
-    def on_order_status(self, order):
-        # 订单状态更新处理
-        if order.status == OrderStatus_Filled:  # 完全成交
-            if order.order_id in self.active_orders.keys():
-                del self.active_orders[order.order_id]
-            else:
-                # print(f"pending_orders {order.order_id} = 1")
-                self.pending_orders[order.order_id] = 1
-                pass
-        elif order.status in [OrderStatus_Canceled, OrderStatus_PartiallyFilled]:  # 已撤单/部分成交撤单
-            print(f"handle_order_retry {order.order_id}")
-            self.handle_order_retry(order)
-        elif order.status in [OrderStatus_Rejected]:  # 已拒绝
-            if order.ord_rej_reason in [OrderRejectReason_NoEnoughCash]:
-                # print(f"pending_orders {order.order_id} = 1")
-                self.pending_orders[order.order_id] = 1
-            else:
-                print(f"handle_order_retry {order.order_id}")
-                self.handle_order_retry(order)
-
-    def on_tick(self, tick):
-        # 订单价格跟踪（示例：动态更新限价单价格）
-        unfinished = get_unfinished_orders()
-        for order in unfinished:
-            # 下单超过60秒，没有全部成交撤单
-            if (abs(self.context.now - order['created_at'])).seconds > 60:
-                # 撤单
-                print(f"撤单超时订单：{order['order_id']}")
-                order_cancel(wait_cancel_orders=[{'cl_ord_id': order['cl_ord_id'], 'account_id': order['account_id']}])
 
 
 def init(context):
@@ -626,12 +507,25 @@ def init(context):
     print("Start...")
     context.num = 1
     context.symbol = "AAA"
-    context.target_list = list(index_list.keys())
-    context.ai_labx_strategy = AILabxStrategy(context=context, white_list=context.target_list)
-    # set_option(backtest_thread_num=5)
+    context.ai_labx_strategy = AILabxStrategy(context=context, white_list=list(index_list.keys()))
 
-    # subscribe(context.target_list, '30s')
-    schedule(schedule_func=algo, date_rule='1d', time_rule='09:31:00')
+    schedule(schedule_func=algo, date_rule='1d', time_rule='07:11:00')
+    schedule(schedule_func=algo, date_rule='1d', time_rule='07:41:00')
+    # schedule(schedule_func=algo, date_rule='1d', time_rule='09:11:00')
+    # schedule(schedule_func=algo, date_rule='1d', time_rule='09:31:00')
+    # schedule(schedule_func=algo, date_rule='1d', time_rule='09:51:00')
+    # schedule(schedule_func=algo, date_rule='1d', time_rule='10:11:00')
+    # schedule(schedule_func=algo, date_rule='1d', time_rule='10:41:00')
+    # schedule(schedule_func=algo, date_rule='1d', time_rule='11:11:00')
+    # schedule(schedule_func=algo, date_rule='1d', time_rule='13:11:00')
+    # schedule(schedule_func=algo, date_rule='1d', time_rule='13:41:00')
+    # schedule(schedule_func=algo, date_rule='1d', time_rule='14:11:00')
+    # schedule(schedule_func=algo, date_rule='1d', time_rule='14:41:00')
+    schedule(schedule_func=algo, date_rule='1d', time_rule='14:45:00')
+    schedule(schedule_func=algo, date_rule='1d', time_rule='14:50:00')
+    schedule(schedule_func=algo, date_rule='1d', time_rule='14:52:00')
+    schedule(schedule_func=algo, date_rule='1d', time_rule='14:54:00')
+    schedule(schedule_func=algo, date_rule='1d', time_rule='14:56:00')
 
 
 def algo(context):
@@ -640,11 +534,14 @@ def algo(context):
 
 
 def on_order_status(context, order):
-    context.ai_labx_strategy.on_order_status(order)
-
-
-# def on_tick(context, tick):
-#     context.ai_labx_strategy.on_tick(tick)
+    # 订单状态更新处理
+    if order.status == OrderStatus_Filled:  # 完全成交
+        print(f"order OrderStatus_Filled, {order}")
+    elif order.status in [OrderStatus_Canceled, OrderStatus_PartiallyFilled]:  # 已撤单/部分成交撤单
+        print(f"order OrderStatus_Canceled or OrderStatus_PartiallyFilled, {order}")
+        # self.handle_order_retry(order)
+    elif order.status in [OrderStatus_Rejected]:  # 已拒绝
+        print(f"order OrderStatus_Rejected, {order}")
 
 
 def on_backtest_finished(context, indicator):
@@ -653,6 +550,38 @@ def on_backtest_finished(context, indicator):
 
 
 index_list = {
+    # List
+    "SHSE.513520": "日经ETF",
+    "SHSE.513290": "纳指生物科技ETF",
+    "SZSE.159509": "纳指科技ETF",
+    "SHSE.513030": "德国ETF",
+    "SHSE.513100": "纳指ETF",
+    "SZSE.159915": "创业板ETF",
+    "SHSE.512100": "中证1000ETF",
+    "SHSE.563300": "中证2000ETF",
+    "SHSE.560800": "数字经济ETF",
+    "SHSE.513040": "港股通互联网ETF",
+    "SHSE.518880": "黄金ETF",
+    "SZSE.159560": "芯片50ETF",
+    "SZSE.159819": "人工智能ETF",
+    "SZSE.162719": "石油LOF",
+    "SHSE.513330": "恒生互联网ETF",
+    "SHSE.513090": "香港证券ETF",
+    "SHSE.513380": "恒生科技ETF龙头",
+    "SHSE.561600": "消费电子ETF",
+    "SHSE.512480": "半导体ETF",
+    "SZSE.159752": "新能源龙头ETF",
+    "SZSE.159761": "新材料50ETF",
+    "SHSE.588000": "科创50ETF",
+    "SHSE.513500": "标普500ETF",
+    "SHSE.588100": "科创信息技术ETF",
+    "SHSE.515030": "新能源车ETF",
+    "SHSE.515880": "通信ETF",
+    "SHSE.515790": "光伏ETF",
+
+}
+
+index_list1 = {
     # List
     "SZSE.159509": "纳指科技ETF",
     "SHSE.518880": "黄金ETF",
@@ -668,9 +597,61 @@ index_list = {
     "SZSE.162719": "石油LOF",
     "SHSE.513500": "标普500ETF",
     "SZSE.159915": "创业板ETF",
+    "SHSE.513030": "德国ETF",
 
+    # "SZSE.90005539": "op-call",
+    # "SZSE.90005588": "op-put",
+
+    # "SZSE.90005554": "op-call",
+    # "SZSE.90005563": "op-put",
+    #
+    # "SHSE.10009222": "op-call",
+    # "SHSE.10009231": "op-put",
 }
 
+index_list2 = {
+    # List
+    "SHSE.513290": "纳指生物科技ETF",
+    "SHSE.513520": "日经ETF",
+    "SZSE.159509": "纳指科技ETF",
+    "SHSE.513030": "德国ETF",
+    "SZSE.159915": "创业板ETF",
+    "SHSE.512100": "中证1000ETF",
+    "SHSE.563300": "中证2000ETF",
+    "SHSE.588100": "科创信息技术ETF",  # little
+    "SHSE.513040": "港股通互联网ETF",
+    "SHSE.563000": "中国A50ETF",
+    "SZSE.159560": "芯片50ETF",
+    "SZSE.159819": "人工智能ETF",
+    "SZSE.162719": "石油LOF",
+    "SHSE.518880": "黄金ETF",
+    "SHSE.513330": "恒生互联网ETF",
+    "SHSE.513090": "香港证券ETF",
+    # "SZSE.159505": "国证2000指数ETF",  # very little
+    "SHSE.513180": "恒生科技指数ETF",
+    "SHSE.513130": "恒生科技ETF",
+    "SZSE.159857": "光伏ETF",
+    "SHSE.512480": "半导体ETF",
+    "SHSE.561600": "消费电子ETF",  # little
+    "SHSE.513100": "纳指ETF",
+    "SHSE.588000": "科创50ETF",
+    "SHSE.513500": "标普500ETF",
+    "SZSE.159619": "基建ETF",  # little
+    "SHSE.515880": "通信ETF",
+    "SHSE.513380": "恒生科技ETF龙头",
+    "SHSE.510300": "沪深300ETF",
+    # "SHSE.510050": "上证50ETF",
+    "SHSE.510500": "中证500ETF",
+    "SHSE.588080": "科创板50ETF",
+    # "SHSE.512890": "红利低波ETF",
+    "SHSE.513120": "港股创新药ETF",
+    # "SHSE.511380": "可转债ETF",
+    # "SHSE.562500": "机器人ETF",
+    # "SHSE.512690": "酒ETF",
+    "SZSE.159920": "恒生ETF",
+    # "SZSE.159928": "消费ETF",
+
+}
 
 if __name__ == '__main__':
     '''
@@ -690,12 +671,12 @@ if __name__ == '__main__':
         filename='main.py',
         mode=MODE_BACKTEST,
         token='c8bd4de742240da9483aecd05a2f5e52900786eb',
-        backtest_start_time="2023-09-19 09:30:00",
-        backtest_end_time='2025-03-27 15:00:00',
+        backtest_start_time="2024-01-09 09:30:00",
+        backtest_end_time='2025-09-08 15:00:00',
         # backtest_end_time='2023-10-20 15:00:00',
-        backtest_adjust=ADJUST_NONE,
+        backtest_adjust=ADJUST_PREV,
         backtest_initial_cash=100000,
-        backtest_commission_ratio=0.0000,  # 0.0005
+        backtest_commission_ratio=0.0005,  # 0.0005
         backtest_commission_unit=1,
         backtest_slippage_ratio=0.0001,
         backtest_marginfloat_ratio1=0.2,
