@@ -38,11 +38,11 @@ class AILabxTool:
 
     def get_score(self, symbol):
         # trend_score2 = self.trend_score2(symbol, "close", 25)
-        trend_score = self.trend_score(symbol, "close", 28)
-        roc_score1 = self.roc(symbol, "close", 7)
-        roc_score2 = self.roc(symbol, "close", 20)
-        ma_score1 = self.ma(symbol, "volume", 6)
-        ma_score2 = self.ma(symbol, "volume", 18)
+        trend_score = self.trend_score(symbol, "close", 20)
+        roc_score1 = self.roc(symbol, "close", 3)
+        roc_score2 = self.roc(symbol, "close", 24)
+        ma_score1 = self.ma(symbol, "volume", 8)
+        ma_score2 = self.ma(symbol, "volume", 36)
         aa = trend_score
         bb = roc_score1 + roc_score2
         cc = ma_score1 / ma_score2
@@ -355,7 +355,7 @@ class AILabxTool:
 
 class AILabxStrategy:
     def __init__(self, context, white_list: list = None, max_count: int = 1,
-                 w_aa=1.0205656941415, w_bb=1.09583609560115, w_cc=1, w_dd=0.147494403988293):
+                 w_aa=-0.104469811025004, w_bb=3.32887093130453, w_cc=1, w_dd=0.232904443877219):
         self.now = None
         self.context = context
         self.white_list = list(white_list)
@@ -473,7 +473,7 @@ class AILabxStrategy:
 
 
     def should_sell(self, target: str):
-        return self.ailabx.roc(target, "close", 34) > self.w_dd
+        return self.ailabx.roc(target, "close", 20) > self.w_dd
         # return False
 
     @staticmethod
