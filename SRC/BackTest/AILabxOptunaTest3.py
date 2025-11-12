@@ -10,6 +10,12 @@ import optuna
 from optuna.samplers import TPESampler
 import sqlite3
 import warnings
+from pathlib import Path
+import logging
+
+# 配置日志
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 warnings.filterwarnings('ignore')
 
@@ -318,16 +324,61 @@ class AILabxTool:
         # ma_value = np.mean(data)
         return np.mean(data)
 
-    def get_all_data(self, symbol_list, start_time, end_time):
+    def get_all_data(self, symbol_list, start_time, end_time, cache_dir: str = "./cache", force_refresh: bool = False):
         # original_datetime_str = "2024-07-31 09:31:00+08:00"
         dt = datetime.strptime(start_time, "%Y-%m-%d %H:%M:%S")
         pre_start_time = str(dt - timedelta(days=100))[:19]
-        all_data = history(symbol_list, frequency='1d', start_time=pre_start_time, end_time=end_time,
-                           fill_missing='last', adjust=ADJUST_PREV, df=True)
 
-        all_data['bob'] = all_data['bob'].apply(lambda x: AILabxTool.get_time_Ymd(x))
-        all_data['eob'] = all_data['eob'].apply(lambda x: AILabxTool.get_time_Ymd(x))
-        self.all_data = all_data
+        # 创建缓存目录
+        cache_path = Path(cache_dir)
+        cache_path.mkdir(exist_ok=True)
+
+        # 生成文件名（处理可能包含非法文件名字符的情况）
+        safe_start_time = "".join(c for c in start_time if c.isalnum() or c in (' ', '-', '_', '.'))
+        safe_end_time = "".join(c for c in end_time if c.isalnum() or c in (' ', '-', '_', '.'))
+        filename = f"{safe_start_time}_{safe_end_time}.xlsx"
+        file_path = cache_path / filename
+
+        # 检查缓存是否存在且不需要强制刷新
+        if file_path.exists() and not force_refresh:
+            try:
+                logger.info(f"读取缓存文件: {file_path}")
+                df = pd.read_excel(file_path)
+                # logger.info(f"成功从缓存加载数据，数据形状: {df.shape}")
+                self.all_data = df
+                return None
+            except Exception as e:
+                logger.error(f"读取缓存文件失败: {e}")
+                # 如果缓存文件损坏，继续执行查询
+
+        # 执行数据查询
+        try:
+            logger.info(f"开始查询数据: {start_time} 到 {end_time}")
+            df = history(symbol_list, frequency='1d', start_time=pre_start_time, end_time=end_time,
+                               fill_missing='last', adjust=ADJUST_PREV, df=True)
+
+            df['bob'] = df['bob'].apply(lambda x: AILabxTool.get_time_Ymd(x))
+            df['eob'] = df['eob'].apply(lambda x: AILabxTool.get_time_Ymd(x))
+            self.all_data = df
+
+            if df is not None and not df.empty:
+                # 保存到缓存文件
+                try:
+                    df.to_excel(file_path, index=False)
+                    logger.info(f"数据已缓存到: {file_path}")
+                except Exception as e:
+                    logger.error(f"保存缓存文件失败: {e}")
+
+                return None
+            else:
+                # logger.warning("查询结果为空")
+                return None
+
+        except Exception as e:
+            logger.error(f"数据查询失败: {e}")
+            return None
+
+
 
         # # write file
         # scores = []
@@ -701,22 +752,25 @@ def run_strategy(paras: dict, trial_number: int):
     return context.result
 
 
-def write_to_file(results, output_file_path=f'./data/AILabxOptunaTest2_info.xlsx'):
-    info = pd.DataFrame(results,
-                        columns=[
-                            'objective_value', 'pnl_ratio', 'pnl_ratio_annual',
-                            'sharp_ratio', 'max_drawdown',
-                            'w_aa', 'w_bb','w_cc',
-                            'win_trend_score',
-                            'win_roc_score1',
-                            'win_roc_score2',
-                            'win_ma_score1',
-                            'win_ma_score2',
-                            'w_dd', 'w_fd'
-                        ])
-    print(f"row length: {len(info)}")
-    # info.to_csv('./data/info.csv', index=False)
-    info.to_excel(output_file_path, index=False)
+def write_to_file(results, output_file_path=f'./data/AILabxOptunaTest3_info.xlsx'):
+    try:
+        info = pd.DataFrame(results,
+                            columns=[
+                                'objective_value', 'pnl_ratio', 'pnl_ratio_annual',
+                                'sharp_ratio', 'max_drawdown',
+                                'w_aa', 'w_bb','w_cc',
+                                'win_trend_score',
+                                'win_roc_score1',
+                                'win_roc_score2',
+                                'win_ma_score1',
+                                'win_ma_score2',
+                                'w_dd', 'w_fd'
+                            ])
+        print(f"row length: {len(info)}")
+        # info.to_csv('./data/info.csv', index=False)
+        info.to_excel(output_file_path, index=False)
+    except Exception as e:
+        print(f"Error writing to file: {e}")
 
 
 def format_trial_result(results, trial):
@@ -747,18 +801,18 @@ def objective(trial):
     返回需要最大化的指标（年化收益率）
     """
     # 定义搜索空间
-    w_aa = trial.suggest_float('w_aa', -0.20, 1.10)   # default: 0.1
-    w_bb = trial.suggest_float('w_bb', 0.10, 3.50)   # default: 1.6
+    w_aa = trial.suggest_float('w_aa', -2.20, 2.10)   # default: 0.1
+    w_bb = trial.suggest_float('w_bb', -1.10, 4.50)   # default: 1.6
 
-    win_trend_score = trial.suggest_int('win_trend_score', 15, 40) # default: 25
-    win_roc_score1 = trial.suggest_int('win_roc_score1', 2, 8) # default: 5
-    win_roc_score2 = trial.suggest_int('win_roc_score2', 8, 20) # default: 10
-    win_ma_score1 = trial.suggest_int('win_ma_score1', 2, 8) # default: 5
-    win_ma_score2 = trial.suggest_int('win_ma_score2', 8, 35) # default: 18
+    win_trend_score = trial.suggest_int('win_trend_score', 15, 50) # default: 25
+    win_roc_score1 = trial.suggest_int('win_roc_score1', 2, 15) # default: 5
+    win_roc_score2 = trial.suggest_int('win_roc_score2', 8, 50) # default: 10
+    win_ma_score1 = trial.suggest_int('win_ma_score1', 2, 15) # default: 5
+    win_ma_score2 = trial.suggest_int('win_ma_score2', 8, 50) # default: 18
 
     w_dd = trial.suggest_float('w_dd', 0.05, 0.50)      # default: 0.2
     # w_fd = trial.suggest_categorical('w_fd', [18])  # 固定值，但保持参数形式
-    w_fd = trial.suggest_int('w_fd', 8, 35)     # default: 18
+    w_fd = trial.suggest_int('w_fd', 8, 50)     # default: 18
 
     paras = {
         "w_aa": w_aa,
@@ -824,7 +878,7 @@ class SaveResultsCallback:
             self.results = format_trial_result(self.results, trial)
             # 定期保存
             if len(self.results) % self.save_interval == 0:
-                write_to_file(self.results, f'./data/AILabxOptunaTest2_interim_{len(self.results)}.xlsx')
+                write_to_file(self.results, f'./data/AILabxOptunaTest3_interim_{len(self.results)}.xlsx')
                 print(f"已保存 {len(self.results)} 个试验的中间结果")
 
 
@@ -853,14 +907,21 @@ def create_or_load_study(storage_url, study_name):
 
 if __name__ == '__main__':
     # 使用数据库存储确保进程安全
-    storage_url = "sqlite:///AILabxOptunaStudy3_001.db"
+    # 20231121-20251028:AILabxOptunaStudy3_001.db
+    # 20251009-20251103:AILabxOptunaStudy3_002.db
+    # 20250825-20251105:AILabxOptunaStudy3_003.db
+    # 20240301-20240601:AILabxOptunaStudy3_004.db
+    # 20241018-20250118:AILabxOptunaStudy3_005.db
+    # 20231121-20251107:AILabxOptunaStudy3_011.db
+    # 20231121-20251121:AILabxOptunaStudy3_021.db
+    storage_url = "sqlite:///AILabxOptunaStudy3_011.db"
     study_name = "AILabxOptunaStudy"
 
     # 确保数据目录存在
     os.makedirs('./data', exist_ok=True)
 
     # 创建保存结果的回调实例
-    save_callback = SaveResultsCallback(save_interval=10)
+    save_callback = SaveResultsCallback(save_interval=100)
 
     # 创建或加载study
     study = create_or_load_study(storage_url, study_name)
@@ -892,7 +953,7 @@ if __name__ == '__main__':
             final_results = format_trial_result(final_results, trial)
 
     # 保存到文件
-    write_to_file(final_results, f'./data/AILabxOptunaTest2_final_{len(final_results)}.xlsx')
+    write_to_file(final_results, f'./data/AILabxOptunaTest3_final_{len(final_results)}.xlsx')
 
     # 保存最佳参数
     timestamp0 = datetime.now().strftime("%Y%m%d_%H%M%S")
